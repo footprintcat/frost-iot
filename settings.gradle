@@ -1,1 +1,3 @@
 rootProject.name = 'FrostIoT'
+
+include 'common'
