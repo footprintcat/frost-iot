@@ -3,5 +3,5 @@ plugins {
 }
 
 dependencies {
-    implementation project(":frost-iot-common")
+    implementation project(":common")
 }

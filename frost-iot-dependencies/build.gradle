@@ -4,7 +4,11 @@ plugins {
 
 dependencies {
     constraints {
+        api "${FROST_APP_GROUP}:frost-iot-adapter-sdk:${FROST_APP_VERSION}"
+
         api "${FROST_APP_GROUP}:frost-iot-core:${FROST_APP_VERSION}"
+
         api "${FROST_APP_GROUP}:frost-iot-adapter:${FROST_APP_VERSION}"
+        // api "${FROST_APP_GROUP}:frost-iot-adapter:frost-iot-adapter-mqtt:${FROST_APP_VERSION}"
     }
 }

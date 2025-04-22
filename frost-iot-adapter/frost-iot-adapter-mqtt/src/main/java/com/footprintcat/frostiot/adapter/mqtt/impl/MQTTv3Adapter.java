@@ -1,6 +1,6 @@
-package com.footprintcat.frostiot.impl;
+package com.footprintcat.frostiot.adapter.mqtt.impl;
 
-import com.footprintcat.frostiot.spi.IMQTTAdapter;
+import com.footprintcat.frostiot.adapter.mqtt.spi.IMQTTAdapter;
 
 public class MQTTv3Adapter implements IMQTTAdapter {
     @Override
