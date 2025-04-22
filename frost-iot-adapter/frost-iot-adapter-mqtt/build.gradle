@@ -4,4 +4,5 @@ plugins {
 
 dependencies {
     implementation project(":common")
+    implementation project(":frost-iot-adapter-sdk")
 }
