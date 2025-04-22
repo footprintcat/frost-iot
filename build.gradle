@@ -1,4 +1,5 @@
 plugins {
+    id 'java'
     id("io.freefair.lombok") version "8.13.1"
 }
 
@@ -7,6 +8,12 @@ description = "Frost IoT 寒霜物联 —— 支持轻量化快速接入的 IoT 
 allprojects {
     group = FROST_APP_GROUP
     version = FROST_APP_VERSION
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
+        }
+    }
 }
 
 subprojects {

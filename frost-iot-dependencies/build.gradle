@@ -10,5 +10,6 @@ dependencies {
 
         api "${FROST_APP_GROUP}:frost-iot-adapter:${FROST_APP_VERSION}"
         // api "${FROST_APP_GROUP}:frost-iot-adapter:frost-iot-adapter-mqtt:${FROST_APP_VERSION}"
+
     }
 }

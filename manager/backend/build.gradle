@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.4.4'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = "${FROST_APP_GROUP}.manager"
+version = FROST_APP_VERSION
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // 必需依赖
+    implementation project(":common")
+    implementation platform(project(":frost-iot-dependencies"))
+
+    // Spring Boot 相关依赖
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // 其他业务依赖
+    // ...
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

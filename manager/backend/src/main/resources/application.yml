@@ -1,0 +1,6 @@
+server:
+  port: 8666
+
+spring:
+  application:
+    name: frost-iot-manager-backend
