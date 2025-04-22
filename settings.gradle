@@ -1,2 +1,19 @@
 rootProject.name = 'frost-iot'
-include 'common'
+
+dependencyResolutionManagement {
+    repositories {
+        mavenLocal()
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
+        maven { url "https://plugins.gradle.org/m2/" }
+        mavenCentral()
+    }
+}
+
+include 'frost-iot-common'
+
+include 'frost-iot-core'
+include 'frost-iot-adapter'
+
+include 'frost-iot-dependencies'
+include 'frost-iot-adapter:frost-iot-adapter-mqtt'

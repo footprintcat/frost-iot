@@ -1,19 +1,30 @@
 plugins {
-    id 'java'
+    id("io.freefair.lombok") version "8.13.1"
 }
 
-group = 'com.footprintcat.frostiot'
-version = '1.0-SNAPSHOT'
+description = "Frost IoT 寒霜物联 —— 支持轻量化快速接入的 IoT 设备统一接入平台"
+
+allprojects {
+    group = FROST_APP_GROUP
+    version = FROST_APP_VERSION
+}
+
+subprojects {
+
+    apply plugin: "io.freefair.lombok"
+}
 
 repositories {
+    mavenLocal()
+    maven { url "https://maven.aliyun.com/repository/public" }
     mavenCentral()
 }
 
-dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-}
+//dependencies {
+//    testImplementation platform('org.junit:junit-bom:5.10.0')
+//    testImplementation 'org.junit.jupiter:junit-jupiter'
+//}
 
-test {
-    useJUnitPlatform()
-}
+//test {
+//    useJUnitPlatform()
+//}
