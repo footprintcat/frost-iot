@@ -17,13 +17,12 @@ allprojects {
 }
 
 subprojects {
-
     apply plugin: "io.freefair.lombok"
 }
 
 repositories {
     mavenLocal()
-    maven { url "https://maven.aliyun.com/repository/public" }
+    maven { url = "https://maven.aliyun.com/repository/public" }
     mavenCentral()
 }
 

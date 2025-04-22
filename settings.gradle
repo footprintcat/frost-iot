@@ -3,9 +3,9 @@ rootProject.name = 'frost-iot'
 dependencyResolutionManagement {
     repositories {
         mavenLocal()
-        maven { url "https://maven.aliyun.com/repository/public" }
-        maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
-        maven { url "https://plugins.gradle.org/m2/" }
+        maven { url = "https://maven.aliyun.com/repository/public" }
+        maven { url = "https://maven.aliyun.com/repository/gradle-plugin" }
+        maven { url = "https://plugins.gradle.org/m2/" }
         mavenCentral()
     }
 }
