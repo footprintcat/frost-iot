@@ -1,3 +1,2 @@
-rootProject.name = 'FrostIoT'
-
+rootProject.name = 'frost-iot'
 include 'common'
