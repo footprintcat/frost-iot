@@ -1,7 +1,36 @@
 package com.footprintcat.frostiot.adapter.spi;
 
+/**
+ * @since 2025-04-23
+ */
 public interface IAdapter {
 
-    void test();
+    /**
+     * 获取 Adapter 名称
+     * <p>
+     * 注意：该名称需要唯一，且不可改变
+     * <p>
+     * <code>
+     * &#064;Getter <br> private final String name = "FooBarAdapter";
+     * </code>
+     *
+     * @return Adapter 名称
+     * @since 2025-04-23
+     */
+    String getName();
+
+    /**
+     * 获取 Adapter 版本号
+     * <p>
+     * 注意：该名称需要唯一，且不可改变
+     * <p>
+     * <code>
+     * &#064;Getter <br> private final int versionCode = 1;
+     * </code>
+     *
+     * @return Adapter 版本号
+     * @since 2025-04-23
+     */
+    int getVersionCode();
 
 }

@@ -11,6 +11,7 @@ allprojects {
 
     java {
         toolchain {
+            // languageVersion = JavaVersion.VERSION_17
             languageVersion = JavaLanguageVersion.of(17)
         }
     }
@@ -26,11 +27,21 @@ repositories {
     mavenCentral()
 }
 
-//dependencies {
+// dependencies {
 //    testImplementation platform('org.junit:junit-bom:5.10.0')
 //    testImplementation 'org.junit.jupiter:junit-jupiter'
-//}
+// }
 
-//test {
+// test {
 //    useJUnitPlatform()
-//}
+// }
+
+// Maven Scope → Gradle 配置对照表
+// | Maven Scope       | Gradle 配置              | 作用                                                                 |
+// |-------------------|--------------------------|--------------------------------------------------------------------|
+// | `compile`         | `implementation`         | 默认范围，编译和运行时都可用（推荐使用 `implementation` 而非已废弃的 `compile`） |
+// | `provided`        | `compileOnly`            | 仅在编译时使用，不打包到最终产物（如 WAR/JAR）                          |
+// | `runtime`         | `runtimeOnly`            | 仅在运行时使用，编译时不可见                                             |
+// | `test`            | `testImplementation`     | 仅用于测试代码的编译和运行                                               |
+// | `system`          | 自定义（不推荐）            | 类似 `provided`，但需手动指定本地路径（不推荐，尽量用仓库依赖）               |
+// | `import`          | `platform`               | 用于 BOM 导入（如 `<dependencyManagement>`）                          |
