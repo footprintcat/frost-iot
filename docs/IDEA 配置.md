@@ -68,3 +68,5 @@
   </component>
 </project>
 ```
+
+类注释默认自带 `@since`: `.idea/fileTemplates/internal/*.java`
