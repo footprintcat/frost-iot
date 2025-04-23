@@ -5,9 +5,15 @@
       <option name="NAMES_COUNT_TO_USE_IMPORT_ON_DEMAND" value="9999" />
     </JavaCodeStyleSettings>
     <codeStyleSettings language="Groovy">
+      <option name="LINE_COMMENT_AT_FIRST_COLUMN" value="false" />
+      <option name="LINE_COMMENT_ADD_SPACE" value="true" />
+      <option name="LINE_COMMENT_ADD_SPACE_ON_REFORMAT" value="true" />
       <option name="KEEP_FIRST_COLUMN_COMMENT" value="false" />
     </codeStyleSettings>
     <codeStyleSettings language="JAVA">
+      <option name="LINE_COMMENT_AT_FIRST_COLUMN" value="false" />
+      <option name="LINE_COMMENT_ADD_SPACE" value="true" />
+      <option name="LINE_COMMENT_ADD_SPACE_ON_REFORMAT" value="true" />
       <option name="KEEP_FIRST_COLUMN_COMMENT" value="false" />
     </codeStyleSettings>
   </code_scheme>
