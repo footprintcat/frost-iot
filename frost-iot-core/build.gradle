@@ -1,7 +1,80 @@
 plugins {
-    id 'java'
+    id("io.micronaut.application") version "4.5.3"
+    id("com.gradleup.shadow") version "8.3.6"
+    id("io.micronaut.aot") version "4.5.3"
 }
 
+group = "${FROST_APP_GROUP}.core"
+version = FROST_APP_VERSION
+
+// repositories {
+//     mavenCentral()
+// }
+
 dependencies {
+    // implementation platform(...) 仅传递版本约束，不传递实际依赖。例如: 统一版本管理（BOM）
+    // implementation project(...)  传递所有依赖（代码 + 依赖项）
+
+    // 必需依赖
+    implementation platform(project(":frost-iot-dependencies"))
     implementation project(":common")
+
+    // micronaut 相关依赖
+    annotationProcessor("io.micronaut:micronaut-http-validation")
+    annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
+    implementation("io.micronaut.serde:micronaut-serde-jackson")
+    compileOnly("io.micronaut:micronaut-http-client")
+    runtimeOnly("ch.qos.logback:logback-classic")
+    testImplementation("io.micronaut:micronaut-http-client")
+
+    // 其他业务依赖
+    // ...
 }
+
+
+application {
+    mainClass = "com.footprintcat.frostiot.Application"
+}
+java {
+    // sourceCompatibility = JavaVersion.toVersion("17")
+    // targetCompatibility = JavaVersion.toVersion("17")
+
+    // // 指定编译 Java 源代码时使用的 Java 语言版本（即源代码的语法版本）
+    // // 影响生成的 .class 文件的字节码版本
+    // sourceCompatibility = JavaVersion.VERSION_17 // JavaVersion.toVersion("17")
+    //
+    // // 指定生成的字节码（.class 文件）的目标 JVM 版本
+    // // 通常与 sourceCompatibility 保持一致
+    // targetCompatibility = JavaVersion.VERSION_17 // JavaVersion.toVersion("17")
+}
+
+
+graalvmNative.toolchainDetection = false
+
+micronaut {
+    runtime("netty")
+    testRuntime("junit5")
+    processing {
+        incremental(true)
+        annotations("com.footprintcat.frostiot.core.*")
+    }
+    aot {
+        // Please review carefully the optimizations enabled below
+        // Check https://micronaut-projects.github.io/micronaut-aot/latest/guide/ for more details
+        optimizeServiceLoading = false
+        convertYamlToJava = false
+        precomputeOperations = true
+        cacheEnvironment = true
+        optimizeClassLoading = true
+        deduceEnvironment = true
+        optimizeNetty = true
+        replaceLogbackXml = true
+    }
+}
+
+
+tasks.named("dockerfileNative") {
+    jdkVersion = "21"
+}
+
+
