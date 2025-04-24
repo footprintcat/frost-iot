@@ -51,6 +51,8 @@
   <!-- 设置 - 编辑器 - 自然语言 - 拼写 - 接受的单词 -->
   <dictionary name="project">
     <words>
+      <!-- -Dfile.encoding=utf-8 命令 -->
+      <w>Dfile</w>
       <w>footprintcat</w>
     </words>
   </dictionary>
