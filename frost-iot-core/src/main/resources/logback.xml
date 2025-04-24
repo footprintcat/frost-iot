@@ -4,8 +4,21 @@
         <!-- encoders are assigned the type
              ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
         <encoder>
+            <!-- micronaut 默认的日志格式
             <pattern>%cyan(%d{HH:mm:ss.SSS}) %gray([%thread]) %highlight(%-5level) %magenta(%logger{36}) - %msg%n
             </pattern>
+            -->
+            <pattern>
+                %cyan(%d{HH:mm:ss.SSS}) %highlight(%-5.5level) %gray([%5.5thread]) %magenta(%-40.40logger{39}) : %msg%n
+            </pattern>
+            <!-- 说明：
+                 %-5level - 日志级别左对齐，固定宽度5字符
+                 %-40.40logger{39} - 类名左对齐，固定宽度40字符，超过部分截断
+                    %-40：左对齐，最小宽度 40 字符（不足时用空格填充）。
+                    .40：最大宽度 40 字符（超过时截断）。
+                    logger{39}：显示 Logger 名称，并限制其原始长度（可选参数）。
+                 : 作为分隔符，增强可读性
+            -->
         </encoder>
     </appender>
 
