@@ -1,3 +1,6 @@
 plugins {
     id 'java'
 }
+
+group = "${FROST_APP_GROUP}.common"
+version = FROST_APP_VERSION

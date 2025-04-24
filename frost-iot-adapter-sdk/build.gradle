@@ -2,6 +2,9 @@ plugins {
     id 'java'
 }
 
+group = "${FROST_APP_GROUP}.adapter"
+version = FROST_APP_VERSION
+
 dependencies {
     implementation 'org.jetbrains:annotations:26.0.2'
 }

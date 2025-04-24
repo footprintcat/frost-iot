@@ -6,6 +6,8 @@
 
 ### 目录说明
 
+运行 `gradlew projects` 查看项目结构
+
 ```
 <root>
   |- common: Common 包

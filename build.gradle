@@ -6,12 +6,15 @@ plugins {
 description = "Frost IoT 寒霜物联 —— 支持轻量化快速接入的 IoT 设备统一接入平台"
 
 allprojects {
-    group = FROST_APP_GROUP
-    version = FROST_APP_VERSION
+    // group = FROST_APP_GROUP
+    // version = FROST_APP_VERSION
 
     java {
+        // 指定构建时使用的 JDK 版本（与运行时的 JDK 无关）
+        // Gradle 会自动查找或下载指定的 JDK 17 来执行构建
+        // 即使你的系统默认 JDK 是其他版本（如 JDK 11 或 20），构建也会强制使用 JDK 17
+        // 与 JAVA_HOME 无关，是 Gradle 的独立配置
         toolchain {
-            // languageVersion = JavaVersion.VERSION_17
             languageVersion = JavaLanguageVersion.of(17)
         }
     }

@@ -2,6 +2,9 @@ plugins {
     id 'java'
 }
 
+group = "${FROST_APP_GROUP}.adapter.mqtt"
+version = FROST_APP_VERSION
+
 dependencies {
     implementation project(":common")
     implementation project(":frost-iot-adapter-sdk")

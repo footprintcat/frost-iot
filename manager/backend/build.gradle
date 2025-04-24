@@ -12,9 +12,12 @@ repositories {
 }
 
 dependencies {
+    // implementation platform(...) 仅传递版本约束，不传递实际依赖。例如: 统一版本管理（BOM）
+    // implementation project(...)  传递所有依赖（代码 + 依赖项）
+
     // 必需依赖
-    implementation project(":common")
     implementation platform(project(":frost-iot-dependencies"))
+    implementation project(":common")
 
     // Spring Boot 相关依赖
     implementation 'org.springframework.boot:spring-boot-starter-web'
