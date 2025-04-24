@@ -1,6 +1,5 @@
 package com.footprintcat.frostiot.core.internal;
 
-import com.footprintcat.frostiot.common.utils.ConsoleUtils;
 import com.footprintcat.frostiot.common.utils.SystemInfoUtils;
 import io.micronaut.context.annotation.Value;
 import io.micronaut.runtime.event.annotation.EventListener;
@@ -8,11 +7,6 @@ import io.micronaut.runtime.server.event.ServerShutdownEvent;
 import io.micronaut.runtime.server.event.ServerStartupEvent;
 import jakarta.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
-
-import java.nio.charset.StandardCharsets;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Properties;
 
 /**
  * core 项目生命周期事件
@@ -29,8 +23,8 @@ public class LifetimeEventListener {
     @EventListener
     public void onStartup(ServerStartupEvent event) {
 
-        // 检查当前 charset
-        ConsoleUtils.checkCharsetIsUTF8();
+        // // 检查当前 charset
+        // ConsoleUtils.checkCharsetIsUTF8();
         // 打印系统信息
         SystemInfoUtils.printSystemInfo(appVersion);
 
