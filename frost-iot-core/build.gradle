@@ -33,7 +33,7 @@ dependencies {
 
 
 application {
-    mainClass = "com.footprintcat.frostiot.Application"
+    mainClass = "com.footprintcat.frostiot.core.Application"
 }
 java {
     // sourceCompatibility = JavaVersion.toVersion("17")
