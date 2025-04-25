@@ -21,12 +21,21 @@ public class HelloController {
 
     @Get("/hi")
     public String hi() {
-        log.info("[GET] hi");
-        return "你好"; // 测试中文是否乱码
+        // 测试中文是否乱码
+        log.info("[GET] hi 你好呀");
+        return "你好";
     }
 
     @Get("/isEmpty")
     public boolean isEmpty(@Nullable @QueryValue("str") String strVal) {
         return StringUtils.isEmpty(strVal);
     }
+
+    @Get("/encoding")
+    public String testEncoding() {
+        System.out.println("System.out: 中文测试");
+        log.info("log.info: 中文测试");
+        return "检查控制台输出";
+    }
+
 }

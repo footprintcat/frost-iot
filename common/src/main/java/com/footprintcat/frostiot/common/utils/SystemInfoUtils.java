@@ -1,6 +1,7 @@
 package com.footprintcat.frostiot.common.utils;
 
 import java.lang.management.ManagementFactory;
+import java.nio.charset.Charset;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Properties;
@@ -38,6 +39,7 @@ public class SystemInfoUtils {
         printInfoLine("操作系统   ", osName + " (os version:" + osVersion + ")");
         printInfoLine("时区      ", userTimezone);
         printInfoLine("字符集编码 ", System.out.charset().toString());
+        printInfoLine("默认字符集编码", Charset.defaultCharset().name());
         System.out.println();
 
         System.out.println("[系统状态]");
