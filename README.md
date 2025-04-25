@@ -31,3 +31,9 @@
   |- design: 设计素材
 ```
 -->
+
+### 许可证
+
+[BSD-3-Clause license](LICENSE)
+
+![](./docs/diagram/许可证说明.svg)
