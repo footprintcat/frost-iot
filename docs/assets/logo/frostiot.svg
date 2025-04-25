@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        stroke-linecap: round;
+        stroke-width: 120px;
+      }
+
+      .cls-2, .cls-3 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-4 {
+        fill: #3fa9f5;
+      }
+
+      .cls-3 {
+        stroke-width: 72px;
+      }
+    </style>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.7.1, SVG Export Plug-In . SVG Version: 1.2.0 Build 142)  -->
+  <g>
+    <g id="_图层_1" data-name="图层_1">
+      <g id="_图层_2">
+        <rect class="cls-4" x="68" y="68" width="888" height="888" rx="327.3" ry="327.3"/>
+      </g>
+      <g id="_图层_1-2" data-name="_图层_1">
+        <g id="_左">
+          <line class="cls-3" x1="382" y1="512" x2="202" y2="512"/>
+          <line class="cls-2" x1="212" y1="408.5" x2="212" y2="615.5"/>
+        </g>
+        <g id="_右">
+          <line class="cls-3" x1="818" y1="512" x2="638" y2="512"/>
+          <line class="cls-2" x1="812" y1="408.5" x2="812" y2="615.5"/>
+        </g>
+        <g id="_上">
+          <line class="cls-3" x1="512" y1="206" x2="512" y2="386"/>
+          <line class="cls-2" x1="474" y1="212" x2="550" y2="212"/>
+        </g>
+        <g id="_下">
+          <line class="cls-3" x1="512" y1="642" x2="512" y2="822"/>
+          <line class="cls-2" x1="474" y1="812" x2="550" y2="812"/>
+        </g>
+        <g id="_中心">
+          <path class="cls-1" d="M512,442.4c38.4,0,69.6,31.2,69.6,69.6s-31.2,69.6-69.6,69.6-69.6-31.2-69.6-69.6,31.2-69.6,69.6-69.6M512,324c-103.8,0-188,84.2-188,188s84.2,188,188,188,188-84.2,188-188-84.2-188-188-188h0Z"/>
+        </g>
+        <g id="_四个角的圆点">
+          <circle class="cls-1" cx="312" cy="292" r="65"/>
+          <circle class="cls-1" cx="712" cy="292" r="65"/>
+          <circle class="cls-1" cx="312" cy="732" r="65"/>
+          <circle class="cls-1" cx="712" cy="732" r="65"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
