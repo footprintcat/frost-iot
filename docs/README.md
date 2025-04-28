@@ -10,6 +10,11 @@
 
 ## 快速开始
 
+## 项目结构
+
+![项目结构](./diagram/项目结构.embed.svg)
+
+[项目模块结构](./docs/include/项目模块结构.md ':include')
 
 ## 许可证
 
