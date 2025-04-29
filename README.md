@@ -36,4 +36,4 @@
 
 [BSD-3-Clause license](LICENSE)
 
-![](./docs/diagram/许可证说明.svg)
+![](./docs/diagram/许可证说明.embed.svg)

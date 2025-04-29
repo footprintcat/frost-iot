@@ -24,4 +24,4 @@
 
 BSD-3-Clause license
 
-![](./diagram/许可证说明.svg)
+![](./diagram/许可证说明.embed.svg)
