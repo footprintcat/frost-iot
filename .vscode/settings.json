@@ -1,0 +1,7 @@
+{
+    "workbench.editorAssociations": {
+        // drawio, svg 文件默认使用 VSCode 的默认文本编辑器打开
+        "*.drawio": "default",
+        "*.svg": "default",
+    },
+}
