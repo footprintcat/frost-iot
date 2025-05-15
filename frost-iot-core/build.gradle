@@ -27,10 +27,24 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
     testImplementation("io.micronaut:micronaut-http-client")
 
+    // // OpenAPI/Swagger Support
+    // // see: https://micronaut-projects.github.io/micronaut-openapi/latest/guide/
+    // OpenAPI 注解支持
+    annotationProcessor("io.micronaut.openapi:micronaut-openapi")
+    compileOnly("io.micronaut.openapi:micronaut-openapi-annotations")
+    // Micronaut OpenAPI 支持
+    // implementation("io.micronaut.openapi:micronaut-openapi")
+
     // 其他业务依赖
     // ...
 }
 
+// OpenAPI/Swagger Support
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs = [
+            '-parameters'
+    ]
+}
 
 application {
     mainClass = "com.footprintcat.frostiot.core.Application"
