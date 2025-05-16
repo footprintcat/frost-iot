@@ -18,6 +18,19 @@ micronaut:
         rapidoc.text-color=#aec2e0,
         rapidoc.sort-endpoints-by=method
   router:
+    # API 版本化
+    # docs: https://micronaut.bookhub.tech/core/httpserver/apiVersioning
+    versioning:
+      enabled: true
+      default-version: 1
+      # parameter:
+      #   enabled: false
+      #   names: 'v,api-version'
+      header:
+        enabled: true
+        names:
+          - 'X-API-VERSION'
+          # - 'Accept-Version'
     static-resources:
       swagger:
         paths: classpath:META-INF/swagger

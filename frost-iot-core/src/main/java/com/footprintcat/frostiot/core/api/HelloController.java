@@ -3,6 +3,7 @@ package com.footprintcat.frostiot.core.api;
 import com.footprintcat.frostiot.common.utils.StringUtils;
 import com.footprintcat.frostiot.core.service.HelloService;
 import io.micronaut.core.annotation.Nullable;
+import io.micronaut.core.version.annotation.Version;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
@@ -30,11 +31,21 @@ public class HelloController {
     }
 
     @Operation(summary = "测试接口，用于测试中文是否乱码")
+    @Version("1")
     @Get("/hi")
     public String hi() {
         // 测试中文是否乱码
         log.info("[GET] hi 你好呀");
         return "你好";
+    }
+
+    @Operation(summary = "测试接口，用于测试中文是否乱码（第二版接口）")
+    @Version("2")
+    @Get("/hi")
+    public String hiV2() {
+        // 测试中文是否乱码
+        log.info("[GET] hi 你好呀（第二版接口）");
+        return "你好（第二版接口）";
     }
 
     @Operation(summary = "测试接口，用于判断传入参数是否为空")
