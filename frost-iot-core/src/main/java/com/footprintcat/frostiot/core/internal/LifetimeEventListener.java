@@ -8,6 +8,8 @@ import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Map;
+
 /**
  * core 项目生命周期事件
  *
@@ -29,6 +31,25 @@ public class LifetimeEventListener {
 
         // 打印系统信息
         SystemInfoUtils.printSystemInfo(frostIotCoreModuleInfo);
+
+        // 打印接口文档地址
+        Map<String, String> apiDocUrlMap = Map.of(
+                "swagger-ui", "/swagger-ui/index.html",
+                "redoc", "/redoc",
+                "openapi-explorer", "/openapi-explorer",
+                "scalar", "/scalar",
+                "rapidoc", "/rapidoc"
+        );
+        // 找出最长的键名长度
+        int maxKeyLength = apiDocUrlMap.keySet().stream()
+                .mapToInt(String::length)
+                .max()
+                .orElse(0);
+        System.out.println("[接口文档]");
+        apiDocUrlMap.forEach((k, v) ->
+                System.out.println(String.format("%-" + (maxKeyLength + 1) + "s", k) + frostIotCoreModuleInfo.getRootUrlWithScheme() + v)
+        );
+        System.out.println();
 
         // 初始化逻辑
         log.info("Micronaut 应用已启动！");

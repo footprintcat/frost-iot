@@ -7,6 +7,7 @@ import io.micronaut.core.version.VersionUtils;
 import io.micronaut.http.server.HttpServerConfiguration;
 import jakarta.inject.Singleton;
 import lombok.Getter;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
 import java.util.Map;
@@ -26,6 +27,7 @@ public class FrostIotCoreModuleInfo implements IFrostIotModuleInfo {
 
         rootUrl = serverConfiguration.getHost().orElse("localhost") + ":"
                 + serverConfiguration.getPort().orElse(80);
+        rootUrlWithScheme = "http://" + rootUrl;
     }
 
     /**
@@ -51,11 +53,18 @@ public class FrostIotCoreModuleInfo implements IFrostIotModuleInfo {
     private final String appModule = "frost-iot-core";
 
     /**
-     * 根 url
+     * 不带 scheme 的根 url
      *
      * @since 2025-05-17
      */
     private final String rootUrl;
+
+    /**
+     * 带 scheme 的根 url
+     *
+     * @since 2025-05-17
+     */
+    private final String rootUrlWithScheme;
 
     /**
      * 框架名称

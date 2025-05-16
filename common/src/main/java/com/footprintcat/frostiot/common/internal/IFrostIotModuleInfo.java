@@ -3,6 +3,7 @@ package com.footprintcat.frostiot.common.internal;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
+import java.util.Map;
 
 /**
  * 模块信息 接口
@@ -26,11 +27,18 @@ public interface IFrostIotModuleInfo {
     @NotNull String getAppModule();
 
     /**
-     * 根 url
+     * 不带 scheme 的根 url
      *
      * @since 2025-05-17
      */
     @NotNull String getRootUrl();
+
+    /**
+     * 带 scheme 的根 url
+     *
+     * @since 2025-05-17
+     */
+    @NotNull String getRootUrlWithScheme();
 
     /**
      * 当前模块版本号

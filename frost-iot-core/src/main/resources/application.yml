@@ -5,7 +5,7 @@ micronaut:
   server:
     port: 8666
 
-# Open API 配置
+  # Open API 配置
   openapi:
     views:
       spec: >
