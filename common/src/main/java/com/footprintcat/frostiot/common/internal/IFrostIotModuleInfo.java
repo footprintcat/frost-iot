@@ -12,6 +12,13 @@ import java.util.Collection;
 public interface IFrostIotModuleInfo {
 
     /**
+     * 软件名称
+     *
+     * @since 2025-05-17
+     */
+    @NotNull String getAppName();
+
+    /**
      * 当前模块名称
      *
      * @since 2025-05-16
@@ -54,10 +61,19 @@ public interface IFrostIotModuleInfo {
     @NotNull String getAppProfileName();
 
     /**
-     * 当前模块使用的 LICENSE
+     * 当前模块使用的 LICENSE 许可证名称 (结尾无需带 License 字样)
      *
      * @since 2025-05-17
      */
     @NotNull String getAppLicense();
+
+    /**
+     * 当前模块使用的 LICENSE 许可证 SPDX 标识符 (SPDX-License-Identifier)
+     * <p>
+     * <a href="https://spdx.dev/">SPDX website</a>
+     *
+     * @since 2025-05-17
+     */
+    @NotNull String getAppLicenseSpdxIdentifier();
 
 }

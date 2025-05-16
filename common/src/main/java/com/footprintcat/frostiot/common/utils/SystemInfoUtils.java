@@ -7,9 +7,8 @@ import java.lang.management.ManagementFactory;
 import java.nio.charset.Charset;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Collections;
+import java.util.Calendar;
 import java.util.Properties;
-import java.util.stream.Collectors;
 
 /**
  * 系统信息打印工具
@@ -25,6 +24,32 @@ public class SystemInfoUtils {
      */
     public static void printSystemInfo(@NotNull final IFrostIotModuleInfo moduleInfo) {
 
+        // 2025.05.17 开源项目不应存在 All rights reserved 字样
+        // Copyright © 2025 footprintcat. All rights reserved.
+        // 武汉脚印猫科技有限公司
+        // Wuhan Footprint Cat Technology Co., Ltd
+
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        System.out.print(ConsoleUtils.ANSI_YELLOW);
+        System.out.println("┬─┐┌─┐┌─┐┌┬┐┌─┐┬─┐ ┬ ┌┐┌┌┬┐┌─┐┌─┐┌┬┐");
+        System.out.println("├┤ │ ││ │ │ ├─┘├┬┘ │ │││ │ │  ├─┤ │ ");
+        System.out.println("┴  └─┘└─┘ ┴ ┴  ┴└─ ┴ ┘└┘ ┴ └─┘┴ ┴ ┴ ");
+        // System.out.println("Copyright (c) 2023 - " + year + " 武汉脚印猫科技有限公司 / Wuhan Footprint Cat Technology Co., Ltd.");
+        // System.out.println("Copyright (c) 2023 - " + year + " Wuhan Footprint Cat Technology Co., Ltd. (武汉脚印猫科技有限公司)");
+        System.out.println("Copyright (c) 2023 - " + year + " 武汉脚印猫科技有限公司 (Wuhan Footprint Cat Technology Co., Ltd.)");
+        System.out.print(ConsoleUtils.ANSI_RESET);
+        System.out.println();
+
+        // System.out.println("[LICENSE]");
+        System.out.println(moduleInfo.getAppLicenseSpdxIdentifier());
+        System.out.println("Licensed under the " + moduleInfo.getAppLicense() + " License, see LICENSE for details.");
+        System.out.println();
+
+        System.out.println("[软件信息]");
+        printInfoLine("软件名称   ", moduleInfo.getAppName());
+        printInfoLine("模块      ", moduleInfo.getAppModule() + " " + moduleInfo.getAppVersion());
+        System.out.println();
+
         // 当前时间
         String currentTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
@@ -34,9 +59,7 @@ public class SystemInfoUtils {
         printInfoLine("模块启动时间", currentTime);
         System.out.println();
 
-        System.out.println("[软件信息]");
-        printInfoLine("模块      ", moduleInfo.getAppModule() + " " + moduleInfo.getAppVersion());
-        printInfoLine("模块 LICENSE", moduleInfo.getAppLicense());
+        System.out.println("[技术栈]");
         printInfoLine("模块框架   ", moduleInfo.getFrameworkName() + " " + moduleInfo.getFrameworkVersion());
         System.out.println();
 
@@ -53,8 +76,7 @@ public class SystemInfoUtils {
         printInfoLine("Java 版本 ", javaVersion + " (" + javaVendor + ")");
         printInfoLine("操作系统   ", osName + " (os version:" + osVersion + ")");
         printInfoLine("时区      ", userTimezone);
-        printInfoLine("字符集编码 ", System.out.charset().toString());
-        printInfoLine("默认字符集编码", Charset.defaultCharset().name());
+        printInfoLine("字符集编码 ", System.out.charset().toString() + " (Default: " + Charset.defaultCharset().name() + ")");
         System.out.println();
 
         System.out.println("[系统状态]");

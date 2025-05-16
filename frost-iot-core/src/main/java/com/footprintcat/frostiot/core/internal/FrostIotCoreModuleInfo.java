@@ -6,6 +6,7 @@ import io.micronaut.context.annotation.Value;
 import io.micronaut.core.version.VersionUtils;
 import jakarta.inject.Singleton;
 import lombok.Getter;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
 
@@ -29,6 +30,13 @@ public class FrostIotCoreModuleInfo implements IFrostIotModuleInfo {
      */
     @Value("${frost-iot.version:?}")
     private String appVersion;
+
+    /**
+     * 软件名称
+     *
+     * @since 2025-05-17
+     */
+    private final String appName = "寒霜物联 core 模块";
 
     /**
      * 当前模块名称
@@ -69,10 +77,18 @@ public class FrostIotCoreModuleInfo implements IFrostIotModuleInfo {
     private String appProfileName;
 
     /**
-     * 当前模块使用的 LICENSE
+     * 当前模块使用的 LICENSE 许可证名称 (结尾无需带 License 字样)
      *
      * @since 2025-05-17
      */
-    private final String appLicense = "BSD 3-Clause License";
+    private final String appLicense = "BSD 3-Clause";
+
+
+    /**
+     * 当前模块使用的 LICENSE 许可证 SPDX 标识符 (SPDX-License-Identifier)
+     *
+     * @since 2025-05-17
+     */
+    private final String appLicenseSpdxIdentifier = "SPDX-License-Identifier: BSD-3-Clause";
 
 }
