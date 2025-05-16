@@ -26,6 +26,13 @@ public interface IFrostIotModuleInfo {
     @NotNull String getAppModule();
 
     /**
+     * 根 url
+     *
+     * @since 2025-05-17
+     */
+    @NotNull String getRootUrl();
+
+    /**
      * 当前模块版本号
      *
      * @since 2025-05-16

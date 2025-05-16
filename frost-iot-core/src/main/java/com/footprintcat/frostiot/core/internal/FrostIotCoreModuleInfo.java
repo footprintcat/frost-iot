@@ -4,11 +4,12 @@ import com.footprintcat.frostiot.common.internal.IFrostIotModuleInfo;
 import io.micronaut.context.ApplicationContext;
 import io.micronaut.context.annotation.Value;
 import io.micronaut.core.version.VersionUtils;
+import io.micronaut.http.server.HttpServerConfiguration;
 import jakarta.inject.Singleton;
 import lombok.Getter;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
+import java.util.Map;
 
 /**
  * 模块信息
@@ -19,8 +20,12 @@ import java.util.Collection;
 @Singleton
 public class FrostIotCoreModuleInfo implements IFrostIotModuleInfo {
 
-    public FrostIotCoreModuleInfo(ApplicationContext applicationContext) {
+    public FrostIotCoreModuleInfo(ApplicationContext applicationContext,
+                                  HttpServerConfiguration serverConfiguration) {
         appProfileList = applicationContext.getEnvironment().getActiveNames();
+
+        rootUrl = serverConfiguration.getHost().orElse("localhost") + ":"
+                + serverConfiguration.getPort().orElse(80);
     }
 
     /**
@@ -44,6 +49,13 @@ public class FrostIotCoreModuleInfo implements IFrostIotModuleInfo {
      * @since 2025-05-16
      */
     private final String appModule = "frost-iot-core";
+
+    /**
+     * 根 url
+     *
+     * @since 2025-05-17
+     */
+    private final String rootUrl;
 
     /**
      * 框架名称
@@ -82,7 +94,6 @@ public class FrostIotCoreModuleInfo implements IFrostIotModuleInfo {
      * @since 2025-05-17
      */
     private final String appLicense = "BSD 3-Clause";
-
 
     /**
      * 当前模块使用的 LICENSE 许可证 SPDX 标识符 (SPDX-License-Identifier)

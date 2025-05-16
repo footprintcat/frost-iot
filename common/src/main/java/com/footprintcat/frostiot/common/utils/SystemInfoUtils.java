@@ -53,10 +53,13 @@ public class SystemInfoUtils {
         // 当前时间
         String currentTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
+        String rootUrlWithScheme = "http://" + moduleInfo.getRootUrl();
+
         System.out.println("[配置信息]");
         printInfoLine("配置文件   ", "[" + String.join(", ", moduleInfo.getAppProfileList()) + "]");
         printInfoLine("配置文件说明", moduleInfo.getAppProfileName());
         printInfoLine("模块启动时间", currentTime);
+        printInfoLine("服务 URL  ", rootUrlWithScheme);
         System.out.println();
 
         System.out.println("[技术栈]");
