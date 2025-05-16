@@ -25,4 +25,10 @@
     <root level="info">
         <appender-ref ref="STDOUT"/>
     </root>
+
+    <!--
+    2025.05.17 隐藏指定 application-{env}.yml 配置文件时控制台打印的如下日志：
+    02:16:01.328 INFO  [ main] tionContext$RuntimeConfiguredEnvironment : Established active environments: [develop]
+    -->
+    <logger name="io.micronaut.context.DefaultApplicationContext$RuntimeConfiguredEnvironment" level="OFF" />
 </configuration>
