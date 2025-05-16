@@ -1,14 +1,12 @@
 package com.footprintcat.frostiot.core.internal;
 
 import com.footprintcat.frostiot.common.utils.SystemInfoUtils;
-import io.micronaut.context.annotation.Value;
 import io.micronaut.runtime.event.annotation.EventListener;
 import io.micronaut.runtime.server.event.ServerShutdownEvent;
 import io.micronaut.runtime.server.event.ServerStartupEvent;
+import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
-
-import io.micronaut.core.version.VersionUtils;
 
 /**
  * core 项目生命周期事件
@@ -19,23 +17,9 @@ import io.micronaut.core.version.VersionUtils;
 @Slf4j
 public class LifetimeEventListener {
 
-    @Value("${frost-iot.version:?}")
-    String appVersion;
-
-    /**
-     * 当前模块名称
-     */
-    final String appModule = "frost-iot-core";
-
-    /**
-     * 框架名称
-     */
-    final String micronautName = "Micronaut";
-
-    /**
-     * 框架版本号
-     */
-    final String micronautVersion = VersionUtils.getMicronautVersion();
+    // @Inject docs: https://micronaut.bookhub.tech/action/service#ioc-%E6%B3%A8%E8%A7%A3
+    @Inject
+    FrostIotCoreModuleInfo frostIotCoreModuleInfo;
 
     @EventListener
     public void onStartup(ServerStartupEvent event) {
@@ -44,7 +28,7 @@ public class LifetimeEventListener {
         // ConsoleUtils.checkCharsetIsUTF8();
 
         // 打印系统信息
-        SystemInfoUtils.printSystemInfo(appModule, appVersion, micronautName, micronautVersion);
+        SystemInfoUtils.printSystemInfo(frostIotCoreModuleInfo);
 
         // 初始化逻辑
         log.info("Micronaut 应用已启动！");

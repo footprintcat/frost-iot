@@ -1,5 +1,6 @@
 package com.footprintcat.frostiot.common.utils;
 
+import com.footprintcat.frostiot.common.internal.IFrostIotModuleInfo;
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.management.ManagementFactory;
@@ -20,15 +21,14 @@ public class SystemInfoUtils {
      *
      * @since 2025-04-25
      */
-    public static void printSystemInfo(@NotNull String appModule, @NotNull String appVersion,
-                                       @NotNull String frameworkName, @NotNull String frameworkVersion) {
+    public static void printSystemInfo(@NotNull final IFrostIotModuleInfo moduleInfo) {
 
         // 当前时间
         String currentTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
         System.out.println("[软件信息]");
-        printInfoLine("模块      ", appModule + " " + appVersion);
-        printInfoLine("框架      ", frameworkName + " " + frameworkVersion);
+        printInfoLine("模块      ", moduleInfo.getAppModule() + " " + moduleInfo.getAppVersion());
+        printInfoLine("框架      ", moduleInfo.getFrameworkName() + " " + moduleInfo.getFrameworkVersion());
         printInfoLine("启动时间   ", currentTime);
         System.out.println();
 
