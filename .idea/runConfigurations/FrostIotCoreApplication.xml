@@ -6,7 +6,7 @@
     <option name="alternativeJrePathEnabled" value="false" />
     <option name="mainClass" value="com.footprintcat.frostiot.core.Application" />
     <option name="passParentEnvs" value="true" />
-    <option name="programParameters" />
+    <option name="programParameters" value="" />
     <option name="vmParameters" />
     <method v="2">
       <option name="Make" enabled="true" />

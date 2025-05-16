@@ -8,6 +8,8 @@ import io.micronaut.runtime.server.event.ServerStartupEvent;
 import jakarta.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
+import io.micronaut.core.version.VersionUtils;
+
 /**
  * core 项目生命周期事件
  *
@@ -20,13 +22,16 @@ public class LifetimeEventListener {
     @Value("${frost-iot.version:?}")
     String appVersion;
 
+    final String micronautVersion = VersionUtils.getMicronautVersion();
+
     @EventListener
     public void onStartup(ServerStartupEvent event) {
 
         // // 检查当前 charset
         // ConsoleUtils.checkCharsetIsUTF8();
+
         // 打印系统信息
-        SystemInfoUtils.printSystemInfo(appVersion);
+        SystemInfoUtils.printSystemInfo(appVersion, micronautVersion);
 
         // 初始化逻辑
         log.info("Micronaut 应用已启动！");

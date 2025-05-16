@@ -18,7 +18,11 @@ public class SystemInfoUtils {
      *
      * @since 2025-04-25
      */
-    public static void printSystemInfo(String appVersion) {
+    public static void printSystemInfo(String appVersion, String micronautVersion) {
+
+        System.out.println("[软件信息]");
+        printInfoLine("应用框架   ", "Micronaut: " + micronautVersion);
+        System.out.println();
 
         // 获取系统属性
         Properties props = System.getProperties();
