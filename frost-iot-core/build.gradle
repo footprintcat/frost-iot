@@ -38,8 +38,8 @@ dependencies {
     // jetbrains 编译时注解
     implementation("org.jetbrains:annotations:${libraries.jetbrainsAnnotations}")
 
-    // // OpenAPI/Swagger Support
-    // // see: https://micronaut-projects.github.io/micronaut-openapi/latest/guide/
+    // OpenAPI/Swagger Support
+    // see: https://micronaut-projects.github.io/micronaut-openapi/latest/guide/
     // OpenAPI 注解支持
     annotationProcessor("io.micronaut.openapi:micronaut-openapi")
     compileOnly("io.micronaut.openapi:micronaut-openapi-annotations")

@@ -23,7 +23,8 @@ public class HelloController {
     @Inject
     private HelloService helloService;
 
-    @Operation(summary = "根目录接口，用于判断后端是否已启动及网络是否联通。请求成功会返回 “Hello World” 文字")
+    @Operation(summary = "根目录接口",
+            description = "用于判断后端是否已启动及网络是否联通。<br>请求成功会返回 “Hello World” 文字")
     @Get
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
@@ -64,8 +65,8 @@ public class HelloController {
         return "检查控制台输出";
     }
 
-    @Operation(summary = "测试接口，Service IoC 注入测试" +
-            "see: https://micronaut.bookhub.tech/action/service")
+    @Operation(summary = "测试接口，Service IoC 注入测试",
+            description = "see: https://micronaut.bookhub.tech/action/service")
     @Get("/injectService")
     public String injectService() {
         return helloService.sayHello();

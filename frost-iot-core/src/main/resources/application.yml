@@ -6,14 +6,19 @@ micronaut:
     port: 8666
 
   # Open API 配置
+  # docs: https://micronaut-projects.github.io/micronaut-openapi/latest/guide/
   openapi:
     views:
       spec: >
         swagger-ui.enabled=true,
         redoc.enabled=true,
+        redoc.js.url=/redoc/res/,
         openapi-explorer.enabled=true,
+        openapi-explorer.js.url=/openapi-explorer/res/,
         scalar.enabled=true,
+        scalar.js.url=/scalar/res/,
         rapidoc.enabled=true,
+        rapidoc.js.url=/rapidoc/res/,
         rapidoc.bg-color=#14191f,
         rapidoc.text-color=#aec2e0,
         rapidoc.sort-endpoints-by=method
@@ -35,7 +40,6 @@ micronaut:
       swagger:
         paths: classpath:META-INF/swagger
         mapping: /swagger/**
-        c: application/x-yaml; charset=utf-8  # 关键配置
       # swagger-ui
       # http://localhost:8666/swagger-ui/index.html
       swagger-ui:
