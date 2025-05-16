@@ -24,6 +24,12 @@ subprojects {
     apply plugin: "io.freefair.lombok"
 }
 
+ext {
+    libraries = [
+            "jetbrainsAnnotations": "26.0.2"
+    ]
+}
+
 repositories {
     mavenLocal()
     maven { url = "https://maven.aliyun.com/repository/public" }
