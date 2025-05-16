@@ -27,6 +27,14 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
     testImplementation("io.micronaut:micronaut-http-client")
 
+    // 包含 YAML 解析 (micronaut 4.x 起不再默认包含，需要手动引入)
+    // see: https://micronaut.io/2023/02/19/micronaut-framework-4-0-and-snakeyaml-transitive-dependency/
+    // Micronaut Framework 4.0, to be released in 2023, will not expose SnakeYAML as a transitive dependency.
+    // Micronaut Framework uses SnakeYAML to read Application Configuration from files such as application.yml or bootstrap.yml.
+    // Micronaut Framework 4.0 will not expose SnakeYAML as a transitive dependency. We don’t pull an unnecessary dependency if you are not using YAML.
+    // You do not have to specify a version number since Micronaut BOM (Bill of Materials) specifies a SnakeYAML version.
+    runtimeOnly("org.yaml:snakeyaml")
+
     // jetbrains 编译时注解
     implementation("org.jetbrains:annotations:${libraries.jetbrainsAnnotations}")
 

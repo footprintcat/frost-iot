@@ -1,0 +1,57 @@
+micronaut:
+  application:
+    name: frost-iot-core
+    default-charset: UTF-8
+  server:
+    port: 8666
+
+# Open API 配置
+  openapi:
+    views:
+      spec: >
+        swagger-ui.enabled=true,
+        redoc.enabled=true,
+        openapi-explorer.enabled=true,
+        scalar.enabled=true,
+        rapidoc.enabled=true,
+        rapidoc.bg-color=#14191f,
+        rapidoc.text-color=#aec2e0,
+        rapidoc.sort-endpoints-by=method
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+        c: application/x-yaml; charset=utf-8  # 关键配置
+      # swagger-ui
+      # http://localhost:8666/swagger-ui/index.html
+      swagger-ui:
+        paths: classpath:META-INF/swagger/views/swagger-ui
+        mapping: /swagger-ui/**
+      # redoc
+      # http://localhost:8666/redoc
+      redoc:
+        paths: classpath:META-INF/swagger/views/redoc
+        mapping: /redoc/**
+      # openapi-explorer
+      # http://localhost:8666/openapi-explorer
+      openapi-explorer:
+        paths: classpath:META-INF/swagger/views/openapi-explorer
+        mapping: /openapi-explorer/**
+      # scalar
+      # http://localhost:8666/scalar
+      scalar:
+        paths: classpath:META-INF/swagger/views/scalar
+        mapping: /scalar/**
+      # RapiDoc
+      # http://localhost:8666/rapidoc
+      rapidoc:
+        paths: classpath:META-INF/swagger/views/rapidoc
+        mapping: /rapidoc/**
+
+frost-iot:
+  # Frost IoT 版本号
+  version: 1.0.0
+  api:
+    # Api 文档版本号
+    version: 1.0.0
