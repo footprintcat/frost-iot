@@ -1,5 +1,7 @@
 package com.footprintcat.frostiot.common.utils;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.lang.management.ManagementFactory;
 import java.nio.charset.Charset;
 import java.time.LocalDateTime;
@@ -14,14 +16,20 @@ import java.util.Properties;
 public class SystemInfoUtils {
 
     /**
-     * 打印系统信息、版本、版权信息
+     * 打印软件信息、系统信息、系统状态及版权信息
      *
      * @since 2025-04-25
      */
-    public static void printSystemInfo(String appVersion, String micronautVersion) {
+    public static void printSystemInfo(@NotNull String appModule, @NotNull String appVersion,
+                                       @NotNull String frameworkName, @NotNull String frameworkVersion) {
+
+        // 当前时间
+        String currentTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
         System.out.println("[软件信息]");
-        printInfoLine("应用框架   ", "Micronaut: " + micronautVersion);
+        printInfoLine("模块      ", appModule + " " + appVersion);
+        printInfoLine("框架      ", frameworkName + " " + frameworkVersion);
+        printInfoLine("启动时间   ", currentTime);
         System.out.println();
 
         // 获取系统属性
@@ -33,12 +41,7 @@ public class SystemInfoUtils {
         String userTimezone = props.getProperty("user.timezone");
         // String appVersion = getClass().getPackage().getImplementationVersion(); // 从 MANIFEST.MF 获取版本
 
-        // 当前时间
-        String currentTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-
         System.out.println("[系统信息]");
-        printInfoLine("应用版本   ", appVersion);
-        printInfoLine("启动时间   ", currentTime);
         printInfoLine("Java 版本 ", javaVersion + " (" + javaVendor + ")");
         printInfoLine("操作系统   ", osName + " (os version:" + osVersion + ")");
         printInfoLine("时区      ", userTimezone);
@@ -71,7 +74,7 @@ public class SystemInfoUtils {
         System.out.println();
     }
 
-    private static void printInfoLine(String title, String value) {
+    private static void printInfoLine(@NotNull String title, @NotNull String value) {
         System.out.println(ConsoleUtils.ANSI_PURPLE + title + ConsoleUtils.ANSI_RESET + "\t: " + value);
     }
 

@@ -22,6 +22,19 @@ public class LifetimeEventListener {
     @Value("${frost-iot.version:?}")
     String appVersion;
 
+    /**
+     * 当前模块名称
+     */
+    final String appModule = "frost-iot-core";
+
+    /**
+     * 框架名称
+     */
+    final String micronautName = "Micronaut";
+
+    /**
+     * 框架版本号
+     */
     final String micronautVersion = VersionUtils.getMicronautVersion();
 
     @EventListener
@@ -31,7 +44,7 @@ public class LifetimeEventListener {
         // ConsoleUtils.checkCharsetIsUTF8();
 
         // 打印系统信息
-        SystemInfoUtils.printSystemInfo(appVersion, micronautVersion);
+        SystemInfoUtils.printSystemInfo(appModule, appVersion, micronautName, micronautVersion);
 
         // 初始化逻辑
         log.info("Micronaut 应用已启动！");
