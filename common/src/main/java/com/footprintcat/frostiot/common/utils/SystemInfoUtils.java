@@ -7,7 +7,9 @@ import java.lang.management.ManagementFactory;
 import java.nio.charset.Charset;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 import java.util.Properties;
+import java.util.stream.Collectors;
 
 /**
  * 系统信息打印工具
@@ -26,10 +28,16 @@ public class SystemInfoUtils {
         // 当前时间
         String currentTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
+        System.out.println("[配置信息]");
+        printInfoLine("配置文件   ", "[" + String.join(", ", moduleInfo.getAppProfileList()) + "]");
+        printInfoLine("配置文件说明", moduleInfo.getAppProfileName());
+        printInfoLine("模块启动时间", currentTime);
+        System.out.println();
+
         System.out.println("[软件信息]");
         printInfoLine("模块      ", moduleInfo.getAppModule() + " " + moduleInfo.getAppVersion());
-        printInfoLine("框架      ", moduleInfo.getFrameworkName() + " " + moduleInfo.getFrameworkVersion());
-        printInfoLine("启动时间   ", currentTime);
+        printInfoLine("模块 LICENSE", moduleInfo.getAppLicense());
+        printInfoLine("模块框架   ", moduleInfo.getFrameworkName() + " " + moduleInfo.getFrameworkVersion());
         System.out.println();
 
         // 获取系统属性

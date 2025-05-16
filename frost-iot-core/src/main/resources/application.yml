@@ -52,6 +52,7 @@ micronaut:
 frost-iot:
   # Frost IoT 版本号
   version: 1.0.0
+  profile-name: "默认配置文件（application.yml）"
   api:
     # Api 文档版本号
     version: 1.0.0

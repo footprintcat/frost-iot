@@ -1,10 +1,13 @@
 package com.footprintcat.frostiot.core.internal;
 
 import com.footprintcat.frostiot.common.internal.IFrostIotModuleInfo;
+import io.micronaut.context.ApplicationContext;
 import io.micronaut.context.annotation.Value;
 import io.micronaut.core.version.VersionUtils;
 import jakarta.inject.Singleton;
 import lombok.Getter;
+
+import java.util.Collection;
 
 /**
  * 模块信息
@@ -14,6 +17,10 @@ import lombok.Getter;
 @Getter
 @Singleton
 public class FrostIotCoreModuleInfo implements IFrostIotModuleInfo {
+
+    public FrostIotCoreModuleInfo(ApplicationContext applicationContext) {
+        appProfileList = applicationContext.getEnvironment().getActiveNames();
+    }
 
     /**
      * 当前模块版本号
@@ -45,5 +52,27 @@ public class FrostIotCoreModuleInfo implements IFrostIotModuleInfo {
      */
     private final String micronautVersion = VersionUtils.getMicronautVersion();
     private final String frameworkVersion = micronautVersion;
+
+    /**
+     * 当前模块加载的配置文件
+     *
+     * @since 2025-05-17
+     */
+    private final Collection<String> appProfileList;
+
+    /**
+     * 当前模块加载的配置文件说明
+     *
+     * @since 2025-05-17
+     */
+    @Value("${frost-iot.profile-name:<unset>}")
+    private String appProfileName;
+
+    /**
+     * 当前模块使用的 LICENSE
+     *
+     * @since 2025-05-17
+     */
+    private final String appLicense = "BSD 3-Clause License";
 
 }

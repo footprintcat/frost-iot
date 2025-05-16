@@ -19,7 +19,7 @@ public class LifetimeEventListener {
 
     // @Inject docs: https://micronaut.bookhub.tech/action/service#ioc-%E6%B3%A8%E8%A7%A3
     @Inject
-    FrostIotCoreModuleInfo frostIotCoreModuleInfo;
+    private FrostIotCoreModuleInfo frostIotCoreModuleInfo;
 
     @EventListener
     public void onStartup(ServerStartupEvent event) {
