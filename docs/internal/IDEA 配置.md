@@ -54,6 +54,8 @@
       <!-- -Dfile.encoding=utf-8 命令 -->
       <w>Dfile</w>
       <w>footprintcat</w>
+      <!-- lombok 包名：io.freefair.lombok -->
+      <w>freefair</w>
     </words>
   </dictionary>
 </component>
