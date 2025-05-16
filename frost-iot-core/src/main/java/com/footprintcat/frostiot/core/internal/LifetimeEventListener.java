@@ -46,9 +46,11 @@ public class LifetimeEventListener {
                 .max()
                 .orElse(0);
         System.out.println("[接口文档]");
-        apiDocUrlMap.forEach((k, v) ->
-                System.out.println(String.format("%-" + (maxKeyLength + 1) + "s", k) + frostIotCoreModuleInfo.getRootUrlWithScheme() + v)
-        );
+        // apiDocUrlMap.forEach((k, v) ->
+        //         System.out.println(String.format("%-" + maxKeyLength + "s", k) + " : " + frostIotCoreModuleInfo.getRootUrlWithScheme() + v)
+        // );
+        apiDocUrlMap.forEach((k, v) -> System.out.printf("%-" + (maxKeyLength + 1) + "s: %s%n",
+                k, frostIotCoreModuleInfo.getRootUrlWithScheme() + v));
         System.out.println();
 
         // 初始化逻辑
