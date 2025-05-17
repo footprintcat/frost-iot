@@ -3,7 +3,6 @@ package com.footprintcat.frostiot.common.internal;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
-import java.util.Map;
 
 /**
  * 模块信息 接口

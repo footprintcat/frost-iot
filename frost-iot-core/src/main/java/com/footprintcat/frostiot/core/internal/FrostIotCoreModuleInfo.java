@@ -7,10 +7,8 @@ import io.micronaut.core.version.VersionUtils;
 import io.micronaut.http.server.HttpServerConfiguration;
 import jakarta.inject.Singleton;
 import lombok.Getter;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
-import java.util.Map;
 
 /**
  * 模块信息
