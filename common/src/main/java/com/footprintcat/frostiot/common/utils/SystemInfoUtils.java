@@ -88,11 +88,15 @@ public class SystemInfoUtils {
         String userTimezone = props.getProperty("user.timezone");
         // String appVersion = getClass().getPackage().getImplementationVersion(); // 从 MANIFEST.MF 获取版本
 
+        // JAVA_HOME
+        String javaHome = System.getProperty("java.home");
+
         System.out.println("[系统信息]");
         printInfoLine("Java 版本 ", javaVersion + " (" + javaVendor + ")");
         printInfoLine("操作系统   ", osName + " (os version:" + osVersion + ")");
         printInfoLine("时区      ", userTimezone);
         printInfoLine("字符集编码 ", System.out.charset().toString() + " (Default: " + Charset.defaultCharset().name() + ")");
+        printInfoLine("JAVA_HOME ", javaHome);
         System.out.println();
 
         System.out.println("[系统状态]");
