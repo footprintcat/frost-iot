@@ -4,6 +4,7 @@ import com.footprintcat.frostiot.common.internal.IFrostIotModuleInfo;
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.management.ManagementFactory;
+import java.lang.management.RuntimeMXBean;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
@@ -58,11 +59,16 @@ public class SystemInfoUtils {
         // 当前时间
         String currentTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
+        // 调试模式
+        RuntimeMXBean runtimeMXBean = ManagementFactory.getRuntimeMXBean();
+        boolean isDebug = runtimeMXBean.getInputArguments().toString().contains("-agentlib:jdwp");
+
         System.out.println("[配置信息]");
         printInfoLine("配置文件   ", "[" + String.join(", ", moduleInfo.getAppProfileList()) + "]");
         printInfoLine("配置文件说明", moduleInfo.getAppProfileName());
         printInfoLine("模块启动时间", currentTime);
         printInfoLine("服务 URL  ", moduleInfo.getRootUrlWithScheme());
+        printInfoLine("调试模式   ", isDebug ? "是" : "否");
         System.out.println();
 
         System.out.println("[技术栈]");
