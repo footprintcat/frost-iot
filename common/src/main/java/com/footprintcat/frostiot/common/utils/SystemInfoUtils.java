@@ -59,6 +59,9 @@ public class SystemInfoUtils {
         // 当前时间
         String currentTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
+        // 当前工作目录 Current Working Directory
+        String userDir = System.getProperty("user.dir");
+
         // 调试模式
         RuntimeMXBean runtimeMXBean = ManagementFactory.getRuntimeMXBean();
         boolean isDebug = runtimeMXBean.getInputArguments().toString().contains("-agentlib:jdwp");
@@ -68,6 +71,7 @@ public class SystemInfoUtils {
         printInfoLine("配置文件说明", moduleInfo.getAppProfileName());
         printInfoLine("模块启动时间", currentTime);
         printInfoLine("服务 URL  ", moduleInfo.getRootUrlWithScheme());
+        printInfoLine("当前工作目录", userDir);
         printInfoLine("调试模式   ", isDebug ? "是" : "否");
         System.out.println();
 
