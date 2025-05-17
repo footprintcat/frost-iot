@@ -32,6 +32,9 @@ public class LifetimeEventListener {
         // 打印系统信息
         SystemInfoUtils.printSystemInfo(frostIotCoreModuleInfo);
 
+        // 打印网卡信息
+        SystemInfoUtils.printNetworkInfo();
+
         // 打印接口文档地址
         Map<String, String> apiDocUrlMap = Map.of(
                 "swagger-ui", "/swagger-ui/index.html",

@@ -4,10 +4,15 @@ import com.footprintcat.frostiot.common.internal.IFrostIotModuleInfo;
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.management.ManagementFactory;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.nio.charset.Charset;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Enumeration;
 import java.util.Properties;
 
 /**
@@ -118,5 +123,153 @@ public class SystemInfoUtils {
         double gb = mb / 1024.0;
         String gbStr = String.format("%.2f", gb);
         return StringUtils.leftPad(mbStr, 6, ' ') + " MB (" + StringUtils.leftPad(gbStr, 6, ' ') + " GB)";
+    }
+
+    /**
+     * 打印网卡信息
+     *
+     * @since 2025-05-17
+     */
+    public static void printNetworkInfo() {
+        System.out.println("[网络信息] (此处仅展示私有地址)");
+        try {
+            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+
+            boolean isFirst = true;
+            while (networkInterfaces.hasMoreElements()) {
+                NetworkInterface networkInterface = networkInterfaces.nextElement();
+                // if (
+                //     // 回环地址
+                //         networkInterface.isLoopback()
+                //                 // 未启用的网卡
+                //                 || !networkInterface.isUp()
+                //                 // 虚拟网卡
+                //                 || networkInterface.isVirtual()
+                //                 // 没有硬件地址
+                //                 || networkInterface.getHardwareAddress() == null
+                //                 // 排除Hyper-V、Docker等虚拟接口
+                //                 || networkInterface.getDisplayName().matches(".*(Hyper-V|Virtual|Filter|Docker|VPN).*")
+                // ) {
+                //     continue;
+                // }
+
+                // 网卡接口下的ip会有多个，也需要遍历，找到自己所需要的
+                Enumeration<InetAddress> addressesEnumeration = networkInterface.getInetAddresses();
+                // ArrayList<InetAddress> addresses = Collections.list(addressesEnumeration);
+                ArrayList<InetAddress> addresses = new ArrayList<>();
+                while (addressesEnumeration.hasMoreElements()) {
+                    InetAddress inetAddress = addressesEnumeration.nextElement();
+                    if (inetAddress.isLoopbackAddress()) {
+                        // 跳过本地回环地址
+                        // 网卡名称：loopback_0
+                        // 展示名称：Software Loopback Interface 1
+                        // isLoopbackAddress: true
+                        // isLinkLocalAddress: false
+                        // isSiteLocalAddress: false
+                        // IP地址：0:0:0:0:0:0:0:1
+                        // isLoopbackAddress: true
+                        // isLinkLocalAddress: false
+                        // isSiteLocalAddress: false
+                        // IP地址：127.0.0.1
+                        continue;
+                    }
+                    if (!inetAddress.isSiteLocalAddress()) {
+                        // 跳过非私有地址
+                        continue;
+                    }
+                    addresses.add(inetAddress);
+                }
+
+                if (addresses.isEmpty()) {
+                    continue;
+                }
+
+                if (!isFirst) {
+                    System.out.println("=============================================");
+                } else {
+                    isFirst = false;
+                }
+
+                // 获取网卡信息
+                String name = networkInterface.getName(); // 网卡名称
+                String displayName = networkInterface.getDisplayName(); // 网卡展示名称
+                byte[] mac = networkInterface.getHardwareAddress(); // 网卡硬件地址
+
+                // 打印网卡信息
+                System.out.println("网卡名称：" + name);
+                System.out.println("展示名称：" + displayName);
+                if (mac != null) {
+                    String macStr = printMacAddress(mac);
+                    System.out.println("硬件 Mac 地址: " + macStr);
+                }
+
+                System.out.println("IP地址：");
+                for (InetAddress inetAddress : addresses) {
+                    // NetworkInterface network = NetworkInterface.getByInetAddress(inetAddress);
+                    // System.out.println("网卡名称：" + network.getName());
+                    // System.out.println("展示名称：" + network.getDisplayName());
+                    // byte[] hardwareAddress = network.getHardwareAddress();
+                    // if (hardwareAddress != null) {
+                    //     String macStr = printMacAddress(hardwareAddress);
+                    //     System.out.println("硬件 Mac 地址: " + macStr);
+                    // }
+                    System.out.println("  -> " + inetAddress.getHostAddress());
+                    // System.out.println("主机名：" + inetAddress.getHostName());
+                    System.out.println("     " +
+                            // 回环地址：用于本地主机内部通信的特殊地址，数据包不经过物理网络，直接由操作系统处理
+                            // 通信范围：仅限本机（无法被外部访问）
+                            // 典型场景：测试本地服务（如Web服务器、数据库）、诊断网络协议栈
+                            // IPv4范围：127.0.0.0 ~ 127.255.255.255（即127.0.0.0/8），最常用的是127.0.0.1
+                            // IPv6范围：::1（简写形式）
+                            // 域名解析：localhost默认指向127.0.0.1（IPv4）或::1（IPv6）
+                            // 特点：无需物理网络连接，安全性高（服务绑定到回环地址时，外部无法访问）
+                            "Loopback: " + inetAddress.isLoopbackAddress() + "; " +
+
+                            // 本地链路地址：这类地址用于同一物理网络内的设备间自动通信，无需手动配置或依赖DHCP服务器
+                            // 通信范围：同一物理网络（如Wi-Fi）
+                            // 典型场景：设备自动配置、临时通信
+                            // IPv4范围：169.254.0.0 ~ 169.254.255.255（即169.254.0.0/16）
+                            // IPv6范围：前缀为FE80::/10（如FE80::1）
+                            // 当设备（如电脑、打印机）通过DHCP获取IP失败时，会自动分配此类地址（如169.254.1.1），确保局域网内设备能临时通信
+                            // 仅在同一物理网络（如一个Wi-Fi网络）内有效，无法跨路由器通信
+                            // 常用于设备初始配置或故障恢复（如打印机找不到DHCP时）
+                            "LinkLocal: " + inetAddress.isLinkLocalAddress() + "; " +
+
+                            // 私有地址：这类地址用于组织内部网络，不可在公网路由
+                            // 通信范围：整个私有网络（跨路由器）
+                            // 典型场景：家庭/企业内网服务
+                            // IPv4范围：
+                            //   10.0.0.0 ~ 10.255.255.255（10.0.0.0/8）
+                            //   172.16.0.0 ~ 172.31.255.255（172.16.0.0/12）
+                            //   192.168.0.0 ~ 192.168.255.255（192.168.0.0/16）
+                            // IPv6范围：前缀为FEC0::/10（已废弃，现推荐使用FC00::/7的唯一本地地址ULA）
+                            // 用途：家庭路由器分配的地址（如192.168.1.1）；企业内部服务器、数据库等私有服务
+                            // 特点：需通过NAT（网络地址转换）才能访问公网。避免与公网IP冲突，增强安全性
+                            "SiteLocal: " + inetAddress.isSiteLocalAddress()
+                    );
+                }
+            }
+        } catch (SocketException ignored) {
+        }
+        System.out.println();
+    }
+
+    /**
+     * 格式化 mac 地址
+     *
+     * @param mac byte[] 类型的 mac 地址
+     * @return 格式化后的 mac 地址字符串
+     * @since 2025-05-17
+     */
+    private static String printMacAddress(byte[] mac) {
+        StringBuilder macs = new StringBuilder();
+        for (int i = 0; i < mac.length; i++) {
+            // 格式化十六进制
+            macs.append(String.format("%02X", mac[i]));
+            if (i < mac.length - 1) {
+                macs.append("-");
+            }
+        }
+        return macs.toString();
     }
 }
