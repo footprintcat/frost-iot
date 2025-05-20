@@ -53,9 +53,12 @@
     <words>
       <!-- -Dfile.encoding=utf-8 命令 -->
       <w>Dfile</w>
+      <!-- 公司英文名 -->
       <w>footprintcat</w>
       <!-- lombok 包名：io.freefair.lombok -->
       <w>freefair</w>
+      <!-- 产品英文名 -->
+      <w>frostiot</w>
     </words>
   </dictionary>
 </component>
