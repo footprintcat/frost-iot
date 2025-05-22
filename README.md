@@ -37,3 +37,9 @@
 [BSD-3-Clause license](LICENSE)
 
 ![](./docs/diagram/许可证说明.embed.svg)
+
+### 镜像同步仓库
+
+用户可以在访问 GitHub 遇到困难时，使用我们的 Gitee 官方仓库：[gitee.com/footprintcat/frost-iot](https://gitee.com/footprintcat/frost-iot)
+
+**另外也麻烦在 Gitee 上 Star 了本项目的用户，尽量同步 Star 一下 [GitHub 仓库](https://github.com/footprintcat/frost-iot)，谢谢！**
