@@ -1,0 +1,79 @@
+name: Bug Report
+description: 报告一个错误或问题（安全漏洞请通过邮件与我们取得联系，联系方式见仓库 SECURITY.md 文件）
+title: "Bug: 问题描述"
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢您报告问题！请填写以下信息以帮助我们更快地解决问题。
+
+        Issue 提交须知：
+        1. 请按此模板提交 Issue，不按模板提交的问题将直接关闭
+        2. 提问前请仔细阅读官网文档并搜索 Issue 记录，文档中已说明的问题、Issue 中已解答问题不再次解答
+        3. 如果你使用的版本号不是最新版，请升级最新版后验证是否存在此问题
+        4. 提交问题务必描述清楚、附上日志，描述不清导致无法理解和分析的问题会被直接关闭
+        5. 不得通过 Issue 来提交项目无关内容，例如：为其他项目打广告
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 确认
+      description: 在提交 Issue 之前，请确认你已经阅读并确认以下内容
+      options:
+        - label: 我已阅读官网文档，并在 [Issue 列表](https://github.com/footprintcat/frost-iot/issues) 中搜索过，确认问题没有被提出过
+          required: true
+        - label: 我使用的版本是最新版
+          required: true
+        - label: "我已修改 Issue 标题，格式：Bug: + 空格 + 描述遇到的问题"
+          required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述
+      description: 请详细描述您遇到的问题
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 重现步骤
+      description: 请列出重现问题的步骤
+      placeholder: |
+        1. 进入...
+        2. 点击...
+        3. 看到...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期行为
+      description: 您期望发生什么？
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 环境信息
+      description: 请提供您的系统环境信息
+      placeholder: |
+        - 操作系统:
+        - 使用的版本:
+    validations:
+      required: true
+  - type: textarea
+    id: additional
+    attributes:
+      label: 附加信息
+      description: 任何其他可能有帮助的信息
+  - type: checkboxes
+    id: cla
+    attributes:
+      label: 确认
+      description: |
+        感谢您报告问题。在提交前，需要您阅读并同意[贡献者许可协议](https://github.com/footprintcat/frost-iot/blob/main/CLA.md)
+      options:
+        - label: 我已阅读并同意贡献者许可协议。
+          required: true
+        - label: 我的贡献不包含第三方受版权保护的内容，并已知晓违反协议可能导致 PR 被关闭及账户封禁
+          required: true
