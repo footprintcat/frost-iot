@@ -1,5 +1,5 @@
 > [!CAUTION]
-> 寒霜物联项目目前尚处于开发阶段，暂未完成开发，请过段时间再来看吧
+> 🚧 寒霜物联项目目前尚处于开发阶段，暂未完成开发，请过段时间再来看吧
 
 <div align="center">
 
@@ -11,6 +11,7 @@
 
 支持轻量化快速接入的 IoT 设备统一接入平台
 
+<!-- https://shields.io/badges/static-badge -->
 [![The 3-Clause BSD License](https://img.shields.io/badge/License-BSD--3--Clause_License-cyan?logo=bsd)](https://opensource.org/license/BSD-3-Clause) ![GitHub Release](https://img.shields.io/github/v/release/footprintcat/frost-iot)
 
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/footprintcat/frost-iot)](https://github.com/footprintcat/frost-iot/commits/) ![GitHub last commit](https://img.shields.io/github/last-commit/footprintcat/frost-iot)
