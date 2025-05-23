@@ -1,3 +1,4 @@
+# issue template docs: https://docs.github.com/zh/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema
 name: Feature Request
 description: 请求一个新功能或改进
 title: "Feature: 功能改进"

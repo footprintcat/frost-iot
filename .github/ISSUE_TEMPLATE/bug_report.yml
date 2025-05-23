@@ -1,3 +1,4 @@
+# issue template docs: https://docs.github.com/zh/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema
 name: Bug Report
 description: 报告一个错误或问题（安全漏洞请通过邮件与我们取得联系，联系方式见仓库 SECURITY.md 文件）
 title: "Bug: 问题描述"
