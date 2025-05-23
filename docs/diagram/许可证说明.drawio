@@ -53,10 +53,10 @@
         <mxCell id="PMTbZ5IPZAj8q_X9BM89-10" value="GPL" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="600" y="260" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="PMTbZ5IPZAj8q_X9BM89-11" value="BSD" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="PMTbZ5IPZAj8q_X9BM89-11" value="MIT" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="600" y="140" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="PMTbZ5IPZAj8q_X9BM89-12" value="MIT" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="PMTbZ5IPZAj8q_X9BM89-12" value="BSD" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="600" y="200" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="PMTbZ5IPZAj8q_X9BM89-13" value="Apache" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
