@@ -16,7 +16,8 @@ dependencies {
     // implementation project(...)  传递所有依赖（代码 + 依赖项）
 
     // 必需依赖
-    implementation platform(project(":frost-iot-dependencies"))
+    // implementation platform(project(":frost-iot-dependencies"))
+    implementation project(":frost-iot-dependencies")
     implementation project(":common")
 
     // micronaut 相关依赖

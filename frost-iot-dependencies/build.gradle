@@ -1,8 +1,10 @@
 plugins {
-    id 'java-platform'
+    // 平台项目：主要用于定义依赖约束（版本对齐），不包含实际代码或二进制文件
+    // id 'java-platform'
 }
 
 dependencies {
+    // 定义版本约束
     constraints {
         api "${FROST_APP_GROUP}:frost-iot-adapter-sdk:${FROST_APP_VERSION}"
 
