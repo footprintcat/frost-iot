@@ -29,7 +29,7 @@ jobs:
           # -I 忽略二进制文件
           # --include 指定要检查的文件扩展名
           if grep -r -I -l -P "$ZERO_WIDTH_CHARS" \
-              --include=*.{txt,md,markdown,html,js,ts,jsx,tsx,css,scss,json,yaml,yml,xml,php,py,rb,java,kt,go,rs,sh,bat,cmd,ps1} \
+              --include=*.{txt,md,markdown,html,js,ts,jsx,tsx,css,scss,json,yaml,yml,xml,php,py,rb,java,kt,gradle,go,rs,sh,bat,cmd,ps1} \
               .; then
             echo "::error::Zero Width Characters found in the above text files"
             echo "::warning::Checked characters: U+200B, U+200C, U+200D, U+FEFF, U+2060, U+180E"
