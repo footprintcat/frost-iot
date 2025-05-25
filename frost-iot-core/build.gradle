@@ -58,8 +58,14 @@ tasks.withType(JavaCompile).configureEach {
     ]
 }
 
+// 2025.05.25 执行 publishToMavenCentralPortal 前确保 distZip 已执行
+tasks.named('publishToMavenCentralPortal') {
+    // 将 distZip 的输出声明为 publishToMavenCentralPortal 的输入
+    inputs.files(tasks.named('distZip'))
+}
+
 application {
-    mainClass = "com.footprintcat.frostiot.core.Application"
+    mainClass = "${group}.Application"
 }
 java {
     // sourceCompatibility = JavaVersion.toVersion("17")
@@ -82,7 +88,7 @@ micronaut {
     testRuntime("junit5")
     processing {
         incremental(true)
-        annotations("com.footprintcat.frostiot.core.*")
+        annotations("${group}.*")
     }
     aot {
         // Please review carefully the optimizations enabled below
