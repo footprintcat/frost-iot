@@ -12,8 +12,8 @@ def isSnapshotVersion = FROST_APP_VERSION.toString().endsWith("-SNAPSHOT")
 // '**/.gitkeep', '**/.DS_Store',
 
 allprojects {
-    // group = FROST_APP_GROUP
-    // version = FROST_APP_VERSION
+    group = FROST_APP_GROUP
+    version = FROST_APP_VERSION
 
     java {
         // 指定构建时使用的 JDK 版本（与运行时的 JDK 无关）
@@ -54,6 +54,7 @@ subprojects {
 // publish release version:
 // ./gradlew publish publishToMavenCentralPortal -Psigning.keyId="xxx" -Psigning.password="xxx" -Psigning.secretKeyRingFile="xxx" -DmavenCentral.authToken='xxxxxx' -x test
 configure([
+        project(':frost-iot-dependencies'),
         project(':frost-iot-core'),
         project(':frost-iot-adapter-sdk'),
 ]) {

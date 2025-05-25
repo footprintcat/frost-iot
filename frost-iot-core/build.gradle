@@ -4,8 +4,8 @@ plugins {
     id("io.micronaut.aot") version "4.5.3"
 }
 
-group = "${FROST_APP_GROUP}.core"
-version = FROST_APP_VERSION
+// group = FROST_APP_GROUP
+// version = FROST_APP_VERSION
 
 // repositories {
 //     mavenCentral()
@@ -65,7 +65,7 @@ tasks.named('publishToMavenCentralPortal') {
 }
 
 application {
-    mainClass = "${group}.Application"
+    mainClass = "${group}.core.Application"
 }
 java {
     // sourceCompatibility = JavaVersion.toVersion("17")
@@ -88,7 +88,7 @@ micronaut {
     testRuntime("junit5")
     processing {
         incremental(true)
-        annotations("${group}.*")
+        annotations("${group}.core.*")
     }
     aot {
         // Please review carefully the optimizations enabled below

@@ -2,8 +2,8 @@ plugins {
     id 'java'
 }
 
-group = "${FROST_APP_GROUP}.adapter"
-version = FROST_APP_VERSION
+// group = FROST_APP_GROUP
+// version = FROST_APP_VERSION
 
 dependencies {
     // jetbrains 编译时注解
