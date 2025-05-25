@@ -1,0 +1,45 @@
+name: Zero Width Characters Checker
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  check-zerowidth:
+    name: Check for Zero Width Characters
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 常见的零宽字符：
+      # ​​U+200B​​ (Zero Width Space)
+      # ​​U+200C​​ (Zero Width Non-Joiner)
+      # ​​U+200D​​ (Zero Width Joiner)
+      # ​​U+FEFF​​ (Zero Width No-Break Space / BOM)
+      # ​​U+2060​​ (Word Joiner)
+      # ​​U+180E​​ (Mongolian Vowel Separator)
+      - name: Find Zero Width Characters in text files
+        id: zerowidth-check
+        run: |
+          # 定义要检查的零宽字符（Unicode 编码）
+          ZERO_WIDTH_CHARS=$'[\u200B\u200C\u200D\uFEFF\u2060\u180E]'
+
+          # 使用grep查找零宽字符，只检查文本文件
+          # -I 忽略二进制文件
+          # --include 指定要检查的文件扩展名
+          if grep -r -I -l -P "$ZERO_WIDTH_CHARS" \
+              --include=*.{txt,md,markdown,html,js,ts,jsx,tsx,css,scss,json,yaml,yml,xml,php,py,rb,java,kt,go,rs,sh,bat,cmd,ps1} \
+              .; then
+            echo "::error::Zero Width Characters found in the above text files"
+            echo "::warning::Checked characters: U+200B, U+200C, U+200D, U+FEFF, U+2060, U+180E"
+            echo "found=true" >> $GITHUB_OUTPUT
+            exit 1
+          else
+            echo "No Zero Width Characters found in text files"
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Fail if Zero Width Characters found
+        if: steps.zerowidth-check.outputs.found == 'true'
+        run: exit 1
