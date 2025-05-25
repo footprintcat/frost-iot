@@ -8,3 +8,6 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+
+# 项目配置不需要添加到 git 的文件
+misc.xml
