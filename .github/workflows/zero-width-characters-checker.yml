@@ -13,12 +13,12 @@ jobs:
         uses: actions/checkout@v4
 
       # 常见的零宽字符：
-      # ​​U+200B​​ (Zero Width Space)
-      # ​​U+200C​​ (Zero Width Non-Joiner)
-      # ​​U+200D​​ (Zero Width Joiner)
-      # ​​U+FEFF​​ (Zero Width No-Break Space / BOM)
-      # ​​U+2060​​ (Word Joiner)
-      # ​​U+180E​​ (Mongolian Vowel Separator)
+      # U+200B (Zero Width Space)
+      # U+200C (Zero Width Non-Joiner)
+      # U+200D (Zero Width Joiner)
+      # U+FEFF (Zero Width No-Break Space / BOM)
+      # U+2060 (Word Joiner)
+      # U+180E (Mongolian Vowel Separator)
       - name: Find Zero Width Characters in text files
         id: zerowidth-check
         run: |
