@@ -53,6 +53,8 @@
     <words>
       <!-- -Dfile.encoding=utf-8 命令 -->
       <w>Dfile</w>
+      <!-- PostgreSQL 数据库名称 -->
+      <w>PostgreSQL</w>
       <!-- 公司英文名 -->
       <w>footprintcat</w>
       <!-- lombok 包名：io.freefair.lombok -->
