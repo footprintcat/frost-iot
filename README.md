@@ -33,6 +33,10 @@
 ```
 -->
 
+## ⭐ Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=footprintcat/frost-iot&type=Date)](https://www.star-history.com/#footprintcat/frost-iot&Date)
+
 ### 许可证
 
 [BSD-3-Clause license](LICENSE)
