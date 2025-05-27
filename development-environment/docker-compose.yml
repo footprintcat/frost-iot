@@ -1,0 +1,58 @@
+name: frost-iot-development-environment
+
+services:
+  # PostgreSQL
+  # homepage: https://www.postgresql.org/
+  # LTS 版本选择：官方对每个主版本提供5年支持
+  # 17 发布日期：2024-09-26 支持结束日期：2029-11-08
+  postgres:
+    # https://dockers.xuanyuan.me/image/library/postgres
+    # https://hub.docker.com/_/postgres
+    image: postgres:17.5
+    environment:
+      POSTGRES_PASSWORD: frostiot
+      POSTGRES_USER: frostiot
+      POSTGRES_DB: frost_iot_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # 将sql文件放到容器中的 /docker-entrypoint-initdb.d/ 目录，就会在mysql第一次启动时执行。之后重启容器不会重复执行！
+      # 如果此目录放置多个sql文件，它执行时是没有顺序的。因此，这个目录只放一个init.sql，专门用来控制执行sql顺序
+      - ./postgres/init-dev.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./postgres/sql:/opt/sql/
+
+  # redis
+  # homepage: https://redis.io/
+  # version: https://redis.io/downloads/
+  # docs: https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/docker/
+  redis:
+    # https://dockers.xuanyuan.me/image/library/redis
+    # https://hub.docker.com/_/redis
+    image: redis:8.0.1
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  # Apache IoTDB
+  # homepage: https://iotdb.apache.org/zh/
+  # version: https://iotdb.apache.org/zh/Download/
+  # docs: https://iotdb.apache.org/zh/UserGuide/latest/Deployment-and-Maintenance/Docker-Deployment_apache.html
+  iotdb:
+    # https://dockers.xuanyuan.me/image/apache/iotdb
+    # https://hub.docker.com/r/apache/iotdb/tags
+    image: apache/iotdb:2.0.2-1-standalone
+    ports:
+      - "6667:6667"
+      - "10760:10760"
+      - "10761:10761"
+    volumes:
+      - iotdb_data:/iotdb/data
+      - iotdb_logs:/iotdb/logs
+
+volumes:
+  postgres_data:
+  redis_data:
+  iotdb_data:
+  iotdb_logs:

@@ -11,3 +11,5 @@
 
 # 项目配置不需要添加到 git 的文件
 misc.xml
+sqldialects.xml
+dataSources.xml
