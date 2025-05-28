@@ -1,3 +1,4 @@
+# docs: https://docs.micronaut.io/4.8.2/guide/configurationreference.html
 micronaut:
   application:
     name: frost-iot-core

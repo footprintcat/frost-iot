@@ -4,7 +4,7 @@
 
 1. 安装 Docker Desktop
 2. 如果在中国大陆，记得配置 docker 镜像源
-3. 打开 Docker Desktop
+3. **打开 Docker Desktop**
 4. 运行命令
 
 ```sh
