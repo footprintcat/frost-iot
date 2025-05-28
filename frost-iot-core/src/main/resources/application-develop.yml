@@ -1,3 +1,11 @@
 frost-iot:
   version: 1.0.0-dev
   profile-name: "调试用默认配置文件（application-develop.yml）"
+
+datasources:
+  # default:
+  pgsql:
+    url: jdbc:postgresql://127.0.0.1:5432/frostiot_dev
+    driverClassName: org.postgresql.Driver
+    username: frostiot
+    password: frostiot

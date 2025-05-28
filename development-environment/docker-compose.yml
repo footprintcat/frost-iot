@@ -10,9 +10,9 @@ services:
     # https://hub.docker.com/_/postgres
     image: postgres:17.5
     environment:
-      POSTGRES_PASSWORD: frostiot
+      POSTGRES_DB: frostiot_dev
       POSTGRES_USER: frostiot
-      POSTGRES_DB: frost_iot_dev
+      POSTGRES_PASSWORD: frostiot
     ports:
       - "5432:5432"
     volumes:

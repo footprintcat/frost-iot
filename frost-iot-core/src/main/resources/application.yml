@@ -66,6 +66,13 @@ micronaut:
         paths: classpath:META-INF/swagger/views/rapidoc
         mapping: /rapidoc/**
 
+datasources:
+  default:
+    url: jdbc:postgresql://127.0.0.1:5432/frostiot_dev
+    driverClassName: org.postgresql.Driver
+    username: frostiot
+    password: frostiot
+
 frost-iot:
   # Frost IoT 版本号
   version: 1.0.0
