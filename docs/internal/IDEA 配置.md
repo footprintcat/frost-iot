@@ -40,6 +40,10 @@
       <!-- 设置 - 编辑器 - 代码样式 - Java - 换行和大括号 - 重新设置格式时保持 - 注释在第一列 -->
       <option name="KEEP_FIRST_COLUMN_COMMENT" value="false" />
     </codeStyleSettings>
+      <!-- 设置 - 编辑器 - 代码样式 - XML - 代码生成 - 行注释在第一列 -->
+    <codeStyleSettings language="XML">
+      <option name="LINE_COMMENT_AT_FIRST_COLUMN" value="false" />
+    </codeStyleSettings>
   </code_scheme>
 </component>
 ```
