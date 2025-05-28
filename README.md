@@ -21,6 +21,12 @@
 
 不做花里胡哨的 UI 界面，专注设备接入底层逻辑，为企业数字化转型提供底层支持。
 
+### 项目说明
+
+项目语言为 Java，使用 Gradle 构建，最低支持 JDK 版本为 17，推荐使用 JDK 版本为: OpenJDK 17, 21。
+
+core 模块使用 Micronaut 开发，开发体验类似 Spring Boot 但更适合 IoT 场景。
+
 ### 目录说明
 
 运行 `gradlew projects` 查看项目结构
