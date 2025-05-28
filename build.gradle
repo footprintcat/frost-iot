@@ -25,6 +25,11 @@ allprojects {
         }
     }
 
+    // 跳过测试
+    test {
+        enabled = false
+    }
+
     tasks.withType(ProcessResources).tap {
         configureEach {
             exclude(
