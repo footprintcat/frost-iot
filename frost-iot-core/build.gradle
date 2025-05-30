@@ -36,6 +36,10 @@ dependencies {
     // You do not have to specify a version number since Micronaut BOM (Bill of Materials) specifies a SnakeYAML version.
     runtimeOnly("org.yaml:snakeyaml")
 
+    // log.info 编码配置需要使用 logback API
+    // 编码配置代码见: EncodingInitializer
+    compileOnly("ch.qos.logback:logback-classic")
+
     // jetbrains 编译时注解
     implementation("org.jetbrains:annotations:${libraries.jetbrainsAnnotations}")
 

@@ -28,7 +28,7 @@ public class SystemInfoUtils {
      *
      * @since 2025-04-25
      */
-    public static void printSystemInfo(@NotNull final IFrostIotModuleInfo moduleInfo) {
+    public static void printSystemInfo(@NotNull Charset consoleCharset, @NotNull final IFrostIotModuleInfo moduleInfo) {
 
         // 2025.05.17 开源项目不应存在 All rights reserved 字样
         // Copyright © 2025 footprintcat. All rights reserved.
@@ -92,10 +92,10 @@ public class SystemInfoUtils {
         String javaHome = System.getProperty("java.home");
 
         System.out.println("[系统信息]");
-        printInfoLine("Java 版本 ", javaVersion + " (" + javaVendor + ")");
+        printInfoLine("JDK 版本  ", javaVersion + " (" + javaVendor + ")");
         printInfoLine("操作系统   ", osName + " (os version:" + osVersion + ")");
         printInfoLine("时区      ", userTimezone);
-        printInfoLine("字符集编码 ", System.out.charset().toString() + " (Default: " + Charset.defaultCharset().name() + ")");
+        printInfoLine("字符集编码 ", consoleCharset + " (Default: " + Charset.defaultCharset().name() + ")");
         printInfoLine("JAVA_HOME ", javaHome);
         System.out.println();
 

@@ -7,7 +7,9 @@ import io.micronaut.runtime.server.event.ServerStartupEvent;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 
+import java.nio.charset.Charset;
 import java.util.Map;
 
 /**
@@ -26,11 +28,11 @@ public class LifetimeEventListener {
     @EventListener
     public void onStartup(ServerStartupEvent event) {
 
-        // // 检查当前 charset
-        // ConsoleUtils.checkCharsetIsUTF8();
+        // 解决 log.info 在 Windows 系统自带命令行打印时中文乱码问题
+        @NotNull Charset charset = EncodingInitializer.init();
 
         // 打印系统信息
-        SystemInfoUtils.printSystemInfo(frostIotCoreModuleInfo);
+        SystemInfoUtils.printSystemInfo(charset, frostIotCoreModuleInfo);
 
         // 打印网卡信息
         SystemInfoUtils.printNetworkInfo();

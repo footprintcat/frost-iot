@@ -8,6 +8,9 @@
             <pattern>%cyan(%d{HH:mm:ss.SSS}) %gray([%thread]) %highlight(%-5level) %magenta(%logger{36}) - %msg%n
             </pattern>
             -->
+            <!-- 明确指定编码 -->
+            <!--<charset>UTF-8</charset>-->
+            <!--注：因不同命令行编码不同，无法在此处统一配置编码，相关逻辑通过 EncodingInitializer 进行处理 -->
             <pattern>
                 %cyan(%d{HH:mm:ss.SSS}) %highlight(%-5.5level) %gray([%5.5thread]) %magenta(%-40.40logger{39}) : %msg%n
             </pattern>
