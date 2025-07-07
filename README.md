@@ -1,3 +1,34 @@
+
+<div align="right">
+  <details>
+    <summary >🌐 Language</summary>
+    <div>
+      <div align="right">
+        <p><a href="https://openaitx.github.io/view.html?user=footprintcat&project=frost-iot&lang=en">English</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=footprintcat&project=frost-iot&lang=zh-CN">简体中文</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=footprintcat&project=frost-iot&lang=zh-TW">繁體中文</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=footprintcat&project=frost-iot&lang=ja">日本語</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=footprintcat&project=frost-iot&lang=ko">한국어</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=footprintcat&project=frost-iot&lang=hi">हिन्दी</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=footprintcat&project=frost-iot&lang=th">ไทย</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=footprintcat&project=frost-iot&lang=fr">Français</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=footprintcat&project=frost-iot&lang=de">Deutsch</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=footprintcat&project=frost-iot&lang=es">Español</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=footprintcat&project=frost-iot&lang=it">Itapano</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=footprintcat&project=frost-iot&lang=ru">Русский</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=footprintcat&project=frost-iot&lang=pt">Português</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=footprintcat&project=frost-iot&lang=nl">Nederlands</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=footprintcat&project=frost-iot&lang=pl">Polski</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=footprintcat&project=frost-iot&lang=ar">العربية</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=footprintcat&project=frost-iot&lang=fa">فارسی</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=footprintcat&project=frost-iot&lang=tr">Türkçe</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=footprintcat&project=frost-iot&lang=vi">Tiếng Việt</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=footprintcat&project=frost-iot&lang=id">Bahasa Indonesia</a></p>
+      </div>
+    </div>
+  </details>
+</div>
+
 > [!CAUTION]
 > 🚧 寒霜物联项目目前尚处于开发阶段，暂未完成开发，请过段时间再来看吧
 
