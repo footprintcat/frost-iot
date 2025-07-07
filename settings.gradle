@@ -37,6 +37,3 @@ include 'frost-iot-adapter:frost-iot-adapter-mqtt' // 发布组件
 
 // Frost BOM 依赖版本定义
 include 'frost-iot-dependencies'
-
-// manager 管理后台
-include 'manager:backend'
