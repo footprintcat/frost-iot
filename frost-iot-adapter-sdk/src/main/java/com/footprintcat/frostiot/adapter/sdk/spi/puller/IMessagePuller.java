@@ -1,4 +1,4 @@
-package com.footprintcat.frostiot.adapter.spi.puller;
+package com.footprintcat.frostiot.adapter.sdk.spi.puller;
 
 /**
  * 主动向设备拉取消息（主动请求）

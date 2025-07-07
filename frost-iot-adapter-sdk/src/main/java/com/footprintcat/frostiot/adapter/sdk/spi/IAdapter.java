@@ -1,4 +1,4 @@
-package com.footprintcat.frostiot.adapter.spi;
+package com.footprintcat.frostiot.adapter.sdk.spi;
 
 /**
  * @since 2025-04-23

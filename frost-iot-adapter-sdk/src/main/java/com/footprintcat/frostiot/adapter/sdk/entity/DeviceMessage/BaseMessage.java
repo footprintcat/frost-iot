@@ -1,7 +1,7 @@
-package com.footprintcat.frostiot.adapter.entity.DeviceMessage;
+package com.footprintcat.frostiot.adapter.sdk.entity.DeviceMessage;
 
-import com.footprintcat.frostiot.adapter.enumeration.DeviceMessageType;
-import com.footprintcat.frostiot.adapter.enumeration.DeviceOnlineStatus;
+import com.footprintcat.frostiot.adapter.sdk.enumeration.DeviceMessageType;
+import com.footprintcat.frostiot.adapter.sdk.enumeration.DeviceOnlineStatus;
 import lombok.Data;
 
 import java.util.Map;
@@ -12,7 +12,7 @@ import java.util.Map;
  * @since 2025-04-23
  */
 @Data
-public class BaseMessage {
+public abstract class BaseMessage {
 
     // 设备标识
 

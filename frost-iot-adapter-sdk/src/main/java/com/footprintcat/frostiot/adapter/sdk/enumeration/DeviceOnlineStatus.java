@@ -1,4 +1,4 @@
-package com.footprintcat.frostiot.adapter.enumeration;
+package com.footprintcat.frostiot.adapter.sdk.enumeration;
 
 import lombok.Getter;
 
