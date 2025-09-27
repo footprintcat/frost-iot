@@ -80,7 +80,8 @@ public class LifetimeEventListener {
         System.out.println();
 
         // 初始化逻辑
-        log.info("Micronaut 应用已启动！");
+        // log.info("Micronaut 应用已启动！");
+        log.info("应用启动成功 (๑•̀ㅂ•́)و✧");
     }
 
     @EventListener
