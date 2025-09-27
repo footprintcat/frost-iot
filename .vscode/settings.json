@@ -4,4 +4,17 @@
         "*.drawio": "default",
         "*.svg": "default",
     },
+    "cSpell.words": [
+        "dists",
+        "graalvm",
+        "gradleup",
+        "gradlew",
+        "hikari",
+        "io.micronaut.serde",
+        "jdbc",
+        "logback",
+        "micronaut",
+        "micronaut-serde",
+        "snakeyaml"
+    ],
 }
