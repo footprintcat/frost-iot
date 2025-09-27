@@ -160,8 +160,7 @@
 
    ```
    名称：项目 Java 代码 (用于添加版权头)
-   模式：src[frost-iot*]:*..*
-   	(选择: 生产类 - frost-iot - 递归包含)
+   模式：file[frost-iot*]:*.java&&!test:*..*
    ```
 
 #### 配置版权文本
@@ -202,7 +201,7 @@
 
 ```xml
 <component name="DependencyValidationManager">
-  <scope name="项目 Java 代码 (用于添加版权头)" pattern="src[frost-iot*]:*..*" />
+  <scope name="项目 Java 代码 (用于添加版权头)" pattern="file[frost-iot*]:*.java&amp;&amp;!test:*..*" />
 </component>
 ```
 
