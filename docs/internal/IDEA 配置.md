@@ -4,7 +4,9 @@
 
 > 以下配置未提交到代码仓库中，需手动进行配置
 
-`未在 .idea 目录中的配置项`
+### ⛓️ 动态添加明确的 import
+
+该配置项未保存在 .idea 目录中
 
 ```xml
 <!-- 设置 - 编辑器 - 常规 - 自动导入 - Java - 动态添加明确的 import -->
@@ -19,6 +21,8 @@
   - en: https://www.jetbrains.com/help/idea/settings-auto-import.html#java
 -->
 ```
+
+### ⛓️ 动态优化 import
 
 `.idea/workspace.xml`
 
@@ -46,6 +50,8 @@
 
 ## 已提交到代码仓库的配置项
 
+### ⛓️ 使用项目代码样式
+
 `.idea/codeStyles/codeStyleConfig.xml`
 
 ```xml
@@ -56,6 +62,8 @@
   </state>
 </component>
 ```
+
+### ⛓️ 代码样式相关配置
 
 `.idea/codeStyles/Project.xml`
 
@@ -94,6 +102,8 @@
 </component>
 ```
 
+### ⛓️ 拼写检查白名单
+
 `.idea/dictionaries/project.xml`
 
 ```xml
@@ -122,6 +132,8 @@
 </component>
 ```
 
+### ⛓️ 项目编码
+
 `.idea/encodings.xml`
 
 ```xml
@@ -135,3 +147,90 @@
 ```
 
 类注释默认自带 `@since`: `.idea/fileTemplates/internal/*.java`
+
+## 文件头版权配置
+
+### ⛓️ 文件头版权
+
+#### 配置作用域
+
+1. 设置 - 外观与行为 - 作用域
+
+2. 添加作用域 - 共享
+
+   ```
+   名称：项目 Java 代码 (用于添加版权头)
+   模式：src[frost-iot*]:*..*
+   	(选择: 生产类 - frost-iot - 递归包含)
+   ```
+
+#### 配置版权文本
+
+1. 设置 - 编辑器 - 版权 - 版权配置文件 - 创建 1 个配置文件
+
+   ```
+   名称：frost-iot 寒霜物联 项目许可证
+   ```
+
+2. 配置版权文本
+
+   ```
+   Copyright (c) 武汉脚印猫科技有限公司 (Wuhan Footprint Cat Technology Co., Ltd.)
+
+   This source code is licensed under the BSD-3-Clause license found in the
+   LICENSE file in the root directory of this source tree.
+
+   SPDX-License-Identifier: BSD-3-Clause
+   ```
+
+3. 勾选 通过 VCS 共享
+
+#### 配置默认项目版权
+
+1. 设置 - 编辑器 - 版权 - 默认项目版权
+2. 下拉框选择 `frost-iot 寒霜物联 项目许可证`
+3. 点击添加
+4. 作用域选择：`项目 Java 代码 (用于添加版权头)`，版权选择 `frost-iot 寒霜物联 项目许可证`
+
+配置完成，部分配置需要等 IDEA 关闭时才会保存
+
+### 📄 相关配置文件
+
+相关配置文件所在目录：`.idea/copyright`, `.idea/scopes`
+
+`.idea/scopes/_Java____.xml`
+
+```xml
+<component name="DependencyValidationManager">
+  <scope name="项目 Java 代码 (用于添加版权头)" pattern="src[frost-iot*]:*..*" />
+</component>
+```
+
+`.idea/copyright/frost_iot__.xml`
+
+```xml
+<component name="CopyrightManager">
+  <copyright>
+    <option name="notice" value="Copyright (c) 武汉脚印猫科技有限公司 (Wuhan Footprint Cat Technology Co., Ltd.)&#10;&#10;This source code is licensed under the BSD-3-Clause license found in the&#10;LICENSE file in the root directory of this source tree.&#10;&#10;SPDX-License-Identifier: BSD-3-Clause" />
+    <option name="myName" value="frost-iot 寒霜物联 项目许可证" />
+  </copyright>
+</component>
+```
+
+`.idea/copyright/profiles_settings.xml`
+
+```xml
+<component name="CopyrightManager">
+  <settings default="frost-iot 寒霜物联 项目许可证">
+    <module2copyright>
+      <element module="项目 Java 代码 (用于添加版权头)" copyright="frost-iot 寒霜物联 项目许可证" />
+    </module2copyright>
+    <LanguageOptions name="JAVA" />
+  </settings>
+</component>
+```
+#### 使用方式
+
+左侧文件树中选择顶级目录
+
+IDEA 顶部菜单 - 代码 - 更新版权 - 选择需要更新的范围 - 点击 [分析] 按钮即可

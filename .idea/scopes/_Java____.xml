@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="项目 Java 代码 (用于添加版权头)" pattern="src[frost-iot*]:*..*" />
+</component>

@@ -20,6 +20,8 @@
 
 [项目模块结构](./docs/include/项目模块结构.md ':include')
 
+[IDEA 配置](internal/IDEA%20配置.md)
+
 ## 许可证
 
 BSD-3-Clause license
