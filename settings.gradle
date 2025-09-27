@@ -33,7 +33,7 @@ include 'frost-iot-adapter-sdk' // 发布组件
 include 'frost-iot-core' // 发布组件
 // Frost IoT 适配器
 // include 'frost-iot-adapter'
-include 'frost-iot-adapter:frost-iot-adapter-mqtt' // 发布组件
+// include 'frost-iot-adapter:frost-iot-adapter-mqtt' // 发布组件
 
 // Frost BOM 依赖版本定义
 include 'frost-iot-dependencies'

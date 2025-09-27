@@ -10,9 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/common" />
-            <option value="$PROJECT_DIR$/frost-iot-adapter" />
             <option value="$PROJECT_DIR$/frost-iot-adapter-sdk" />
-            <option value="$PROJECT_DIR$/frost-iot-adapter/frost-iot-adapter-mqtt" />
             <option value="$PROJECT_DIR$/frost-iot-core" />
             <option value="$PROJECT_DIR$/frost-iot-dependencies" />
           </set>
