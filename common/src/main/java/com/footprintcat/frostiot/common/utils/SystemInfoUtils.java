@@ -12,19 +12,24 @@ package com.footprintcat.frostiot.common.utils;
 import com.footprintcat.frostiot.common.internal.IFrostIotModuleInfo;
 import com.footprintcat.frostiot.common.internal.IFrostIotRuntimeInfo;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
+import java.io.File;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Enumeration;
+import java.util.Optional;
 import java.util.Properties;
 
 /**
@@ -71,7 +76,8 @@ public class SystemInfoUtils {
      */
     public static void printSystemInfo(@NotNull Charset consoleCharset,
                                        @NotNull final IFrostIotModuleInfo moduleInfo,
-                                       @NotNull final IFrostIotRuntimeInfo runtimeInfo) {
+                                       @NotNull final IFrostIotRuntimeInfo runtimeInfo,
+                                       @NotNull final Class<?> applicationEntryClazz) {
 
         System.out.println();
         System.out.println("[软件信息]");
@@ -82,8 +88,11 @@ public class SystemInfoUtils {
         // 当前时间
         String currentTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
-        // 当前工作目录 Current Working Directory
+        // 运行目录 Current Working Directory
+        // 简单获取当前工作目录，不关心路径是否标准化
         String userDir = System.getProperty("user.dir");
+        // 标准化路径
+        String currentWorkingDirNio = java.nio.file.Paths.get("").toAbsolutePath().toString();
 
         // 调试模式
         RuntimeMXBean runtimeMXBean = ManagementFactory.getRuntimeMXBean();
@@ -92,11 +101,17 @@ public class SystemInfoUtils {
         System.out.println("[配置信息]");
         printInfoLine("配置文件   ", "[" + String.join(", ", runtimeInfo.getAppProfileList()) + "]");
         printInfoLine("配置文件说明", runtimeInfo.getAppProfileName());
+        System.out.println();
+
+        System.out.println("[运行信息]");
         printInfoLine("模块启动时间", currentTime);
-        printInfoLine("服务 URL  ", runtimeInfo.getRootUrlWithScheme());
-        printInfoLine("当前工作目录", userDir);
         printInfoLine("调试模式   ", isDebug ? "是" : "否");
         printInfoLine("运行方式   ", getRunTypeIntro());
+        printInfoLine("程序所在目录 ",
+                Optional.ofNullable(getJarDir(applicationEntryClazz, false)).orElse("获取失败"));
+        printInfoLine("运行目录   ", userDir);
+        printInfoLine(" L 标准化形式", currentWorkingDirNio);
+        printInfoLine("服务 URL  ", runtimeInfo.getRootUrlWithScheme());
         System.out.println();
 
         System.out.println("[技术栈]");
@@ -314,7 +329,7 @@ public class SystemInfoUtils {
     /**
      * 获取程序运行方式（文字描述）
      *
-     * @return
+     * @return runTypeIntro
      * @since 2025-09-28
      */
     private static @NotNull String getRunTypeIntro() {
@@ -333,4 +348,34 @@ public class SystemInfoUtils {
         }
         return "获取失败: 未找到 " + simpleName + ".class";
     }
+
+    /**
+     * 获取 JAR 包所在目录
+     *
+     * @return jarPath
+     * @since 2025-09-28
+     */
+    public static @Nullable String getJarDir(Class<?> clazz, boolean canonicalPath) {
+        try {
+            URL clazzLocation = clazz.getProtectionDomain().getCodeSource().getLocation();
+            String jarPath = URLDecoder.decode(clazzLocation.getPath(), StandardCharsets.UTF_8);
+            File jarFile = new File(jarPath);
+            // jarFile 示例：
+            // 本地调试: E:\Project\frost-iot-project\frost-iot\frost-iot-core\build\classes\java\main
+            // jar运行: E:\Project\frost-iot-project\frost-iot\frost-iot-core\build\libs\frost-iot-core-0.0.1-SNAPSHOT-all.jar
+            boolean isJarFile = jarFile.isFile() /* not directory */ && jarFile.getName().endsWith(".jar");
+            if (!isJarFile) {
+                return canonicalPath
+                        ? jarFile.getCanonicalPath()
+                        : jarFile.getPath();
+            }
+            return canonicalPath
+                    ? jarFile.getParentFile().getCanonicalPath()
+                    : jarFile.getParent();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null; // 或者根据逻辑处理异常
+        }
+    }
+
 }

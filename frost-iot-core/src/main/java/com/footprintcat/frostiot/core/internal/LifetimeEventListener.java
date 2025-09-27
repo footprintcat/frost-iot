@@ -9,7 +9,9 @@
 
 package com.footprintcat.frostiot.core.internal;
 
+import com.footprintcat.frostiot.common.utils.ConsoleUtils;
 import com.footprintcat.frostiot.common.utils.SystemInfoUtils;
+import com.footprintcat.frostiot.core.Application;
 import io.micronaut.context.annotation.Context;
 import io.micronaut.runtime.event.annotation.EventListener;
 import io.micronaut.runtime.server.event.ServerShutdownEvent;
@@ -53,7 +55,7 @@ public class LifetimeEventListener {
     public void onStartup(ServerStartupEvent event) {
 
         // 打印系统信息
-        SystemInfoUtils.printSystemInfo(charset, moduleInfo, runtimeInfo);
+        SystemInfoUtils.printSystemInfo(charset, moduleInfo, runtimeInfo, Application.class);
 
         // 打印网卡信息
         SystemInfoUtils.printNetworkInfo();
@@ -76,7 +78,7 @@ public class LifetimeEventListener {
         //         System.out.println(String.format("%-" + maxKeyLength + "s", k) + " : " + frostIotCoreModuleInfo.getRootUrlWithScheme() + v)
         // );
         apiDocUrlMap.forEach((k, v) -> System.out.printf("%-" + (maxKeyLength + 1) + "s: %s%n",
-                k, runtimeInfo.getRootUrlWithScheme() + v));
+                ConsoleUtils.ANSI_PURPLE + k + ConsoleUtils.ANSI_RESET, runtimeInfo.getRootUrlWithScheme() + v));
         System.out.println();
 
         // 初始化逻辑
