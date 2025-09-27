@@ -10,6 +10,7 @@
 package com.footprintcat.frostiot.core.internal;
 
 import com.footprintcat.frostiot.common.utils.SystemInfoUtils;
+import io.micronaut.context.annotation.Context;
 import io.micronaut.runtime.event.annotation.EventListener;
 import io.micronaut.runtime.server.event.ServerShutdownEvent;
 import io.micronaut.runtime.server.event.ServerStartupEvent;
@@ -26,22 +27,33 @@ import java.util.Map;
  *
  * @since 2025-04-25
  */
+@Context // 此注解确保该 Bean 在上下文启动早期初始化
 @Singleton
 @Slf4j
 public class LifetimeEventListener {
 
     // @Inject docs: https://micronaut.bookhub.tech/action/service#ioc-%E6%B3%A8%E8%A7%A3
     @Inject
-    private FrostIotCoreModuleInfo frostIotCoreModuleInfo;
+    private FrostIotCoreRuntimeInfo runtimeInfo;
+
+    FrostIotCoreModuleInfo moduleInfo = FrostIotCoreModuleInfo.getInstance();
+
+    @NotNull
+    private final Charset charset;
+
+    LifetimeEventListener() {
+        // 解决 log.info 在 Windows 系统自带命令行打印时中文乱码问题
+        charset = EncodingInitializer.init();
+
+        // 打印版权信息
+        SystemInfoUtils.printCopyright(moduleInfo);
+    }
 
     @EventListener
     public void onStartup(ServerStartupEvent event) {
 
-        // 解决 log.info 在 Windows 系统自带命令行打印时中文乱码问题
-        @NotNull Charset charset = EncodingInitializer.init();
-
         // 打印系统信息
-        SystemInfoUtils.printSystemInfo(charset, frostIotCoreModuleInfo);
+        SystemInfoUtils.printSystemInfo(charset, moduleInfo, runtimeInfo);
 
         // 打印网卡信息
         SystemInfoUtils.printNetworkInfo();
@@ -64,7 +76,7 @@ public class LifetimeEventListener {
         //         System.out.println(String.format("%-" + maxKeyLength + "s", k) + " : " + frostIotCoreModuleInfo.getRootUrlWithScheme() + v)
         // );
         apiDocUrlMap.forEach((k, v) -> System.out.printf("%-" + (maxKeyLength + 1) + "s: %s%n",
-                k, frostIotCoreModuleInfo.getRootUrlWithScheme() + v));
+                k, runtimeInfo.getRootUrlWithScheme() + v));
         System.out.println();
 
         // 初始化逻辑

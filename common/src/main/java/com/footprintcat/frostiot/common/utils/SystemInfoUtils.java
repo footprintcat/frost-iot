@@ -10,6 +10,7 @@
 package com.footprintcat.frostiot.common.utils;
 
 import com.footprintcat.frostiot.common.internal.IFrostIotModuleInfo;
+import com.footprintcat.frostiot.common.internal.IFrostIotRuntimeInfo;
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.management.ManagementFactory;
@@ -33,11 +34,11 @@ import java.util.Properties;
 public class SystemInfoUtils {
 
     /**
-     * 打印软件信息、系统信息、系统状态及版权信息
+     * 打印版权信息
      *
-     * @since 2025-04-25
+     * @since 2025-09-28
      */
-    public static void printSystemInfo(@NotNull Charset consoleCharset, @NotNull final IFrostIotModuleInfo moduleInfo) {
+    public static void printCopyright(@NotNull final IFrostIotModuleInfo moduleInfo) {
 
         // 2025.05.17 开源项目不应存在 All rights reserved 字样
         // Copyright © 2025 footprintcat. All rights reserved.
@@ -60,9 +61,21 @@ public class SystemInfoUtils {
         System.out.println("Licensed under the " + moduleInfo.getAppLicense() + " License, see LICENSE for details.");
         System.out.println();
 
+    }
+
+    /**
+     * 打印软件信息、系统信息及系统状态
+     *
+     * @since 2025-04-25
+     */
+    public static void printSystemInfo(@NotNull Charset consoleCharset,
+                                       @NotNull final IFrostIotModuleInfo moduleInfo,
+                                       @NotNull final IFrostIotRuntimeInfo runtimeInfo) {
+
+        System.out.println();
         System.out.println("[软件信息]");
         printInfoLine("软件名称   ", moduleInfo.getAppName());
-        printInfoLine("模块      ", moduleInfo.getAppModule() + " " + moduleInfo.getAppVersion());
+        printInfoLine("模块      ", moduleInfo.getAppModule() + " " + runtimeInfo.getAppVersion());
         System.out.println();
 
         // 当前时间
@@ -76,10 +89,10 @@ public class SystemInfoUtils {
         boolean isDebug = runtimeMXBean.getInputArguments().toString().contains("-agentlib:jdwp");
 
         System.out.println("[配置信息]");
-        printInfoLine("配置文件   ", "[" + String.join(", ", moduleInfo.getAppProfileList()) + "]");
-        printInfoLine("配置文件说明", moduleInfo.getAppProfileName());
+        printInfoLine("配置文件   ", "[" + String.join(", ", runtimeInfo.getAppProfileList()) + "]");
+        printInfoLine("配置文件说明", runtimeInfo.getAppProfileName());
         printInfoLine("模块启动时间", currentTime);
-        printInfoLine("服务 URL  ", moduleInfo.getRootUrlWithScheme());
+        printInfoLine("服务 URL  ", runtimeInfo.getRootUrlWithScheme());
         printInfoLine("当前工作目录", userDir);
         printInfoLine("调试模式   ", isDebug ? "是" : "否");
         System.out.println();
