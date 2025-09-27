@@ -43,6 +43,10 @@ core 模块使用 Micronaut 开发，开发体验类似 Spring Boot 但更适合
 
 [![Star History Chart](https://api.star-history.com/svg?repos=footprintcat/frost-iot&type=Date)](https://www.star-history.com/#footprintcat/frost-iot&Date)
 
+## 📫 免责条款
+
+本开源项目仅供合法合规用途使用。使用者应承诺遵守《中华人民共和国网络安全法》、《数据安全法》、《个人信息保护法》等相关法律法规。<b>严禁使用本项目从事任何违反中国法律或危害国家安全的行为。项目开发者不对任何因使用本项目而产生的法律责任或后果负责。使用者须对自身行为承担全部责任。</b>
+
 ### 许可证
 
 [BSD-3-Clause license](LICENSE)
