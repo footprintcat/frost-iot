@@ -22,6 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 /**
@@ -42,10 +43,12 @@ public class LifetimeEventListener {
 
     @NotNull
     private final Charset charset;
+    private final boolean isUtf8Charset;
 
     LifetimeEventListener() {
         // 解决 log.info 在 Windows 系统自带命令行打印时中文乱码问题
         charset = EncodingInitializer.init();
+        isUtf8Charset = StandardCharsets.UTF_8.equals(charset);
 
         // 打印版权信息
         SystemInfoUtils.printCopyright(moduleInfo);
@@ -83,7 +86,12 @@ public class LifetimeEventListener {
 
         // 初始化逻辑
         // log.info("Micronaut 应用已启动！");
-        log.info("应用启动成功 (๑•̀ㅂ•́)و✧");
+
+        // 2025.09.28 fix: 对于非 UTF-8 字符集的控制台可能不支持打印特殊字符（比如 GBK），这里做一下做兜底处理
+        final String emoji = isUtf8Charset
+                ? "(๑•̀ㅂ•́)و✧" // (ง •ᴗ•)ง
+                : "(￣▽￣)ノ";
+        log.info("应用启动成功 {}", emoji);
     }
 
     @EventListener
