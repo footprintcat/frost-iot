@@ -18,6 +18,7 @@ import java.lang.management.RuntimeMXBean;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
+import java.net.URL;
 import java.nio.charset.Charset;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -95,6 +96,7 @@ public class SystemInfoUtils {
         printInfoLine("服务 URL  ", runtimeInfo.getRootUrlWithScheme());
         printInfoLine("当前工作目录", userDir);
         printInfoLine("调试模式   ", isDebug ? "是" : "否");
+        printInfoLine("运行方式   ", getRunTypeIntro());
         System.out.println();
 
         System.out.println("[技术栈]");
@@ -307,5 +309,28 @@ public class SystemInfoUtils {
             }
         }
         return macs.toString();
+    }
+
+    /**
+     * 获取程序运行方式（文字描述）
+     *
+     * @return
+     * @since 2025-09-28
+     */
+    private static @NotNull String getRunTypeIntro() {
+        // 当前类的类名
+        String simpleName = SystemInfoUtils.class.getSimpleName(); // SystemInfoUtils
+        URL currentClassResourcePath = SystemInfoUtils.class.getResource(simpleName + ".class" /*"SystemInfoUtils.class"*/);
+        if (currentClassResourcePath != null) {
+            String path = currentClassResourcePath.toString();
+            if (path.startsWith("jar:")) {
+                return "通过 jar 包运行";
+            } else if (path.startsWith("file:")) {
+                return "通过 class 字节码文件运行（一般是通过开发工具运行的）";
+            } else {
+                return "未知的运行方式. currentClassResourcePath: " + path;
+            }
+        }
+        return "获取失败: 未找到 " + simpleName + ".class";
     }
 }
