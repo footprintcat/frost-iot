@@ -7,9 +7,10 @@ plugins {
 // group = FROST_APP_GROUP
 // version = FROST_APP_VERSION
 
-// repositories {
-//     mavenCentral()
-// }
+repositories {
+    // 保留 mavenCentral(), 确保在 IDEA 中，通过代码点击进依赖源码时，右上角 [下载源代码] 按钮可以正常使用
+    mavenCentral()
+}
 
 dependencies {
     // implementation platform(...) 仅传递版本约束，不传递实际依赖。例如: 统一版本管理（BOM）
