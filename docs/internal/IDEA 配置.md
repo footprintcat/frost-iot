@@ -1,5 +1,51 @@
 # IDEA 配置
 
+## 需要手动配置的配置项
+
+> 以下配置未提交到代码仓库中，需手动进行配置
+
+`未在 .idea 目录中的配置项`
+
+```xml
+<!-- 设置 - 编辑器 - 常规 - 自动导入 - Java - 动态添加明确的 import -->
+<!-- docs:
+  自动导入 - 自动添加导入语句
+  Auto import - Automatically add import statements
+  - zh: https://www.jetbrains.com/zh-cn/help/idea/creating-and-optimizing-imports.html#automatically-add-import-statements
+  - en: https://www.jetbrains.com/help/idea/creating-and-optimizing-imports.html#automatically-add-import-statements
+  自动导入 - Java
+  Auto Import - Java
+  - zh: https://www.jetbrains.com/zh-cn/help/idea/settings-auto-import.html#java
+  - en: https://www.jetbrains.com/help/idea/settings-auto-import.html#java
+-->
+```
+
+`.idea/workspace.xml`
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  ...
+  <!-- 设置 - 编辑器 - 常规 - 自动导入 - Java - 动态优化 import -->
+  <!-- docs:
+    自动导入 - 实时优化导入
+    Auto import - Optimize imports on the fly
+    - zh: https://www.jetbrains.com/zh-cn/help/idea/creating-and-optimizing-imports.html#-en0wtk_154
+    - en: https://www.jetbrains.com/help/idea/creating-and-optimizing-imports.html#-9qycw4_155
+    自动导入 - Java
+    Auto Import - Java
+    - zh: https://www.jetbrains.com/zh-cn/help/idea/settings-auto-import.html#java
+    - en: https://www.jetbrains.com/help/idea/settings-auto-import.html#java
+  -->
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  ...
+</project>
+```
+
+## 已提交到代码仓库的配置项
+
 `.idea/codeStyles/codeStyleConfig.xml`
 
 ```xml
