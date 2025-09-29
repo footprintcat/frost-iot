@@ -61,14 +61,19 @@ dependencies {
     // docs: https://micronaut.bookhub.tech/data/introduction
 
     // Micronaut Data JPA Hibernate 相关依赖
-    // docs: https://micronaut.bookhub.tech/data/hibernate
+    // docs: https://guides.micronaut.io/latest/micronaut-jpa-hibernate-gradle-java.html
+    // Configures Hibernate/JPA EntityManagerFactory beans
     implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
+    // Micronaut Data Transaction Hibernate dependency
+    implementation("io.micronaut.data:micronaut-data-tx-hibernate")
+    // 连接池 (推荐 HikariCP)
+    // Configures SQL DataSource instances using Hikari Connection Pool
+    implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     runtimeOnly("org.postgresql:postgresql") // PostgreSQL 驱动
-    implementation("io.micronaut.sql:micronaut-jdbc-hikari") // 连接池 (推荐 HikariCP)
 
     // Micronaut Data Hibernate Reactive 相关依赖
     // docs: https://micronaut.bookhub.tech/data/hibernateReactive
-    // annotationProcessor("io.micronaut.data:micronaut-data-processor") // 启用注解处理器，用于自动生成Repository实现类
+    // annotationProcessor("io.micronaut.data:micronaut-data-processor")
     // implementation("io.micronaut.data:micronaut-data-hibernate-reactive")
     // implementation("io.micronaut.sql:micronaut-hibernate-reactive")
     // runtimeOnly("io.micronaut.reactor:micronaut-reactor") // 如果使用Reactor
@@ -145,5 +150,3 @@ micronaut {
 tasks.named("dockerfileNative") {
     jdkVersion = "21"
 }
-
-
