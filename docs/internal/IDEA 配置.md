@@ -123,6 +123,8 @@
       <w>freefair</w>
       <!-- 产品英文名 -->
       <w>frostiot</w>
+      <!-- gradle.properties 文件中 JVM 参数 -->
+      <w>jvmargs</w>
       <!-- PostgreSQL 数据库 -->
       <w>postgre</w>
       <!-- application.yml 中 rapidoc 配置 -->
