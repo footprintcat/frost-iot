@@ -41,6 +41,9 @@ dependencies {
     // 编码配置代码见: EncodingInitializer
     compileOnly("ch.qos.logback:logback-classic")
 
+    // lombok 依赖注解处理
+    annotationProcessor("org.projectlombok:lombok")
+
     // jetbrains 编译时注解
     implementation("org.jetbrains:annotations:${libraries.jetbrainsAnnotations}")
 
