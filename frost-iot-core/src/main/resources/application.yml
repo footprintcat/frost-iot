@@ -73,6 +73,18 @@ datasources:
     driverClassName: org.postgresql.Driver
     username: frostiot
     password: frostiot
+#     maximum-pool-size: 10
+
+jpa:
+  default:
+#     entity-scan:
+#       packages: com.footprintcat.frostiot.core.pojo
+#     properties:
+#       hibernate:
+#         # show_sql: false
+#         # format_sql: false
+#         hbm2ddl:
+#           auto: update
 
 frost-iot:
   # Frost IoT 版本号

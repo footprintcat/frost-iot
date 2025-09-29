@@ -44,6 +44,35 @@ dependencies {
     // lombok 依赖注解处理
     annotationProcessor("org.projectlombok:lombok")
 
+    // lombok 依赖处理需要在此之前
+
+    // // Micronaut JPA 相关依赖
+    // // docs: https://micronaut.bookhub.tech/action/db/jpa
+    // // JPA 使用的注解来源于依赖 jakarta.annotation-api
+    // compileOnly("jakarta.annotation:jakarta.annotation-api")
+    // // micronaut-jdbc-hikari 封装的对接 hikari 连接池的依赖
+    // implementation("io.micronaut.sql:micronaut-jdbc-hikari")
+    // // micronaut-hibernate-jpa 是使用 Hibernate JPA 的核心依赖
+    // implementation("io.micronaut.sql:micronaut-hibernate-jpa")
+    // // micronaut-serde-jackson 带有实体的序列化注解
+    // implementation("io.micronaut.serde:micronaut-serde-jackson")
+
+    // Micronaut Data 相关依赖
+    // docs: https://micronaut.bookhub.tech/data/introduction
+
+    // Micronaut Data JPA Hibernate 相关依赖
+    // docs: https://micronaut.bookhub.tech/data/hibernate
+    implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
+    runtimeOnly("org.postgresql:postgresql") // PostgreSQL 驱动
+    implementation("io.micronaut.sql:micronaut-jdbc-hikari") // 连接池 (推荐 HikariCP)
+
+    // Micronaut Data Hibernate Reactive 相关依赖
+    // docs: https://micronaut.bookhub.tech/data/hibernateReactive
+    // annotationProcessor("io.micronaut.data:micronaut-data-processor") // 启用注解处理器，用于自动生成Repository实现类
+    // implementation("io.micronaut.data:micronaut-data-hibernate-reactive")
+    // implementation("io.micronaut.sql:micronaut-hibernate-reactive")
+    // runtimeOnly("io.micronaut.reactor:micronaut-reactor") // 如果使用Reactor
+
     // jetbrains 编译时注解
     implementation("org.jetbrains:annotations:${libraries.jetbrainsAnnotations}")
 
