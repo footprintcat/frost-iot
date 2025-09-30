@@ -113,8 +113,6 @@
     <words>
       <!-- -Dfile.encoding=utf-8 命令 -->
       <w>Dfile</w>
-      <!-- PostgreSQL 数据库名称 -->
-      <w>PostgreSQL</w>
       <!-- application.yml 中 datasources 配置 -->
       <w>datasources</w>
       <!-- 公司英文名 -->
@@ -123,6 +121,8 @@
       <w>freefair</w>
       <!-- 产品英文名 -->
       <w>frostiot</w>
+      <!-- GraalVM -->
+      <w>graal</w>
       <!-- gradle.properties 文件中 JVM 参数 -->
       <w>jvmargs</w>
       <!-- PostgreSQL 数据库 -->
