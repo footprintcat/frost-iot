@@ -94,12 +94,12 @@ GraalVM 原生编译 -native.jar
 - 对于开发，可以使用标准的 -all.jar
 - 如果使用 GraalVM 原生镜像，使用 -native.jar
 
-## Micronaut 4.8.2 Documentation
+## Micronaut 4.9.3 Documentation
 
-- [User Guide](https://docs.micronaut.io/4.8.2/guide/index.html)
-- [API Reference](https://docs.micronaut.io/4.8.2/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/4.8.2/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
+- [User Guide](https://docs.micronaut.io/4.9.3/guide/index.html)
+- [API Reference](https://docs.micronaut.io/4.9.3/api/index.html)
+- [Configuration Reference](https://docs.micronaut.io/4.9.3/guide/configurationreference.html)
+- [Micronaut Guides](https://guides.micronaut.io/)
 
 ---
 
