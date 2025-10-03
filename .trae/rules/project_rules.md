@@ -5,7 +5,13 @@
 When answering my questions, please follow the rules:
 1. Please use the system default language to answer my questions.
 
+When providing suggestions, please follow the rules:
+1. Mark suggestions with numerical sequence numbers. Users can subsequently make corresponding adjustments by entering a sequence number.
+
 ## Code Edit Rules
+
+Before editing the code:
+1. Do not act directly. First, present the plan and proceed only after receiving confirmation.
 
 When editing the code, please follow the rules:
 1. Do not remove any existing comments.
@@ -21,4 +27,12 @@ Common code style:
 1. When generating new lines, please trim the end of the line.
 
 Java code style:
-1. `@since` should use today (the current time), not from other Java class comments.
+1. `@since` should use today's date (the current time), not the date from other Java class comments.
+
+## Markdown Edit Rules
+
+When you edit a markdown file, you should read the entire file first, and edit only the necessary part. DO NOT rewrite the entire file.
+
+## Git Commit
+
+After you finish the code, please generate a git commit message. The commit should follow the history format and use Simplified Chinese.
