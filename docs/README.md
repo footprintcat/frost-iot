@@ -4,9 +4,11 @@
 
 # 寒霜物联 Frost IoT
 
-支持轻量化快速接入的 IoT 设备统一接入平台
+内部开发文档
 
 </div>
+
+> 本文档为内部开发文档，使用文档请前往: https://iot.footprintcat.com/
 
 ## 快速开始
 
@@ -18,7 +20,11 @@
 
 ![项目结构](./diagram/项目结构.embed.svg)
 
+## 项目模块结构
+
 [项目模块结构](./docs/include/项目模块结构.md ':include')
+
+## 开发与贡献
 
 [IDEA 配置](internal/IDEA%20配置.md)
 
