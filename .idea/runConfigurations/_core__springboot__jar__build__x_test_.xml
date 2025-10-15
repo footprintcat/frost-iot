@@ -2,7 +2,7 @@
   <configuration default="false" name="[core][springboot] 打jar包 (build -x test)" type="GradleRunConfiguration" factoryName="Gradle">
     <ExternalSystemSettings>
       <option name="executionName" />
-      <option name="externalProjectPath" value="$PROJECT_DIR$/frost-iot-core" />
+      <option name="externalProjectPath" value="$PROJECT_DIR$/frost-iot-core-springboot" />
       <option name="externalSystemIdString" value="GRADLE" />
       <option name="scriptParameters" value="-x test" />
       <option name="taskDescriptions">

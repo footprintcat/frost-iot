@@ -5,7 +5,7 @@
 项目打包
 
 ```sh
-cd frost-iot-core
+cd frost-iot-core-springboot
 
 ../gradlew clean -x test
 # windows
@@ -23,13 +23,15 @@ cd frost-iot-core
 # 打原生包
 # 需要先确保 JAVA_HOME 指向 GraalVM JDK
 # 例如: JAVA_HOME=D:\Program\Development\Environment\Java\graalvm-community-openjdk-22.0.2+9.1
-./gradlew nativeCompile -x test
+../gradlew nativeCompile -x test
+# windows
+..\gradlew.bat nativeCompile -x test
 ```
 
 运行
 
 ```sh
-cd frost-iot-core
+cd frost-iot-core-springboot
 
 # 运行 jar 包
 java -jar build/libs/frost-iot-core-0.0.1-SNAPSHOT.jar
