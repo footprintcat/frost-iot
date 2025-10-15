@@ -1,12 +1,12 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="FrostIotCoreApplication" type="MicronautRunConfigurationType" factoryName="Micronaut">
-    <option name="MAIN_CLASS_NAME" value="com.footprintcat.frostiot.core.Application" />
+    <option name="MAIN_CLASS_NAME" value="com.footprintcat.frostiot.core.FrostIotCoreApplication" />
     <module name="frost-iot.frost-iot-core.main" />
     <option name="alternativeJrePath" />
     <option name="alternativeJrePathEnabled" value="false" />
-    <option name="mainClass" value="com.footprintcat.frostiot.core.Application" />
+    <option name="mainClass" value="com.footprintcat.frostiot.core.FrostIotCoreApplication" />
     <option name="passParentEnvs" value="true" />
-    <option name="programParameters" value="" />
+    <option name="programParameters" />
     <option name="vmParameters" />
     <method v="2">
       <option name="Make" enabled="true" />

@@ -11,7 +11,7 @@ package com.footprintcat.frostiot.core.internal;
 
 import com.footprintcat.frostiot.common.utils.ConsoleUtils;
 import com.footprintcat.frostiot.common.utils.SystemInfoUtils;
-import com.footprintcat.frostiot.core.Application;
+import com.footprintcat.frostiot.core.FrostIotCoreApplication;
 import io.micronaut.context.annotation.Context;
 import io.micronaut.runtime.event.annotation.EventListener;
 import io.micronaut.runtime.server.event.ServerShutdownEvent;
@@ -55,7 +55,7 @@ public class LifetimeEventListener {
     public void onStartup(ServerStartupEvent event) {
 
         // 打印系统信息
-        SystemInfoUtils.printSystemInfo(charset, moduleInfo, runtimeInfo, Application.class);
+        SystemInfoUtils.printSystemInfo(charset, moduleInfo, runtimeInfo, FrostIotCoreApplication.class);
 
         // 打印网卡信息
         SystemInfoUtils.printNetworkInfo();
