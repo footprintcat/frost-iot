@@ -107,7 +107,7 @@ tasks.named('publishToMavenCentralPortal') {
 }
 
 application {
-    mainClass = "${group}.core.Application"
+    mainClass = "${group}.core.micronaut.Application"
 }
 java {
     // sourceCompatibility = JavaVersion.toVersion("17")
@@ -130,7 +130,7 @@ micronaut {
     testRuntime("junit5")
     processing {
         incremental(true)
-        annotations("${group}.core.*")
+        annotations("${group}.core.micronaut.*")
     }
     aot {
         // Please review carefully the optimizations enabled below

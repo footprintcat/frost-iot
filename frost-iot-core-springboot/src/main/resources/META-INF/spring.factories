@@ -7,4 +7,5 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
-org.springframework.boot.SpringApplicationRunListener=com.footprintcat.frostiot.core.internal.EarlyStartupPrinter
+org.springframework.boot.SpringApplicationRunListener=\
+  com.footprintcat.frostiot.core.springboot.internal.EarlyStartupPrinter

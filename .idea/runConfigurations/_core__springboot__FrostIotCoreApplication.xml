@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="[core][springboot] FrostIotCoreApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <module name="frost-iot.frost-iot-core-springboot.main" />
-    <option name="SPRING_BOOT_MAIN_CLASS" value="com.footprintcat.frostiot.core.FrostIotCoreApplication" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.footprintcat.frostiot.core.springboot.FrostIotCoreApplication" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
