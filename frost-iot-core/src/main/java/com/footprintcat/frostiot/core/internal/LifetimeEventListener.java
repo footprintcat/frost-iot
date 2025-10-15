@@ -39,13 +39,13 @@ public class LifetimeEventListener {
     @Inject
     private FrostIotCoreRuntimeInfo runtimeInfo;
 
-    FrostIotCoreModuleInfo moduleInfo = FrostIotCoreModuleInfo.getInstance();
+    private final FrostIotCoreModuleInfo moduleInfo = FrostIotCoreModuleInfo.getInstance();
 
     @NotNull
     private final Charset charset;
     private final boolean isUtf8Charset;
 
-    LifetimeEventListener() {
+    public LifetimeEventListener() {
         // 解决 log.info 在 Windows 系统自带命令行打印时中文乱码问题
         charset = EncodingInitializer.init();
         isUtf8Charset = StandardCharsets.UTF_8.equals(charset);
