@@ -54,16 +54,16 @@ public class FrostIotCoreModuleInfo implements IFrostIotModuleInfo {
      *
      * @since 2025-05-16
      */
-    private final String micronautName = "Micronaut";
-    private final String frameworkName = micronautName;
+    private final String springBootName = "Spring Boot";
+    private final String frameworkName = springBootName;
 
     /**
      * 框架版本号
      *
      * @since 2025-05-16
      */
-    private final String springbootVersion = SpringVersion.getVersion();
-    private final String frameworkVersion = springbootVersion;
+    private final String springBootVersion = SpringVersion.getVersion();
+    private final String frameworkVersion = springBootVersion;
 
     /**
      * 当前模块使用的 LICENSE 许可证名称 (结尾无需带 License 字样)

@@ -23,7 +23,7 @@ import java.lang.reflect.Method;
 import java.nio.charset.Charset;
 
 /**
- * 解决 micronaut log.info 打印编码问题
+ * 解决 springboot log.info 打印编码问题
  * <p>
  * 问题描述：
  * Windows 系统下，控制台默认编码 System.out.charset(): x-mswin-936

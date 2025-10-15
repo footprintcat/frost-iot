@@ -77,7 +77,7 @@ public class HelloController {
     }
 
     @Operation(summary = "测试接口，Service IoC 注入测试",
-        description = "see: https://micronaut.bookhub.tech/action/service")
+        description = "")
     @GetMapping("/injectService")
     public String injectService() {
         return helloService.sayHello();
