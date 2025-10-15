@@ -16,7 +16,6 @@ import io.micronaut.context.annotation.Context;
 import io.micronaut.runtime.event.annotation.EventListener;
 import io.micronaut.runtime.server.event.ServerShutdownEvent;
 import io.micronaut.runtime.server.event.ServerStartupEvent;
-import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
@@ -35,9 +34,7 @@ import java.util.Map;
 @Slf4j
 public class LifetimeEventListener {
 
-    // @Inject docs: https://micronaut.bookhub.tech/action/service#ioc-%E6%B3%A8%E8%A7%A3
-    @Inject
-    private FrostIotCoreRuntimeInfo runtimeInfo;
+    private final FrostIotCoreRuntimeInfo runtimeInfo;
 
     private final FrostIotCoreModuleInfo moduleInfo = FrostIotCoreModuleInfo.getInstance();
 
@@ -45,7 +42,8 @@ public class LifetimeEventListener {
     private final Charset charset;
     private final boolean isUtf8Charset;
 
-    public LifetimeEventListener() {
+    public LifetimeEventListener(FrostIotCoreRuntimeInfo runtimeInfo) {
+        this.runtimeInfo = runtimeInfo;
         // 解决 log.info 在 Windows 系统自带命令行打印时中文乱码问题
         charset = EncodingInitializer.init();
         isUtf8Charset = StandardCharsets.UTF_8.equals(charset);

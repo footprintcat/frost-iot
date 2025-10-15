@@ -13,6 +13,7 @@ import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
 import ch.qos.logback.core.ConsoleAppender;
 import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.OutputStreamWriter;
@@ -45,7 +46,7 @@ public class EncodingInitializer {
         Charset consoleCharset = getConsoleCharset();
 
         LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
-        ConsoleAppender<?> appender = (ConsoleAppender<?>) context.getLogger("ROOT").getAppender("STDOUT");
+        ConsoleAppender<?> appender = (ConsoleAppender<?>) context.getLogger(Logger.ROOT_LOGGER_NAME).getAppender("STDOUT");
         PatternLayoutEncoder encoder = (PatternLayoutEncoder) appender.getEncoder();
         encoder.setCharset(consoleCharset);
         encoder.start();
