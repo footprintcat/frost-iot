@@ -134,6 +134,22 @@
 </component>
 ```
 
+### ⛓️ 语法检查
+
+`.idea/inspectionProfiles/Project_Default.xml`
+
+```xml
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="UnnecessaryLocalVariable" enabled="true" level="WARNING" enabled_by_default="true">
+      <!-- 设置 - 编辑器 - 检查 - 数据流 -冗余局部变量 - 选项 - 忽略立即返回或抛出的变量 -->
+      <option name="m_ignoreImmediatelyReturnedVariables" value="true" />
+    </inspection_tool>
+  </profile>
+</component>
+```
+
 ### ⛓️ 项目编码
 
 `.idea/encodings.xml`
