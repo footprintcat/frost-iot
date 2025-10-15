@@ -1,0 +1,88 @@
+plugins {
+    id 'java'
+    // id 'application'  // 覆盖父项目的 java-library
+    id 'org.springframework.boot' version '4.0.0-M3'
+    id 'io.spring.dependency-management' version '1.1.7'
+    id 'org.graalvm.buildtools.native' version '0.10.6'
+}
+
+// group = FROST_APP_GROUP
+// version = FROST_APP_VERSION
+
+// java {
+//     toolchain {
+//         languageVersion = JavaLanguageVersion.of(17)
+//     }
+// }
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    // 保留 mavenCentral(), 确保在 IDEA 中，通过代码点击进依赖源码时，右上角 [下载源代码] 按钮可以正常使用
+    mavenCentral()
+}
+
+dependencies {
+    // implementation platform(...) 仅传递版本约束，不传递实际依赖。例如: 统一版本管理（BOM）
+    // implementation project(...)  传递所有依赖（代码 + 依赖项）
+
+    // 必需依赖
+    // implementation platform(project(":frost-iot-dependencies"))
+    implementation project(":frost-iot-dependencies")
+    implementation project(":common")
+
+    // SpringBoot 相关依赖
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-configuration-processor' // 加载 application.*.yml
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // 测试依赖
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // 配置处理器 (需要添加这个，否则 application-*.yml 不会被加载)
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
+
+    // implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.5'
+    // testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.5'
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // 数据库
+    runtimeOnly("org.postgresql:postgresql") // PostgreSQL 驱动
+
+    // jetbrains 编译时注解
+    implementation("org.jetbrains:annotations:${libraries.jetbrainsAnnotations}")
+
+    // OpenAPI/Swagger Support
+    // OpenAPI 注解支持
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:3.0.0-M1")
+
+    // 其他业务依赖
+    // ...
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+// GraalVM 打原生包相关配置
+graalvmNative {
+    binaries {
+        main {
+            imageName = "frost-iot-core"
+
+            // 如果静态分析发现代码里存在未经配置的动态特性（如反射、动态代理、JNI、资源加载等），
+            // 直接报错并终止构建，而不是退而求其次地生成一个仍需 JDK 的“fallback”可执行文件
+            buildArgs.add("--no-fallback")
+            buildArgs.add("-H:-SharedLibrary")  // ✅ 关键, 强制指定生成 exe 而不是 dll
+        }
+    }
+}

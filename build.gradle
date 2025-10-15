@@ -60,6 +60,7 @@ subprojects {
 // ./gradlew publish publishToMavenCentralPortal -Psigning.keyId="xxx" -Psigning.password="xxx" -Psigning.secretKeyRingFile="xxx" -DmavenCentral.authToken='xxxxxx' -x test
 configure([
         project(':frost-iot-dependencies'),
+        project(':frost-iot-core-springboot'),
         project(':frost-iot-core-micronaut'),
         project(':frost-iot-adapter-sdk'),
 ]) {

@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/frost-iot-adapter-sdk" />
             <option value="$PROJECT_DIR$/frost-iot-core-micronaut" />
+            <option value="$PROJECT_DIR$/frost-iot-core-springboot" />
             <option value="$PROJECT_DIR$/frost-iot-dependencies" />
           </set>
         </option>

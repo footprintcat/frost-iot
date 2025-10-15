@@ -1,0 +1,28 @@
+server:
+  port: 8666
+
+spring:
+  application:
+    name: frost-iot-core
+
+  datasource:
+    # default:
+      # 若连接远程 PostgreSQL, 需确保数据库已配置 listen_addresses (例如: listen_addresses = '*', 默认为 'localhost')
+      url: jdbc:postgresql://127.0.0.1:5432/frostiot_dev
+      driverClassName: org.postgresql.Driver
+      username: frostiot
+      password: frostiot
+      #maximum-pool-size: 10
+
+frost-iot:
+  # Frost IoT 版本号
+  version: 1.0.0
+  profile-name: "默认配置文件（application.yml）"
+  api:
+    # Api 文档版本号
+    version: 1.0.0
+
+# 打印调试日志
+#logging:
+#  level:
+#    root: DEBUG

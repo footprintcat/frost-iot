@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="[micronaut][dev] FrostIotCoreApplication" type="MicronautRunConfigurationType" factoryName="Micronaut">
+  <configuration default="false" name="[core][micronaut][dev] FrostIotCoreApplication" type="MicronautRunConfigurationType" factoryName="Micronaut">
     <envs>
       <env name="MICRONAUT_ENVIRONMENTS" value="develop" />
     </envs>
