@@ -16,7 +16,7 @@ import io.micronaut.http.server.HttpServerConfiguration;
 import jakarta.inject.Singleton;
 import lombok.Getter;
 
-import java.util.Collection;
+import java.util.Set;
 
 /**
  * 模块信息
@@ -29,10 +29,11 @@ public class FrostIotCoreRuntimeInfo implements IFrostIotRuntimeInfo {
 
     public FrostIotCoreRuntimeInfo(ApplicationContext applicationContext,
                                    HttpServerConfiguration serverConfiguration) {
-        appProfileList = applicationContext.getEnvironment().getActiveNames();
+        Set<String> activeNames = applicationContext.getEnvironment().getActiveNames();
+        appProfileList = activeNames.toArray(new String[0]);
 
         rootUrl = serverConfiguration.getHost().orElse("localhost") + ":"
-                + serverConfiguration.getPort().orElse(80);
+            + serverConfiguration.getPort().orElse(80);
         rootUrlWithScheme = "http://" + rootUrl;
     }
 
@@ -49,7 +50,7 @@ public class FrostIotCoreRuntimeInfo implements IFrostIotRuntimeInfo {
      *
      * @since 2025-05-17
      */
-    private final Collection<String> appProfileList;
+    private final String[] appProfileList;
 
     /**
      * 当前模块加载的配置文件说明

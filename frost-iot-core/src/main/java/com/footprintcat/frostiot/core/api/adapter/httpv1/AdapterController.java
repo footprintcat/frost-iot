@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Tag(name = "设备 http 接入接口")
 @Slf4j
-@Controller
+@Controller("/adapter/http/v1")
 public class AdapterController {
 
     @Operation(summary = "握手前调用，用于获取 core 模块基础版本信息，判断是否能够建立连接")

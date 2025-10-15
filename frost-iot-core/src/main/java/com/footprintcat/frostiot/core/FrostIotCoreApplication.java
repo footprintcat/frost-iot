@@ -29,4 +29,5 @@ public class FrostIotCoreApplication {
     public static void main(String[] args) {
         Micronaut.run(FrostIotCoreApplication.class, args);
     }
+
 }

@@ -11,8 +11,6 @@ package com.footprintcat.frostiot.common.internal;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Collection;
-
 /**
  * 模块信息 接口
  *
@@ -32,7 +30,7 @@ public interface IFrostIotRuntimeInfo {
      *
      * @since 2025-05-17
      */
-    @NotNull Collection<String> getAppProfileList();
+    @NotNull String[] getAppProfileList();
 
     /**
      * 当前模块加载的配置文件说明

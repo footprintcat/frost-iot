@@ -108,7 +108,7 @@ public class SystemInfoUtils {
         printInfoLine("调试模式   ", isDebug ? "是" : "否");
         printInfoLine("运行方式   ", getRunTypeIntro());
         printInfoLine("程序所在目录 ",
-                Optional.ofNullable(getJarDir(applicationEntryClazz, false)).orElse("获取失败"));
+            Optional.ofNullable(getJarDir(applicationEntryClazz, false)).orElse("获取失败"));
         printInfoLine("运行目录   ", userDir);
         printInfoLine(" L 标准化形式", currentWorkingDirNio);
         printInfoLine("服务 URL  ", runtimeInfo.getRootUrlWithScheme());
@@ -269,36 +269,36 @@ public class SystemInfoUtils {
                     System.out.println("  -> " + inetAddress.getHostAddress());
                     // System.out.println("主机名：" + inetAddress.getHostName());
                     System.out.println("     " +
-                            // 回环地址：用于本地主机内部通信的特殊地址，数据包不经过物理网络，直接由操作系统处理
-                            // 通信范围：仅限本机（无法被外部访问）
-                            // 典型场景：测试本地服务（如Web服务器、数据库）、诊断网络协议栈
-                            // IPv4范围：127.0.0.0 ~ 127.255.255.255（即127.0.0.0/8），最常用的是127.0.0.1
-                            // IPv6范围：::1（简写形式）
-                            // 域名解析：localhost默认指向127.0.0.1（IPv4）或::1（IPv6）
-                            // 特点：无需物理网络连接，安全性高（服务绑定到回环地址时，外部无法访问）
-                            "Loopback: " + inetAddress.isLoopbackAddress() + "; " +
+                        // 回环地址：用于本地主机内部通信的特殊地址，数据包不经过物理网络，直接由操作系统处理
+                        // 通信范围：仅限本机（无法被外部访问）
+                        // 典型场景：测试本地服务（如Web服务器、数据库）、诊断网络协议栈
+                        // IPv4范围：127.0.0.0 ~ 127.255.255.255（即127.0.0.0/8），最常用的是127.0.0.1
+                        // IPv6范围：::1（简写形式）
+                        // 域名解析：localhost默认指向127.0.0.1（IPv4）或::1（IPv6）
+                        // 特点：无需物理网络连接，安全性高（服务绑定到回环地址时，外部无法访问）
+                        "Loopback: " + inetAddress.isLoopbackAddress() + "; " +
 
-                            // 本地链路地址：这类地址用于同一物理网络内的设备间自动通信，无需手动配置或依赖DHCP服务器
-                            // 通信范围：同一物理网络（如Wi-Fi）
-                            // 典型场景：设备自动配置、临时通信
-                            // IPv4范围：169.254.0.0 ~ 169.254.255.255（即169.254.0.0/16）
-                            // IPv6范围：前缀为FE80::/10（如FE80::1）
-                            // 当设备（如电脑、打印机）通过DHCP获取IP失败时，会自动分配此类地址（如169.254.1.1），确保局域网内设备能临时通信
-                            // 仅在同一物理网络（如一个Wi-Fi网络）内有效，无法跨路由器通信
-                            // 常用于设备初始配置或故障恢复（如打印机找不到DHCP时）
-                            "LinkLocal: " + inetAddress.isLinkLocalAddress() + "; " +
+                        // 本地链路地址：这类地址用于同一物理网络内的设备间自动通信，无需手动配置或依赖DHCP服务器
+                        // 通信范围：同一物理网络（如Wi-Fi）
+                        // 典型场景：设备自动配置、临时通信
+                        // IPv4范围：169.254.0.0 ~ 169.254.255.255（即169.254.0.0/16）
+                        // IPv6范围：前缀为FE80::/10（如FE80::1）
+                        // 当设备（如电脑、打印机）通过DHCP获取IP失败时，会自动分配此类地址（如169.254.1.1），确保局域网内设备能临时通信
+                        // 仅在同一物理网络（如一个Wi-Fi网络）内有效，无法跨路由器通信
+                        // 常用于设备初始配置或故障恢复（如打印机找不到DHCP时）
+                        "LinkLocal: " + inetAddress.isLinkLocalAddress() + "; " +
 
-                            // 私有地址：这类地址用于组织内部网络，不可在公网路由
-                            // 通信范围：整个私有网络（跨路由器）
-                            // 典型场景：家庭/企业内网服务
-                            // IPv4范围：
-                            //   10.0.0.0 ~ 10.255.255.255（10.0.0.0/8）
-                            //   172.16.0.0 ~ 172.31.255.255（172.16.0.0/12）
-                            //   192.168.0.0 ~ 192.168.255.255（192.168.0.0/16）
-                            // IPv6范围：前缀为FEC0::/10（已废弃，现推荐使用FC00::/7的唯一本地地址ULA）
-                            // 用途：家庭路由器分配的地址（如192.168.1.1）；企业内部服务器、数据库等私有服务
-                            // 特点：需通过NAT（网络地址转换）才能访问公网。避免与公网IP冲突，增强安全性
-                            "SiteLocal: " + inetAddress.isSiteLocalAddress()
+                        // 私有地址：这类地址用于组织内部网络，不可在公网路由
+                        // 通信范围：整个私有网络（跨路由器）
+                        // 典型场景：家庭/企业内网服务
+                        // IPv4范围：
+                        //   10.0.0.0 ~ 10.255.255.255（10.0.0.0/8）
+                        //   172.16.0.0 ~ 172.31.255.255（172.16.0.0/12）
+                        //   192.168.0.0 ~ 192.168.255.255（192.168.0.0/16）
+                        // IPv6范围：前缀为FEC0::/10（已废弃，现推荐使用FC00::/7的唯一本地地址ULA）
+                        // 用途：家庭路由器分配的地址（如192.168.1.1）；企业内部服务器、数据库等私有服务
+                        // 特点：需通过NAT（网络地址转换）才能访问公网。避免与公网IP冲突，增强安全性
+                        "SiteLocal: " + inetAddress.isSiteLocalAddress()
                     );
                 }
             }
@@ -366,12 +366,12 @@ public class SystemInfoUtils {
             boolean isJarFile = jarFile.isFile() /* not directory */ && jarFile.getName().endsWith(".jar");
             if (!isJarFile) {
                 return canonicalPath
-                        ? jarFile.getCanonicalPath()
-                        : jarFile.getPath();
+                    ? jarFile.getCanonicalPath()
+                    : jarFile.getPath();
             }
             return canonicalPath
-                    ? jarFile.getParentFile().getCanonicalPath()
-                    : jarFile.getParent();
+                ? jarFile.getParentFile().getCanonicalPath()
+                : jarFile.getParent();
         } catch (Exception e) {
             e.printStackTrace();
             return null; // 或者根据逻辑处理异常
