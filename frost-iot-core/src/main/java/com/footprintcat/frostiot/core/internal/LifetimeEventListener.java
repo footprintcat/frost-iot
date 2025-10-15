@@ -62,23 +62,23 @@ public class LifetimeEventListener {
 
         // 打印接口文档地址
         Map<String, String> apiDocUrlMap = Map.of(
-                "swagger-ui", "/swagger-ui/index.html",
-                "redoc", "/redoc",
-                "openapi-explorer", "/openapi-explorer",
-                "scalar", "/scalar",
-                "rapidoc", "/rapidoc"
+            "swagger-ui", "/swagger-ui/index.html",
+            "redoc", "/redoc",
+            "openapi-explorer", "/openapi-explorer",
+            "scalar", "/scalar",
+            "rapidoc", "/rapidoc"
         );
         // 找出最长的键名长度
         int maxKeyLength = apiDocUrlMap.keySet().stream()
-                .mapToInt(String::length)
-                .max()
-                .orElse(0);
+            .mapToInt(String::length)
+            .max()
+            .orElse(0);
         System.out.println("[接口文档]");
         // apiDocUrlMap.forEach((k, v) ->
         //         System.out.println(String.format("%-" + maxKeyLength + "s", k) + " : " + frostIotCoreModuleInfo.getRootUrlWithScheme() + v)
         // );
         apiDocUrlMap.forEach((k, v) -> System.out.printf("%-" + (maxKeyLength + 1) + "s: %s%n",
-                ConsoleUtils.ANSI_PURPLE + k + ConsoleUtils.ANSI_RESET, runtimeInfo.getRootUrlWithScheme() + v));
+            ConsoleUtils.ANSI_PURPLE + k + ConsoleUtils.ANSI_RESET, runtimeInfo.getRootUrlWithScheme() + v));
         System.out.println();
 
         // 初始化逻辑
@@ -86,8 +86,8 @@ public class LifetimeEventListener {
 
         // 2025.09.28 fix: 对于非 UTF-8 字符集的控制台可能不支持打印特殊字符（比如 GBK），这里做一下做兜底处理
         final String emoji = isUtf8Charset
-                ? "(๑•̀ㅂ•́)و✧" // (ง •ᴗ•)ง
-                : "(￣▽￣)ノ";
+            ? "(๑•̀ㅂ•́)و✧" // (ง •ᴗ•)ง
+            : "(￣▽￣)ノ";
         log.info("应用启动成功 {}", emoji);
     }
 

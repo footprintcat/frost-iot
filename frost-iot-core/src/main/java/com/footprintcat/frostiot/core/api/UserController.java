@@ -100,7 +100,7 @@ public class UserController {
     public HttpResponse<User> getById(@PathVariable Long id) {
         Optional<User> user = userService.getById(id);
         return user.map(HttpResponse::ok)
-                .orElseGet(() -> HttpResponse.notFound());
+            .orElseGet(HttpResponse::notFound);
     }
 
     /**
@@ -120,7 +120,7 @@ public class UserController {
     public HttpResponse<User> getByUsername(@PathVariable String username) {
         Optional<User> user = userService.getByUsername(username);
         return user.map(HttpResponse::ok)
-                .orElseGet(() -> HttpResponse.notFound());
+            .orElseGet(HttpResponse::notFound);
     }
 
     /**
@@ -128,8 +128,8 @@ public class UserController {
      */
     @Get("/created-between")
     public HttpResponse<List<User>> listByCreatedAtBetween(
-            @QueryValue OffsetDateTime startTime,
-            @QueryValue OffsetDateTime endTime) {
+        @QueryValue OffsetDateTime startTime,
+        @QueryValue OffsetDateTime endTime) {
         List<User> users = userService.listByCreatedAtBetween(startTime, endTime);
         return HttpResponse.ok(users);
     }

@@ -42,6 +42,7 @@ public class User {
     private List<String> tags;
 
     // 必须有无参构造器
-    public User() {}
+    public User() {
+    }
 
 }
