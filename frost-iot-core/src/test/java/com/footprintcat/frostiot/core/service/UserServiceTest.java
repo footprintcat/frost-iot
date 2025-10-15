@@ -16,7 +16,6 @@ import jakarta.inject.Inject;
 import org.junit.jupiter.api.Test;
 
 import java.time.OffsetDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -157,8 +156,8 @@ public class UserServiceTest {
 
         // 创建并保存多个用户，有不同的创建时间
         OffsetDateTime now = OffsetDateTime.now();
-        OffsetDateTime earlier = now.minus(2, ChronoUnit.HOURS);
-        OffsetDateTime later = now.plus(2, ChronoUnit.HOURS);
+        OffsetDateTime earlier = now.minusHours(2);
+        OffsetDateTime later = now.plusHours(2);
 
         User user1 = new User();
         user1.setUsername("timeuserservice1");
@@ -175,8 +174,8 @@ public class UserServiceTest {
         userRepository.saveAll(Arrays.asList(user1, user2, user3));
 
         // 根据时间范围查询用户
-        OffsetDateTime startTime = now.minus(1, ChronoUnit.HOURS);
-        OffsetDateTime endTime = now.plus(1, ChronoUnit.HOURS);
+        OffsetDateTime startTime = now.minusHours(1);
+        OffsetDateTime endTime = now.plusHours(1);
         List<User> users = userService.listByCreatedAtBetween(startTime, endTime);
 
         // 应该只查询到中间的用户
