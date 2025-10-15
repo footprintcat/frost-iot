@@ -36,8 +36,7 @@ public interface UserRepository extends JpaRepository<@NotNull User, @NotNull Lo
     // 根据创建时间范围查询用户
     List<User> findByCreatedAtBetween(OffsetDateTime startTime, OffsetDateTime endTime);
 
-    // // 批量删除用户，类似 MyBatis-Plus 的批量删除
-    // void deleteAllByIdInList(List<Long> ids);
+    // 批量删除用户，使用JpaRepository提供的deleteAllById方法
 
     // 统计用户数量
     long count();

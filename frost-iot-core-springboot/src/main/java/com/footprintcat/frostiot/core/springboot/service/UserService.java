@@ -60,13 +60,14 @@ public class UserService {
         return userRepository.saveAll(users);
     }
 
-    // /**
-    //  * 更新用户，类似 MyBatis-Plus 的 updateById 方法
-    //  */
-    // @Transactional
-    // public User update(User user) {
-    //     return userRepository.update(user);
-    // }
+    /**
+     * 更新用户，类似 MyBatis-Plus 的 updateById 方法
+     */
+    @Transactional
+    public User update(User user) {
+        // JPA的save方法会根据实体是否有id来判断是插入还是更新
+        return userRepository.save(user);
+    }
 
     /**
      * 根据 ID 删除用户，类似 MyBatis-Plus 的 removeById 方法
@@ -76,13 +77,14 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    // /**
-    //  * 批量删除用户，类似 MyBatis-Plus 的 removeByIds 方法
-    //  */
-    // @Transactional
-    // public void deleteBatchIds(List<Long> ids) {
-    //     userRepository.deleteAllByIdInList(ids);
-    // }
+    /**
+     * 批量删除用户，类似 MyBatis-Plus 的 removeByIds 方法
+     */
+    @Transactional
+    public void deleteBatchIds(List<Long> ids) {
+        // 使用JpaRepository提供的deleteAllById方法进行批量删除
+        userRepository.deleteAllById(ids);
+    }
 
     /**
      * 根据 ID 查询用户，类似 MyBatis-Plus 的 getById 方法

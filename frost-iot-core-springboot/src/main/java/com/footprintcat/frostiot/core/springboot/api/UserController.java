@@ -61,16 +61,16 @@ public class UserController {
         return savedUsers;
     }
 
-    // /**
-    //  * 更新用户
-    //  * 类似 MyBatis-Plus 的 updateById 操作
-    //  */
-    // @PostMapping("/{id}")
-    // public User update(@PathVariable Long id, @RequestBody User user) {
-    //     user.setId(id);
-    //     User updatedUser = userService.update(user);
-    //     return updatedUser;
-    // }
+    /**
+     * 更新用户
+     * 类似 MyBatis-Plus 的 updateById 操作
+     */
+    @PostMapping("/{id}")
+    public User update(@PathVariable Long id, @RequestBody User user) {
+        user.setId(id);
+        User updatedUser = userService.update(user);
+        return updatedUser;
+    }
 
     /**
      * 删除用户
@@ -85,12 +85,10 @@ public class UserController {
      * 批量删除用户
      * 类似 MyBatis-Plus 的 removeByIds 操作
      */
-    /*
     @DeleteMapping("/batch")
     public void deleteBatch(@RequestBody List<Long> ids) {
         userService.deleteBatchIds(ids);
     }
-    */
 
     /**
      * 根据 ID 查询用户
