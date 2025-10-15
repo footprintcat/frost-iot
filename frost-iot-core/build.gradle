@@ -37,17 +37,25 @@ dependencies {
 
     // SpringBoot 相关依赖
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-configuration-processor' // 加载 application.*.yml
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // 测试依赖
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    // 配置处理器 (需要添加这个，否则 application-*.yml 不会被加载)
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
 
     // implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.5'
     // testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.5'
 
+    // Lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
+    // 数据库
     runtimeOnly("org.postgresql:postgresql") // PostgreSQL 驱动
 
     // jetbrains 编译时注解

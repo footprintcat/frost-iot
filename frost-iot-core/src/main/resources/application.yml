@@ -7,6 +7,7 @@ spring:
 
   datasource:
     # default:
+      # 若连接远程 PostgreSQL, 需确保数据库已配置 listen_addresses (例如: listen_addresses = '*', 默认为 'localhost')
       url: jdbc:postgresql://127.0.0.1:5432/frostiot_dev
       driverClassName: org.postgresql.Driver
       username: frostiot

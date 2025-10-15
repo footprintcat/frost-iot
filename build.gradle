@@ -30,19 +30,23 @@ allprojects {
         enabled = false
     }
 
-    tasks.withType(ProcessResources).tap {
-        configureEach {
-            exclude(
-                    // 排除测试用配置文件
-                    '**/application-*.yml',
-            )
+    // 打包时处理，本地运行时不处理的逻辑
+    if (gradle.startParameter.taskNames.any { it.contains("jar") or it.contains("build") or it.contains("native") }) {
+        // 打包时排除测试配置文件
+        tasks.withType(ProcessResources).tap {
+            configureEach {
+                exclude(
+                        // 排除测试用配置文件
+                        '**/application-*.yml',
+                )
+            }
         }
-    }
 
-    // 修复 Javadoc 任务
-    tasks.withType(Javadoc).configureEach {
-        exclude '**/.gitkeep'
-        options.addStringOption('Xdoclint:none', '-quiet')
+        // 修复 Javadoc 任务
+        tasks.withType(Javadoc).configureEach {
+            exclude '**/.gitkeep'
+            options.addStringOption('Xdoclint:none', '-quiet')
+        }
     }
 }
 
