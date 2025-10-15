@@ -30,7 +30,7 @@ include 'common'
 include 'frost-iot-adapter-sdk' // 发布组件
 
 // Frost IoT 核心
-include 'frost-iot-core' // 发布组件
+include 'frost-iot-core-micronaut' // 发布组件
 // Frost IoT 适配器
 // include 'frost-iot-adapter'
 // include 'frost-iot-adapter:frost-iot-adapter-mqtt' // 发布组件
