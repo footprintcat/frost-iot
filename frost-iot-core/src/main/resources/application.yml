@@ -1,8 +1,9 @@
+server:
+  port: 8666
+
 spring:
   application:
     name: frost-iot-core
-  server:
-    port: 8666
 
   datasource:
     # default:
