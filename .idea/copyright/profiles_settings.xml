@@ -1,0 +1,8 @@
+<component name="CopyrightManager">
+  <settings default="frost-iot 寒霜物联 项目许可证">
+    <module2copyright>
+      <element module="项目 Java 代码 (用于添加版权头)" copyright="frost-iot 寒霜物联 项目许可证" />
+    </module2copyright>
+    <LanguageOptions name="JAVA" />
+  </settings>
+</component>

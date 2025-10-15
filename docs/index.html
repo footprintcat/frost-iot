@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>寒霜物联 开发文档</title>
+    <!-- Frost IoT Documentation -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css">
+    <style>
+        /* 无论 Markdown 表格列对其方式是怎样的，表头都居中 */
+        th {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        加载中
+    </div>
+    <script>
+        window.$docsify = {
+            //...
+            name: '寒霜物联 开发文档',
+            themeColor: '#3F51B5',
+
+            // 切换页面后是否自动跳转到页面顶部。
+            auto2top: true,
+
+            // 文档右上角字数统计
+            count: {
+                countable: true,
+                position: 'top',
+                margin: '10px',
+                float: 'right',
+                fontsize: '0.9em',
+                color: 'rgb(90,90,90)',
+                language: 'chinese',
+                localization: { words: "", minute: "" },
+                isExpected: true
+            },
+
+            plantuml: {
+                skin: 'default',
+            },
+        }
+    </script>
+
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+
+    <script src="//unpkg.com/docsify-count/dist/countable.min.js"></script>
+    <script src="//unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script>
+</body>
+
+</html>

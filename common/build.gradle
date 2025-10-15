@@ -1,0 +1,11 @@
+plugins {
+    id 'java'
+}
+
+group = "${FROST_APP_GROUP}.common"
+version = FROST_APP_VERSION
+
+dependencies {
+    // jetbrains 编译时注解
+    implementation("org.jetbrains:annotations:${libraries.jetbrainsAnnotations}")
+}

@@ -1,0 +1,238 @@
+import java.time.LocalDateTime
+
+plugins {
+    id 'java'
+    id("io.freefair.lombok") version "8.13.1"
+}
+
+description = "Frost IoT 寒霜物联 —— 支持轻量化快速接入的 IoT 设备统一接入平台"
+
+def isSnapshotVersion = FROST_APP_VERSION.toString().endsWith("-SNAPSHOT")
+
+// '**/.gitkeep', '**/.DS_Store',
+
+allprojects {
+    group = FROST_APP_GROUP
+    version = FROST_APP_VERSION
+
+    java {
+        // 指定构建时使用的 JDK 版本（与运行时的 JDK 无关）
+        // Gradle 会自动查找或下载指定的 JDK 17 来执行构建
+        // 即使你的系统默认 JDK 是其他版本（如 JDK 11 或 20），构建也会强制使用 JDK 17
+        // 与 JAVA_HOME 无关，是 Gradle 的独立配置
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+
+    // 跳过测试
+    test {
+        enabled = false
+    }
+
+    tasks.withType(ProcessResources).tap {
+        configureEach {
+            exclude(
+                    // 排除测试用配置文件
+                    '**/application-*.yml',
+            )
+        }
+    }
+
+    // 修复 Javadoc 任务
+    tasks.withType(Javadoc).configureEach {
+        exclude '**/.gitkeep'
+        options.addStringOption('Xdoclint:none', '-quiet')
+    }
+}
+
+subprojects {
+    apply plugin: "io.freefair.lombok"
+
+    // Gradle 发布模块到 Maven 仓库插件
+    apply plugin: 'java-library'
+}
+
+// [publish command example]
+// publish snapshot version:
+// ./gradlew publishMavenJavaPublicationToMavenRepository -Psigning.keyId="xxx" -Psigning.password="xxx" -Psigning.secretKeyRingFile="xxx" -DmavenCentral.username="xxx" -DmavenCentral.password="xxx" -x test
+// publish release version:
+// ./gradlew publish publishToMavenCentralPortal -Psigning.keyId="xxx" -Psigning.password="xxx" -Psigning.secretKeyRingFile="xxx" -DmavenCentral.authToken='xxxxxx' -x test
+configure([
+        project(':frost-iot-dependencies'),
+        project(':frost-iot-core'),
+        project(':frost-iot-adapter-sdk'),
+]) {
+    // Gradle 发布模块到 Maven 仓库插件
+    apply plugin: 'java-library'
+    apply plugin: 'maven-publish'
+    apply plugin: 'signing'
+    apply plugin: 'tech.yanand.maven-central-publish'
+
+    jar {
+        into("META-INF/") {
+            from(rootProject.file("LICENSE"))
+        }
+        afterEvaluate {
+            manifest {
+                attributes 'Bundle-docURL': 'https://iot.footprintcat.com/'
+                attributes 'Build-os': System.getProperty("os.name")
+                attributes 'Built-by': System.getProperty("user.name")
+                attributes 'Build-jdk': System.getProperty("java.version")
+                attributes 'Build-timestamp': LocalDateTime.now().format("yyyy-MM-dd HH:mm:ss")
+            }
+        }
+    }
+
+    // 解决javadoc打包乱码
+    javadoc {
+        options {
+            encoding = "UTF-8"
+            charSet = 'UTF-8'
+            author = true
+            version = true
+            failOnError = false
+            // title = "文档大标题"
+            links = [
+                    // "http://docs.oracle.com/javase/8/docs/api",
+                    "https://docs.oracle.com/en/java/javase/17/docs/api",
+            ]
+        }
+    }
+
+    // 确保生成 sources 和 javadoc
+    java {
+        withSourcesJar()
+        withJavadocJar()
+    }
+
+    // maven 发布配置
+    // site:
+    // - https://central.sonatype.com/
+    // - https://central.sonatype.org/
+    // docs:
+    // - https://central.sonatype.org/register/central-portal/
+    // - https://central.sonatype.org/publish/publish-portal-guide/#introduction
+    // 根据 Sonatype 官方说明，Central Portal 将取代传统的 OSSRH 服务发布仓库。然而现在还没有官方 Gradle 插件来完成这个事情
+    // 所以使用 yananhub/flying-gradle-plugin 这个社区插件来完成
+    // 原文：Currently, there is no official Gradle plugin for publishing to Maven Central via the Central Publishing Portal.
+    // refer：
+    // - Sonatype 官方说明：https://central.sonatype.org/publish/publish-portal-gradle/
+    // - 插件自述文件（中文）：https://github.com/yananhub/flying-gradle-plugin/blob/main/README_zh.md
+    publishing {
+        // 配置发布的仓库，有多个可选择
+        repositories {
+            // maven {
+            //     name = 'localRepo'
+            //     url = "file://${buildDir}/repo"
+            // }
+            // mavenLocal()
+
+            // 发布 -SNAPSHOT 版本到 maven central repository
+            if (isSnapshotVersion) {
+                // 发布 SNAPSHOT 版本需要配置 snapshots 仓库地址
+                // docs: https://central.sonatype.org/publish/publish-portal-snapshots/#publishing-snapshot-releases-for-your-project
+                // 发布后可在此查看: https://central.sonatype.com/service/rest/repository/browse/maven-snapshots/com/footprintcat/frostiot/
+                maven {
+                    name = "snapshots"
+                    url = "https://central.sonatype.com/repository/maven-snapshots/"
+                    // docs: https://central.sonatype.com/api-doc
+                    credentials {
+                        username = System.getProperty("mavenCentral.username")
+                        password = System.getProperty("mavenCentral.password")
+                    }
+                }
+            }
+        }
+
+        // 配置发布的产出包，一个项目也有可能有多个产出，但大部分时候只有一个
+        publications {
+            // maven-publish docs: https://docs.gradle.org/current/userguide/publishing_maven.html
+            mavenJava(MavenPublication) {
+                // groupId = "com.footprintcat.frostiot"
+                // artifactId = "frost-iot-core"
+                version = FROST_APP_VERSION // "0.0.1"
+
+                from components.java
+
+                pom {
+                    name = "frost-iot"
+                    description = '支持轻量化快速接入的 IoT 设备统一接入平台'
+                    url = 'https://github.com/footprintcat/frost-iot'
+                    scm {
+                        connection = 'scm:git@github.com:footprintcat/frost-iot.git'
+                        developerConnection = 'scm:git@github.com:footprintcat/frost-iot.git'
+                        url = 'https://github.com/footprintcat/frost-iot'
+                    }
+                    licenses {
+                        license {
+                            name = 'BSD-3-Clause License'
+                            url = 'https://github.com/footprintcat/frost-iot/blob/main/LICENSE'
+                            // url = 'https://opensource.org/license/BSD-3-Clause'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'footprintcat'
+                            name = 'coder-xiaomo'
+                            email = 'codingzhang@126.com'
+                        }
+                    }
+                }
+            }
+        }
+
+        // 关于 GPG 签名, 请参考: https://central.sonatype.org/publish/requirements/gpg/
+        signing {
+            sign publishing.publications.mavenJava
+        }
+
+        if (!isSnapshotVersion) {
+            mavenCentral {
+                // 从 Sonatype 官方获取的 Publisher API 调用的 token，应为 Base64 编码后的 username:password
+                // authToken = '<your token>'
+                authToken = System.getProperty("mavenCentral.authToken")
+                // 上传是否应该自动发布。如果您希望手动执行此操作，请使用 'USER_MANAGED'。
+                // 该属性是可选的，默认为 'AUTOMATIC'。
+                // publishingType = 'AUTOMATIC'
+                // 如果配置为 USER_MANAGED，需要手动到后台发布: https://central.sonatype.com/publishing/deployments
+                publishingType = 'USER_MANAGED'
+                // 当发布类型为 'AUTOMATIC' 时，状态API获取 'PUBLISHING' 或 'PUBLISHED' 状态的最大等待时间
+                // 或者当发布类型为 'USER_MANAGED' 时，获取 'VALIDATED' 状态。
+                // 该属性是可选的，默认为60秒。
+                maxWait = 60
+            }
+        }
+    }
+}
+
+ext {
+    libraries = [
+            "jetbrainsAnnotations": "26.0.2"
+    ]
+}
+
+repositories {
+    mavenLocal()
+    maven { url = "https://maven.aliyun.com/repository/public" }
+    mavenCentral()
+}
+
+// dependencies {
+//    testImplementation platform('org.junit:junit-bom:5.10.0')
+//    testImplementation 'org.junit.jupiter:junit-jupiter'
+// }
+
+// test {
+//    useJUnitPlatform()
+// }
+
+// Maven Scope → Gradle 配置对照表
+// | Maven Scope       | Gradle 配置              | 作用                                                                 |
+// |-------------------|--------------------------|--------------------------------------------------------------------|
+// | `compile`         | `implementation`         | 默认范围，编译和运行时都可用（推荐使用 `implementation` 而非已废弃的 `compile`） |
+// | `provided`        | `compileOnly`            | 仅在编译时使用，不打包到最终产物（如 WAR/JAR）                          |
+// | `runtime`         | `runtimeOnly`            | 仅在运行时使用，编译时不可见                                             |
+// | `test`            | `testImplementation`     | 仅用于测试代码的编译和运行                                               |
+// | `system`          | 自定义（不推荐）            | 类似 `provided`，但需手动指定本地路径（不推荐，尽量用仓库依赖）               |
+// | `import`          | `platform`               | 用于 BOM 导入（如 `<dependencyManagement>`）                          |

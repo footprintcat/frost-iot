@@ -1,0 +1,25 @@
+{
+    "workbench.editorAssociations": {
+        // drawio, svg 文件默认使用 VSCode 的默认文本编辑器打开
+        "*.drawio": "default",
+        "*.svg": "default",
+    },
+    "cSpell.words": [
+        "dists",
+        "docker-entrypoint-initdb.d",
+        "footprintcat",
+        "frostiot",
+        "graalvm",
+        "gradleup",
+        "gradlew",
+        "hikari",
+        "io.micronaut.serde",
+        "iotdb",
+        "jdbc",
+        "logback",
+        "micronaut",
+        "micronaut-serde",
+        "projectlombok",
+        "snakeyaml"
+    ],
+}

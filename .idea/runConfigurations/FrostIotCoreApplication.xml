@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="FrostIotCoreApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <module name="frost-iot.frost-iot-core.main" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.footprintcat.frostiot.core.FrostIotCoreApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

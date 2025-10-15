@@ -1,0 +1,680 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="max-width:100%;max-height:372px;"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="721px" viewBox="-0.5 -0.5 721 372">
+    <defs />
+    <g>
+        <g data-cell-id="WIyWlLk6GJQsqaUBKTNV-0">
+            <g data-cell-id="WIyWlLk6GJQsqaUBKTNV-1">
+                <g data-cell-id="WIyWlLk6GJQsqaUBKTNV-4">
+                    <g>
+                        <path d="M 160 140 L 200 140 L 200 40 L 229.88 40" fill="none" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="stroke"
+                            style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                        <path d="M 238.88 40 L 229.88 44.5 L 229.88 35.5 Z" fill="none" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="all"
+                            style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 90px; margin-left: 180px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 11px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: nowrap; ">
+                                                Yes</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="180" y="93" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="11px" text-anchor="middle">Yes</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="WIyWlLk6GJQsqaUBKTNV-5">
+                    <g>
+                        <path d="M 160 140 L 200 140 L 200 220 L 229.88 220" fill="none" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="stroke"
+                            style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                        <path d="M 238.88 220 L 229.88 224.5 L 229.88 215.5 Z" fill="none" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="all"
+                            style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 180px; margin-left: 210px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 11px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: nowrap; ">
+                                                No</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="210" y="183" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="11px" text-anchor="middle">No</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="WIyWlLk6GJQsqaUBKTNV-6">
+                    <g>
+                        <path d="M 80 100 L 160 140 L 80 180 L 0 140 Z" fill="#ffffff" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="all"
+                            style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 150px; height: 1px; padding-top: 138px; margin-left: 5px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                                代码修改后<div>是否可<span
+                                                        style="background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">闭源</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="80" y="142" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="12px"
+                                    text-anchor="middle">代码修改后&#xa;是否可闭源</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="WIyWlLk6GJQsqaUBKTNV-8">
+                    <g>
+                        <path d="M 520 310 L 560 310 L 560 340 L 589.88 340" fill="none" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="stroke"
+                            style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                        <path d="M 598.88 340 L 589.88 344.5 L 589.88 335.5 Z" fill="none" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="all"
+                            style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 320px; margin-left: 563px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 11px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: nowrap; ">
+                                                No</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="563" y="323" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="11px" text-anchor="middle">No</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="WIyWlLk6GJQsqaUBKTNV-9">
+                    <g>
+                        <path d="M 520 310 L 560 310 L 560 280 L 589.88 280" fill="none" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="stroke"
+                            style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                        <path d="M 598.88 280 L 589.88 284.5 L 589.88 275.5 Z" fill="none" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="all"
+                            style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 295px; margin-left: 550px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 11px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: nowrap; ">
+                                                Yes</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="550" y="298" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="11px" text-anchor="middle">Yes</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="WIyWlLk6GJQsqaUBKTNV-10">
+                    <g>
+                        <path d="M 320 0 L 400 40 L 320 80 L 240 40 Z" fill="#ffffff" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="all"
+                            style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 150px; height: 1px; padding-top: 38px; margin-left: 245px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                                修改过的<div>每个文件<span
+                                                        style="background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">是否需要</span>
+                                                </div>
+                                                <div><span
+                                                        style="background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">添加</span><span
+                                                        style="background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">版权说明</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="320" y="42" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="12px"
+                                    text-anchor="middle">修改过的每个文件是否需要添加版权说明...</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="PMTbZ5IPZAj8q_X9BM89-2">
+                    <g>
+                        <rect x="600" y="320" width="120" height="40" rx="6" ry="6" fill="#ffffff" stroke="#000000"
+                            pointer-events="all"
+                            style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 340px; margin-left: 601px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                                LGPL</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="660" y="344" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="12px"
+                                    text-anchor="middle">LGPL</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="PMTbZ5IPZAj8q_X9BM89-3">
+                    <g>
+                        <rect x="600" y="260" width="120" height="40" rx="6" ry="6" fill="#ffffff" stroke="#000000"
+                            pointer-events="all"
+                            style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 280px; margin-left: 601px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                                Mozilla</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="660" y="284" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="12px"
+                                    text-anchor="middle">Mozilla</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="PMTbZ5IPZAj8q_X9BM89-5">
+                    <g>
+                        <rect x="10" y="360" width="540" height="10" fill="none" stroke="none" pointer-events="all" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 538px; height: 1px; padding-top: 365px; margin-left: 12px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: left; color: #9A9A9A; ">
+                                            <div
+                                                style="display: inline-block; font-size: 10px; font-family: &quot;Helvetica&quot;; color: #9A9A9A; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                                * 这张图的原始出处为阮一峰博客，但具体链接无法考证。我们根据原图内容进行了重绘，在此感谢原作者的付出。</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="12" y="368" fill="#9A9A9A" font-family="&quot;Helvetica&quot;"
+                                    font-size="10px">* 这张图的原始出处为阮一峰博客，但具体链接无法考证。我们根据原图内容进行了重绘，在此感谢原作者的付出。</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="PMTbZ5IPZAj8q_X9BM89-7">
+                    <g>
+                        <image x="426.58" y="43.5" width="133.34" height="30"
+                            xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjExOS44MzAwMDE4MzEwNTQ2OSAxMjAgMzk0MS43Mjk5ODA0Njg3NSA4ODgiIHdpZHRoPSIzOTQxLjcyOTk4MDQ2ODc1IiBoZWlnaHQ9Ijg4OCI+JiN4YTsgIDxnIGRhdGEtbmFtZT0i5Zu+5bGCXzIiIGlkPSJf5Zu+5bGCXzIiPiYjeGE7ICAgIDxnPiYjeGE7ICAgICAgPHBhdGggZD0iTTE2NDEuNjQsNjM2Ljg5YzIyLjA3LDI1LjkyLDUwLjA0LDUwLjY1LDgzLjg4LDc0LjE2LDMzLjg0LDIzLjUyLDcxLjE2LDQyLjAxLDExMS45Niw1NS40NGwtMjQuNDgsNDguMjRjLTQ5LjkzLTE5LjE5LTk1LjE2LTQ0LjM5LTEzNS43Mi03NS42LTQwLjU3LTMxLjItNzQuNTItNjUuMjctMTAxLjg4LTEwMi4yNGgtMTQ0Yy01OC4wOCw4MC42NC0xMzgsMTQyLjU2LTIzOS43NiwxODUuNzZsLTIyLjMyLTQ3LjUyYzgyLjA4LTMyLjY0LDE0Ny4xMi03OC43MiwxOTUuMTItMTM4LjI0aC0xNzUuNjh2LTQ2LjA4aDE5MC4wOHYtNDYuMDhoLTEyNnYtNDQuNjRoMTI2di00Ni4wOGgtMTM0LjY0di00NC42NGgxMzQuNjR2LTY1LjUyaC0xMTUuMnY1Ni4xNmgtNTQuNzJ2LTEwMi4yNGgyODAuMDhjLTEzLjQ0LTI0LTI1LjItNDMuNDQtMzUuMjgtNTguMzJsNTQuNzItMjAuMTYsNDYuOCw3OC40OGgyNDMuMzZ2MTAyLjI0aC01NC43MnYtNTYuMTZoLTExOC4wOHY2NS41MmgxMzUuMzZ2NDQuNjRoLTEzNS4zNnY0Ni4wOGgxMjguMTZ2NDQuNjRoLTEyOC4xNnY0Ni4wOGgxOTIuMjR2NDYuMDhoLTE3Ni40Wk0xMzQ4LjYsNzc2LjU3YzEzNi44LDI1LjQ1LDI0Mi4xNiw0Ni4wOCwzMTYuMDgsNjEuOTJsLTExLjUyLDUxLjg0Yy00Ni4wOC0xMC4wOC0xMDEuNDEtMjEuODUtMTY1Ljk2LTM1LjI4LTY0LjU2LTEzLjQ0LTExNC4zNy0yMy4wNC0xNDkuNC0yOC44bDEwLjgtNDkuNjhaTTE0MjUuNjQsNjg0LjQxYzcyLjk2LDEzLjQ0LDEzNi4wOCwyNi4xNywxODkuMzYsMzguMTZsLTEwLjA4LDQ4Ljk2Yy0yNy44NC03LjItNjAuNzMtMTQuODctOTguNjQtMjMuMDQtMzcuOTItOC4xNi02OC4xNi0xMy45Mi05MC43Mi0xNy4yOGwxMC4wOC00Ni44Wk0xNTczLjI0LDM0My44NWgtMTQxLjEydjY1LjUyaDE0MS4xMnYtNjUuNTJaTTE1NzMuMjQsNDU0LjAxaC0xNDEuMTJ2NDYuMDhoMTQxLjEydi00Ni4wOFpNMTU3My4yNCw1NDQuNzNoLTE0MS4xMnY0Ni4wOGgxNDEuMTJ2LTQ2LjA4WiIvPiYjeGE7ICAgICAgPHBhdGggZD0iTTIwOTEuNjQsNjE4Ljg5djM0LjU2YzE1Ljg0LDEwLjU2LDMzLjQ4LDIzLjI5LDUyLjkyLDM4LjE2LDE5LjQ0LDE0Ljg4LDM0LjY3LDI3LjEyLDQ1LjcyLDM2LjcybC0yOC44LDQwLjMyYy0xOC43Mi0xNy4yOC00Mi4wMS0zNy4xOS02OS44NC01OS43NnYxODEuNDRoLTUzLjI4di0yMDUuMmMtMjYuODksNDYuMDgtNjAuNDgsOTAuNzItMTAwLjgsMTMzLjkybC0yMi4zMi01My4yOGM0Ny41Mi00Ny41Miw4NC43MS05Ni40OCwxMTEuNi0xNDYuODhoLTg4LjU2di00OC4yNGgxMDAuMDh2LTU0aDUzLjI4djU0aDkwdjQ4LjI0aC05MFpNMjI3MC4yLDI5OS4yMXYzNmgyNjcuMTJ2MTI3LjQ0aC01My4yOHYtODYuNGgtMjEzLjg0djEzMS43NmgtNTR2LTEzMS43NmgtMjE2djkyLjg4aC01Mi41NnYtMTMzLjkyaDI2OC41NnYtMzZoLTI0NC44di00Mi40OGg1NDIuMTZ2NDIuNDhoLTI0My4zNlpNMjAzNi4yLDQwNS4wNWgxNDMuMjh2MzMuODRoLTE0My4yOHYtMzMuODRaTTIxNzkuNDgsNDk2LjQ5aC0xNDMuMjh2LTM0LjU2aDE0My4yOHYzNC41NlpNMjI2Myw4ODkuNjFoLTU0di0zNTIuMDhoMzA0LjU2djM1MC42NGgtNTR2LTMwLjk2aC0xOTYuNTZ2MzIuNFpNMjQ1OS41Niw2MzEuMTN2LTUyLjU2aC0xOTYuNTZ2NTIuNTZoMTk2LjU2Wk0yMjYzLDY3MC43M3Y1My4yOGgxOTYuNTZ2LTUzLjI4aC0xOTYuNTZaTTIyNjMsNzY0LjMzdjUxLjEyaDE5Ni41NnYtNTEuMTJoLTE5Ni41NlpNMjMwNS40OCw0MDUuMDVoMTQyLjU2djMzLjg0aC0xNDIuNTZ2LTMzLjg0Wk0yNDQ4LjA0LDQ5Ni40OWgtMTQyLjU2di0zNC41NmgxNDIuNTZ2MzQuNTZaIi8+JiN4YTsgICAgICA8cGF0aCBkPSJNMjg5OC43Niw2MDUuMjFsLTcxLjI4LDI4LjA4djI1NC4xNmgtNTIuNTZ2LTIzMi41NmwtMTA3LjI4LDQzLjItMTUuMTItNTYuODhjMjQuNDgtOC4xNiw2NS4yNy0yMy4yOCwxMjIuNC00NS4zNnYtMTY0Ljg4aC01MS44NGMtNS4yOSw0Ni4wOC0xMiw4OC4wOS0yMC4xNiwxMjZsLTUyLjU2LTExLjUyYzIwLjYzLTg3Ljg0LDMyLjQtMTczLjA0LDM1LjI4LTI1NS42bDUwLjQsMy42Yy0xLjQ0LDI1LjkyLTMuNiw1My4wNC02LjQ4LDgxLjM2aDQ2LjA4di0xNDQuNzJoNTEuODR2MTQ0LjcyaDY4LjR2NTYuMTZoLTY4LjR2MTQ0LjcybDY5Ljg0LTI2LjY0LDEuNDQsNTYuMTZaTTMyOTIuNiwzNDMuODVjLjQ3LDU5LjUyLTEuMzMsMTM0LjUzLTUuNCwyMjUtNC4wOCw5MC40OC05LDE1OS45Ni0xNC43NiwyMDguNDQtNC4zMiwzNC41Ni0xMy41Nyw1OS4xNS0yNy43Miw3My44LTE0LjE2LDE0LjY0LTM1LjQsMjIuNDMtNjMuNzIsMjMuNC02LjI0LjQ3LTE0Ljg4LjcyLTI1LjkyLjcyLTEzLjQ0LDAtMzEuMjEtLjk3LTUzLjI4LTIuODhsLTEyLjI0LTU1LjQ0YzI1LjQ0LDIuNDEsNTEuMzYsMy42LDc3Ljc2LDMuNiwxMS45OSwwLDIxLjM1LTIuMDQsMjguMDgtNi4xMiw2LjcyLTQuMDcsMTEuNzYtMTAuOTEsMTUuMTItMjAuNTIsMy4zNS05LjYsNi4yMy0yMy41MSw4LjY0LTQxLjc2LDUuMjgtNDMuNjcsOS42LTk2LjEyLDEyLjk2LTE1Ny4zMiwzLjM1LTYxLjIsNS4wNC0xMTguMTksNS4wNC0xNzF2LTI1LjkyaC00NC42NGMtMTEuMDUsNzUuODUtMjMuNzYsMTM5LjIxLTM4LjE2LDE5MC4wOC0xNC40LDUwLjg4LTM1Ljg5LDk5LTY0LjQ0LDE0NC4zNi0yOC41Niw0NS4zNi02Ny44LDkwLjYxLTExNy43MiwxMzUuNzJsLTQyLjQ4LTQ0LjY0YzQ2LjU1LTM3LjQ0LDgzLjYzLTc3LjE1LDExMS4yNC0xMTkuMTYsMjcuNi00Miw0OC44NC04Ni43Niw2My43Mi0xMzQuMjgsMTQuODctNDcuNTIsMjcuODMtMTA0Ljg3LDM4Ljg4LTE3Mi4wOGgtNTYuODhjLTEwLjA4LDUwLjg4LTIxLjcyLDk1LjA0LTM0LjkyLDEzMi40OC0xMy4yMSwzNy40NC0zMC45Niw3My4yLTUzLjI4LDEwNy4yOC0yMi4zMiwzNC4wOS01MS4yNCw2OC4xNi04Ni43NiwxMDIuMjRsLTQwLjMyLTQwLjMyYzQ3LjA0LTQxLjc2LDgyLjkxLTg2LjA0LDEwNy42NC0xMzIuODQsMjQuNzItNDYuOCw0My41Ni0xMDMuMDcsNTYuNTItMTY4Ljg0aC00OS42OGMtMTcuMjgsMzYuOTctMzcuOTIsNzMuNjktNjEuOTIsMTEwLjE2bC00Mi40OC0zMi40YzIyLjU2LTMxLjIsNDMuOTItNjkuMzYsNjQuMDgtMTE0LjQ4LDIwLjE2LTQ1LjExLDM2LjcyLTkxLjQ0LDQ5LjY4LTEzOC45Nmw1Mi41NiwxMy42OGMtMTEuNTIsMzkuMzYtMjQuMDEsNzUuMzYtMzcuNDQsMTA4aDI4Mi4yNFoiLz4mI3hhOyAgICAgIDxwYXRoIGQ9Ik0zNjg1LjcyLDc2MS40NWwtNDYuMDgsNi40OHYxMjEuNjhoLTUxLjEydi0xMTMuNzZsLTE5Mi4yNCwzMC45Ni01LjA0LTU4LjMyYzExLjk5LTEuNDQsMjguMzItMy42LDQ4Ljk2LTYuNDh2LTQxNy42aC0zOS42di01Mi41NmgyODIuOTZ2NTIuNTZoLTQzLjkydjM4Ny4zNmw0NC42NC03LjkyLDEuNDQsNTcuNlpNMzU4OC41Miw0MjYuNjV2LTEwMi4yNGgtOTYuNDh2MTAyLjI0aDk2LjQ4Wk0zNTg4LjUyLDQ3Ny4wNWgtOTYuNDh2OTcuMmg5Ni40OHYtOTcuMlpNMzQ5Mi4wNCw2MjQuNjV2MTEwLjE2bDk2LjQ4LTE1LjEydi05NS4wNGgtOTYuNDhaTTM4OTcuNCw2MDUuOTNjMTMuOTIsNDcuNTIsMzUuMjgsOTEuOCw2NC4wOCwxMzIuODQsMjguOCw0MS4wNCw2Mi4xNiw3Ni40NCwxMDAuMDgsMTA2LjJsLTM2LjcyLDQ1LjM2Yy03Mi45Ny02MC40OC0xMjYuMjUtMTM5LjItMTU5Ljg0LTIzNi4xNi0xMS4wNSw0My42OC0yOC45Miw4My44OC01My42NCwxMjAuNi0yNC43MywzNi43Mi01OS42NSw3NC41Mi0xMDQuNzYsMTEzLjRsLTM2LjcyLTQzLjkyYzQ1LjYtMzYuNDcsODAuMDMtNzMuMDgsMTAzLjMyLTEwOS44LDIzLjI4LTM2LjcyLDM4Ljk5LTc5LjU2LDQ3LjE2LTEyOC41MmgtMTM4Ljk2di01Mi41NmgxNDUuNDRjMi40LTMzLjU5LDMuNi03My45MSwzLjYtMTIwLjk2aC0xMzMuMnYtNTRoMTgwLjcyYzIzLjUxLTM2LjQ3LDQ4LjcxLTg0Ljk2LDc1LjYtMTQ1LjQ0bDUxLjEyLDIxLjYtMTQuNCwyOC44Yy0yMC42NCw0MC4zMi0zNy42OSw3Mi01MS4xMiw5NS4wNGg5Ni40OHY1NGgtMTQ5LjA0Yy0uOTcsNTMuNzYtMi42NCw5NC4wOC01LjA0LDEyMC45NmgxNjYuMzJ2NTIuNTZoLTE1MC40OFpNMzc5MS41NiwzNzEuMjFjLTYuNzMtMTUuMzYtMTYuNDUtMzQuMDgtMjkuMTYtNTYuMTYtMTIuNzItMjIuMDctMjMuODgtMzkuODQtMzMuNDgtNTMuMjhsNDMuOTItMjUuMmM5LjYsMTQuODgsMjAuODgsMzIuODgsMzMuODQsNTQsMTIuOTYsMjEuMTMsMjMuMDQsMzguNjQsMzAuMjQsNTIuNTZsLTQ1LjM2LDI4LjA4WiIvPiYjeGE7ICAgIDwvZz4mI3hhOyAgPC9nPiYjeGE7ICA8ZyBkYXRhLW5hbWU9IuWbvuWxgl8xIiBpZD0iX+WbvuWxgl8xIj4mI3hhOyAgICA8ZyBkYXRhLW5hbWU9Il/lm77lsYJfMiIgaWQ9Il/lm77lsYJfMi0yIj4mI3hhOyAgICAgIDxyZWN0IHN0eWxlPSJmaWxsOiAjM2ZhOWY1OyIgcnk9IjMyNy4yOSIgcng9IjMyNy4yOSIgaGVpZ2h0PSI4ODgiIHdpZHRoPSI4ODgiIHk9IjEyMCIgeD0iMTE5LjgzIi8+JiN4YTsgICAgPC9nPiYjeGE7ICAgIDxnIGRhdGEtbmFtZT0iX+WbvuWxgl8xIiBpZD0iX+WbvuWxgl8xLTIiPiYjeGE7ICAgICAgPGcgaWQ9Il/lt6YiPiYjeGE7ICAgICAgICA8bGluZSBzdHlsZT0iZmlsbDogbm9uZTsgc3Ryb2tlOiAjZmZmOyBzdHJva2UtbWl0ZXJsaW1pdDogMTA7IHN0cm9rZS13aWR0aDogNzJweDsiIHkyPSI1NjQiIHgyPSIyNTMuODMiIHkxPSI1NjQiIHgxPSI0MzMuODMiLz4mI3hhOyAgICAgICAgPGxpbmUgc3R5bGU9ImZpbGw6IG5vbmU7IHN0cm9rZTogI2ZmZjsgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOyBzdHJva2UtbWl0ZXJsaW1pdDogMTA7IHN0cm9rZS13aWR0aDogMTIwcHg7IiB5Mj0iNjY3LjUiIHgyPSIyNjMuODMiIHkxPSI0NjAuNSIgeDE9IjI2My44MyIvPiYjeGE7ICAgICAgPC9nPiYjeGE7ICAgICAgPGcgaWQ9Il/lj7MiPiYjeGE7ICAgICAgICA8bGluZSBzdHlsZT0iZmlsbDogbm9uZTsgc3Ryb2tlOiAjZmZmOyBzdHJva2UtbWl0ZXJsaW1pdDogMTA7IHN0cm9rZS13aWR0aDogNzJweDsiIHkyPSI1NjQiIHgyPSI2ODkuODMiIHkxPSI1NjQiIHgxPSI4NjkuODMiLz4mI3hhOyAgICAgICAgPGxpbmUgc3R5bGU9ImZpbGw6IG5vbmU7IHN0cm9rZTogI2ZmZjsgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOyBzdHJva2UtbWl0ZXJsaW1pdDogMTA7IHN0cm9rZS13aWR0aDogMTIwcHg7IiB5Mj0iNjY3LjUiIHgyPSI4NjMuODMiIHkxPSI0NjAuNSIgeDE9Ijg2My44MyIvPiYjeGE7ICAgICAgPC9nPiYjeGE7ICAgICAgPGcgaWQ9Il/kuIoiPiYjeGE7ICAgICAgICA8bGluZSBzdHlsZT0iZmlsbDogbm9uZTsgc3Ryb2tlOiAjZmZmOyBzdHJva2UtbWl0ZXJsaW1pdDogMTA7IHN0cm9rZS13aWR0aDogNzJweDsiIHkyPSI0MzgiIHgyPSI1NjMuODMiIHkxPSIyNTgiIHgxPSI1NjMuODMiLz4mI3hhOyAgICAgICAgPGxpbmUgc3R5bGU9ImZpbGw6IG5vbmU7IHN0cm9rZTogI2ZmZjsgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOyBzdHJva2UtbWl0ZXJsaW1pdDogMTA7IHN0cm9rZS13aWR0aDogMTIwcHg7IiB5Mj0iMjY0IiB4Mj0iNjAxLjgzIiB5MT0iMjY0IiB4MT0iNTI1LjgzIi8+JiN4YTsgICAgICA8L2c+JiN4YTsgICAgICA8ZyBpZD0iX+S4iyI+JiN4YTsgICAgICAgIDxsaW5lIHN0eWxlPSJmaWxsOiBub25lOyBzdHJva2U6ICNmZmY7IHN0cm9rZS1taXRlcmxpbWl0OiAxMDsgc3Ryb2tlLXdpZHRoOiA3MnB4OyIgeTI9Ijg3NCIgeDI9IjU2My44MyIgeTE9IjY5NCIgeDE9IjU2My44MyIvPiYjeGE7ICAgICAgICA8bGluZSBzdHlsZT0iZmlsbDogbm9uZTsgc3Ryb2tlOiAjZmZmOyBzdHJva2UtbGluZWNhcDogcm91bmQ7IHN0cm9rZS1taXRlcmxpbWl0OiAxMDsgc3Ryb2tlLXdpZHRoOiAxMjBweDsiIHkyPSI4NjQiIHgyPSI2MDEuODMiIHkxPSI4NjQiIHgxPSI1MjUuODMiLz4mI3hhOyAgICAgIDwvZz4mI3hhOyAgICAgIDxnIGlkPSJf5Lit5b+DIj4mI3hhOyAgICAgICAgPHBhdGggc3R5bGU9ImZpbGw6ICNmZmY7IiBkPSJNNTYzLjgzLDQ5NC40M2MzOC4zNiwwLDY5LjU3LDMxLjIxLDY5LjU3LDY5LjU3cy0zMS4yMSw2OS41Ny02OS41Nyw2OS41Ny02OS41Ny0zMS4yMS02OS41Ny02OS41NywzMS4yMS02OS41Nyw2OS41Ny02OS41N001NjMuODMsMzc2Yy0xMDMuODMsMC0xODgsODQuMTctMTg4LDE4OHM4NC4xNywxODgsMTg4LDE4OCwxODgtODQuMTcsMTg4LTE4OC04NC4xNy0xODgtMTg4LTE4OGgwWiIvPiYjeGE7ICAgICAgPC9nPiYjeGE7ICAgICAgPGcgaWQ9Il/lm5vkuKrop5LnmoTlnIbngrkiPiYjeGE7ICAgICAgICA8Y2lyY2xlIHN0eWxlPSJmaWxsOiAjZmZmOyIgcj0iNjUiIGN5PSIzNDQiIGN4PSIzNjMuODMiLz4mI3hhOyAgICAgICAgPGNpcmNsZSBzdHlsZT0iZmlsbDogI2ZmZjsiIHI9IjY1IiBjeT0iMzQ0IiBjeD0iNzYzLjgzIi8+JiN4YTsgICAgICAgIDxjaXJjbGUgc3R5bGU9ImZpbGw6ICNmZmY7IiByPSI2NSIgY3k9Ijc4NCIgY3g9IjM2My44MyIvPiYjeGE7ICAgICAgICA8Y2lyY2xlIHN0eWxlPSJmaWxsOiAjZmZmOyIgcj0iNjUiIGN5PSI3ODQiIGN4PSI3NjMuODMiLz4mI3hhOyAgICAgIDwvZz4mI3hhOyAgICA8L2c+JiN4YTsgIDwvZz4mI3hhOzwvc3ZnPg=="
+                            preserveAspectRatio="none" />
+                    </g>
+                </g>
+                <g data-cell-id="PMTbZ5IPZAj8q_X9BM89-9">
+                    <g>
+                        <image x="399.5" y="78.5" width="187.5" height="10"
+                            xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjEyMC44Nzk5ODk2MjQwMjM0NCAxMTAuMTcwMDIxMDU3MTI4OSAyNjQ4LjQwMDE0NjQ4NDM3NSAxNDAuNTQ5OTg3NzkyOTY4NzUiIGRhdGEtbmFtZT0i5Zu+5bGCXzIiIGlkPSJf5Zu+5bGCXzIiIHdpZHRoPSIyNjQ4LjQwMDE0NjQ4NDM3NSIgaGVpZ2h0PSIxNDAuNTQ5OTg3NzkyOTY4NzUiPiYjeGE7ICA8cGF0aCBkPSJNMjUzLjk0LDE3Ni4wMnYxMS44NWgtMzEuOTV2NjAuM2gtMTIuM3YtNjAuM2gtNDMuMDVjLS43LDkuNC0yLjE1LDE3LjM4LTQuMzUsMjMuOTItMi4yLDYuNTUtNS41NSwxMi43LTEwLjA1LDE4LjQ1LTQuNSw1Ljc1LTEwLjgsMTIuMTctMTguOSwxOS4yN2wtOS43NS05LjE1YzcuNi02LjIsMTMuNDctMTEuNzgsMTcuNjItMTYuNzMsNC4xNS00Ljk1LDcuMjItMTAuMiw5LjIyLTE1Ljc1LDItNS41NSwzLjMtMTIuMjIsMy45LTIwLjAyaC0zMy40NXYtMTEuODVoMzQuMDV2LTQyaC0yNy43NXYtMTEuN2gxMjAuMTV2MTEuN2gtMjUuMzV2NDJoMzEuOTVaTTE2Ny4yNCwxNzYuMDJoNDIuNDV2LTQyaC00Mi40NXY0MloiLz4mI3hhOyAgPHBhdGggZD0iTTM1OC4wNCwxNzkuOTJjLTMuMy0zLjEtNy42LTYuODUtMTIuOS0xMS4yNS01LjMtNC40LTkuNzUtNy45NS0xMy4zNS0xMC42NWw2LjYtOS4xNWMyLjgsMi4xLDkuMjUsNy4yLDE5LjM1LDE1LjNsNy42NSw2LjE1LTcuMzUsOS42Wk0zNjIuMjQsMTkyLjIybC0xNC41NSw1NS42NS0xMC45NS0zLjE1YzEuMy00LjUsMy44OC0xNC4wMiw3LjczLTI4LjU4LDMuODUtMTQuNTUsNi4wMi0yMy40Miw2LjUyLTI2LjYybDExLjI1LDIuN1pNMzYyLjg0LDE0NS44N2MtMi42LTIuNS02LjQ1LTUuOS0xMS41NS0xMC4yLTUuMS00LjMtOS42LTcuOTUtMTMuNS0xMC45NWw2Ljc1LTksMjUuMzUsMjAuNC03LjA1LDkuNzVaTTQ1OC45OSwyMDAuMDJoLTI0Ljc1djMwLjljMCw2LjMtMS4wMywxMC43Mi0zLjA3LDEzLjI4LTIuMDUsMi41NS01LjYyLDMuODItMTAuNzMsMy44Mi00LjQsMC04LjgtLjMtMTMuMi0uOWwtMi4yNS0xMC45NWM1LjYuOCw5LjUsMS4yLDExLjcsMS4yLDIuNSwwLDQuMi0uODMsNS4xLTIuNDguOS0xLjY1LDEuMzUtNC40NywxLjM1LTguNDd2LTI2LjRoLTI1LjV2LTU0Ljc1aDIxLjZjLjgtMi41LDItNy4wNSwzLjYtMTMuNjVoLTM1LjI1djM4LjFjMCwxMi42LS41LDIzLjI4LTEuNSwzMi4wMy0xLDguNzUtMi43LDE2LjgtNS4xLDI0LjE1LTIuNCw3LjM1LTUuOCwxNS4xNy0xMC4yLDIzLjQ4bC0xMC45NS00Ljk1YzQuNC04LjIsNy43Ny0xNS43NSwxMC4xMi0yMi42NSwyLjM1LTYuOSw0LTE0LjMyLDQuOTUtMjIuMjcuOTUtNy45NSwxLjQyLTE3LjcyLDEuNDItMjkuMzN2LTQ5LjhoOTIuNTV2MTEuMjVoLTM0LjJjLTEuNSw1LjYtMi43NSwxMC4xNS0zLjc1LDEzLjY1aDI4LjA1djU0Ljc1Wk00MDkuOTQsMjEwLjgyYy0yLjIsNS41LTQuOTgsMTEuNDMtOC4zMywxNy43Ny0zLjM1LDYuMzUtNi43MywxMi4wMi0xMC4xMiwxNy4wM2wtOS01LjRjNy45LTExLjUsMTMuODUtMjIuNiwxNy44NS0zMy4zbDkuNiwzLjlaTTQ0Ny44OSwxNjcuOTJ2LTEyLjZoLTM5LjE1djEyLjZoMzkuMTVaTTQ0Ny44OSwxNzcuNjdoLTM5LjE1djEyLjZoMzkuMTV2LTEyLjZaTTQ1My41OSwyMDUuODdjMy43LDcsOSwxOC4yNSwxNS45LDMzLjc1bC0xMC4wNSw0LjM1Yy0xLjYtNC4zLTQtMTAuMDItNy4yLTE3LjE3LTMuMi03LjE1LTUuOS0xMi44My04LjEtMTcuMDNsOS40NS0zLjlaIi8+JiN4YTsgIDxwYXRoIGQ9Ik01ODcuMjQsMTEzLjkyYy0xLjQsNi42LTMuMywxNC4xLTUuNywyMi41aDIxLjE1djEwNi45NWgtNTAuNTV2LTEwNi45NWgxNi4yYzIuNC03LjEsNC41LTE1LjM1LDYuMy0yNC43NWwxMi42LDIuMjVaTTU2My44NCwxNzcuOTdoMjd2LTI5Ljg1aC0yN3YyOS44NVpNNTYzLjg0LDE4OS41MnY0MmgyN3YtNDJoLTI3Wk02NzYuNzksMTM1LjA3djYuM2MwLDEyLjYtLjMzLDI3LjM1LS45OCw0NC4yNS0uNjUsMTYuOS0xLjQyLDMwLjgtMi4zMyw0MS43LS40LDQuOS0xLjMsOC42OC0yLjcsMTEuMzItMS40LDIuNjUtMy40Myw0LjUyLTYuMDgsNS42Mi0yLjY1LDEuMS02LjIzLDEuNzUtMTAuNzMsMS45NS0xLjEuMS0yLjcuMTUtNC44LjE1LTEuNywwLTMuNjMtLjA1LTUuNzctLjE1LTIuMTUtLjEtMy44My0uMi01LjAzLS4zbC00LjA1LS4zLTIuMS0xMi40NWM3LjIuOSwxMi44LDEuMzUsMTYuOCwxLjM1LDMuMSwwLDUuNDctLjMyLDcuMTItLjk3LDEuNjUtLjY1LDIuOTUtMS45LDMuOS0zLjc1Ljk1LTEuODUsMS42Mi00LjcyLDIuMDMtOC42MiwxLjUtMTcsMi4yNS0zOCwyLjI1LTYzdi0xMS41NWgtMzcuMmMtMy40LDguNS02LjY1LDE1Ljk1LTkuNzUsMjIuMzVsLTEwLjUtNi45YzMuOS03LjUsNy41NS0xNS44OCwxMC45NS0yNS4xMiwzLjQtOS4yNSw2LjEtMTguMDIsOC4xLTI2LjMzbDEyLDIuNGMtMi4xLDguMS00LjMsMTUuNDUtNi42LDIyLjA1aDQ1LjQ1Wk02NDEuNjksMjEwLjA3Yy0zLjItNS03LjEtMTAuNjUtMTEuNy0xNi45NS00LjYtNi4zLTguNS0xMS4zLTExLjctMTVsOS03LjA1YzMuMywzLjgsNy4yMiw4LjcsMTEuNzcsMTQuNyw0LjU1LDYsOC41MiwxMS40NSwxMS45MiwxNi4zNWwtOS4zLDcuOTVaIi8+JiN4YTsgIDxwYXRoIGQ9Ik03NzguMDQsMjM4LjQyaC0xMy4zNXYtMTA5LjhoMTMuMzV2MTA5LjhaIi8+JiN4YTsgIDxwYXRoIGQ9Ik04NjYuMzEsMTc4LjQyYzMuNDUtNi4yLDguMDMtMTEuMDMsMTMuNzMtMTQuNDcsNS43LTMuNDUsMTEuODUtNS4xOCwxOC40NS01LjE4czEyLjc1LDEuNywxOC40NSw1LjFjNS43LDMuNCwxMC4yNSw4LjIsMTMuNjUsMTQuNCwzLjQsNi4yLDUuMSwxMy4yNSw1LjEsMjEuMTVzLTEuNywxNC45Mi01LjEsMjEuMDhjLTMuNCw2LjE1LTcuOTUsMTAuOTUtMTMuNjUsMTQuNC01LjcsMy40NS0xMS44NSw1LjE4LTE4LjQ1LDUuMThzLTEyLjc4LTEuNzMtMTguNTMtNS4xOGMtNS43NS0zLjQ1LTEwLjMzLTguMjUtMTMuNzItMTQuNC0zLjQtNi4xNS01LjEtMTMuMTctNS4xLTIxLjA4czEuNzMtMTQuOCw1LjE3LTIxWk04NzcuNzgsMjE0LjcyYzIuMSw0LjMsNC45NSw3LjYsOC41NSw5LjksMy42LDIuMyw3LjY1LDMuNDUsMTIuMTUsMy40NXM4LjU1LTEuMTUsMTIuMTUtMy40NWMzLjYtMi4zLDYuNDItNS42LDguNDgtOS45LDIuMDUtNC4zLDMuMDctOS40LDMuMDctMTUuM3MtMS4wMy0xMS0zLjA3LTE1LjNjLTIuMDUtNC4zLTQuODgtNy42LTguNDgtOS45LTMuNi0yLjMtNy42NS0zLjQ1LTEyLjE1LTMuNDVzLTguNTUsMS4xNS0xMi4xNSwzLjQ1Yy0zLjYsMi4zLTYuNDUsNS42LTguNTUsOS45LTIuMSw0LjMtMy4xNSw5LjQtMy4xNSwxNS4zczEuMDUsMTEsMy4xNSwxNS4zWiIvPiYjeGE7ICA8cGF0aCBkPSJNOTkxLjA0LDEyOC42Mmg4MS42djExLjg1aC0zNC4ydjk3Ljk1aC0xMy4zNXYtOTcuOTVoLTM0LjA1di0xMS44NVoiLz4mI3hhOyAgPHBhdGggZD0iTTExOTguNDgsMjE5LjUybC0yNC4xNSwxOS44Yy0xLjYsMS4yLTQuMDUsMy40LTcuMzUsNi42bC03LjM1LTkuM2MyLTIsMy4yNy0zLjU1LDMuODMtNC42NS41NS0xLjEuODItMi42NS44Mi00LjY1di01Ni4yNWgtMTkuNjV2LTEwLjk1aDMxLjJ2NjMuMTVjMS44LTEuNCw0LjU1LTMuNjUsOC4yNS02Ljc1LDMuNy0zLjEsNi43LTUuNiw5LTcuNWw1LjQsMTAuNVpNMTE3OS4xMywxNDcuMjJjLTMuMi0zLjctNy4zMy04LjAyLTEyLjM4LTEyLjk3LTUuMDUtNC45NS05LjM4LTguOTItMTIuOTgtMTEuOTJsNy44LTguMjVjMy4xLDIuMyw3LjE1LDUuOCwxMi4xNSwxMC41LDUsNC43LDkuNjUsOS4yNSwxMy45NSwxMy42NWwtOC41NSw5Wk0xMjc1LjU4LDI0OS4wN2MtMTYuNy02LjUtMzAuNC0xMy43LTQxLjEtMjEuNi0xMS4yLDcuOS0yNS41LDE1LjItNDIuOSwyMS45bC02LTEwLjY1YzE1LjUtNS4zLDI4Ljc1LTExLjU1LDM5Ljc1LTE4Ljc1LTEwLjEtOS4zLTE3LjktMjAuNy0yMy40LTM0LjJoLTguMXYtMTAuOTVoNzQuNTV2MTEuMWMtNS40LDEzLjQtMTMuNywyNC45LTI0LjksMzQuNSw5LjUsNi40LDIyLjEsMTIuMTUsMzcuOCwxNy4yNWwtNS43LDExLjRaTTEyMTkuOTMsMTM5LjEyYzAsNS42LTEuNywxMC44NS01LjEsMTUuNzUtMy40LDQuOS05LjQ1LDEwLjEtMTguMTUsMTUuNmwtOC40LTkuM2M1LjYtMy40LDkuODMtNi40LDEyLjY4LTksMi44NS0yLjYsNC43Ny01LjMsNS43Ny04LjEsMS0yLjgsMS41LTYuMywxLjUtMTAuNXYtMTQuN2g1MXYyOS4xYzAsMi4yLjQ1LDMuNywxLjM1LDQuNS45LjgsMi4yNSwxLjIsNC4wNSwxLjJoMTUuMTVsLTEuNjUsMTEuMjVoLTE0Ljg1Yy01LjYsMC05LjY3LS45LTEyLjIyLTIuN3MtMy44My01LjItMy44My0xMC4ydi0yMi41aC0yNy4zdjkuNlpNMTIxNC4wOCwxODUuNzdjNS4yLDExLjIsMTEuOTUsMjAuNCwyMC4yNSwyNy42LDEwLjEtOC4zLDE3LjItMTcuNSwyMS4zLTI3LjZoLTQxLjU1WiIvPiYjeGE7ICA8cGF0aCBkPSJNMTQ5NC43MywxNzQuMDdsLTMuNDUsMTEuN2MtMTQuNS0yLjMtMjcuMTUtNC45NS0zNy45NS03Ljk1LTEwLjgtMy0yMC4zNS02LjUtMjguNjUtMTAuNS0xOC42LDcuOS00MC4zNSwxNC4xLTY1LjI1LDE4LjZsLTMuNDUtMTAuOTVjMjEtMy42LDM5LjctOC41LDU2LjEtMTQuNy03LjMtNC42LTE0LjQ1LTEwLjQ1LTIxLjQ1LTE3LjU1LTcuNSw3LjYtMTUuNiwxNC40LTI0LjMsMjAuNGwtNy4wNS05LjNjOC44LTYuMSwxNi45Ny0xMy4xMiwyNC41My0yMS4wOCw3LjU1LTcuOTUsMTMuNTgtMTUuMzgsMTguMDgtMjIuMjhsMTIuNiwzYy0yLjksNC40LTUuNCw4LTcuNSwxMC44aDY4Ljg1djExLjRjLTExLjMsOS44LTIzLjk1LDE4LjMtMzcuOTUsMjUuNSwxNC43LDUuNCwzMy42NSw5LjcsNTYuODUsMTIuOVpNMTM4Ni4xMywyNTAuNzJoLTExLjg1di02NS40aDEwMS44NXY2NS40aC0xMnYtNy41aC03OHY3LjVaTTE0MTkuNTgsMjA5LjMydi0xNC4yNWgtMzMuNDV2MTQuMjVoMzMuNDVaTTEzODYuMTMsMjE4LjkydjEzLjhoMzMuNDV2LTEzLjhoLTMzLjQ1Wk0xNDI0LjUzLDE1NS4xN2MxMi45LTUuOCwyNC4zLTEyLjY1LDM0LjItMjAuNTVoLTYwLjNsLS45LjljOC4yLDguMiwxNy4yLDE0Ljc1LDI3LDE5LjY1Wk0xNDMxLjEzLDIwOS4zMmgzM3YtMTQuMjVoLTMzdjE0LjI1Wk0xNDMxLjEzLDIxOC45MnYxMy44aDMzdi0xMy44aC0zM1oiLz4mI3hhOyAgPHBhdGggZD0iTTE2MjAuODgsMjI4Ljk3bC01MC40LDEwLjY1LTIuMjUtMTIuMTVjNC45LS44LDEzLjQyLTIuNDcsMjUuNTgtNS4wMiwxMi4xNS0yLjU1LDIwLjkyLTQuNTIsMjYuMzMtNS45M2wuNzUsMTIuNDVaTTE1NzEuOTgsMTcxLjY3bC0yLjU1LTExLjU1YzEuMi0uNCwyLjE1LS44NSwyLjg1LTEuMzUuNy0uNSwxLjUtMS4zLDIuNC0yLjQsMi42LTMuNCw2LjEtOS41LDEwLjUtMTguMyw0LjQtOC44LDguMS0xNywxMS4xLTI0LjZsMTAuOTUsNC4zNWMtMyw3LjEtNi42NSwxNC44LTEwLjk1LDIzLjEtNC4zLDguMy03Ljg1LDE0LjMtMTAuNjUsMThsMTguNDUtMi4yNWMzLjItNS44LDUuNjUtMTAuNCw3LjM1LTEzLjhsMTAuMzUsNC45NWMtMy45LDguMS04LjY4LDE2Ljk4LTE0LjMyLDI2LjYyLTUuNjUsOS42NS0xMC4zOCwxNi45OC0xNC4xOCwyMS45NywzLjQtLjYsMTEuNC0yLjQ1LDI0LTUuNTVsLjE1LDExLjEtMzMuMyw3LjM1Yy0zLjEuNi02LjA1LDEuMy04Ljg1LDIuMWwtMi44NS0xMS4yNWMxLjQtLjQsMi44Mi0xLjA3LDQuMjgtMi4wMywxLjQ1LS45NSwyLjYyLTIuMDcsMy41Mi0zLjM4LDUuNS04LDExLjItMTYuOSwxNy4xLTI2LjdsLTQuMDUuNDVjLTYuNSwxLTExLjM1LDEuNi0xNC41NSwxLjgtMi4xLjEtNC4zNS41NS02Ljc1LDEuMzVaTTE3MDYuMjMsMjEzLjIyYzAsNi42LS4zLDEyLjktLjksMTguOS0uNSw1LjEtMS44LDguNjItMy45LDEwLjU4LTIuMSwxLjk1LTUuNzUsMy4xMi0xMC45NSwzLjUyLTIuNi4yLTQuNTUuMy01Ljg1LjMtMS4yLDAtMy4xLS4xLTUuNy0uMy00LjktLjQtOC40LTEuNjgtMTAuNS0zLjgzLTIuMS0yLjE1LTMuMTUtNi4xNy0zLjE1LTEyLjA3di00OS4zNWwtMTYuNjUsMS44YzAsNC0uMDUsNi43LS4xNSw4LjEtLjQsMTAtMS41OCwxOC4zMy0zLjUyLDI0Ljk3LTEuOTUsNi42NS01LjE1LDEyLjYzLTkuNiwxNy45Mi00LjQ1LDUuMy0xMC44MywxMC42NS0xOS4xMiwxNi4wNWwtNy4zNS05LjljOC01LDEzLjk1LTkuNTMsMTcuODUtMTMuNTgsMy45LTQuMDUsNi42LTguODIsOC4xLTE0LjMzLDEuNS01LjUsMi4yNS0xMi45LDIuMjUtMjIuMnYtNS43bC01LjU1LjZjLTMuNC4yLTcuMi42NS0xMS40LDEuMzVsLTMtMTAuNjVjMy4yLS44LDUuNDUtMiw2Ljc1LTMuNiw0LjctNC45LDEyLjEtMTUuMjUsMjIuMi0zMS4wNWgtMjYuN3YtMTEuNGgzNS40bC00LjItMTEuMjUtMS42NS00LjUsMTEuNTUtMi44NSw2LjksMTguNmgzNS41NXYxMS40aC00My42NWMtMTAuNywxNy0xOC4yNSwyNy45LTIyLjY1LDMyLjdsNDIuOS00LjUtMi4yNS0zLjE1Yy0xLjMtMS44LTIuNjgtMy42OC00LjEyLTUuNjItMS40NS0xLjk1LTIuOTItMy44OC00LjQyLTUuNzhsOS01Ljg1YzMuNCw0LjQsNy43LDEwLjIzLDEyLjksMTcuNDcsNS4yLDcuMjUsOS40NSwxMy40MiwxMi43NSwxOC41M2wtOSw2LjE1LTguMS0xMi05Ljc1LDEuMDV2NDguM2MwLDIuOC4zNSw0LjYzLDEuMDUsNS40Ny43Ljg1LDIsMS4zOCwzLjksMS41OGwzLjYuMTVjMi45LDAsNC45Ny0uMTIsNi4yMi0uMzgsMS4yNS0uMjUsMi4xNS0uNzUsMi43LTEuNS41NS0uNzUuOTctMi4wMiwxLjI3LTMuODIuNi0zLjIuOS03LjU1LjktMTMuMDUsMC0yLjUtLjA1LTQuMzUtLjE1LTUuNTVsMTAuMiwyLjI1WiIvPiYjeGE7ICA8cGF0aCBkPSJNMTc4NC4wOCwxNzAuMzJoMTM0Ljd2MTIuOWgtMTM0Ljd2LTEyLjlaIi8+JiN4YTsgIDxwYXRoIGQ9Ik0yMDM5LjIzLDE4My45N2wtMTIuMyw0LjJ2NDMuMzVjMCw2LjEtMS4wMywxMC4yNS0zLjA4LDEyLjQ1LTIuMDUsMi4yLTUuNjgsMy4zLTEwLjg4LDMuMy00LjMsMC04LjQ1LS4yNS0xMi40NS0uNzVsLTEuOTUtMTEuMjVjNC43LjcsOC44LDEuMDUsMTIuMywxLjA1LDEuOSwwLDMuMTctLjQ3LDMuODMtMS40My42NS0uOTUuOTctMi42Ny45Ny01LjE3di0zNy41Yy02LjQsMi4yLTEyLjUsNC40LTE4LjMsNi42bC0yLjQtMTEuMjVjNC4zLTEuMiwxMS4yLTMuNSwyMC43LTYuOXYtMjkuMWgtMTcuN3YtMTAuOTVoMTcuN3YtMjcuMTVoMTEuMjV2MjcuMTVoMTMuMDV2MTAuOTVoLTEzLjA1djI1LjA1bDMuNi0xLjM1LDguMS0zLjMuNiwxMlpNMjEzMS42MywxOTguMDdoLTE2LjVjLTQuMywxMS4xLTkuNCwxOS44LTE1LjMsMjYuMSwxMy41LDYuMiwyMy43NSwxMS4xLDMwLjc1LDE0LjdsLTQuOCwxMC41Yy0xMC42LTUuNi0yMi4zLTExLjQtMzUuMS0xNy40LTUuNSwzLjctMTIuMTUsNi45OC0xOS45NSw5Ljgzcy0xNy40LDUuNDItMjguOCw3LjcybC00LjA1LTEwLjk1YzE4LjMtMy40LDMxLjktNy40LDQwLjgtMTItMTIuNi01LjQtMjIuMjUtOS4zNS0yOC45NS0xMS44NSwzLjQtNC43LDYuODUtMTAuMjUsMTAuMzUtMTYuNjVoLTIwLjd2LTEwLjhoMjYuMjVjMi43LTUuNyw0LjY1LTEwLjUsNS44NS0xNC40bDExLjcsMS45NWMtMS45LDUtMy42LDkuMTUtNS4xLDEyLjQ1aDUzLjU1djEwLjhaTTIxMzEuMzMsMTU4Ljc3djEwLjhoLTg4Ljk1di0xMC44aDIyLjA1bC01LjEtMjEuMTVoLTEzLjk1di0xMC41aDM1LjI1Yy0xLjgtNC4yLTMuNzUtOC4yNS01Ljg1LTEyLjE1bDEyLjE1LTMuOWMxLjUsMi45LDMuODUsOC4yNSw3LjA1LDE2LjA1aDMzLjN2MTAuNWgtMTQuNTVsLTUuNywyMS4xNWgyNC4zWk0yMDk2LjkxLDIxMC4yMmMyLjE1LTMuNCw0LjE3LTcuNDUsNi4wOC0xMi4xNWgtMzAuM2MtMi40LDQuNi00LjcsOC40NS02LjksMTEuNTUsNS44LDIuMSwxMy42LDUuMzUsMjMuNCw5Ljc1LDMtMi43LDUuNTctNS43NSw3LjcyLTkuMTVaTTIxMDEuMTgsMTM3LjYyaC0zMC42bDUuNCwyMS4xNWgxOS44bDUuNC0yMS4xNVoiLz4mI3hhOyAgPHBhdGggZD0iTTIzMDEuOTYsMTkxLjU0YzkuOTUsMTYuNzUsMjQuNjcsMzEuNzIsNDQuMTcsNDQuOTJsLTguMjUsMTAuNWMtMTYuMy0xMi0yOS4zMy0yNC43LTM5LjA4LTM4LjEtOS43NS0xMy40LTE2Ljg4LTI5LjE1LTIxLjM4LTQ3LjI1LTguNywzMS4zLTI5LjA1LDU5Ljg1LTYxLjA1LDg1LjY1bC05LjE1LTEwLjJjMjAuOS0xNS42LDM2LjM1LTMxLjkyLDQ2LjM1LTQ4Ljk4LDEwLTE3LjA1LDE2LjEtMzQuNjIsMTguMy01Mi43Mi0xLTEuNS0yLjUzLTIuNTctNC41OC0zLjIzLTIuMDUtLjY1LTQuODMtLjk3LTguMzMtLjk3aC0yMS4zdi0xMi42aDI1Ljk1YzYuNCwwLDExLjE3LDEuMTUsMTQuMzMsMy40NSwzLjE1LDIuMyw0Ljk3LDYuMiw1LjQ3LDExLjcsMi40LDIxLjgsOC41Nyw0MS4wOCwxOC41Myw1Ny44M1oiLz4mI3hhOyAgPHBhdGggZD0iTTI0OTYuNTgsMTg4LjkyaDYwLjl2MTEuNGgtNjAuOXY0OC4zaC0xMi40NXYtNDguM2gtNjEuMDV2LTExLjRoNjEuMDV2LTU3LjZoLTU0Ljl2LTExLjRoMTIyLjI1djExLjRoLTU0Ljl2NTcuNlpNMjQ0NC44MywxMzkuODdjMy40LDQuMiw3Ljc1LDkuOSwxMy4wNSwxNy4xLDUuMyw3LjIsOS41NSwxMy4yLDEyLjc1LDE4bC05LjksNi43NWMtMy4yLTUuMS03LjQtMTEuMjUtMTIuNi0xOC40NS01LjItNy4yLTkuNC0xMi43NS0xMi42LTE2LjY1bDkuMy02Ljc1Wk0yNTA5LjkzLDE3NC45N2MzLjYtNCw4LjAzLTkuNywxMy4yOC0xNy4xLDUuMjUtNy40LDkuMzItMTMuNDUsMTIuMjItMTguMTVsOS43NSw2Ljc1Yy0yLjgsNC41LTYuOSwxMC41LTEyLjMsMTgtNS40LDcuNS05Ljg1LDEzLjMtMTMuMzUsMTcuNGwtOS42LTYuOVoiLz4mI3hhOyAgPHBhdGggZD0iTTI3MjkuNTMsMTI2Ljk3YzUuMSw1LjEsMTEuNzUsMTIuMjgsMTkuOTUsMjEuNTMsOC4yLDkuMjUsMTQuOCwxNy4wMiwxOS44LDIzLjMzbC05LjMsOC4xYy0xLTEuMy0zLjg1LTQuODUtOC41NS0xMC42NWwtMi40LTIuODVjLTE2LDEuMi0zMi4wMiwyLjQtNDguMDcsMy42LTE2LjA1LDEuMi0zMi4wOCwyLjQ1LTQ4LjA4LDMuNzVsLTEwLjM1Ljc1LTMuMy0xMi40NWMzLjctLjYsNi40LTEuMTcsOC4xLTEuNzMsMS43LS41NSwzLjItMS4zMiw0LjUtMi4zMyw1LjctNC40LDEyLjc1LTExLjU1LDIxLjE1LTIxLjQ1LDguNC05LjksMTUuMTUtMTguNywyMC4yNS0yNi40bDEwLjk1LDYuM2MtNS41LDcuOC0xMS44NSwxNi4wOC0xOS4wNSwyNC44My03LjIsOC43NS0xMy40LDE1LjQzLTE4LjYsMjAuMDMsOC44LS44LDIxLjA1LTEuNzUsMzYuNzUtMi44NWwzNi42LTIuN2MtOC4yLTkuNC0xNC42LTE2LjQtMTkuMi0yMWw4Ljg1LTcuOFpNMjY2NS4zMywyNDkuNTJoLTEyLjE1di02Mi43aDEwMC4wNXY2Mi43aC0xMi4xNXYtOC4xaC03NS43NXY4LjFaTTI3NDEuMDgsMjMwLjAydi0zMS4zNWgtNzUuNzV2MzEuMzVoNzUuNzVaIi8+JiN4YTs8L3N2Zz4="
+                            preserveAspectRatio="none" />
+                    </g>
+                </g>
+                <g data-cell-id="PMTbZ5IPZAj8q_X9BM89-10">
+                    <g>
+                        <rect x="600" y="200" width="120" height="40" rx="6" ry="6" fill="#ffffff" stroke="#000000"
+                            pointer-events="all"
+                            style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 220px; margin-left: 601px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                                GPL</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="660" y="224" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">GPL</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="PMTbZ5IPZAj8q_X9BM89-11">
+                    <g>
+                        <rect x="600" y="80" width="120" height="40" rx="6" ry="6" fill="#ffffff" stroke="#000000"
+                            pointer-events="all"
+                            style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 100px; margin-left: 601px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                                MIT</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="660" y="104" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">MIT</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="PMTbZ5IPZAj8q_X9BM89-12">
+                    <g>
+                        <rect x="600" y="140" width="120" height="40" rx="6" ry="6" fill="#ffffff" stroke="#000000"
+                            pointer-events="all"
+                            style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 160px; margin-left: 601px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                                BSD</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="660" y="164" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle">BSD</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="PMTbZ5IPZAj8q_X9BM89-13">
+                    <g>
+                        <rect x="600" y="20" width="120" height="40" rx="6" ry="6" fill="#ffffff" stroke="#000000"
+                            pointer-events="all"
+                            style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 40px; margin-left: 601px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                                Apache</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="660" y="44" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="12px"
+                                    text-anchor="middle">Apache</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="PMTbZ5IPZAj8q_X9BM89-14">
+                    <g>
+                        <path d="M 440 90 L 520 130 L 440 170 L 360 130 Z" fill="#ffffff" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="all"
+                            style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 150px; height: 1px; padding-top: 128px; margin-left: 365px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                                衍生软件<div><span
+                                                        style="background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">是否</span><span
+                                                        style="background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">可使用当前项目</span>
+                                                </div>
+                                                <div><span
+                                                        style="background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">名称</span><span
+                                                        style="background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">促销</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="440" y="132" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="12px"
+                                    text-anchor="middle">衍生软件是否可使用当前项目名称促销...</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="PMTbZ5IPZAj8q_X9BM89-15">
+                    <g>
+                        <path d="M 400 40 L 589.88 40" fill="none" stroke="#000000" stroke-miterlimit="10"
+                            pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                        <path d="M 598.88 40 L 589.88 44.5 L 589.88 35.5 Z" fill="none" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="all"
+                            style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 30px; margin-left: 500px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 11px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: nowrap; ">
+                                                Yes</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="500" y="33" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="11px" text-anchor="middle">Yes</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="PMTbZ5IPZAj8q_X9BM89-16">
+                    <g>
+                        <path d="M 520 130 L 560 130 L 560 160 L 589.88 160" fill="none" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="stroke"
+                            style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                        <path d="M 598.88 160 L 589.88 164.5 L 589.88 155.5 Z" fill="none" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="all"
+                            style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 140px; margin-left: 563px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 11px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: nowrap; ">
+                                                No</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="563" y="143" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="11px" text-anchor="middle">No</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="PMTbZ5IPZAj8q_X9BM89-17">
+                    <g>
+                        <path d="M 520 130 L 560 130 L 560 100 L 589.88 100" fill="none" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="stroke"
+                            style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                        <path d="M 598.88 100 L 589.88 104.5 L 589.88 95.5 Z" fill="none" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="all"
+                            style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 115px; margin-left: 550px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 11px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: nowrap; ">
+                                                Yes</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="550" y="118" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="11px" text-anchor="middle">Yes</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="PMTbZ5IPZAj8q_X9BM89-19">
+                    <g>
+                        <path d="M 320 80 L 320 130 L 349.88 130" fill="none" stroke="#000000" stroke-miterlimit="10"
+                            pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                        <path d="M 358.88 130 L 349.88 134.5 L 349.88 125.5 Z" fill="none" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="all"
+                            style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 110px; margin-left: 330px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 11px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: nowrap; ">
+                                                No</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="330" y="113" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="11px" text-anchor="middle">No</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="PMTbZ5IPZAj8q_X9BM89-20">
+                    <g>
+                        <path d="M 320 180 L 400 220 L 320 260 L 240 220 Z" fill="#ffffff" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="all"
+                            style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 150px; height: 1px; padding-top: 218px; margin-left: 245px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                                新增代码是否<div>采用相同许可证</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="320" y="222" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="12px"
+                                    text-anchor="middle">新增代码是否&#xa;采用相同许可证</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="PMTbZ5IPZAj8q_X9BM89-21">
+                    <g>
+                        <path d="M 400 220 L 589.88 220" fill="none" stroke="#000000" stroke-miterlimit="10"
+                            pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                        <path d="M 598.88 220 L 589.88 224.5 L 589.88 215.5 Z" fill="none" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="all"
+                            style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 210px; margin-left: 500px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 11px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: nowrap; ">
+                                                Yes</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="500" y="213" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="11px" text-anchor="middle">Yes</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="PMTbZ5IPZAj8q_X9BM89-22">
+                    <g>
+                        <path d="M 440 270 L 520 310 L 440 350 L 360 310 Z" fill="#ffffff" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="all"
+                            style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 150px; height: 1px; padding-top: 308px; margin-left: 365px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                                是否需要为<div>修改之处<span
+                                                        style="background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">提供</span>
+                                                </div>
+                                                <div><span
+                                                        style="background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">说明文档</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="440" y="312" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="12px"
+                                    text-anchor="middle">是否需要为修改之处提供说明文档...</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+                <g data-cell-id="PMTbZ5IPZAj8q_X9BM89-23">
+                    <g>
+                        <path d="M 320 260 L 320 310 L 349.88 310" fill="none" stroke="#000000" stroke-miterlimit="10"
+                            pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                        <path d="M 358.88 310 L 349.88 314.5 L 349.88 305.5 Z" fill="none" stroke="#000000"
+                            stroke-miterlimit="10" pointer-events="all"
+                            style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));" />
+                    </g>
+                    <g>
+                        <g transform="translate(-0.5 -0.5)">
+                            <switch>
+                                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none"
+                                    width="100%" height="100%"
+                                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                        style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 290px; margin-left: 330px;">
+                                        <div
+                                            style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                            <div
+                                                style="display: inline-block; font-size: 11px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: nowrap; ">
+                                                No</div>
+                                        </div>
+                                    </div>
+                                </foreignObject><text x="330" y="293" fill="light-dark(#000000, #ffffff)"
+                                    font-family="&quot;Helvetica&quot;" font-size="11px" text-anchor="middle">No</text>
+                            </switch>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" /><a transform="translate(0,-5)"
+            xlink:href="https://www.drawio.com/doc/faq/svg-export-text-problems" target="_blank"><text
+                text-anchor="middle" font-size="10px" x="50%" y="100%">Text is not SVG - cannot display</text></a>
+    </switch>
+</svg>
