@@ -9,7 +9,6 @@
 
 package com.footprintcat.frostiot.core.springboot.repository;
 
-import com.footprintcat.frostiot.core.springboot.pojo.test.User;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

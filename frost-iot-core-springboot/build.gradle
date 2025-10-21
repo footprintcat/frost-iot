@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     // id 'application'  // 覆盖父项目的 java-library
-    id 'org.springframework.boot' version '4.0.0-M3'
+    id 'org.springframework.boot' version '3.5.6'
     id 'io.spring.dependency-management' version '1.1.7'
     id 'org.graalvm.buildtools.native' version '0.10.6'
 }
@@ -38,7 +38,7 @@ dependencies {
     // SpringBoot 相关依赖
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-configuration-processor' // 加载 application.*.yml
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    // implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
     // 测试依赖
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -61,9 +61,11 @@ dependencies {
     // jetbrains 编译时注解
     implementation("org.jetbrains:annotations:${libraries.jetbrainsAnnotations}")
 
+    implementation ("com.baomidou:mybatis-plus-spring-boot3-starter:3.5.7")
+
     // OpenAPI/Swagger Support
     // OpenAPI 注解支持
-    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:3.0.0-M1")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.13")
 
     // 其他业务依赖
     // ...
