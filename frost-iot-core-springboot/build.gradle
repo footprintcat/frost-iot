@@ -26,6 +26,13 @@ repositories {
     mavenCentral()
 }
 
+// 依赖管理
+dependencyManagement {
+    imports {
+        mavenBom "com.baomidou:mybatis-plus-bom:3.5.14"
+    }
+}
+
 dependencies {
     // implementation platform(...) 仅传递版本约束，不传递实际依赖。例如: 统一版本管理（BOM）
     // implementation project(...)  传递所有依赖（代码 + 依赖项）
@@ -57,11 +64,15 @@ dependencies {
 
     // 数据库
     runtimeOnly("org.postgresql:postgresql") // PostgreSQL 驱动
+    implementation('com.taosdata.jdbc:taos-jdbcdriver:3.2.7')
 
     // jetbrains 编译时注解
     implementation("org.jetbrains:annotations:${libraries.jetbrainsAnnotations}")
 
-    implementation ("com.baomidou:mybatis-plus-spring-boot3-starter:3.5.7")
+    implementation ("com.baomidou:mybatis-plus-spring-boot3-starter")
+    implementation("com.baomidou:mybatis-plus-jsqlparser")
+
+    implementation ("com.baomidou:dynamic-datasource-spring-boot3-starter:4.3.1")
 
     // OpenAPI/Swagger Support
     // OpenAPI 注解支持

@@ -6,13 +6,21 @@ spring:
     name: frost-iot-core
 
   datasource:
-    # default:
-      # 若连接远程 PostgreSQL, 需确保数据库已配置 listen_addresses (例如: listen_addresses = '*', 默认为 'localhost')
-      url: jdbc:postgresql://127.0.0.1:5432/frostiot_dev
-      driverClassName: org.postgresql.Driver
-      username: frostiot
-      password: frostiot
-      #maximum-pool-size: 10
+    dynamic:
+      primary: master
+      datasource:
+        master:
+          # 若连接远程 PostgreSQL, 需确保数据库已配置 listen_addresses (例如: listen_addresses = '*', 默认为 'localhost')
+          url: jdbc:postgresql://127.0.0.1:5432/frostiot_dev
+          driverClassName: org.postgresql.Driver
+          username: frostiot
+          password: frostiot
+          #maximum-pool-size: 10
+        data:
+          url: jdbc:TAOS-RS://127.0.0.1:6041?useSSL=false&user=root&password=taosdata
+          driverClassName: com.taosdata.jdbc.rs.RestfulDriver
+          # username: root
+          # password: taosdata
 
 frost-iot:
   # Frost IoT 版本号

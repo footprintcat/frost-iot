@@ -20,11 +20,11 @@ public class Messages implements Serializable {
 
     private MessageType messageType;
 
-    @TableField(fill = FieldFill.INSERT)
-    private String createUser;
-
-    @TableField(fill = FieldFill.UPDATE)
-    private String updateUser;
+    // @TableField(fill = FieldFill.INSERT)
+    // private String createUser;
+    //
+    // @TableField(fill = FieldFill.UPDATE)
+    // private String updateUser;
 
     public Messages() {
     }

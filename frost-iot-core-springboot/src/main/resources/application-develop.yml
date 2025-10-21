@@ -4,9 +4,16 @@ frost-iot:
 
 spring:
   datasource:
-    # default:
-    # pgsql:
-      url: jdbc:postgresql://127.0.0.1:5432/frostiot_dev
-      driverClassName: org.postgresql.Driver
-      username: frostiot
-      password: frostiot
+    dynamic:
+      primary: master
+      datasource:
+        master:
+          url: jdbc:postgresql://127.0.0.1:5432/frostiot_dev
+          driverClassName: org.postgresql.Driver
+          username: frostiot
+          password: frostiot
+        data:
+          url: jdbc:TAOS-RS://127.0.0.1:6041?useSSL=false&user=root&password=taosdata
+          driverClassName: com.taosdata.jdbc.rs.RestfulDriver
+          # username: root
+          # password: taosdata
