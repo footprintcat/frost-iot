@@ -30,14 +30,15 @@ allprojects {
         enabled = false
     }
 
-    tasks.withType(ProcessResources).tap {
-        configureEach {
-            exclude(
-                    // 排除测试用配置文件
-                    '**/application-*.yml',
-            )
-        }
-    }
+    // 2025.10.21 fix: 打包时暂时不排除 application-*.yml, 不然本地调试也无法加载对应的配置文件
+    // tasks.withType(ProcessResources).tap {
+    //     configureEach {
+    //         exclude(
+    //                 // 排除测试用配置文件
+    //                 '**/application-*.yml',
+    //         )
+    //     }
+    // }
 
     // 修复 Javadoc 任务
     tasks.withType(Javadoc).configureEach {
