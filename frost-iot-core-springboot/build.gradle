@@ -63,20 +63,22 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
 
     // 数据库
-    runtimeOnly("org.postgresql:postgresql") // PostgreSQL 驱动
-    implementation('com.taosdata.jdbc:taos-jdbcdriver:3.2.7')
+    runtimeOnly 'org.postgresql:postgresql' // PostgreSQL 驱动
+    implementation 'com.taosdata.jdbc:taos-jdbcdriver:3.2.7' // TDengine 驱动
 
     // jetbrains 编译时注解
-    implementation("org.jetbrains:annotations:${libraries.jetbrainsAnnotations}")
+    implementation 'org.jetbrains:annotations:${libraries.jetbrainsAnnotations}'
 
-    implementation ("com.baomidou:mybatis-plus-spring-boot3-starter")
-    implementation("com.baomidou:mybatis-plus-jsqlparser")
+    // mybatis-plus
+    implementation 'com.baomidou:mybatis-plus-spring-boot3-starter'
+    implementation 'com.baomidou:mybatis-plus-jsqlparser'
 
-    implementation ("com.baomidou:dynamic-datasource-spring-boot3-starter:4.3.1")
+    // 多数据源
+    implementation 'com.baomidou:dynamic-datasource-spring-boot3-starter:4.3.1'
 
     // OpenAPI/Swagger Support
     // OpenAPI 注解支持
-    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.13")
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.13'
 
     // 其他业务依赖
     // ...
