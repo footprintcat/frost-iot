@@ -11,7 +11,7 @@ package com.footprintcat.frostiot.core.springboot;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.footprintcat.frostiot.core.springboot.enmus.MessageType;
+import com.footprintcat.frostiot.core.springboot.enums.MessageType;
 import com.footprintcat.frostiot.core.springboot.mapper.MessagesMapper;
 import com.footprintcat.frostiot.core.springboot.mapper.MyXmlMapper;
 import com.footprintcat.frostiot.core.springboot.pojo.test.Message;

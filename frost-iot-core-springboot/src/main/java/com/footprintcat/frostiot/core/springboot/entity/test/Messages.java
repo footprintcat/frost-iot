@@ -11,7 +11,7 @@ package com.footprintcat.frostiot.core.springboot.entity.test;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.footprintcat.frostiot.core.springboot.enmus.MessageType;
+import com.footprintcat.frostiot.core.springboot.enums.MessageType;
 
 import java.io.Serializable;
 

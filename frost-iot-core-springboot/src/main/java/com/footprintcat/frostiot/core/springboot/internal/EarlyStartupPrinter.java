@@ -11,8 +11,8 @@ package com.footprintcat.frostiot.core.springboot.internal;
 
 import com.footprintcat.frostiot.common.utils.SystemInfoUtils;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.boot.SpringApplicationRunListener;
 import org.springframework.boot.ConfigurableBootstrapContext;
+import org.springframework.boot.SpringApplicationRunListener;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 

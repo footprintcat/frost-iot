@@ -1,4 +1,4 @@
-package com.footprintcat.frostiot.core.springboot.enmus;
+package com.footprintcat.frostiot.core.springboot.enums;
 
 import com.baomidou.mybatisplus.annotation.IEnum;
 
