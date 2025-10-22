@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="[core][springboot][remote-pgsql] FrostIotCoreApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+  <configuration default="false" name="[core][springboot][lan] FrostIotCoreApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <module name="frost-iot.frost-iot-core-springboot.main" />
-    <option name="PROGRAM_PARAMETERS" value="--spring.profiles.active=private-develop-remote-pgsql" />
+    <option name="PROGRAM_PARAMETERS" value="--spring.profiles.active=lan" />
     <selectedOptions>
       <option name="environmentVariables" />
     </selectedOptions>
