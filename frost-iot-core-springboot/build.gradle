@@ -52,8 +52,13 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-    // implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.5'
-    // testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.5'
+    // logback
+    // fix warning:
+    // SLF4J(W): No SLF4J providers were found.
+    // SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+    // SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+    runtimeOnly 'ch.qos.logback:logback-classic'
+    compileOnly 'ch.qos.logback:logback-classic'
 
     // Lombok
     compileOnly 'org.projectlombok:lombok'
