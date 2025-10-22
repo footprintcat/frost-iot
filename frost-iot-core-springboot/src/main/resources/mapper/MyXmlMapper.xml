@@ -18,7 +18,7 @@
         VALUES (#{message})
     </insert>
 
-    <select id="select" resultType="com.footprintcat.frostiot.core.springboot.FrostIotCoreApplication$Message">
+    <select id="select" resultType="com.footprintcat.frostiot.core.springboot.pojo.test.Message">
         SELECT
             id
              ,message
