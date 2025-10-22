@@ -16,6 +16,7 @@ import com.footprintcat.frostiot.core.springboot.enums.MessageType;
 import com.footprintcat.frostiot.core.springboot.mapper.MessagesMapper;
 import com.footprintcat.frostiot.core.springboot.mapper.MyMapper;
 import com.footprintcat.frostiot.core.springboot.mapper.MyXmlMapper;
+import com.footprintcat.frostiot.core.springboot.mapper.data.TDengineMapper;
 import com.footprintcat.frostiot.core.springboot.pojo.test.Message;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
@@ -43,11 +44,21 @@ public class FrostIotCoreApplication {
         SpringApplication.run(FrostIotCoreApplication.class, args);
     }
 
+    @Bean
+    @Order(10)
+    ApplicationRunner tdengine(TDengineMapper mapper) {
+        return args -> {
+            System.out.println("TDengineMapper - XML注解形式");
+            var localDateTime = mapper.selectNow();
+            System.out.println(localDateTime);
+        };
+    }
 
     @Bean
-    @Order(1)
+    @Order(21)
     ApplicationRunner run(MyMapper mapper) {
         return args -> {
+            System.out.println("Mapper - SQL注解形式");
             mapper.insert(new Message(null, "Hello World on run!"));
             Message message = mapper.select(1);
             System.out.println(message);
@@ -55,9 +66,10 @@ public class FrostIotCoreApplication {
     }
 
     @Bean
-    @Order(2)
+    @Order(22)
     ApplicationRunner runWithXmlMapper(MyXmlMapper mapper) {
         return args -> {
+            System.out.println("Mapper - XML注解形式");
             mapper.insert(new Message(null, "Hello World! on runWithXmlMapper"));
             Message message = mapper.select(2);
             System.out.println(message);
@@ -65,15 +77,16 @@ public class FrostIotCoreApplication {
     }
 
     @Bean
-    @Order(2)
+    @Order(23)
     ApplicationRunner runWithMessagesMapper(MessagesMapper mapper) {
         return args -> {
+            System.out.println("Mapper extends BaseMapper - XML注解形式");
             mapper.insertXml(new Messages(null, "Hello World! on runWithMessagesMapper"));
         };
     }
 
     @Bean
-    @Order(3)
+    @Order(24)
     ApplicationRunner runWithMybatisPlus(MessagesMapper messagesMapper) {
         return args -> {
             System.out.println("------------演示insert-----------------");

@@ -61,7 +61,7 @@ dependencies {
 
     // 数据库
     runtimeOnly 'org.postgresql:postgresql' // PostgreSQL 驱动
-    implementation 'com.taosdata.jdbc:taos-jdbcdriver:3.2.7' // TDengine 驱动
+    implementation 'com.taosdata.jdbc:taos-jdbcdriver:3.7.6' // TDengine 驱动
 
     // jetbrains 编译时注解
     // implementation 'org.jetbrains:annotations:${libraries.jetbrainsAnnotations}'
