@@ -11,7 +11,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.footprintcat.frostiot.core.springboot.FrostIotCoreApplication$MyXmlMapper">
+<mapper namespace="com.footprintcat.frostiot.core.springboot.mapper.MyXmlMapper">
 
     <insert id="insert">
         INSERT INTO messages (message)

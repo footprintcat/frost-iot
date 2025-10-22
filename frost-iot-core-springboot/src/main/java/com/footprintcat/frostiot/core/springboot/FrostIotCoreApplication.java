@@ -13,6 +13,8 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.footprintcat.frostiot.core.springboot.enmus.MessageType;
 import com.footprintcat.frostiot.core.springboot.mapper.MessagesMapper;
+import com.footprintcat.frostiot.core.springboot.mapper.MyXmlMapper;
+import com.footprintcat.frostiot.core.springboot.pojo.test.Message;
 import com.footprintcat.frostiot.core.springboot.pojo.test.Messages;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
@@ -111,15 +113,5 @@ public class FrostIotCoreApplication {
                 """)
         Message select(Integer id);
 
-    }
-
-    @Mapper
-    interface MyXmlMapper {
-        void insert(Message message);
-
-        Message select(Integer id);
-    }
-
-    record Message(Integer id, String message) {
     }
 }
