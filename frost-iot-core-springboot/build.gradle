@@ -33,6 +33,12 @@ dependencyManagement {
     }
 }
 
+ext {
+    libraries = [
+            "jetbrainsAnnotations": "26.0.2-1"
+    ]
+}
+
 dependencies {
     // implementation platform(...) 仅传递版本约束，不传递实际依赖。例如: 统一版本管理（BOM）
     // implementation project(...)  传递所有依赖（代码 + 依赖项）
@@ -51,6 +57,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
+    // 2025.10.22 上面已经添加了 spring-boot-configuration-processor 的 implementation, 这里不再需要添加
     // 配置处理器 (需要添加这个，否则 application-*.yml 不会被加载)
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
@@ -67,14 +74,15 @@ dependencies {
     implementation 'com.taosdata.jdbc:taos-jdbcdriver:3.2.7' // TDengine 驱动
 
     // jetbrains 编译时注解
-    implementation 'org.jetbrains:annotations:${libraries.jetbrainsAnnotations}'
+    // // implementation 'org.jetbrains:annotations:${libraries.jetbrainsAnnotations}'
+    implementation 'org.jetbrains:annotations:26.0.2'
 
     // mybatis-plus
     implementation 'com.baomidou:mybatis-plus-spring-boot3-starter'
     implementation 'com.baomidou:mybatis-plus-jsqlparser'
 
     // 多数据源
-    implementation 'com.baomidou:dynamic-datasource-spring-boot3-starter:4.3.1'
+    // implementation 'com.baomidou:dynamic-datasource-spring-boot3-starter:4.3.1'
 
     // OpenAPI/Swagger Support
     // OpenAPI 注解支持
@@ -105,6 +113,9 @@ graalvmNative {
             // 直接报错并终止构建，而不是退而求其次地生成一个仍需 JDK 的“fallback”可执行文件
             buildArgs.add("--no-fallback")
             buildArgs.add("-H:-SharedLibrary")  // ✅ 关键, 强制指定生成 exe 而不是 dll
+
+            buildArgs.add("--enable-url-protocols=http")
+            buildArgs.add("--features=com.footprintcat.frostiot.core.springboot.config.LambdaRegistrationFeature")
         }
     }
 }
