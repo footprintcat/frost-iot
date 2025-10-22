@@ -97,15 +97,14 @@ graalvmNative {
         main {
             imageName = "frost-iot-core"
 
+            // fix these warnings:
+            // - Warning: The option '-H:-SharedLibrary' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+            buildArgs.add("-H:+UnlockExperimentalVMOptions") // 注意顺序，需要放在其他参数前面
+
             // 如果静态分析发现代码里存在未经配置的动态特性（如反射、动态代理、JNI、资源加载等），
             // 直接报错并终止构建，而不是退而求其次地生成一个仍需 JDK 的“fallback”可执行文件
             buildArgs.add("--no-fallback")
             buildArgs.add("-H:-SharedLibrary")  // ✅ 关键, 强制指定生成 exe 而不是 dll
-
-            // fix these warnings:
-            // - Warning: The option '-H:-SharedLibrary' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
-            // - Warning: The option '-H:ServiceLoaderFeatureExcludeServices=org.hibernate.bytecode.spi.BytecodeProvider' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
-            buildArgs.add("-H:+UnlockExperimentalVMOptions")
         }
     }
 }
