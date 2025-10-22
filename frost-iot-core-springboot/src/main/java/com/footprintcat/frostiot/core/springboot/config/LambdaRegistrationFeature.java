@@ -7,8 +7,9 @@ import org.graalvm.nativeimage.hosted.RuntimeSerialization;
 
 /**
  * lambda 表达式注入到graal中
+ *
  * @author ztp
- * @date 2023/8/18 11:53
+ * @since 2023/8/18 11:53
  */
 public class LambdaRegistrationFeature implements Feature {
 
