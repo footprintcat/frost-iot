@@ -1,7 +1,8 @@
 plugins {
     id 'java'
     // id 'application'  // 覆盖父项目的 java-library
-    id 'org.springframework.boot' version '3.5.6'
+    id 'org.springframework.boot' version '3.5.6' // springboot 3.x
+    // id 'org.springframework.boot' version '4.0.0-M3' // springboot 4.x
     id 'io.spring.dependency-management' version '1.1.7'
     id 'org.graalvm.buildtools.native' version '0.10.6'
 }
@@ -44,16 +45,12 @@ dependencies {
 
     // SpringBoot 相关依赖
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-configuration-processor' // 加载 application.*.yml
+    // implementation 'org.springframework.boot:spring-boot-configuration-processor' // 加载 application.*.yml
     // implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
     // 测试依赖
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-
-    // 配置处理器 (需要添加这个，否则 application-*.yml 不会被加载)
-    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-    compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
 
     // implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.5'
     // testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.5'
@@ -79,7 +76,10 @@ dependencies {
 
     // OpenAPI/Swagger Support
     // OpenAPI 注解支持
+    // springboot 3.x
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.13'
+    // springboot 4.x
+    // implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:3.0.0-M1'
 
     // GraalVM
     compileOnly 'org.graalvm.sdk:graal-sdk:22.3.1'
