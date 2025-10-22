@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.handlers.CompositeEnumTypeHandler;
 import com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler;
+import com.baomidou.mybatisplus.core.override.MybatisMapperProxy;
 import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
 import com.baomidou.mybatisplus.core.toolkit.support.SerializedLambda;
 import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
@@ -130,7 +131,9 @@ public class MyBatisNativeConfiguration {
           ArrayList.class,
           HashMap.class,
           TreeSet.class,
-          HashSet.class
+          HashSet.class,
+
+          MybatisMapperProxy.class
       ).forEach(x -> hints.reflection().registerType(x, MemberCategory.values()));
       Stream.of(
           "org/apache/ibatis/builder/xml/*.dtd",
