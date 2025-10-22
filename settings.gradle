@@ -26,6 +26,10 @@ buildscript {
 
 // Common 工具类
 include 'common'
+
+// 网络拓扑模块
+include 'network-topology'
+
 // adapter SPI 接口
 include 'frost-iot-adapter-sdk' // 发布组件
 
