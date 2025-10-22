@@ -9,8 +9,8 @@
 
 package com.footprintcat.frostiot.topology.communicate;
 
-/**
- * @since 2025-10-22
- */
-public class IXxx {
+public enum CommunicationType {
+    HTTP,
+    MQTT,
+    WEBSOCKET,
 }
