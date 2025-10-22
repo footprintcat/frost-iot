@@ -3,7 +3,7 @@
     <ExternalSystemSettings>
       <option name="env">
         <map>
-          <entry key="JAVA_HOME" value="%JAVA_HOME_GRAALVM%" />
+          <entry key="JAVA_HOME" value="这里配置 GraalVM JDK 绝对路径 (不支持通过 %XXX% 环境变量形式动态引入)" />
         </map>
       </option>
       <option name="executionName" />
