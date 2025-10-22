@@ -1,8 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="[core][micronaut][dev] FrostIotCoreApplication" type="MicronautRunConfigurationType" factoryName="Micronaut">
-    <envs>
-      <env name="MICRONAUT_ENVIRONMENTS" value="develop" />
-    </envs>
+  <configuration default="false" name="FrostIotCoreApplication (micronaut)" type="MicronautRunConfigurationType" factoryName="Micronaut" folderName="core (micronaut)">
     <option name="MAIN_CLASS_NAME" value="com.footprintcat.frostiot.core.micronaut.FrostIotCoreApplication" />
     <module name="frost-iot.frost-iot-core-micronaut.main" />
     <option name="alternativeJrePath" />

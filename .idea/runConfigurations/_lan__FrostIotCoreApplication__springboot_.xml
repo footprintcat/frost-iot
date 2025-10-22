@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="[core][springboot][lan] FrostIotCoreApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+  <configuration default="false" name="[lan] FrostIotCoreApplication (springboot)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="core (springboot)">
     <module name="frost-iot.frost-iot-core-springboot.main" />
     <option name="PROGRAM_PARAMETERS" value="--spring.profiles.active=lan" />
     <selectedOptions>

@@ -16,6 +16,11 @@ import org.springframework.boot.SpringApplicationRunListener;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 
+// springboot 3.x 使用这个 import:
+// import org.springframework.boot.ConfigurableBootstrapContext;
+// springboot 4.x 要修改为
+// import org.springframework.boot.bootstrap.ConfigurableBootstrapContext;
+
 /**
  * banner.txt 打印后，hikari 日志打印前的时机
  * <p>

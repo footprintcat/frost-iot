@@ -1,8 +1,13 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="[core][springboot] 打jar包 (build -x test)" type="GradleRunConfiguration" factoryName="Gradle">
+  <configuration default="false" name="[core] 打原生包(指定JAVA_HOME) (nativeCompile -x test) (micronaut)" type="GradleRunConfiguration" factoryName="Gradle" folderName="[gradle] core (micronaut)">
     <ExternalSystemSettings>
+      <option name="env">
+        <map>
+          <entry key="JAVA_HOME" value="D:\Program\Development\Environment\Java\graalvm-community-openjdk-22.0.2+9.1" />
+        </map>
+      </option>
       <option name="executionName" />
-      <option name="externalProjectPath" value="$PROJECT_DIR$/frost-iot-core-springboot" />
+      <option name="externalProjectPath" value="$PROJECT_DIR$/frost-iot-core-micronaut" />
       <option name="externalSystemIdString" value="GRADLE" />
       <option name="scriptParameters" value="-x test" />
       <option name="taskDescriptions">
@@ -10,7 +15,7 @@
       </option>
       <option name="taskNames">
         <list>
-          <option value="build" />
+          <option value="nativeCompile" />
         </list>
       </option>
       <option name="vmOptions" />

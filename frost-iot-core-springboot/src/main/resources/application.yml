@@ -15,7 +15,6 @@ spring:
           driverClassName: org.postgresql.Driver
           username: frostiot
           password: frostiot
-          #maximum-pool-size: 10
         data:
           url: jdbc:TAOS-RS://127.0.0.1:6041?useSSL=false&user=root&password=taosdata
           driverClassName: com.taosdata.jdbc.rs.RestfulDriver
