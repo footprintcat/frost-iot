@@ -1,0 +1,10 @@
+{
+  "resources": {
+    "includes": [
+      {
+        // GraalVM 打原生包时引入 resources/mapper 目录下的 xml
+        "pattern": "mapper/.*\\.xml$"
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+[
+  // 解决报错：java.lang.NoSuchMethodException: com.zaxxer.hikari.HikariConfig.<init>()
+  {
+    "name": "com.zaxxer.hikari.HikariConfig",
+    "allPublicConstructors": true
+  }
+]

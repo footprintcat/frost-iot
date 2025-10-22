@@ -72,7 +72,7 @@ dependencies {
     implementation 'com.baomidou:mybatis-plus-jsqlparser'
 
     // 多数据源
-    // implementation 'com.baomidou:dynamic-datasource-spring-boot3-starter:4.3.1'
+    implementation 'com.baomidou:dynamic-datasource-spring-boot3-starter:4.3.1'
 
     // OpenAPI/Swagger Support
     // OpenAPI 注解支持

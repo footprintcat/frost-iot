@@ -6,6 +6,7 @@
 
 ```bash
 cmd
+echo %JAVA_HOME_GRAALVM%
 set JAVA_HOME=%JAVA_HOME_GRAALVM%
 set PATH=%JAVA_HOME%\bin;%PATH%
 echo %JAVA_HOME%
@@ -35,8 +36,10 @@ cd frost-iot-core-springboot
 # 需要先确保 JAVA_HOME 指向 GraalVM JDK
 # 例如: JAVA_HOME=D:\Program\Development\Environment\Java\graalvm-community-openjdk-22.0.2+9.1
 ../gradlew nativeCompile -x test
-# windows
+../gradlew clean nativeCompile -x test
+# Windows
 ..\gradlew.bat nativeCompile -x test
+..\gradlew.bat clean nativeCompile -x test
 ```
 
 运行
@@ -49,4 +52,6 @@ java -jar build/libs/frost-iot-core-0.0.1-SNAPSHOT.jar
 
 # 运行原生包
 ./build/native/nativeCompile/frost-iot-core.exe
+# Windows
+.\build\native\nativeCompile\frost-iot-core.exe
 ```
