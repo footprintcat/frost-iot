@@ -2,6 +2,17 @@
 
 ## 构建项目
 
+本地临时设置 GraalVM 的环境变量 (默认 GraalVM 所在位置已经配置到 JAVA_HOME_GRAALVM 环境变量中)
+
+```bash
+cmd
+set JAVA_HOME=%JAVA_HOME_GRAALVM%
+set PATH=%JAVA_HOME%\bin;%PATH%
+echo %JAVA_HOME%
+echo %PATH%
+java -version
+```
+
 项目打包
 
 ```sh

@@ -3,11 +3,11 @@
     <envs>
       <env name="MICRONAUT_ENVIRONMENTS" value="develop" />
     </envs>
-    <option name="MAIN_CLASS_NAME" value="com.footprintcat.frostiot.core.micronaut.FrostIotCoreApplication" />
+    <option name="MAIN_CLASS_NAME" value="com.footprintcat.frostiot.core.micronaut.Application" />
     <module name="frost-iot.frost-iot-core-micronaut.main" />
     <option name="alternativeJrePath" />
     <option name="alternativeJrePathEnabled" value="false" />
-    <option name="mainClass" value="com.footprintcat.frostiot.core.micronaut.FrostIotCoreApplication" />
+    <option name="mainClass" value="com.footprintcat.frostiot.core.micronaut.Application" />
     <option name="passParentEnvs" value="true" />
     <option name="programParameters" value="" />
     <option name="vmParameters" />

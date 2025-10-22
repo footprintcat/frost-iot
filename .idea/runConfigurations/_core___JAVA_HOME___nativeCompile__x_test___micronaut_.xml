@@ -3,7 +3,7 @@
     <ExternalSystemSettings>
       <option name="env">
         <map>
-          <entry key="JAVA_HOME" value="D:\Program\Development\Environment\Java\graalvm-community-openjdk-22.0.2+9.1" />
+          <entry key="JAVA_HOME" value="%JAVA_HOME_GRAALVM%" />
         </map>
       </option>
       <option name="executionName" />

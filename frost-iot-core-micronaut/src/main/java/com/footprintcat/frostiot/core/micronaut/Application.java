@@ -24,10 +24,10 @@ import io.swagger.v3.oas.annotations.info.License;
         contact = @Contact(url = "https://iot.footprintcat.com", name = "Frost IoT Project (Footprintcat Open Source)", email = "contact@footprintcat.com")
     )
 )
-public class FrostIotCoreApplication {
+public class Application {
 
     public static void main(String[] args) {
-        Micronaut.run(FrostIotCoreApplication.class, args);
+        Micronaut.run(Application.class, args);
     }
 
 }
