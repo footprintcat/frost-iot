@@ -1,7 +1,7 @@
 package com.footprintcat.frostiot.core.springboot.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.footprintcat.frostiot.core.springboot.pojo.test.Messages;
+import com.footprintcat.frostiot.core.springboot.entity.test.Messages;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -9,5 +9,6 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface MessagesMapper extends BaseMapper<Messages> {
+    void insertXml(Messages message);
 
 }

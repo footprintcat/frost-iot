@@ -15,7 +15,7 @@ import com.footprintcat.frostiot.core.springboot.enmus.MessageType;
 import com.footprintcat.frostiot.core.springboot.mapper.MessagesMapper;
 import com.footprintcat.frostiot.core.springboot.mapper.MyXmlMapper;
 import com.footprintcat.frostiot.core.springboot.pojo.test.Message;
-import com.footprintcat.frostiot.core.springboot.pojo.test.Messages;
+import com.footprintcat.frostiot.core.springboot.entity.test.Messages;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
@@ -67,6 +67,14 @@ public class FrostIotCoreApplication {
     }
 
     @Bean
+    @Order(2)
+    ApplicationRunner runWithMessagesMapper(MessagesMapper mapper) {
+        return args -> {
+            mapper.insertXml(new Messages(null, "Hello World! on runWithMessagesMapper"));
+        };
+    }
+
+    @Bean
     @Order(3)
     ApplicationRunner runWithMybatisPlus(MessagesMapper messagesMapper) {
         return args -> {
@@ -76,6 +84,7 @@ public class FrostIotCoreApplication {
             System.out.println("------------演示select-----------------");
             System.out.println("simple query:" + messagesMapper.selectById(messages.getId()));
             System.out.println("query wrapper:" + messagesMapper.selectOne(Wrappers.<Messages>query().eq("id", 1)));
+            System.out.println("query wrapper:" + messagesMapper.selectOne(Wrappers.<Messages>query().eq("id", messages.getId())));
             System.out.println("------------演示update-----------------");
             messages.setMessageType(MessageType.TEXT);
             messagesMapper.updateById(messages);
