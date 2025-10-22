@@ -11,18 +11,16 @@ package com.footprintcat.frostiot.core.springboot;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.footprintcat.frostiot.core.springboot.entity.test.Messages;
 import com.footprintcat.frostiot.core.springboot.enums.MessageType;
 import com.footprintcat.frostiot.core.springboot.mapper.MessagesMapper;
+import com.footprintcat.frostiot.core.springboot.mapper.MyMapper;
 import com.footprintcat.frostiot.core.springboot.mapper.MyXmlMapper;
 import com.footprintcat.frostiot.core.springboot.pojo.test.Message;
-import com.footprintcat.frostiot.core.springboot.entity.test.Messages;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.info.License;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -102,25 +100,4 @@ public class FrostIotCoreApplication {
         };
     }
 
-    @Mapper
-    interface MyMapper {
-
-        @Insert("""
-                  INSERT INTO messages (message)
-                    VALUES (#{message})
-                """)
-        void insert(Message message);
-
-        @Select("""
-                  SELECT
-                    id
-                    ,message
-                  FROM
-                    messages
-                  WHERE
-                    id = #{id}
-                """)
-        Message select(Integer id);
-
-    }
 }
