@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/frost-iot-core-micronaut" />
             <option value="$PROJECT_DIR$/frost-iot-core-springboot" />
             <option value="$PROJECT_DIR$/frost-iot-dependencies" />
+            <option value="$PROJECT_DIR$/network-topology" />
           </set>
         </option>
       </GradleProjectSettings>
