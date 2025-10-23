@@ -9,11 +9,14 @@
 
 package com.footprintcat.frostiot.topology.communicate;
 
+import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
+
 public interface CommunicationTool {
 
-    void init(CommunicationConfig config);
+    void init(ConnectInfo config);
 
-    void sendMessage(String message, String target);
+    // void sendMessage(String message, String target);
+    void sendMessage(String message, String target, String replyToUrl);
 
     void shutdown();
 
