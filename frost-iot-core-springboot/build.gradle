@@ -91,6 +91,12 @@ dependencies {
 
     // 其他业务依赖
     // ...
+
+    // see: https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-with-GraalVM#logging
+    // cite: Commons Logging should be excluded in Spring Applications as spring-jcl provides its own version and having both leads to duplicated classpath entries.
+    configurations.configureEach {
+        exclude group: 'commons-logging', module: 'commons-logging'
+    }
 }
 
 tasks.named('test') {
