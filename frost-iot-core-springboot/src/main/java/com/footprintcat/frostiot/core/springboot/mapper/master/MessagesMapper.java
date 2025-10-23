@@ -1,4 +1,4 @@
-package com.footprintcat.frostiot.core.springboot.mapper;
+package com.footprintcat.frostiot.core.springboot.mapper.master;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.footprintcat.frostiot.core.springboot.entity.test.Messages;

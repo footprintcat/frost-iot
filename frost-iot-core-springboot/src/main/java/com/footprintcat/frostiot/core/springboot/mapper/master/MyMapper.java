@@ -7,7 +7,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-package com.footprintcat.frostiot.core.springboot.mapper;
+package com.footprintcat.frostiot.core.springboot.mapper.master;
 
 import com.footprintcat.frostiot.core.springboot.pojo.test.Message;
 import org.apache.ibatis.annotations.Insert;

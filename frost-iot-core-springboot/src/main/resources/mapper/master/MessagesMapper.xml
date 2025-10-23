@@ -11,21 +11,11 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.footprintcat.frostiot.core.springboot.mapper.MyXmlMapper">
+<mapper namespace="com.footprintcat.frostiot.core.springboot.mapper.master.MessagesMapper">
 
-    <insert id="insert">
+    <insert id="insertXml">
         INSERT INTO messages (message)
         VALUES (#{message})
     </insert>
-
-    <select id="select" resultType="com.footprintcat.frostiot.core.springboot.pojo.test.Message">
-        SELECT
-            id
-             ,message
-        FROM
-            messages
-        WHERE
-            id = #{id}
-    </select>
 
 </mapper>
