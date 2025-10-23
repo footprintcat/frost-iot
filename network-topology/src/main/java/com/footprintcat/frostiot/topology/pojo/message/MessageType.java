@@ -7,10 +7,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-package com.footprintcat.frostiot.topology.pojo;
+package com.footprintcat.frostiot.topology.pojo.message;
 
-public enum TopoNodeType {
-    ADAPTER,
-    GOSSIP,
-    SINK
+public enum MessageType {
+    DEFAULT
 }

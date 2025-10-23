@@ -7,16 +7,10 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-package com.footprintcat.frostiot.topology.pojo;
+package com.footprintcat.frostiot.topology.pojo.topo;
 
-public class ConnectionState {
-    /**
-     * 连接耗时
-     */
-    long connectionTimeConsuming;
-
-    /**
-     * 经过节点数
-     */
-    int passedNodesNumber;
+public enum TopoNodeType {
+    ADAPTER,
+    GOSSIP,
+    SINK
 }
