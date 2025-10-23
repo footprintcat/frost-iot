@@ -9,18 +9,18 @@
 
 package com.footprintcat.frostiot.topology.communicate.mqtt;
 
-import com.footprintcat.frostiot.topology.communicate.CommunicationConfig;
 import com.footprintcat.frostiot.topology.communicate.CommunicationTool;
 import com.footprintcat.frostiot.topology.communicate.CommunicationType;
+import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
 
 public class MqttCommunicationTool implements CommunicationTool {
     @Override
-    public void init(CommunicationConfig config) {
+    public void init(ConnectInfo config) {
         System.out.println("MQTT Tool初始化...");
     }
 
     @Override
-    public void sendMessage(String message, String target) {
+    public void sendMessage(String message, String target, String replyToUrl) {
         System.out.println("MQTT Tool发送消息.");
     }
 

@@ -9,18 +9,18 @@
 
 package com.footprintcat.frostiot.topology.communicate.webSocket;
 
-import com.footprintcat.frostiot.topology.communicate.CommunicationConfig;
 import com.footprintcat.frostiot.topology.communicate.CommunicationTool;
 import com.footprintcat.frostiot.topology.communicate.CommunicationType;
+import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
 
 public class WebSocketCommunicationTool implements CommunicationTool {
     @Override
-    public void init(CommunicationConfig config) {
+    public void init(ConnectInfo config) {
         System.out.println("WebSocket初始化...");
     }
 
     @Override
-    public void sendMessage(String message, String target) {
+    public void sendMessage(String message, String target, String replyToUrl) {
         System.out.println("WebSocket发消息.");
     }
 
