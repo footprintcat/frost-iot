@@ -113,6 +113,11 @@ public class MyBatisNativeConfiguration {
         return new MyBatisMapperFactoryBeanPostProcessor();
     }
 
+    /**
+     * Custom Hints
+     * <p>
+     * docs: <a href="https://docs.spring.io/spring-boot/reference/packaging/native-image/advanced-topics.html#packaging.native-image.advanced.custom-hints">...</a>
+     */
     static class MyBaitsRuntimeHintsRegistrar implements RuntimeHintsRegistrar {
 
         @Override
@@ -214,8 +219,14 @@ public class MyBatisNativeConfiguration {
                         if (mapperInterfaceType != null) {
                             registerReflectionTypeIfNecessary(mapperInterfaceType, hints);
                             hints.proxies().registerJdkProxy(mapperInterfaceType);
-                            hints.resources()
-                                .registerPattern(mapperInterfaceType.getName().replace('.', '/').concat(".xml"));
+                            // hints.resources()
+                            //     .registerPattern(mapperInterfaceType.getName().replace('.', '/').concat(".xml"));
+                            String registerPattern = mapperInterfaceType.getName()
+                                .replace('.', '/')
+                                // replace 替换原因见: mapper/package-info.java 注释
+                                .replace("com/footprintcat/frostiot/core/springboot/", "")
+                                .concat(".xml");
+                            hints.resources().registerPattern(registerPattern);
                             registerMapperRelationships(mapperInterfaceType, hints);
                         }
                     }

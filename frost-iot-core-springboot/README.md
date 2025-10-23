@@ -55,3 +55,10 @@ java -jar build/libs/frost-iot-core-0.0.1-SNAPSHOT.jar
 # Windows
 .\build\native\nativeCompile\frost-iot-core.exe
 ```
+
+## 参考文档
+
+GraalVM native 打包相关
+- https://docs.spring.io/spring-boot/reference/packaging/native-image/advanced-topics.html
+- https://www.graalvm.org/latest/reference-manual/native-image/metadata/
+- https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-with-GraalVM
