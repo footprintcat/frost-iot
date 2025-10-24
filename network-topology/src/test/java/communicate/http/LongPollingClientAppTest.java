@@ -13,7 +13,7 @@ import com.footprintcat.frostiot.topology.communicate.CommunicationType;
 import com.footprintcat.frostiot.topology.communicate.http.HttpLongPollingTool;
 import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
 
-public class LongPollingClientApp {
+public class LongPollingClientAppTest {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("--- 长轮询客户端启动 ---");
 
