@@ -23,6 +23,12 @@ import java.net.URISyntaxException;
 import java.util.Collections;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
+
+import static org.java_websocket.framing.CloseFrame.NORMAL;
 
 public class WebSocketCommunicationTool implements CommunicationTool {
     private ConnectInfo config;
@@ -30,6 +36,13 @@ public class WebSocketCommunicationTool implements CommunicationTool {
     private WebSocketClient client;
     private boolean isServerRunning = false;
     private boolean isClientConnected = false;
+
+    // 重连相关
+    private int currentReconnectDelay = 1; // 当前重连间隔时间
+    private ScheduledFuture<?> heartbeatFuture;
+    private ScheduledFuture<?> reconnectFuture;
+    private ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
+    private String targetServerUri; // 存储目标URI，用于重连
 
     // 存储所有连接到此服务端的客户端会话
     private final Set<WebSocket> serverConnections = Collections.newSetFromMap(new ConcurrentHashMap<>());
@@ -68,6 +81,11 @@ public class WebSocketCommunicationTool implements CommunicationTool {
 
             @Override
             public void onMessage(WebSocket conn, String message) {
+                // 服务端处理心跳
+                if ("ping".equals(message)) {
+                    conn.send("pong");
+                    return;
+                }
                 String source = conn.getRemoteSocketAddress().getAddress().getHostAddress() + ":" + conn.getRemoteSocketAddress().getPort();
                 System.out.println("[" + config.getLocalId() + "] 收到来自 '" + source + "' 的消息: " + message);
                 onReceive(message, source);
@@ -91,17 +109,29 @@ public class WebSocketCommunicationTool implements CommunicationTool {
     }
 
     public void connectToServer(String target) {
+        this.targetServerUri = target;
+        createAndConnectClient();
+    }
+
+    private void createAndConnectClient() {
         if (isClientConnected) {
             System.out.println("[" + getType() + "] 客户端已连接。");
             return;
         }
         try {
-            URI serverUri = new URI(target);
+            URI serverUri = new URI(targetServerUri);
             this.client = new WebSocketClient(serverUri) {
                 @Override
                 public void onOpen(ServerHandshake handshakedata) {
-                    System.out.println("[" + config.getLocalId() + "] 已连接到服务器: " + target);
+                    System.out.println("[" + config.getLocalId() + "] 已连接到服务器: " + targetServerUri);
                     isClientConnected = true;
+                    currentReconnectDelay = 1;
+                    // 取消可能正在进行的重连任务
+                    if (reconnectFuture != null) {
+                        reconnectFuture.cancel(false);
+                    }
+                    // 启动心跳
+                    startHeartbeat();
                 }
 
                 @Override
@@ -115,18 +145,58 @@ public class WebSocketCommunicationTool implements CommunicationTool {
                 public void onClose(int code, String reason, boolean remote) {
                     System.out.println("[" + config.getLocalId() + "] 与服务器的连接已关闭：" + reason);
                     isClientConnected = false;
+                    // 停止心跳
+                    stopHeartbeat();
+                    // 如果不是主动关闭，则启动重连
+                    if (code != NORMAL) {
+                        scheduleReconnect();
+                    }
                 }
 
                 @Override
                 public void onError(Exception ex) {
                     System.out.println("[" + config.getLocalId() + "] 客户端发生错误：");
                     ex.printStackTrace();
+                    // 发生错误也触发重连
+                    isClientConnected = false;
+                    stopHeartbeat();
+                    scheduleReconnect();
                 }
             };
             client.connect();
         } catch (URISyntaxException e) {
-            System.err.println("[" + getType() + "] 无效的 URI: " + target);
+            System.err.println("[" + getType() + "] 无效的 URI: " + targetServerUri);
         }
+    }
+
+    private void startHeartbeat() {
+        stopHeartbeat(); // 确保没有重复的心跳任务
+        heartbeatFuture = scheduler.scheduleAtFixedRate(() -> {
+            if (isClientConnected && client != null && client.isOpen()) {
+                client.send("ping");
+            }
+        }, 10, 30, TimeUnit.SECONDS); // 10秒后开始，每30秒发送一次心跳
+    }
+
+    private void stopHeartbeat() {
+        if (heartbeatFuture != null) {
+            heartbeatFuture.cancel(false);
+            heartbeatFuture = null;
+        }
+    }
+
+    private void scheduleReconnect() {
+        if (reconnectFuture != null && !reconnectFuture.isDone()) {
+            return; // 已有重连任务在执行
+        }
+
+        System.out.println("[" + config.getLocalId() + "] 将在 " + currentReconnectDelay + " 秒后尝试重连...");
+        reconnectFuture = scheduler.schedule(() -> {
+            System.out.println("[" + config.getLocalId() + "] 正在尝试重连...");
+            createAndConnectClient();
+            // 指数退避
+            currentReconnectDelay = Math.min(currentReconnectDelay * 2, 30);
+        }, currentReconnectDelay, TimeUnit.SECONDS);
     }
 
     @Override
@@ -146,18 +216,18 @@ public class WebSocketCommunicationTool implements CommunicationTool {
                     conn.send(message);
                 }
             });
-        }else{
-            System.out.println("["+getType()+"] 无可用连接，无法发送消息。请先作为客户端启动服务器");
+        } else {
+            System.out.println("[" + getType() + "] 无可用连接，无法发送消息。请先作为客户端启动服务器");
         }
     }
 
     @Override
     public void shutdown() {
-        if(client!=null && client.isOpen()){
+        if (client != null && client.isOpen()) {
             client.close();
         }
 
-        if(server!=null){
+        if (server != null) {
             try {
                 server.stop();
             } catch (InterruptedException e) {
