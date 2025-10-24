@@ -1,0 +1,15 @@
+{
+  "resources": {
+    "includes": [
+      // GraalVM 打原生包时引入 resources/mapper 目录下的 xml
+      // 2025.10.23 改为在 MyBatisNativeConfiguration 类中注册引入, 详见 mapper/package-info.java
+      {
+        // "pattern": "mapper/(master|data)/.*\\.xml$"
+        // "pattern": "mapper/.*/.*\\.xml$",
+        // "pattern": "mapper/.*\\.xml$"
+        // "pattern": "mapper/master/.*\\.xml$"
+        // "pattern": "mapper/data/.*\\.xml$"
+      }
+    ]
+  }
+}

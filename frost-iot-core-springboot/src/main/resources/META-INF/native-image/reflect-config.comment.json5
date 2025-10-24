@@ -1,8 +1,10 @@
 [
+  // 解决报错：java.lang.NoSuchMethodException: com.zaxxer.hikari.HikariConfig.<init>()
   {
     "name": "com.zaxxer.hikari.HikariConfig",
     "allPublicConstructors": true
   },
+  // TDengine
   {
     "name": "com.taosdata.jdbc.TSDBDriver"
   },
@@ -251,7 +253,9 @@
       }
     ]
   },
+  // 解决报错：com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.taosdata.jdbc.ws.entity.Request and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS). This appears to be a native image, in which case you may need to configure reflection for the class that is to be serialized
   {
+    // 确定是需要这一块的
     "name": "com.taosdata.jdbc.ws.entity.Request",
     "allDeclaredFields": true,
     "allDeclaredMethods": true,
@@ -268,6 +272,7 @@
     ]
   },
   {
+    // 确定是需要这一块的
     "name": "com.taosdata.jdbc.ws.entity.Response",
     "allDeclaredFields": true,
     "queryAllDeclaredMethods": true,
