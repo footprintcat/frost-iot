@@ -54,6 +54,16 @@ java -jar build/libs/frost-iot-core-0.0.1-SNAPSHOT.jar
 ./build/native/nativeCompile/frost-iot-core.exe
 # Windows
 .\build\native\nativeCompile\frost-iot-core.exe
+.\build\native\nativeCompile\frost-iot-core.exe --spring.profiles.active=lan
+```
+
+记录反射调用
+
+```bash
+# 1. 首先运行你的应用并记录反射调用
+java -agentlib:native-image-agent=config-merge-dir=src/main/resources/META-INF/native-image -jar build/libs/frost-iot-core-springboot-0.0.1-SNAPSHOT.jar
+# 运行所有可能触发序列化的功能路径
+# 然后停止应用，配置会自动生成到指定目录
 ```
 
 ## 参考文档

@@ -10,16 +10,29 @@ spring:
       primary: master
       datasource:
         master:
+          # PostgreSQL 数据库连接信息
           # 若连接远程 PostgreSQL, 需确保数据库已配置 listen_addresses (例如: listen_addresses = '*', 默认为 'localhost')
           url: jdbc:postgresql://127.0.0.1:5432/frostiot_dev
           driverClassName: org.postgresql.Driver
           username: frostiot
           password: frostiot
         data:
-          url: jdbc:TAOS-RS://127.0.0.1:6041?useSSL=false&user=root&password=taosdata
+          # TDengine 数据库连接信息
+          # docs: https://docs.taosdata.com/reference/connector/java/#jdbc-%E9%A9%B1%E5%8A%A8
+
+          # 原生连接
+          #（用户名密码在 url ? 后参数中，或者在后面通过 username, password 参数配置都可，二选一即可）
+          url: jdbc:TAOS-RS://127.0.0.1:6041?useSSL=false # &user=root&password=taosdata
           driverClassName: com.taosdata.jdbc.rs.RestfulDriver
-          # username: root
-          # password: taosdata
+          username: root
+          password: taosdata
+
+          # WebSocket 连接
+          # 原生打包暂不支持 WebSocket 方式连接 (taosdata jdbc 驱动内部会报错)
+          #url: jdbc:TAOS-WS://127.0.0.1:6041/frostiot_data_dev
+          #driverClassName: com.taosdata.jdbc.ws.WebSocketDriver
+          #username: root
+          #password: taosdata
 
 frost-iot:
   # Frost IoT 版本号

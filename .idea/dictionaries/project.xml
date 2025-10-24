@@ -10,6 +10,7 @@
       <w>jvmargs</w>
       <w>postgre</w>
       <w>rapidoc</w>
+      <w>tdengine</w>
     </words>
   </dictionary>
 </component>

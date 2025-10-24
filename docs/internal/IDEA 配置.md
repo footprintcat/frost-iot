@@ -129,6 +129,8 @@
       <w>postgre</w>
       <!-- application.yml 中 rapidoc 配置 -->
       <w>rapidoc</w>
+      <!-- TDengine 数据库 -->
+      <w>tdengine</w>
     </words>
   </dictionary>
 </component>
