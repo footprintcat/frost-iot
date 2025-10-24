@@ -14,20 +14,20 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 import java.io.InputStream;
 
-public class TopologyConfigLoader {
+public class NodeConfigLoader {
     private static final ObjectMapper YAML_MAPPER = new ObjectMapper(new YAMLFactory());
 
     /**
      * 从资源文件加载配置
      */
-    public static TopologyConfig loadFromResources(String resourcePath) throws Exception {
+    public static NodeConfig loadFromResources(String resourcePath) throws Exception {
         try (InputStream is = TopologyConfigLoader.class.getClassLoader().getResourceAsStream(resourcePath)) {
             System.out.println("--- 读取资源文件 ---");
             if (is == null) {
                 throw new IllegalArgumentException("未找到文件: " + resourcePath);
             }
 
-            return YAML_MAPPER.readValue(is, TopologyConfig.class);
+            return YAML_MAPPER.readValue(is, NodeConfig.class);
         }
     }
 }

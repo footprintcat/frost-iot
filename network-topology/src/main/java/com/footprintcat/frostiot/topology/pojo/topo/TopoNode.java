@@ -13,6 +13,7 @@ import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -22,6 +23,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Setter
 public class TopoNode {
     public enum TopoNodeStatus{
+        ONLINE,
         STABLE,
         UNSTABLE,
         OFFLINE
@@ -42,6 +44,11 @@ public class TopoNode {
     private int port;
 
     /**
+     * 最后心跳时间
+     */
+    private LocalDateTime lastHeartbeat;
+
+    /**
      * 节点类型
      */
     private TopoNodeType nodeType;
@@ -52,7 +59,7 @@ public class TopoNode {
     private TopoNodeStatus nodeStatus;
 
     /**
-     * 前置所有节点（消息来源方向）
+     * 前置相邻节点（消息来源方向）
      */
     private final Set<String> upstreamNodes = new HashSet<>();
 
@@ -66,12 +73,12 @@ public class TopoNode {
      */
     private final Map<String, ConnectInfo> neighborNodes = new ConcurrentHashMap<>();
 
-    public TopoNode(String nodeId, String host, int port, TopoNodeStatus nodeStatus, TopoNodeType nodeType) {
+    public TopoNode(String nodeId, String host, int port, String nodeType) {
         this.nodeId = nodeId;
         this.host = host;
         this.port = port;
-        this.nodeStatus = nodeStatus;
-        this.nodeType = nodeType;
+        this.nodeStatus = TopoNodeStatus.OFFLINE;
+        this.nodeType = TopoNodeType.valueOf(nodeType.toUpperCase());
     }
 
     // 添加邻居节点
@@ -89,12 +96,13 @@ public class TopoNode {
         downstreamNodes.add(nodeId);
     }
 
-    // 移除连接
+    // 移除上游节点
     public void removeUpstreamNode(String nodeId) {
         upstreamNodes.remove(nodeId);
         neighborNodes.remove(nodeId);
     }
 
+    // 移除下游节点
     public void removeDownstreamNode(String nodeId) {
         downstreamNodes.remove(nodeId);
         neighborNodes.remove(nodeId);

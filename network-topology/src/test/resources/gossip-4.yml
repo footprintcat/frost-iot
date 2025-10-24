@@ -1,0 +1,12 @@
+# 节点基本配置
+node:
+  nodeId: gossip-4
+  nodeType: gossip
+  host: localhost
+  port: 8673
+
+# 拓扑连接配置
+topology:
+  upstreamNodes:
+    - gossip-3
+  downstreamNodes: []

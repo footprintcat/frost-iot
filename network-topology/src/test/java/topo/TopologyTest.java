@@ -14,7 +14,8 @@ import com.footprintcat.frostiot.topology.pojo.topo.TopoNetwork;
 public class TopologyTest {
     public static void main(String[] args) {
         try {
-            TopoNetwork topoNetwork = TopoNetwork.initializeFromResources("topology.yml");
+            // 创建拓扑网络
+            TopoNetwork topoNetwork = TopoNetwork.initializeFromResource("topology.yml");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
