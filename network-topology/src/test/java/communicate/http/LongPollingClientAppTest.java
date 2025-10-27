@@ -12,6 +12,8 @@ package communicate.http;
 import com.footprintcat.frostiot.topology.communicate.CommunicationType;
 import com.footprintcat.frostiot.topology.communicate.http.HttpLongPollingTool;
 import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
+import com.footprintcat.frostiot.topology.pojo.message.Message;
+import com.footprintcat.frostiot.topology.pojo.message.MessageType;
 
 public class LongPollingClientAppTest {
     public static void main(String[] args) throws InterruptedException {
@@ -33,7 +35,8 @@ public class LongPollingClientAppTest {
         String serverLongPollUrl = "http://localhost:8670/long-poll";
 
         System.out.println("\n--- 测试1: 发送消息并等待正常回信 ---");
-        String message1 = "你好，服务器，请处理我的请求！";
+        String messageText1 = "你好，服务器，请处理我的请求！";
+        Message message1 = new Message(messageText1, MessageType.DEFAULT);
         String reply1 = client.sendAndWaitForReply(message1, serverLongPollUrl, 15);
         if (reply1 != null) {
             System.out.println("客户端成功收到回信: " + reply1);
@@ -43,7 +46,8 @@ public class LongPollingClientAppTest {
 
         System.out.println("\n--- 测试2: 发送消息并等待超时 ---");
         // 服务端处理需要5秒，我们这里只等3秒，必然会超时
-        String message2 = "你好，服务器，我只会等3秒！";
+        String messageText2 = "你好，服务器，我只会等3秒！";
+        Message message2 = new Message(messageText2, MessageType.DEFAULT);
         String reply2 = client.sendAndWaitForReply(message2, serverLongPollUrl, 3);
         if (reply2 != null) {
             System.out.println("客户端成功收到回信: " + reply2);

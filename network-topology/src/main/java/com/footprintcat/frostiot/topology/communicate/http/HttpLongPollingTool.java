@@ -12,6 +12,7 @@ package com.footprintcat.frostiot.topology.communicate.http;
 import com.footprintcat.frostiot.topology.communicate.CommunicationTool;
 import com.footprintcat.frostiot.topology.communicate.CommunicationType;
 import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
+import com.footprintcat.frostiot.topology.pojo.message.Message;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -66,7 +67,7 @@ public class HttpLongPollingTool implements CommunicationTool {
     }
 
     @Override
-    public void sendMessage(String message, String target, String replyToUrl) {
+    public void sendMessage(Message message, String target, String replyToUrl) {
         System.out.println("[" + getType() + "] 警告: 对于长轮询，请使用 sendAndWaitForReply 方法。");
     }
 
@@ -78,7 +79,7 @@ public class HttpLongPollingTool implements CommunicationTool {
      * @param timeoutSeconds 超时时间（秒）
      * @return 服务器的响应，如果超时或出错则返回null
      */
-    public String sendAndWaitForReply(String message, String target, int timeoutSeconds) {
+    public String sendAndWaitForReply(Message message, String target, int timeoutSeconds) {
         if (!isConnected()) {
             System.err.println("未连接，无法发送消息。");
             return null;
@@ -89,7 +90,7 @@ public class HttpLongPollingTool implements CommunicationTool {
                 .uri(URI.create(target))
                 .header("Content-Type", "text/plain; charset=UTF-8")
                 .timeout(Duration.ofSeconds(timeoutSeconds)) // 设置总超时时间
-                .POST(HttpRequest.BodyPublishers.ofString(message, StandardCharsets.UTF_8))
+                .POST(HttpRequest.BodyPublishers.ofString(message.getPayload(), StandardCharsets.UTF_8))
                 .build();
 
             System.out.println("[" + config.getLocalId() + "] 发送长轮询请求，等待 " + timeoutSeconds + " 秒...");

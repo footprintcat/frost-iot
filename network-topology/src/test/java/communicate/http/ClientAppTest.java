@@ -7,10 +7,14 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-package communicate.http;import com.footprintcat.frostiot.topology.communicate.CommunicationTool;
+package communicate.http;
+
+import com.footprintcat.frostiot.topology.communicate.CommunicationTool;
 import com.footprintcat.frostiot.topology.communicate.CommunicationType;
 import com.footprintcat.frostiot.topology.communicate.http.HttpCommunicationTool;
 import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
+import com.footprintcat.frostiot.topology.pojo.message.Message;
+import com.footprintcat.frostiot.topology.pojo.message.MessageType;
 
 public class ClientAppTest {
     public static void main(String[] args) throws InterruptedException {
@@ -36,7 +40,9 @@ public class ClientAppTest {
             .port(8668)
             .build();
 
-        String message = "你好，服务端！这是来自 '" + clientConfig.getLocalId() + "' 的消息。";
+        String messageText = "你好，服务端！这是来自 '" + clientConfig.getLocalId() + "' 的消息。";
+        Message message = new Message(messageText, MessageType.DEFAULT);
+
         System.out.println("准备向服务端 '" + serverConfig.getLocalId() + "' 发送消息...");
 
         client.sendMessage(message, serverConfig.getUrl(), clientConfig.getUrl());

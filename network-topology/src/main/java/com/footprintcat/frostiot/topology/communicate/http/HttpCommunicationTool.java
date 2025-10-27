@@ -12,6 +12,7 @@ package com.footprintcat.frostiot.topology.communicate.http;
 import com.footprintcat.frostiot.topology.communicate.CommunicationTool;
 import com.footprintcat.frostiot.topology.communicate.CommunicationType;
 import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
+import com.footprintcat.frostiot.topology.pojo.message.Message;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -59,7 +60,7 @@ public class HttpCommunicationTool implements CommunicationTool {
     }
 
     @Override
-    public void sendMessage(String message, String target, String replyToUrl) {
+    public void sendMessage(Message message, String target, String replyToUrl) {
         if (!isConnected()) {
             System.err.println("[" + getType() + "] 未连接，无法发送消息。");
             return;
@@ -75,7 +76,7 @@ public class HttpCommunicationTool implements CommunicationTool {
             }
 
             HttpRequest request = requestBuilder
-                .POST(HttpRequest.BodyPublishers.ofString(message, StandardCharsets.UTF_8))
+                .POST(HttpRequest.BodyPublishers.ofString(message.getPayload(), StandardCharsets.UTF_8))
                 .build();
 
             client.send(request, HttpResponse.BodyHandlers.ofString());

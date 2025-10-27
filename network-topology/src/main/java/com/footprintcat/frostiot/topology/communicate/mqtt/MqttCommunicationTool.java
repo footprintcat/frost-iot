@@ -12,6 +12,7 @@ package com.footprintcat.frostiot.topology.communicate.mqtt;
 import com.footprintcat.frostiot.topology.communicate.CommunicationTool;
 import com.footprintcat.frostiot.topology.communicate.CommunicationType;
 import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
+import com.footprintcat.frostiot.topology.pojo.message.Message;
 
 public class MqttCommunicationTool implements CommunicationTool {
     @Override
@@ -20,7 +21,7 @@ public class MqttCommunicationTool implements CommunicationTool {
     }
 
     @Override
-    public void sendMessage(String message, String target, String replyToUrl) {
+    public void sendMessage(Message message, String target, String replyToUrl) {
         System.out.println("MQTT Tool发送消息.");
     }
 

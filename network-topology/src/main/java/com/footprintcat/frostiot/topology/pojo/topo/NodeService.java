@@ -12,6 +12,7 @@ package com.footprintcat.frostiot.topology.pojo.topo;
 import com.footprintcat.frostiot.topology.communicate.CommunicationType;
 import com.footprintcat.frostiot.topology.communicate.http.HttpLongPollingTool;
 import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
+import com.footprintcat.frostiot.topology.pojo.message.Message;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -151,7 +152,7 @@ public class NodeService {
     /**
      * 发送消息
      */
-    public void sendMessage(String message, String serverLongPollUrl) {
+    public void sendMessage(Message message, String serverLongPollUrl) {
         String reply = server.sendAndWaitForReply(message, serverLongPollUrl, 15);
         if (reply != null) {
             System.out.println("客户端成功收到回信: " + reply);

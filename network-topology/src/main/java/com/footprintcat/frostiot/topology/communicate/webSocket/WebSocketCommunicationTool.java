@@ -12,6 +12,7 @@ package com.footprintcat.frostiot.topology.communicate.webSocket;
 import com.footprintcat.frostiot.topology.communicate.CommunicationTool;
 import com.footprintcat.frostiot.topology.communicate.CommunicationType;
 import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
+import com.footprintcat.frostiot.topology.pojo.message.Message;
 import org.java_websocket.WebSocket;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ClientHandshake;
@@ -200,7 +201,8 @@ public class WebSocketCommunicationTool implements CommunicationTool {
     }
 
     @Override
-    public void sendMessage(String message, String target, String replyToUrl) {
+    public void sendMessage(Message messageEntity, String target, String replyToUrl) {
+        String message = messageEntity.getPayload();
         // 客户端发送消息
         if (isClientConnected && client != null && client.isOpen()) {
             client.send(message);

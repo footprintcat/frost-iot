@@ -12,6 +12,8 @@ package communicate.websocket;
 import com.footprintcat.frostiot.topology.communicate.CommunicationType;
 import com.footprintcat.frostiot.topology.communicate.webSocket.WebSocketCommunicationTool;
 import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
+import com.footprintcat.frostiot.topology.pojo.message.Message;
+import com.footprintcat.frostiot.topology.pojo.message.MessageType;
 
 import java.util.Scanner;
 
@@ -36,7 +38,9 @@ public class WebSocketServerAppTest {
             if ("quit".equalsIgnoreCase(input)) {
                 break;
             }
-            server.sendMessage("服务端广播：" + input, null, null);
+            String messageText = "服务端广播:" + input;
+            Message message = new Message(messageText, MessageType.DEFAULT);
+            server.sendMessage(message, null, null);
         }
 
         scanner.close();
