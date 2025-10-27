@@ -57,7 +57,7 @@ public class HttpLongPollingTool implements CommunicationTool {
             server.setExecutor(Executors.newCachedThreadPool()); // 使用缓存线程池处理并发请求
             server.start();
             this.connected = true;
-            onConnect();
+            onConnected();
         } catch (IOException e) {
             System.err.println("[" + getType() + "] 初始化失败: " + e.getMessage());
             onConnectClose(e);

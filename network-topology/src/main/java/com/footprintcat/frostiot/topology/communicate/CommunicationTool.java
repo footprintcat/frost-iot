@@ -35,7 +35,7 @@ public interface CommunicationTool {
     /**
      * 连接建立时回调
      */
-    default void onConnect() {
+    default void onConnected(){
         System.out.println("[" + getType() + "] onConnect: 连接已建立。");
     }
 

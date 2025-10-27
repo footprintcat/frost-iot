@@ -102,7 +102,7 @@ public class WebSocketCommunicationTool implements CommunicationTool {
                 System.out.println("[" + config.getLocalId() + "] WebSocket 服务器已启动！");
                 isServerRunning = true;
                 // 启动以后的回调
-
+                onConnected();
             }
         };
         server.start();

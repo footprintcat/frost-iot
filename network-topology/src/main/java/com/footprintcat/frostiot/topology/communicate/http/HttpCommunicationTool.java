@@ -50,7 +50,7 @@ public class HttpCommunicationTool implements CommunicationTool {
             server.setExecutor(Executors.newSingleThreadExecutor());
             server.start();
             this.connected = true;
-            onConnect();
+            onConnected();
         } catch (IOException e) {
             System.err.println("[" + getType() + "] 初始化失败: " + e.getMessage());
             onConnectClose(e);
