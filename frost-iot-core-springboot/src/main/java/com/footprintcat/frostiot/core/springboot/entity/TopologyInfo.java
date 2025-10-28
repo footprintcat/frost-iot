@@ -9,26 +9,42 @@
 
 package com.footprintcat.frostiot.core.springboot.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.footprintcat.frostiot.common.dto.TopologyInfoDTO;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 运行时拓扑信息实体
+ * 运行时拓扑信息实体类
  */
 @Data
 @TableName("topology_runtime_info")
 public class TopologyInfo {
 
-    @TableId
+    @Schema(description = "雪花ID")
+    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
+
+    @Schema(description = "节点ID")
+    @TableField("node_id")
     private String nodeId;
+
+    @Schema(description = "方向（sub：下级；sup：上级）")
+    @TableField("direction")
     private String direction;
+
+    @Schema(description = "间隔节点数")
+    @TableField("interval")
     private Integer interval;
+
+    @Schema(description = "目标节点")
+    @TableField("target_node_id")
     private String targetNodeId;
 
 

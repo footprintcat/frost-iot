@@ -9,7 +9,7 @@
 
 package com.footprintcat.frostiot.topology.pojo.topo;
 
-public enum TopoNodeType {
+public enum NodeType {
     ADAPTER,
     GOSSIP,
     SINK

@@ -9,19 +9,47 @@
 
 package com.footprintcat.frostiot.core.springboot.repository;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.footprintcat.frostiot.common.dto.TopologyInfoDTO;
 import com.footprintcat.frostiot.common.repository.master.ITopologyInfoRepository;
 import com.footprintcat.frostiot.core.springboot.entity.TopologyInfo;
 import com.footprintcat.frostiot.core.springboot.mapper.master.TopologyInfoMapper;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class TopologyInfoRepository extends ServiceImpl<TopologyInfoMapper, TopologyInfo> implements ITopologyInfoRepository {
 
     @Override
-    public void save(TopologyInfoDTO topologyInfoDTO) {
+    public void setTopologyInfo(TopologyInfoDTO topologyInfoDTO) {
         TopologyInfo entity = TopologyInfo.toEntity(topologyInfoDTO);
         baseMapper.insert(entity);
+    }
+
+    @Override
+    public TopologyInfoDTO getTopologyInfo(Long id) {
+        TopologyInfo topologyInfo = baseMapper.selectById(id);
+        return TopologyInfo.toDTO(topologyInfo);
+    }
+
+    @Override
+    public TopologyInfoDTO getByNodeIdAndTargetNodeId(@NotNull String nodeId, @NotNull String targetNodeId) {
+        TopologyInfo topologyInfo = baseMapper.selectOne(new LambdaQueryWrapper<TopologyInfo>()
+            .eq(TopologyInfo::getNodeId, nodeId)
+            .eq(TopologyInfo::getTargetNodeId, targetNodeId));
+        return TopologyInfo.toDTO(topologyInfo);
+    }
+
+    @Override
+    public List<TopologyInfoDTO> getSubOrSupNodes(@NotNull String nodeId, @NotNull String direction) {
+        List<TopologyInfo> subNodes = baseMapper.selectList(new LambdaQueryWrapper<TopologyInfo>()
+            .eq(TopologyInfo::getNodeId, nodeId)
+            .eq(TopologyInfo::getDirection, direction)
+            .last("LIMIT 1"));
+
+        return TopologyInfo.toDTO(subNodes);
     }
 }

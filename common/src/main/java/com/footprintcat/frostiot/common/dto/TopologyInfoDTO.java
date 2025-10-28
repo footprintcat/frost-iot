@@ -17,7 +17,7 @@ import lombok.Data;
 @Data
 public class TopologyInfoDTO {
 
-    public enum Direction{
+    public enum Direction {
         SUB,    // 下级
         SUP     // 上级
     }
