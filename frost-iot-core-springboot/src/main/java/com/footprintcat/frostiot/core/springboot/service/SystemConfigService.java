@@ -35,10 +35,13 @@ public class SystemConfigService {
         // 查询节点配置初值，为空则初始化
         SystemConfigDTO nodeIdConfig = systemConfigRepository.getConfig("NODE_ID");
         SystemConfigDTO nodeTypeConfig = systemConfigRepository.getConfig("NODE_TYPE");
-        if (nodeIdConfig == null || nodeTypeConfig == null) {
+        SystemConfigDTO isNodeInitConfig = systemConfigRepository.getConfig("IS_NODE_INIT");
+        if (nodeIdConfig == null || nodeTypeConfig == null || isNodeInitConfig == null || "0".equals(isNodeInitConfig.getConfigValue())
+        ) {
             systemConfigRepository.setConfig("NODE_TYPE", NODE_TYPE);
             systemConfigRepository.setConfigLong("DB_VERSION", databaseVersion);
-            systemConfigRepository.setConfig("NODE_ID", NODE_TYPE + "_" + Math.random() * 100);
+            systemConfigRepository.setConfig("NODE_ID", NODE_TYPE + "_" + (int) (Math.random() * 100));
+            systemConfigRepository.setConfigLong("IS_NODE_INIT", 1);
         }
     }
 
