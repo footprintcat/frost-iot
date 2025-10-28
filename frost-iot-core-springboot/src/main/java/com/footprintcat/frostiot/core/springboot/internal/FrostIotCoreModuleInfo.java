@@ -66,6 +66,13 @@ public class FrostIotCoreModuleInfo implements IFrostIotModuleInfo {
     private final String frameworkVersion = springBootVersion;
 
     /**
+     * 数据库版本号
+     *
+     * @since 2025-10-28
+     */
+    private final Long databaseVersion = 1L;
+
+    /**
      * 当前模块使用的 LICENSE 许可证名称 (结尾无需带 License 字样)
      *
      * @since 2025-05-17

@@ -13,9 +13,9 @@ import com.footprintcat.frostiot.common.dto.SystemConfigDTO;
 
 public interface ISystemConfigRepository {
 
-    public void setConfigValue(String key, String value);
+    public void setConfig(String owner, String key, String value, Long expireTimestamp);
 
-    public String getConfigValue(String key);
+    public SystemConfigDTO getConfig(String key);
 
-    public SystemConfigDTO getDTO(String key);
+    public SystemConfigDTO getDTO();
 }

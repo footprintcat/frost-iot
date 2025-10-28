@@ -7,7 +7,18 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-package com.footprintcat.frostiot.common.repository.master;
+package com.footprintcat.frostiot.core.springboot.enums;
 
-public interface IMessageRepository {
+public enum NodeTypeEnum {
+    GOSSIP("gossip");
+
+    private final String value;
+
+    NodeTypeEnum(String value) {
+        this.value = value;
+    }
+
+    public String getValue() {
+        return this.value;
+    }
 }
