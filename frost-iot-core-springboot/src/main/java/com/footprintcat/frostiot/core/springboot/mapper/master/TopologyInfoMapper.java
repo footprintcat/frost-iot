@@ -12,10 +12,11 @@ package com.footprintcat.frostiot.core.springboot.mapper.master;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.footprintcat.frostiot.core.springboot.entity.TopologyInfo;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 @Mapper
 public interface TopologyInfoMapper extends BaseMapper<TopologyInfo> {
-    List<TopologyInfo> selectAllSubsOrSupsByNodeId(String nodeId, String direction);
+    List<TopologyInfo> selectAllSubsOrSupsByNodeId(@Param("nodeId") String nodeId, @Param("direction") String direction);
 }
