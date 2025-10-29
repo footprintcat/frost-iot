@@ -9,15 +9,17 @@
 
 package com.footprintcat.frostiot.topology.pojo.message;
 
+import com.footprintcat.frostiot.common.enums.MessageTypeEnum;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Data
-public class Message {
+public class Message implements Serializable {
     /**
      * 消息唯一标识
      */
@@ -31,7 +33,7 @@ public class Message {
     /**
      * 消息类型
      */
-    private final MessageType type;
+    private final MessageTypeEnum type;
 
     /**
      * 当前节点
@@ -53,7 +55,7 @@ public class Message {
      */
     private final AtomicInteger retryCount = new AtomicInteger(0);
 
-    public Message(String payload, MessageType type) {
+    public Message(String payload, MessageTypeEnum type) {
         this.payload = payload;
         this.type = type;
     }

@@ -13,6 +13,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.footprintcat.frostiot.common.dto.SystemConfigDTO;
 import com.footprintcat.frostiot.common.repository.master.ISystemConfigRepository;
+import com.footprintcat.frostiot.common.utils.StringUtils;
 import com.footprintcat.frostiot.core.springboot.entity.SystemConfig;
 import com.footprintcat.frostiot.core.springboot.mapper.master.SystemConfigMapper;
 import org.jetbrains.annotations.NotNull;
@@ -23,6 +24,31 @@ import org.springframework.stereotype.Service;
 public class SystemConfigRepository extends ServiceImpl<SystemConfigMapper, SystemConfig> implements ISystemConfigRepository {
 
     private static final String defaultOwner = "core-springboot";
+
+    public String getConfigValue(String config) {
+        SystemConfigDTO systemConfig = getConfig(config);
+        return systemConfig == null ? null : systemConfig.getConfigValue();
+    }
+
+    public Integer getConfigValueInteger(String config) {
+        String configValue = getConfigValue(config);
+        return StringUtils.isEmpty(configValue) ? null : Integer.parseInt(configValue);
+    }
+
+    public Double getConfigValueDouble(String config) {
+        String configValue = getConfigValue(config);
+        return StringUtils.isEmpty(configValue) ? null : Double.parseDouble(configValue);
+    }
+
+    public Long getConfigValueLong(String config) {
+        String configValue = getConfigValue(config);
+        return StringUtils.isEmpty(configValue) ? null : Long.parseLong(configValue);
+    }
+
+    public boolean getConfigValueBoolean(String config) {
+        String configValue = getConfigValue(config);
+        return "1".equals(configValue);
+    }
 
     @Override
     public void setConfig(@NotNull String owner, @NotNull String key, String value, @Nullable Long expireTimestamp) {

@@ -13,7 +13,7 @@ import com.footprintcat.frostiot.topology.communicate.CommunicationType;
 import com.footprintcat.frostiot.topology.communicate.webSocket.WebSocketCommunicationTool;
 import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
 import com.footprintcat.frostiot.topology.pojo.message.Message;
-import com.footprintcat.frostiot.topology.pojo.message.MessageType;
+import com.footprintcat.frostiot.common.enums.MessageTypeEnum;
 
 import java.util.Scanner;
 
@@ -44,7 +44,7 @@ public class WebSocketClientAppTest {
                 break;
             }
             String messageText = "客户端消息:" + input;
-            Message message = new Message(messageText, MessageType.DEFAULT);
+            Message message = new Message(messageText, MessageTypeEnum.DEVICE_MESSAGE);
             client.sendMessage(message, serverUri, null);
         }
 

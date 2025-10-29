@@ -14,7 +14,7 @@ import com.footprintcat.frostiot.topology.communicate.CommunicationType;
 import com.footprintcat.frostiot.topology.communicate.http.HttpCommunicationTool;
 import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
 import com.footprintcat.frostiot.topology.pojo.message.Message;
-import com.footprintcat.frostiot.topology.pojo.message.MessageType;
+import com.footprintcat.frostiot.common.enums.MessageTypeEnum;
 
 public class ClientAppTest {
     public static void main(String[] args) throws InterruptedException {
@@ -41,7 +41,7 @@ public class ClientAppTest {
             .build();
 
         String messageText = "你好，服务端！这是来自 '" + clientConfig.getLocalId() + "' 的消息。";
-        Message message = new Message(messageText, MessageType.DEFAULT);
+        Message message = new Message(messageText, MessageTypeEnum.DEVICE_MESSAGE);
 
         System.out.println("准备向服务端 '" + serverConfig.getLocalId() + "' 发送消息...");
 

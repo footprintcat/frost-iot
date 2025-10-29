@@ -10,8 +10,7 @@
 package com.footprintcat.frostiot.core.springboot.service;
 
 import com.footprintcat.frostiot.common.dto.SystemConfigDTO;
-import com.footprintcat.frostiot.common.repository.master.ISystemConfigRepository;
-import com.footprintcat.frostiot.core.springboot.enums.NodeTypeEnum;
+import com.footprintcat.frostiot.common.enums.NodeTypeEnum;
 import com.footprintcat.frostiot.core.springboot.internal.FrostIotCoreModuleInfo;
 import com.footprintcat.frostiot.core.springboot.repository.SystemConfigRepository;
 import jakarta.annotation.PostConstruct;
@@ -21,7 +20,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SystemConfigService {
 
-    public static final String NODE_TYPE = NodeTypeEnum.GOSSIP.getValue();
+    public static final String NODE_TYPE = NodeTypeEnum.GOSSIP.getCode();
 
     @Resource
     private SystemConfigRepository systemConfigRepository;
