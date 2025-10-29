@@ -47,9 +47,14 @@ public class TopologyInfoRepository extends ServiceImpl<TopologyInfoMapper, Topo
     public List<TopologyInfoDTO> getSubOrSupNodes(@NotNull String nodeId, @NotNull String direction) {
         List<TopologyInfo> subNodes = baseMapper.selectList(new LambdaQueryWrapper<TopologyInfo>()
             .eq(TopologyInfo::getNodeId, nodeId)
-            .eq(TopologyInfo::getDirection, direction)
-            .last("LIMIT 1"));
+            .eq(TopologyInfo::getDirection, direction));
 
         return TopologyInfo.toDTO(subNodes);
+    }
+
+    @Override
+    public List<TopologyInfoDTO> getAllSubsOrSupsByNodeId(@NotNull String nodeId, @NotNull String direction) {
+        List<TopologyInfo> nodes = baseMapper.selectAllSubsOrSupsByNodeId(nodeId, direction);
+        return TopologyInfo.toDTO(nodes);
     }
 }

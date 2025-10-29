@@ -25,7 +25,12 @@ public interface ITopologyInfoRepository {
     TopologyInfoDTO getByNodeIdAndTargetNodeId(String nodeId, String targetNodeId);
 
     /**
-     * 查询当前节点的上级/下级节点
+     * 查询当前节点的上级/下级节点（相邻）
      */
     List<TopologyInfoDTO> getSubOrSupNodes(String nodeId, String direction);
+
+    /**
+     * 根据nodeId查询相邻上/下游并根据其相邻上/下游查询所有上/下游
+     */
+    List<TopologyInfoDTO> getAllSubsOrSupsByNodeId(String nodeId, String direction);
 }
