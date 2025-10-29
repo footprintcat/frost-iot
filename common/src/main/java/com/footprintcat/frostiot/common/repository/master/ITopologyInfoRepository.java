@@ -10,6 +10,7 @@
 package com.footprintcat.frostiot.common.repository.master;
 
 import com.footprintcat.frostiot.common.dto.TopologyInfoDTO;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -20,17 +21,33 @@ public interface ITopologyInfoRepository {
     TopologyInfoDTO getTopologyInfo(Long id);
 
     /**
+     * TODO 标记连接状态
+     */
+    boolean setTemporaryDisconnect(String nodeId, String targetNodeId, boolean isConnected);
+
+    /**
+     * 删除连接记录
+     * TODO 需要判断是否临时断连
+     */
+    boolean delTopologyInfo(String nodeId, String targetNodeId);
+
+    /**
      * 根据nodeId和targetNodeId查询
      */
-    TopologyInfoDTO getByNodeIdAndTargetNodeId(String nodeId, String targetNodeId);
+    TopologyInfoDTO getByNodeIdAndTargetNodeId(@NotNull String nodeId, @NotNull String targetNodeId);
 
     /**
      * 查询当前节点的上级/下级节点（相邻）
      */
-    List<TopologyInfoDTO> getSubOrSupNodes(String nodeId, String direction);
+    List<TopologyInfoDTO> getSubOrSupNodes(@NotNull String nodeId, @NotNull String direction);
 
     /**
      * 根据nodeId查询相邻上/下游并根据其相邻上/下游查询所有上/下游
      */
-    List<TopologyInfoDTO> getAllSubsOrSupsByNodeId(String nodeId, String direction);
+    List<TopologyInfoDTO> getAllSubsOrSupsByNodeId(@NotNull String nodeId, @NotNull String direction);
+
+    /**
+     * 清空该表
+     */
+    void clear();
 }

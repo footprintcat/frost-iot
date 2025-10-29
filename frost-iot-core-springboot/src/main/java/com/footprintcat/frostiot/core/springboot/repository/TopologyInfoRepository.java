@@ -36,10 +36,24 @@ public class TopologyInfoRepository extends ServiceImpl<TopologyInfoMapper, Topo
     }
 
     @Override
+    public boolean setTemporaryDisconnect(String nodeId, String targetNodeId, boolean isConnected) {
+        return true;
+    }
+
+    @Override
+    public boolean delTopologyInfo(String nodeId, String targetNodeId) {
+        int delete = baseMapper.delete(new LambdaQueryWrapper<TopologyInfo>()
+            .eq(TopologyInfo::getNodeId, nodeId)
+            .eq(TopologyInfo::getTargetNodeId, targetNodeId));
+        return delete > 0;
+    }
+
+    @Override
     public TopologyInfoDTO getByNodeIdAndTargetNodeId(@NotNull String nodeId, @NotNull String targetNodeId) {
         TopologyInfo topologyInfo = baseMapper.selectOne(new LambdaQueryWrapper<TopologyInfo>()
             .eq(TopologyInfo::getNodeId, nodeId)
-            .eq(TopologyInfo::getTargetNodeId, targetNodeId));
+            .eq(TopologyInfo::getTargetNodeId, targetNodeId)
+            .last("LIMIT 1"));
         return TopologyInfo.toDTO(topologyInfo);
     }
 
@@ -56,5 +70,10 @@ public class TopologyInfoRepository extends ServiceImpl<TopologyInfoMapper, Topo
     public List<TopologyInfoDTO> getAllSubsOrSupsByNodeId(@NotNull String nodeId, @NotNull String direction) {
         List<TopologyInfo> nodes = baseMapper.selectAllSubsOrSupsByNodeId(nodeId, direction);
         return TopologyInfo.toDTO(nodes);
+    }
+
+    @Override
+    public void clear() {
+        baseMapper.delete(null);
     }
 }
