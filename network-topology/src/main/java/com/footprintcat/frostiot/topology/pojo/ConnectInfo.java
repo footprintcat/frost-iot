@@ -9,7 +9,7 @@
 
 package com.footprintcat.frostiot.topology.pojo;
 
-import com.footprintcat.frostiot.topology.communicate.CommunicationType;
+import com.footprintcat.frostiot.common.enums.CommunicationTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,7 +19,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class ConnectInfo {
     // 连接类型
-    CommunicationType type;
+    CommunicationTypeEnum type;
     // 发送id
     String localId;
     // 接收id
@@ -35,7 +35,7 @@ public class ConnectInfo {
         public ConnectInfo build() {
             if (this.url == null || this.url.isEmpty()) {
                 // 根据 type 生成不同前缀的 URL 默认使用 http 协议
-                if (this.type == CommunicationType.HTTP) {
+                if (this.type == CommunicationTypeEnum.HTTP) {
                     this.url = String.format("http://%s:%d/message", host, port);
                 } else {
                     // 默认暂时http

@@ -9,9 +9,9 @@
 
 package com.footprintcat.frostiot.topology.communicate.http;
 
+import com.footprintcat.frostiot.common.dto.ConnectionInfoDTO;
 import com.footprintcat.frostiot.topology.communicate.CommunicationTool;
-import com.footprintcat.frostiot.topology.communicate.CommunicationType;
-import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
+import com.footprintcat.frostiot.common.enums.CommunicationTypeEnum;
 import com.footprintcat.frostiot.topology.pojo.message.Message;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -31,19 +31,20 @@ import java.time.Duration;
 import java.util.concurrent.Executors;
 
 public class HttpLongPollingTool implements CommunicationTool {
+
     private HttpServer server;
     private HttpClient client;
-    private ConnectInfo config;
+    private ConnectionInfoDTO config;
     private boolean connected = false;
 
     @Override
-    public void init(ConnectInfo config) {
+    public void init(ConnectionInfoDTO config) {
         if (isConnected()) {
             System.out.println("[" + getType() + "] 已经初始化，无需重复操作。");
             return;
         }
-        if (config.getType() != CommunicationType.HTTP) {
-            throw new IllegalArgumentException("HttpLongPollingTool 不支持 " + config.getType() + " 类型。");
+        if (!config.getProtocol().equals(CommunicationTypeEnum.HTTP.getCode())) {
+            throw new IllegalArgumentException("HttpLongPollingTool 不支持 " + config.getProtocol() + " 类型。");
         }
 
         this.config = config;
@@ -93,22 +94,22 @@ public class HttpLongPollingTool implements CommunicationTool {
                 .POST(HttpRequest.BodyPublishers.ofString(message.getPayload(), StandardCharsets.UTF_8))
                 .build();
 
-            System.out.println("[" + config.getLocalId() + "] 发送长轮询请求，等待 " + timeoutSeconds + " 秒...");
+            System.out.println("[" + config.getProtocol() + "] 发送长轮询请求，等待 " + timeoutSeconds + " 秒...");
             // send 方法是阻塞的，会一直等到响应或超时
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             if (response.statusCode() == 200) {
-                System.out.println("[" + config.getLocalId() + "] 收到响应: " + response.body());
+                System.out.println("[" + config.getProtocol() + "] 收到响应: " + response.body());
                 return response.body();
             } else {
-                System.err.println("[" + config.getLocalId() + "] 服务器返回错误: " + response.statusCode());
+                System.err.println("[" + config.getProtocol() + "] 服务器返回错误: " + response.statusCode());
                 return null;
             }
         } catch (HttpTimeoutException e) {
-            System.err.println("[" + config.getLocalId() + "] 请求超时！");
+            System.err.println("[" + config.getProtocol() + "] 请求超时！");
             return null;
         } catch (Exception e) {
-            System.err.println("[" + config.getLocalId() + "] 发送消息失败: " + e.getMessage());
+            System.err.println("[" + config.getProtocol() + "] 发送消息失败: " + e.getMessage());
             return null;
         }
     }
@@ -123,8 +124,8 @@ public class HttpLongPollingTool implements CommunicationTool {
     }
 
     @Override
-    public CommunicationType getType() {
-        return CommunicationType.HTTP;
+    public CommunicationTypeEnum getType() {
+        return CommunicationTypeEnum.HTTP;
     }
 
     @Override
@@ -147,7 +148,7 @@ public class HttpLongPollingTool implements CommunicationTool {
                 Executors.newSingleThreadExecutor().submit(() -> {
                     try {
                         // 模拟一个耗时操作
-                        System.out.println("[" + config.getLocalId() + "] 收到请求，开始处理...");
+                        System.out.println("[" + config.getProtocol() + "] 收到请求，开始处理...");
                         Thread.sleep(5000); // 模拟耗时5秒
 
                         // 处理完毕，通过原连接返回响应
@@ -157,7 +158,7 @@ public class HttpLongPollingTool implements CommunicationTool {
                         try (OutputStream os = exchange.getResponseBody()) {
                             os.write(responseBytes);
                         }
-                        System.out.println("[" + config.getLocalId() + "] 已发送回复。");
+                        System.out.println("[" + config.getProtocol() + "] 已发送回复。");
                     } catch (Exception e) {
                         // 如果处理出错，也要返回一个错误响应，否则客户端会一直等
                         try {

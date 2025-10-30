@@ -10,6 +10,7 @@
 package com.footprintcat.frostiot.topology.pojo.topo;
 
 import com.footprintcat.frostiot.common.dto.TopologyInfoDTO;
+import com.footprintcat.frostiot.common.enums.NodeTypeEnum;
 import com.footprintcat.frostiot.common.repository.master.ISystemConfigRepository;
 import com.footprintcat.frostiot.common.repository.master.ITopologyInfoRepository;
 import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
@@ -34,7 +35,7 @@ public class TopologyNode {
     /**
      * 节点类型
      */
-    private NodeType nodeType;
+    private NodeTypeEnum nodeType;
 
     public TopologyNode(ISystemConfigRepository systemConfigRepository, ITopologyInfoRepository topologyInfoRepository) {
         this.systemConfigRepository = systemConfigRepository;
@@ -63,7 +64,7 @@ public class TopologyNode {
         // 配置节点
         this.nodeId = nodeId;
         try {
-            this.nodeType = NodeType.valueOf(nodeType.toUpperCase());
+            this.nodeType = NodeTypeEnum.valueOf(nodeType.toUpperCase());
         } catch (IllegalArgumentException e) {
             throw new RuntimeException("无效的类型: " + nodeType);
         }

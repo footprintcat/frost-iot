@@ -9,10 +9,10 @@
 
 package communicate.http;
 
+import com.footprintcat.frostiot.common.dto.ConnectionInfoDTO;
 import com.footprintcat.frostiot.topology.communicate.CommunicationTool;
-import com.footprintcat.frostiot.topology.communicate.CommunicationType;
+import com.footprintcat.frostiot.common.enums.CommunicationTypeEnum;
 import com.footprintcat.frostiot.topology.communicate.http.HttpCommunicationTool;
-import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
 import com.footprintcat.frostiot.topology.pojo.message.Message;
 import com.footprintcat.frostiot.common.enums.MessageTypeEnum;
 
@@ -21,9 +21,8 @@ public class ClientAppTest {
         System.out.println("--- 客户端启动 ---");
         CommunicationTool client = new HttpCommunicationTool();
 
-        ConnectInfo clientConfig = ConnectInfo.builder()
-            .type(CommunicationType.HTTP)
-            .localId("client-node-01")
+        ConnectionInfoDTO clientConfig = ConnectionInfoDTO.builder()
+            .protocol(CommunicationTypeEnum.HTTP.getCode())
             .host("localhost")
             .port(8669)
             .build();
@@ -33,21 +32,22 @@ public class ClientAppTest {
         Thread.sleep(1000);
 
         // 创建服务端的连接信息，用于获取其 URL
-        ConnectInfo serverConfig = ConnectInfo.builder()
-            .type(CommunicationType.HTTP)
-            .localId("server-node-01")
+        ConnectionInfoDTO serverConfig = ConnectionInfoDTO.builder()
+            .protocol(CommunicationTypeEnum.HTTP.getCode())
             .host("localhost")
             .port(8668)
             .build();
 
-        String messageText = "你好，服务端！这是来自 '" + clientConfig.getLocalId() + "' 的消息。";
+        String messageText = "你好，服务端！这是来自 '" + clientConfig.getId() + "' 的消息。";
         Message message = new Message(messageText, MessageTypeEnum.DEVICE_MESSAGE);
 
-        System.out.println("准备向服务端 '" + serverConfig.getLocalId() + "' 发送消息...");
+        System.out.println("准备向服务端 '" + serverConfig.getId() + "' 发送消息...");
 
-        client.sendMessage(message, serverConfig.getUrl(), clientConfig.getUrl());
+        String clientUrl = String.format("http://%s:%d/message", clientConfig.getHost(), clientConfig.getPort());
+        String serverUrl = String.format("http://%s:%d/message", serverConfig.getHost(), serverConfig.getPort());
+        client.sendMessage(message, serverUrl, clientUrl);
 
-        System.out.println("客户端 '" + clientConfig.getLocalId() + "' (" + clientConfig.getType() + ") 正在运行，监听端口 " + clientConfig.getPort() + "...");
+        System.out.println("客户端 '" + clientConfig.getId() + "' (" + clientConfig.getProtocol() + ") 正在运行，监听端口 " + clientConfig.getPort() + "...");
         System.out.println("按 Ctrl+C 停止客户端。");
 
         Runtime.getRuntime().addShutdownHook(new Thread(client::shutdown));

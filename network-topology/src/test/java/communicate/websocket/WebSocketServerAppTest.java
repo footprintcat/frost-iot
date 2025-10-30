@@ -9,9 +9,11 @@
 
 package communicate.websocket;
 
-import com.footprintcat.frostiot.topology.communicate.CommunicationType;
+import com.footprintcat.frostiot.common.dto.ConnectionInfoDTO;
+import com.footprintcat.frostiot.common.dto.SystemConfigDTO;
+import com.footprintcat.frostiot.common.enums.CommunicationTypeEnum;
+import com.footprintcat.frostiot.common.repository.master.ISystemConfigRepository;
 import com.footprintcat.frostiot.topology.communicate.webSocket.WebSocketCommunicationTool;
-import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
 import com.footprintcat.frostiot.topology.pojo.message.Message;
 import com.footprintcat.frostiot.common.enums.MessageTypeEnum;
 
@@ -21,14 +23,39 @@ public class WebSocketServerAppTest {
     public static void main(String[] args) {
         System.out.println("--- WebSocket 服务端启动 ---");
 
-        ConnectInfo serverConfig = ConnectInfo.builder()
-            .type(CommunicationType.WEBSOCKET)
-            .localId("ws-server-01")
+        ConnectionInfoDTO serverConfig = ConnectionInfoDTO.builder()
+            .protocol(CommunicationTypeEnum.WEBSOCKET.getCode())
             .host("localhost")
             .port(9001)
             .build();
 
-        WebSocketCommunicationTool server = new WebSocketCommunicationTool(serverConfig);
+
+        WebSocketCommunicationTool server = new WebSocketCommunicationTool(serverConfig, new ISystemConfigRepository() {
+            @Override
+            public void setConfig(String owner, String key, String value, Long expireTimestamp) {
+
+            }
+
+            @Override
+            public String getConfigValue(String key) {
+                if (key == "NODE_ID") {
+                    return "gossip-60";
+                } else if (key == "NODE_TYPE") {
+                    return "gossip";
+                }
+                return null;
+            }
+
+            @Override
+            public SystemConfigDTO getConfig(String key) {
+                return null;
+            }
+
+            @Override
+            public SystemConfigDTO getDTO() {
+                return null;
+            }
+        });
         server.init(serverConfig);
 
         Scanner scanner = new Scanner(System.in);

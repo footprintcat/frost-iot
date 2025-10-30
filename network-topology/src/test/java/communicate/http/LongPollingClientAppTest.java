@@ -9,9 +9,9 @@
 
 package communicate.http;
 
-import com.footprintcat.frostiot.topology.communicate.CommunicationType;
+import com.footprintcat.frostiot.common.dto.ConnectionInfoDTO;
+import com.footprintcat.frostiot.common.enums.CommunicationTypeEnum;
 import com.footprintcat.frostiot.topology.communicate.http.HttpLongPollingTool;
-import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
 import com.footprintcat.frostiot.topology.pojo.message.Message;
 import com.footprintcat.frostiot.common.enums.MessageTypeEnum;
 
@@ -21,9 +21,8 @@ public class LongPollingClientAppTest {
 
         // 初始化连接
         HttpLongPollingTool client = new HttpLongPollingTool();
-        ConnectInfo clientConfig = ConnectInfo.builder()
-            .type(CommunicationType.HTTP)
-            .localId("long-poll-client")
+        ConnectionInfoDTO clientConfig = ConnectionInfoDTO.builder()
+            .protocol(CommunicationTypeEnum.HTTP.getCode())
             .host("localhost")
             .port(8071)
             .build();

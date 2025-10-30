@@ -9,19 +9,20 @@
 
 package com.footprintcat.frostiot.topology.communicate;
 
-import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
+import com.footprintcat.frostiot.common.dto.ConnectionInfoDTO;
+import com.footprintcat.frostiot.common.enums.CommunicationTypeEnum;
 import com.footprintcat.frostiot.topology.pojo.message.Message;
 
 public interface CommunicationTool {
 
-    void init(ConnectInfo config);
+    void init(ConnectionInfoDTO config);
 
     // void sendMessage(String message, String target);
     void sendMessage(Message message, String target, String replyToUrl);
 
     void shutdown();
 
-    CommunicationType getType();
+    CommunicationTypeEnum getType();
 
     boolean isConnected();
 
