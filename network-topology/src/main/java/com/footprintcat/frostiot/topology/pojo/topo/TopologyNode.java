@@ -93,6 +93,7 @@ public class TopologyNode {
         topologyInfoDTO.setNodeId(nodeId);
         topologyInfoDTO.setTargetNodeId(connectInfo.getTargetId());
         topologyInfoDTO.setInterval(1);
+        topologyInfoDTO.setIsConnected(true);
         if (true) {
             // 正向连接
             topologyInfoDTO.setDirection(TopologyInfoDTO.Direction.SUP);
@@ -102,7 +103,7 @@ public class TopologyNode {
             System.out.println("获取连接节点 [" + connectInfo.getTargetId() + "] 的所有上级节点 []");
 
             // 通知当前节点的下级节点
-            List<TopologyInfoDTO> allSubNodes = topologyInfoRepository.getAllSubsOrSupsByNodeId(nodeId, TopologyInfoDTO.Direction.SUB.toString().toLowerCase());
+            List<TopologyInfoDTO> allSubNodes = topologyInfoRepository.getAllSubsOrSupsByNodeId(nodeId, TopologyInfoDTO.Direction.SUB.getCode());
 
             // 获取当前节点的下级节点（相邻）
             List<TopologyInfoDTO> connectedSubNodes = allSubNodes.stream().filter(topologyInfo -> nodeId.equals(topologyInfo.getNodeId())).toList();
@@ -122,7 +123,7 @@ public class TopologyNode {
             System.out.println("获取连接节点 [" + connectInfo.getTargetId() + "] 的所有下级节点 []");
 
             // 通知当前节点的上级节点
-            List<TopologyInfoDTO> allSupNodes = topologyInfoRepository.getAllSubsOrSupsByNodeId(nodeId, TopologyInfoDTO.Direction.SUP.toString().toLowerCase());
+            List<TopologyInfoDTO> allSupNodes = topologyInfoRepository.getAllSubsOrSupsByNodeId(nodeId, TopologyInfoDTO.Direction.SUP.getCode());
 
             // 获取当前节点的上级节点（相邻）
             List<TopologyInfoDTO> connectedSupNodes = allSupNodes.stream().filter(topologyInfo -> nodeId.equals(topologyInfo.getNodeId())).toList();
@@ -178,6 +179,7 @@ public class TopologyNode {
         topologyInfoDTO.setNodeId(nodeId);
         topologyInfoDTO.setTargetNodeId(connectInfo.getTargetId());
         topologyInfoDTO.setInterval(1);
+        topologyInfoDTO.setIsConnected(true);
         if (true) {
             // 正向连接
             topologyInfoDTO.setDirection(TopologyInfoDTO.Direction.SUB);
@@ -187,7 +189,7 @@ public class TopologyNode {
             System.out.println("获取连接节点 [" + connectInfo.getTargetId() + "] 的所有下级节点 []");
 
             // 通知当前节点的上级节点
-            List<TopologyInfoDTO> allSupNodes = topologyInfoRepository.getAllSubsOrSupsByNodeId(nodeId, TopologyInfoDTO.Direction.SUP.toString().toLowerCase());
+            List<TopologyInfoDTO> allSupNodes = topologyInfoRepository.getAllSubsOrSupsByNodeId(nodeId, TopologyInfoDTO.Direction.SUP.getCode());
 
             // 获取当前节点的上级节点（相邻）
             List<TopologyInfoDTO> connectedSupNodes = allSupNodes.stream().filter(topologyInfo -> nodeId.equals(topologyInfo.getNodeId())).toList();
@@ -207,7 +209,7 @@ public class TopologyNode {
             System.out.println("获取连接节点 [" + connectInfo.getTargetId() + "] 的所有上级节点 []");
 
             // 通知当前节点的下级节点
-            List<TopologyInfoDTO> allSubNodes = topologyInfoRepository.getAllSubsOrSupsByNodeId(nodeId, TopologyInfoDTO.Direction.SUB.toString().toLowerCase());
+            List<TopologyInfoDTO> allSubNodes = topologyInfoRepository.getAllSubsOrSupsByNodeId(nodeId, TopologyInfoDTO.Direction.SUB.getCode());
 
             // 获取当前节点的下级节点（相邻）
             List<TopologyInfoDTO> connectedSubNodes = allSubNodes.stream().filter(topologyInfo -> nodeId.equals(topologyInfo.getNodeId())).toList();

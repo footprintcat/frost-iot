@@ -10,6 +10,7 @@
 package com.footprintcat.frostiot.common.dto;
 
 import lombok.Data;
+import lombok.Getter;
 
 /**
  * 运行时拓扑信息
@@ -17,9 +18,31 @@ import lombok.Data;
 @Data
 public class TopologyInfoDTO {
 
+    @Getter
     public enum Direction {
-        SUB,    // 下级
-        SUP     // 上级
+        // 下级
+        SUB("sub"),
+        // 上级
+        SUP("sup"),
+        ;
+
+        private final String code;
+
+        Direction(String code) {
+            this.code = code;
+        }
+
+        public String getCode(Direction direction) {
+            return direction.getCode();
+        }
+
+        public static Direction getByCode(String code) {
+            Direction[] values = Direction.values();
+            for (Direction direction : values) {
+                if (direction.getCode().equals(code)) return direction;
+            }
+            return null;
+        }
     }
 
     /**
@@ -46,4 +69,9 @@ public class TopologyInfoDTO {
      * 目标节点
      */
     private String targetNodeId;
+
+    /**
+     * 是否连接（否为临时断连）
+     */
+    private Boolean isConnected;
 }

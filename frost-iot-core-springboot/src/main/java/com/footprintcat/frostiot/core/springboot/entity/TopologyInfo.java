@@ -47,14 +47,19 @@ public class TopologyInfo {
     @TableField("target_node_id")
     private String targetNodeId;
 
+    @Schema(description = "是否连接（否为临时断连）")
+    @TableField("is_connected")
+    private Boolean isConnected;
+
 
     public static TopologyInfoDTO toDTO(TopologyInfo entity) {
         TopologyInfoDTO dto = new TopologyInfoDTO();
         dto.setId(entity.getId());
         dto.setNodeId(entity.getNodeId());
-        dto.setDirection(TopologyInfoDTO.Direction.valueOf(entity.getDirection().toUpperCase()));
+        dto.setDirection(TopologyInfoDTO.Direction.getByCode(entity.getDirection()));
         dto.setInterval(entity.getInterval());
         dto.setTargetNodeId(entity.getTargetNodeId());
+        dto.setIsConnected(entity.getIsConnected());
         return dto;
     }
 
@@ -62,9 +67,10 @@ public class TopologyInfo {
         TopologyInfo entity = new TopologyInfo();
         entity.setId(dto.getId());
         entity.setNodeId(dto.getNodeId());
-        entity.setDirection(dto.getDirection().toString().toLowerCase());
+        entity.setDirection(dto.getDirection().getCode());
         entity.setInterval(dto.getInterval());
         entity.setTargetNodeId(dto.getTargetNodeId());
+        entity.setIsConnected(dto.getIsConnected());
         return entity;
     }
 
