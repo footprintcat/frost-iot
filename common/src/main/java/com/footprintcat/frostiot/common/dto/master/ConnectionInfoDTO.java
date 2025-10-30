@@ -7,7 +7,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-package com.footprintcat.frostiot.common.dto;
+package com.footprintcat.frostiot.common.dto.master;
 
 import lombok.Builder;
 import lombok.Data;

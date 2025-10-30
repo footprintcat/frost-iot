@@ -9,12 +9,11 @@
 
 package com.footprintcat.frostiot.topology.pojo.topo;
 
-import com.footprintcat.frostiot.common.dto.TopologyInfoDTO;
+import com.footprintcat.frostiot.common.dto.master.TopologyInfoDTO;
 import com.footprintcat.frostiot.common.enums.NodeTypeEnum;
 import com.footprintcat.frostiot.common.repository.master.ISystemConfigRepository;
 import com.footprintcat.frostiot.common.repository.master.ITopologyInfoRepository;
 import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
-import com.footprintcat.frostiot.topology.pojo.message.Message;
 
 import java.util.ArrayList;
 import java.util.List;

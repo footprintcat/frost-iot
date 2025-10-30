@@ -9,7 +9,7 @@
 
 package com.footprintcat.frostiot.common.repository.master;
 
-import com.footprintcat.frostiot.common.dto.SystemConfigDTO;
+import com.footprintcat.frostiot.common.dto.master.SystemConfigDTO;
 
 public interface ISystemConfigRepository {
 

@@ -9,7 +9,7 @@
 
 package com.footprintcat.frostiot.core.springboot.service;
 
-import com.footprintcat.frostiot.common.dto.SystemConfigDTO;
+import com.footprintcat.frostiot.common.dto.master.SystemConfigDTO;
 import com.footprintcat.frostiot.common.enums.NodeTypeEnum;
 import com.footprintcat.frostiot.core.springboot.internal.FrostIotCoreModuleInfo;
 import com.footprintcat.frostiot.core.springboot.repository.SystemConfigRepository;

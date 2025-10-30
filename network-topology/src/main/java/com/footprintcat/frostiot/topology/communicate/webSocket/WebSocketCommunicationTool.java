@@ -11,7 +11,7 @@ package com.footprintcat.frostiot.topology.communicate.webSocket;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.footprintcat.frostiot.common.dto.ConnectionInfoDTO;
+import com.footprintcat.frostiot.common.dto.master.ConnectionInfoDTO;
 import com.footprintcat.frostiot.common.enums.MessageTypeEnum;
 import com.footprintcat.frostiot.common.enums.NodeTypeEnum;
 import com.footprintcat.frostiot.common.repository.master.ISystemConfigRepository;

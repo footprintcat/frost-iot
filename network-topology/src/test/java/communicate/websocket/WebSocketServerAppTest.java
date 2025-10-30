@@ -9,8 +9,8 @@
 
 package communicate.websocket;
 
-import com.footprintcat.frostiot.common.dto.ConnectionInfoDTO;
-import com.footprintcat.frostiot.common.dto.SystemConfigDTO;
+import com.footprintcat.frostiot.common.dto.master.ConnectionInfoDTO;
+import com.footprintcat.frostiot.common.dto.master.SystemConfigDTO;
 import com.footprintcat.frostiot.common.enums.CommunicationTypeEnum;
 import com.footprintcat.frostiot.common.repository.master.ISystemConfigRepository;
 import com.footprintcat.frostiot.topology.communicate.webSocket.WebSocketCommunicationTool;

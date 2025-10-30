@@ -11,7 +11,7 @@ package com.footprintcat.frostiot.core.springboot.repository;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.footprintcat.frostiot.common.dto.SystemConfigDTO;
+import com.footprintcat.frostiot.common.dto.master.SystemConfigDTO;
 import com.footprintcat.frostiot.common.repository.master.ISystemConfigRepository;
 import com.footprintcat.frostiot.common.utils.StringUtils;
 import com.footprintcat.frostiot.core.springboot.entity.SystemConfig;

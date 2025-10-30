@@ -9,7 +9,7 @@
 
 package com.footprintcat.frostiot.common.repository.master;
 
-import com.footprintcat.frostiot.common.dto.TopologyInfoDTO;
+import com.footprintcat.frostiot.common.dto.master.TopologyInfoDTO;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;

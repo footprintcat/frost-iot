@@ -9,7 +9,7 @@
 
 package com.footprintcat.frostiot.topology.communicate.http;
 
-import com.footprintcat.frostiot.common.dto.ConnectionInfoDTO;
+import com.footprintcat.frostiot.common.dto.master.ConnectionInfoDTO;
 import com.footprintcat.frostiot.topology.communicate.CommunicationTool;
 import com.footprintcat.frostiot.common.enums.CommunicationTypeEnum;
 import com.footprintcat.frostiot.topology.pojo.message.Message;

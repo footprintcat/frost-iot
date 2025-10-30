@@ -11,7 +11,7 @@ package com.footprintcat.frostiot.core.springboot.repository;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.footprintcat.frostiot.common.dto.TopologyInfoDTO;
+import com.footprintcat.frostiot.common.dto.master.TopologyInfoDTO;
 import com.footprintcat.frostiot.common.repository.master.ITopologyInfoRepository;
 import com.footprintcat.frostiot.core.springboot.entity.TopologyInfo;
 import com.footprintcat.frostiot.core.springboot.mapper.master.TopologyInfoMapper;

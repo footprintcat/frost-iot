@@ -12,7 +12,7 @@ package com.footprintcat.frostiot.core.springboot.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.footprintcat.frostiot.common.dto.SystemConfigDTO;
+import com.footprintcat.frostiot.common.dto.master.SystemConfigDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
