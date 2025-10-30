@@ -14,10 +14,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.footprintcat.frostiot.common.dto.master.ConnectionInfoDTO;
 import com.footprintcat.frostiot.common.enums.MessageTypeEnum;
 import com.footprintcat.frostiot.common.enums.NodeTypeEnum;
+import com.footprintcat.frostiot.common.internal.ICurrentNodeInfo;
 import com.footprintcat.frostiot.common.repository.master.ISystemConfigRepository;
 import com.footprintcat.frostiot.topology.communicate.CommunicationTool;
 import com.footprintcat.frostiot.common.enums.CommunicationTypeEnum;
 import com.footprintcat.frostiot.topology.pojo.message.Message;
+import com.footprintcat.frostiot.topology.pojo.topo.TopologyNode;
+import lombok.extern.slf4j.Slf4j;
 import org.java_websocket.WebSocket;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ClientHandshake;
@@ -37,6 +40,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import static org.java_websocket.framing.CloseFrame.NORMAL;
 
+@Slf4j
 public class WebSocketCommunicationTool implements CommunicationTool {
 
     private ConnectionInfoDTO config;
@@ -58,11 +62,14 @@ public class WebSocketCommunicationTool implements CommunicationTool {
     // 序列化工具类
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
-    private final ISystemConfigRepository systemConfigRepository;
+    private final ICurrentNodeInfo currentNodeInfo;
+    private final TopologyNode topologyNode;
 
-    public WebSocketCommunicationTool(ConnectionInfoDTO config, ISystemConfigRepository systemConfigRepository) {
+    public WebSocketCommunicationTool(ConnectionInfoDTO config, ICurrentNodeInfo currentNodeInfo, TopologyNode topologyNode) {
         this.config = config;
-        this.systemConfigRepository = systemConfigRepository;
+        this.currentNodeInfo = currentNodeInfo;
+        log.info("currentNodeInfo: hashCode={}", currentNodeInfo.hashCode());
+        this.topologyNode = topologyNode;
     }
 
     @Override
@@ -169,7 +176,9 @@ public class WebSocketCommunicationTool implements CommunicationTool {
     private void handleConnectionEvent(Message message, WebSocket conn) {
         System.out.println("[" + config.getProtocol() + "] 处理连接事件: " + message.getPayload());
         // 在这里可以解析 payload 中的 nodeId 和 nodeType
-
+        // 对方的 nodeId 和 nodeType
+        // 当前的连接方式
+        // 上下级
     }
 
     private void handleDeviceMessage(Message message, WebSocket conn) {
@@ -203,8 +212,8 @@ public class WebSocketCommunicationTool implements CommunicationTool {
 
                     try {
                         // 建立连接以后，将节点信息发送给服务端
-                        String nodeId = systemConfigRepository.getConfigValue("NODE_ID");
-                        String nodeTypeStr = systemConfigRepository.getConfigValue("NODE_TYPE");
+                        String nodeId = currentNodeInfo.getNodeId();
+                        String nodeTypeStr = currentNodeInfo.getNodeType();
                         NodeTypeEnum typeEnum = NodeTypeEnum.getByCode(nodeTypeStr);
                         if (typeEnum == null || nodeId == null) {
                             throw new RuntimeException("节点Id/类型有误！");
@@ -298,7 +307,7 @@ public class WebSocketCommunicationTool implements CommunicationTool {
     public void sendMessage(Message messageEntity, String target, String replyToUrl) {
         try {
             // 在发送前，记录当前节点ID
-            String currenNodeId = systemConfigRepository.getConfigValue("NODE_ID");
+            String currenNodeId = currentNodeInfo.getNodeId();
             messageEntity.setCurrentNodeId(currenNodeId);
             // 将 Message 对象序列化为 JSON 字符串
             String jsonMessage = objectMapper.writeValueAsString(messageEntity);

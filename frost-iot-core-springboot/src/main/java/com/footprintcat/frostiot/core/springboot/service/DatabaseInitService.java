@@ -9,39 +9,52 @@
 
 package com.footprintcat.frostiot.core.springboot.service;
 
-import com.footprintcat.frostiot.common.dto.master.SystemConfigDTO;
 import com.footprintcat.frostiot.common.enums.NodeTypeEnum;
+import com.footprintcat.frostiot.core.springboot.internal.CurrentNodeInfo;
 import com.footprintcat.frostiot.core.springboot.internal.FrostIotCoreModuleInfo;
 import com.footprintcat.frostiot.core.springboot.repository.SystemConfigRepository;
-import jakarta.annotation.PostConstruct;
 import jakarta.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
-public class SystemConfigService {
+public class DatabaseInitService {
 
     public static final String NODE_TYPE = NodeTypeEnum.GOSSIP.getCode();
 
     @Resource
     private SystemConfigRepository systemConfigRepository;
 
-    @PostConstruct
-    public void initSystemConfig() {
+    @Bean
+    public CurrentNodeInfo nodeInit() {
         // 读取系统配置版本号
         FrostIotCoreModuleInfo moduleInfo = FrostIotCoreModuleInfo.getInstance();
         Long databaseVersion = moduleInfo.getDatabaseVersion();
 
         // 查询节点配置初值，为空则初始化
-        SystemConfigDTO nodeIdConfig = systemConfigRepository.getConfig("NODE_ID");
-        SystemConfigDTO nodeTypeConfig = systemConfigRepository.getConfig("NODE_TYPE");
-        SystemConfigDTO isNodeInitConfig = systemConfigRepository.getConfig("IS_NODE_INIT");
-        if (nodeIdConfig == null || nodeTypeConfig == null || isNodeInitConfig == null || "0".equals(isNodeInitConfig.getConfigValue())
-        ) {
+        String nodeId = systemConfigRepository.getConfigValue("NODE_ID");
+        String nodeType = systemConfigRepository.getConfigValue("NODE_TYPE");
+        boolean isNodeInit = systemConfigRepository.getConfigValueBooleanValue("IS_NODE_INIT");
+        if (nodeId == null || nodeType == null || !isNodeInit) {
+            String randomNodeId = NODE_TYPE + "_" + (int) (Math.random() * 100);
             systemConfigRepository.setConfig("NODE_TYPE", NODE_TYPE);
             systemConfigRepository.setConfigLong("DB_VERSION", databaseVersion);
-            systemConfigRepository.setConfig("NODE_ID", NODE_TYPE + "_" + (int) (Math.random() * 100));
+            systemConfigRepository.setConfig("NODE_ID", randomNodeId);
             systemConfigRepository.setConfigLong("IS_NODE_INIT", 1);
+
+            nodeId = randomNodeId;
+            nodeType = NODE_TYPE;
         }
+
+        CurrentNodeInfo currentNodeInfo = new CurrentNodeInfo();
+        currentNodeInfo.setNodeId(nodeId);
+        currentNodeInfo.setNodeType(nodeType);
+        log.info("nodeInit: nodeId={}, nodeType={}", nodeId, nodeType);
+        log.info("currentNodeInfo: hashCode={}", currentNodeInfo.hashCode());
+
+        return currentNodeInfo;
     }
 
 }

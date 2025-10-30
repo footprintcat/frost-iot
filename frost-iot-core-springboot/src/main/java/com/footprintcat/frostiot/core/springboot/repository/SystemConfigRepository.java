@@ -45,7 +45,12 @@ public class SystemConfigRepository extends ServiceImpl<SystemConfigMapper, Syst
         return StringUtils.isEmpty(configValue) ? null : Long.parseLong(configValue);
     }
 
-    public boolean getConfigValueBoolean(String config) {
+    public Boolean getConfigValueBoolean(String config) {
+        String configValue = getConfigValue(config);
+        return configValue == null ? null : "1".equals(configValue);
+    }
+
+    public boolean getConfigValueBooleanValue(String config) {
         String configValue = getConfigValue(config);
         return "1".equals(configValue);
     }
