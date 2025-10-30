@@ -9,6 +9,7 @@
 
 package com.footprintcat.frostiot.topology.pojo;
 
+import com.footprintcat.frostiot.common.enums.TopologyRelationEnum;
 import lombok.Data;
 
 @Data
@@ -16,7 +17,7 @@ public class ConnectionInfo {
 
     private String targetNodeId;
     private String targetNodeType;
-    private String relation;
+    private TopologyRelationEnum relation;
 
     //...可扩展连接质量
 }

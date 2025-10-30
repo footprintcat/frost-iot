@@ -10,9 +10,11 @@
 package com.footprintcat.frostiot.core.springboot.repository;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.footprintcat.frostiot.common.dto.master.TopologyInfoDTO;
 import com.footprintcat.frostiot.common.repository.master.ITopologyInfoRepository;
+import com.footprintcat.frostiot.common.utils.StringUtils;
 import com.footprintcat.frostiot.core.springboot.entity.TopologyInfo;
 import com.footprintcat.frostiot.core.springboot.mapper.master.TopologyInfoMapper;
 import org.jetbrains.annotations.NotNull;
@@ -24,26 +26,28 @@ import java.util.List;
 public class TopologyInfoRepository extends ServiceImpl<TopologyInfoMapper, TopologyInfo> implements ITopologyInfoRepository {
 
     @Override
-    public void setTopologyInfo(TopologyInfoDTO topologyInfoDTO) {
-        TopologyInfo entity = TopologyInfo.toEntity(topologyInfoDTO);
-        baseMapper.insert(entity);
-    }
-
-    @Override
     public void saveOrUpdate(TopologyInfoDTO topologyInfoDTO) {
         TopologyInfo entity = TopologyInfo.toEntity(topologyInfoDTO);
         baseMapper.insertOrUpdate(entity);
     }
 
     @Override
-    public TopologyInfoDTO getTopologyInfo(Long id) {
-        TopologyInfo topologyInfo = baseMapper.selectById(id);
-        return TopologyInfo.toDTO(topologyInfo);
-    }
+    public boolean setConnectStatus(String nodeId, String targetNodeId, String status) {
+        LambdaUpdateWrapper<TopologyInfo> wrapper = new LambdaUpdateWrapper<>();
+        if(StringUtils.isEmpty(nodeId) && StringUtils.isEmpty(targetNodeId)){
+            throw new RuntimeException("nodeId 和 targetNodeId 不能同时为空");
+        }
+        if(StringUtils.isNotEmpty(nodeId)){
+            wrapper.eq(TopologyInfo::getNodeId, nodeId);
+        }
+        if(StringUtils.isNotEmpty(targetNodeId)){
+            wrapper.eq(TopologyInfo::getTargetNodeId, targetNodeId);
+        }
+        wrapper.set(TopologyInfo::getStatus, status);
 
-    @Override
-    public boolean setTemporaryDisconnect(String nodeId, String targetNodeId, boolean isConnected) {
-        return true;
+        int update = baseMapper.update(wrapper);
+
+        return update > 0;
     }
 
     @Override
@@ -67,7 +71,7 @@ public class TopologyInfoRepository extends ServiceImpl<TopologyInfoMapper, Topo
     public List<TopologyInfoDTO> getSubOrSupNodes(@NotNull String nodeId, @NotNull String direction) {
         List<TopologyInfo> subNodes = baseMapper.selectList(new LambdaQueryWrapper<TopologyInfo>()
             .eq(TopologyInfo::getNodeId, nodeId)
-            .eq(TopologyInfo::getDirection, direction));
+            .eq(TopologyInfo::getRelation, direction));
 
         return TopologyInfo.toDTO(subNodes);
     }

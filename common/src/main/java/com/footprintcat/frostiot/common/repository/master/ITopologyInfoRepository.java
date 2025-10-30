@@ -16,19 +16,15 @@ import java.util.List;
 
 public interface ITopologyInfoRepository {
 
-    void setTopologyInfo(TopologyInfoDTO topologyInfoDTO);
-
     /**
      * 更新或修改
      */
     void saveOrUpdate(TopologyInfoDTO topologyInfoDTO);
 
-    TopologyInfoDTO getTopologyInfo(Long id);
-
     /**
-     * TODO 标记连接状态
+     * 标记连接状态
      */
-    boolean setTemporaryDisconnect(String nodeId, String targetNodeId, String status);
+    boolean setConnectStatus(String nodeId, String targetNodeId, String status);
 
     /**
      * 删除连接记录

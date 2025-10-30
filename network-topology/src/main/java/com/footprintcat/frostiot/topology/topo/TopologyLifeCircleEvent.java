@@ -9,13 +9,13 @@
 
 package com.footprintcat.frostiot.topology.topo;
 
-import com.footprintcat.frostiot.common.dto.master.ClientInfoDTO;
 import com.footprintcat.frostiot.common.dto.master.TopologyInfoDTO;
 import com.footprintcat.frostiot.common.enums.NodeTypeEnum;
 import com.footprintcat.frostiot.common.enums.TopologyRelationEnum;
 import com.footprintcat.frostiot.common.enums.TopologyStatusEnum;
 import com.footprintcat.frostiot.common.internal.ICurrentNodeInfo;
 import com.footprintcat.frostiot.common.repository.master.ITopologyInfoRepository;
+import com.footprintcat.frostiot.topology.pojo.ConnectionInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,75 +56,43 @@ public class TopologyLifeCircleEvent {
     /**
      * 连接成功回调
      *
-     * @param connectInfo 连接信息
+     * @param connectionInfo 连接信息
      */
-    public void onConnect(ClientInfoDTO connectInfo) {
-        // 判断是否重连
-        TopologyInfoDTO topologyInfo = topologyInfoRepository.getByNodeIdAndTargetNodeId(currentNodeInfo.getNodeId(), connectInfo.getTargetNodeId());
+    public void onConnect(ConnectionInfo connectionInfo) {
+        TopologyInfoDTO topologyInfo = topologyInfoRepository.getByNodeIdAndTargetNodeId(currentNodeInfo.getNodeId(), connectionInfo.getTargetNodeId());
 
         if (Objects.isNull(topologyInfo)) {
             // 初次连接
             topologyInfo = new TopologyInfoDTO();
-            topologyInfo.setNodeId(currentNodeInfo.getNodeId());
-            topologyInfo.setTargetNodeId(connectInfo.getTargetNodeId());
         }
 
+        topologyInfo.setNodeId(currentNodeInfo.getNodeId());
+        topologyInfo.setTargetNodeId(connectionInfo.getTargetNodeId());
         topologyInfo.setInterval(1);
         topologyInfo.setStatus(TopologyStatusEnum.CONNECTED);
-        if (Objects.equals(connectInfo.getDirection(),"positive")) {
-            // 正向连接
-            topologyInfo.setRelation(TopologyRelationEnum.SUP);
-            System.out.println(currentNodeInfo.getNodeId() + " 👉 " + connectInfo.getTargetNodeId());
-        } else {
-            // 反向连接
-            topologyInfo.setRelation(TopologyRelationEnum.SUB);
-            System.out.println(connectInfo.getTargetNodeId() + " 👉 " + currentNodeInfo.getNodeId());
-        }
+        topologyInfo.setRelation(connectionInfo.getRelation());
 
         topologyInfoRepository.saveOrUpdate(topologyInfo);
     }
 
     /**
-     * 主动连接回调（建立连接 重连）
+     * 暂时断连（断开连接）
      *
-     * @param connectInfo TODO 成功连接响应的节点信息
+     * @param connectionInfo 断连目标节点
      */
-    public void reconnected(ClientInfoDTO connectInfo) {
-        // if (!hasConnected(connectInfo.getTargetNodeId())) {
-        //     throw new RuntimeException("没有 " + connectInfo.getTargetNodeId() + " 的连接信息，无法重连");
-        // }
-
-        // 更改连接状态
-
-        if (true) {
-            // 正向连接
-            // 通知当前节点的下级节点（相邻）
-            System.out.println("节点 [" + currentNodeInfo.getNodeId() + "] 重新连接到了上级节点 [" + connectInfo.getTargetNodeId() + "]");
-        } else {
-            // 反向连接
-            // 通知当前节点的上级节点（相邻）
-            System.out.println("节点 [" + currentNodeInfo.getNodeId() + "] 重新连接到了下级节点 [" + connectInfo.getTargetNodeId() + "]");
-        }
+    public void onDisconnect(ConnectionInfo connectionInfo) {
+        // 标记连接的节点暂时断连
+        topologyInfoRepository.setConnectStatus(currentNodeInfo.getNodeId(), connectionInfo.getTargetNodeId(), TopologyStatusEnum.DISCONNECTED.getCode());
+        // 标记连接的节点可访问到的节点状态未知
+        topologyInfoRepository.setConnectStatus(null, connectionInfo.getTargetNodeId(), TopologyStatusEnum.UNKNOWN.getCode());
     }
 
     /**
-     * 相邻节点暂时断连（断开连接）
-     *
-     * @param connectInfo 断连目标节点
+     * 结束连接
      */
-    public void onDisconnected(ClientInfoDTO connectInfo) {
-        // 标记暂时断连
+    public void onTerminateConnect(ConnectionInfo connectionInfo) {
+        // 清理连接记录
 
-        // 通知相邻节点断连
-        if (true) {
-            // 如果targetNodeId是nodeId的下级
-            // 通知nodeId的相邻上级
-            System.out.println("节点 [" + currentNodeInfo.getNodeId() + "] 临时断开下级节点 [" + connectInfo.getTargetNodeId() + "]");
-        } else {
-            // 如果targetNodeId是nodeId的上级
-            // 通知nodeId的相邻下级
-            System.out.println("节点 [" + currentNodeInfo.getNodeId() + "] 临时断开上级节点 [" + connectInfo.getTargetNodeId() + "]");
-        }
     }
 
     /**
