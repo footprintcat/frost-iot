@@ -22,7 +22,6 @@ import java.util.Objects;
 
 public class TopologyNode {
 
-    private final ISystemConfigRepository systemConfigRepository;
     private final ITopologyInfoRepository topologyInfoRepository;
     private final ICurrentNodeInfo currentNodeInfo;
 
@@ -40,8 +39,7 @@ public class TopologyNode {
      */
     private NodeTypeEnum nodeType;
 
-    public TopologyNode(ISystemConfigRepository systemConfigRepository, ITopologyInfoRepository topologyInfoRepository, ICurrentNodeInfo currentNodeInfo) {
-        this.systemConfigRepository = systemConfigRepository;
+    public TopologyNode(ITopologyInfoRepository topologyInfoRepository, ICurrentNodeInfo currentNodeInfo) {
         this.topologyInfoRepository = topologyInfoRepository;
         this.currentNodeInfo = currentNodeInfo;
     }

@@ -10,16 +10,21 @@
 package com.footprintcat.frostiot.core.springboot.internal;
 
 import com.footprintcat.frostiot.common.internal.ICurrentNodeInfo;
-import lombok.Data;
-import org.springframework.stereotype.Component;
+import lombok.Getter;
 
 import java.io.Serializable;
 
-@Data
-@Component
+@Getter
 public class CurrentNodeInfo implements ICurrentNodeInfo, Serializable {
 
     String nodeId;
     String nodeType;
 
+    private CurrentNodeInfo() {
+    }
+
+    public CurrentNodeInfo(String nodeId, String nodeType) {
+        this.nodeId = nodeId;
+        this.nodeType = nodeType;
+    }
 }

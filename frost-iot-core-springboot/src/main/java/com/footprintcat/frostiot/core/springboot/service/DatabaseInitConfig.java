@@ -16,11 +16,11 @@ import com.footprintcat.frostiot.core.springboot.repository.SystemConfigReposito
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Service;
+import org.springframework.context.annotation.Configuration;
 
 @Slf4j
-@Service
-public class DatabaseInitService {
+@Configuration
+public class DatabaseInitConfig {
 
     public static final String NODE_TYPE = NodeTypeEnum.GOSSIP.getCode();
 
@@ -48,9 +48,9 @@ public class DatabaseInitService {
             nodeType = NODE_TYPE;
         }
 
-        CurrentNodeInfo currentNodeInfo = new CurrentNodeInfo();
-        currentNodeInfo.setNodeId(nodeId);
-        currentNodeInfo.setNodeType(nodeType);
+        CurrentNodeInfo currentNodeInfo = new CurrentNodeInfo(nodeId, nodeType);
+        // currentNodeInfo.setNodeId(nodeId);
+        // currentNodeInfo.setNodeType(nodeType);
         log.info("nodeInit: nodeId={}, nodeType={}", nodeId, nodeType);
         log.info("currentNodeInfo: hashCode={}", currentNodeInfo.hashCode());
 
