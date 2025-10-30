@@ -30,6 +30,12 @@ public class TopologyInfoRepository extends ServiceImpl<TopologyInfoMapper, Topo
     }
 
     @Override
+    public void saveOrUpdate(TopologyInfoDTO topologyInfoDTO) {
+        TopologyInfo entity = TopologyInfo.toEntity(topologyInfoDTO);
+        baseMapper.insertOrUpdate(entity);
+    }
+
+    @Override
     public TopologyInfoDTO getTopologyInfo(Long id) {
         TopologyInfo topologyInfo = baseMapper.selectById(id);
         return TopologyInfo.toDTO(topologyInfo);
@@ -70,6 +76,13 @@ public class TopologyInfoRepository extends ServiceImpl<TopologyInfoMapper, Topo
     public List<TopologyInfoDTO> getAllSubsOrSupsByNodeId(@NotNull String nodeId, @NotNull String direction) {
         List<TopologyInfo> nodes = baseMapper.selectAllSubsOrSupsByNodeId(nodeId, direction);
         return TopologyInfo.toDTO(nodes);
+    }
+
+    @Override
+    public void saveBatchTopologyInfo(List<TopologyInfoDTO> topologyInfoDTOList) {
+        List<TopologyInfo> entityList = TopologyInfo.toEntity(topologyInfoDTOList);
+        // 事务失效
+        saveBatch(entityList);
     }
 
     @Override

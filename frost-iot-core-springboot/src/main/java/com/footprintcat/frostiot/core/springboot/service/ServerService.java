@@ -15,7 +15,7 @@ import com.footprintcat.frostiot.common.enums.MessageTypeEnum;
 import com.footprintcat.frostiot.common.internal.ICurrentNodeInfo;
 import com.footprintcat.frostiot.topology.communicate.webSocket.WebSocketCommunicationTool;
 import com.footprintcat.frostiot.topology.pojo.message.Message;
-import com.footprintcat.frostiot.topology.pojo.topo.TopologyNode;
+import com.footprintcat.frostiot.topology.topo.TopologyLifeCircleEvent;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -28,7 +28,7 @@ public class ServerService {
     @Resource
     private ICurrentNodeInfo currentNodeInfo;
     @Resource
-    private TopologyNode topologyNode;
+    private TopologyLifeCircleEvent topologyLifeCircleEvent;
 
     @PostConstruct
     public void initConnection() {
@@ -45,7 +45,7 @@ public class ServerService {
             .build();
 
 
-        WebSocketCommunicationTool server = new WebSocketCommunicationTool(serverConfig, currentNodeInfo, topologyNode);
+        WebSocketCommunicationTool server = new WebSocketCommunicationTool(serverConfig, currentNodeInfo, topologyLifeCircleEvent);
         server.init(serverConfig);
 
         Scanner scanner = new Scanner(System.in);

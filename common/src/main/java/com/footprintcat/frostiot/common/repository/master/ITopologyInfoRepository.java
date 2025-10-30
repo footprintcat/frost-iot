@@ -18,12 +18,17 @@ public interface ITopologyInfoRepository {
 
     void setTopologyInfo(TopologyInfoDTO topologyInfoDTO);
 
+    /**
+     * 更新或修改
+     */
+    void saveOrUpdate(TopologyInfoDTO topologyInfoDTO);
+
     TopologyInfoDTO getTopologyInfo(Long id);
 
     /**
      * TODO 标记连接状态
      */
-    boolean setTemporaryDisconnect(String nodeId, String targetNodeId, boolean isConnected);
+    boolean setTemporaryDisconnect(String nodeId, String targetNodeId, String status);
 
     /**
      * 删除连接记录
@@ -45,6 +50,11 @@ public interface ITopologyInfoRepository {
      * 根据nodeId查询相邻上/下游并根据其相邻上/下游查询所有上/下游
      */
     List<TopologyInfoDTO> getAllSubsOrSupsByNodeId(@NotNull String nodeId, @NotNull String direction);
+
+    /**
+     * 批量存入连接信息
+     */
+    void saveBatchTopologyInfo(List<TopologyInfoDTO> topologyInfoDTOList);
 
     /**
      * 清空该表

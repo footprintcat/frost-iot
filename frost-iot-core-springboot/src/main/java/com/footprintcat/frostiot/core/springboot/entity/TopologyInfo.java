@@ -14,6 +14,9 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.footprintcat.frostiot.common.dto.master.TopologyInfoDTO;
+import com.footprintcat.frostiot.common.enums.NodeTypeEnum;
+import com.footprintcat.frostiot.common.enums.TopologyRelationEnum;
+import com.footprintcat.frostiot.common.enums.TopologyStatusEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -24,6 +27,7 @@ import java.util.List;
  * 运行时拓扑信息实体类
  */
 @Data
+@Schema(name = "TopologyInfo", description = "运行时拓扑信息实体类")
 @TableName("topology_runtime_info")
 public class TopologyInfo {
 
@@ -35,9 +39,13 @@ public class TopologyInfo {
     @TableField("node_id")
     private String nodeId;
 
+    @Schema(description = "节点类型")
+    @TableField("node_type")
+    private String nodeType;
+
     @Schema(description = "方向（sub：下级；sup：上级）")
-    @TableField("direction")
-    private String direction;
+    @TableField("relation")
+    private String relation;
 
     @Schema(description = "间隔节点数")
     @TableField("interval")
@@ -47,19 +55,24 @@ public class TopologyInfo {
     @TableField("target_node_id")
     private String targetNodeId;
 
-    @Schema(description = "是否连接（否为临时断连）")
-    @TableField("is_connected")
-    private Boolean isConnected;
+    @Schema(description = "目标节点类型")
+    @TableField("target_node_type")
+    private String targetNodeType;
 
+    @Schema(description = "是否连接")
+    @TableField("status")
+    private String status;
 
     public static TopologyInfoDTO toDTO(TopologyInfo entity) {
         TopologyInfoDTO dto = new TopologyInfoDTO();
         dto.setId(entity.getId());
         dto.setNodeId(entity.getNodeId());
-        dto.setDirection(TopologyInfoDTO.Direction.getByCode(entity.getDirection()));
+        dto.setNodeType(NodeTypeEnum.getByCode(entity.getNodeType()));
+        dto.setRelation(TopologyRelationEnum.getByCode(entity.getRelation()));
         dto.setInterval(entity.getInterval());
         dto.setTargetNodeId(entity.getTargetNodeId());
-        dto.setIsConnected(entity.getIsConnected());
+        dto.setTargetNodeType(NodeTypeEnum.getByCode(entity.getTargetNodeType()));
+        dto.setStatus(TopologyStatusEnum.getByCode(entity.getStatus()));
         return dto;
     }
 
@@ -67,10 +80,12 @@ public class TopologyInfo {
         TopologyInfo entity = new TopologyInfo();
         entity.setId(dto.getId());
         entity.setNodeId(dto.getNodeId());
-        entity.setDirection(dto.getDirection().getCode());
+        entity.setNodeType(dto.getNodeType().getCode());
+        entity.setRelation(dto.getRelation().getCode());
         entity.setInterval(dto.getInterval());
         entity.setTargetNodeId(dto.getTargetNodeId());
-        entity.setIsConnected(dto.getIsConnected());
+        entity.setTargetNodeType(dto.getTargetNodeType().getCode());
+        entity.setStatus(dto.getStatus().getCode());
         return entity;
     }
 

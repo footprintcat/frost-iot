@@ -9,6 +9,9 @@
 
 package com.footprintcat.frostiot.common.dto.master;
 
+import com.footprintcat.frostiot.common.enums.NodeTypeEnum;
+import com.footprintcat.frostiot.common.enums.TopologyRelationEnum;
+import com.footprintcat.frostiot.common.enums.TopologyStatusEnum;
 import lombok.Data;
 import lombok.Getter;
 
@@ -17,33 +20,6 @@ import lombok.Getter;
  */
 @Data
 public class TopologyInfoDTO {
-
-    @Getter
-    public enum Direction {
-        // 下级
-        SUB("sub"),
-        // 上级
-        SUP("sup"),
-        ;
-
-        private final String code;
-
-        Direction(String code) {
-            this.code = code;
-        }
-
-        public String getCode(Direction direction) {
-            return direction.getCode();
-        }
-
-        public static Direction getByCode(String code) {
-            Direction[] values = Direction.values();
-            for (Direction direction : values) {
-                if (direction.getCode().equals(code)) return direction;
-            }
-            return null;
-        }
-    }
 
     /**
      * 主键ID
@@ -56,9 +32,14 @@ public class TopologyInfoDTO {
     private String nodeId;
 
     /**
+     * 节点类型
+     */
+    private NodeTypeEnum nodeType;
+
+    /**
      * 方向（sub：下级；sup：上级）
      */
-    private Direction direction;
+    private TopologyRelationEnum relation;
 
     /**
      * 间隔节点数
@@ -71,7 +52,12 @@ public class TopologyInfoDTO {
     private String targetNodeId;
 
     /**
+     * 目标节点类型
+     */
+    private NodeTypeEnum targetNodeType;
+
+    /**
      * 是否连接（否为临时断连）
      */
-    private Boolean isConnected;
+    private TopologyStatusEnum status;
 }

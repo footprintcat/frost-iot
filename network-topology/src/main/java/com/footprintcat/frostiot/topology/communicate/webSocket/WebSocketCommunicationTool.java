@@ -18,7 +18,7 @@ import com.footprintcat.frostiot.common.internal.ICurrentNodeInfo;
 import com.footprintcat.frostiot.topology.communicate.CommunicationTool;
 import com.footprintcat.frostiot.common.enums.CommunicationTypeEnum;
 import com.footprintcat.frostiot.topology.pojo.message.Message;
-import com.footprintcat.frostiot.topology.pojo.topo.TopologyNode;
+import com.footprintcat.frostiot.topology.topo.TopologyLifeCircleEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.java_websocket.WebSocket;
 import org.java_websocket.client.WebSocketClient;
@@ -62,13 +62,13 @@ public class WebSocketCommunicationTool implements CommunicationTool {
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
     private final ICurrentNodeInfo currentNodeInfo;
-    private final TopologyNode topologyNode;
+    private final TopologyLifeCircleEvent topologyLifeCircleEvent;
 
-    public WebSocketCommunicationTool(ClientInfoDTO config, ICurrentNodeInfo currentNodeInfo, TopologyNode topologyNode) {
+    public WebSocketCommunicationTool(ClientInfoDTO config, ICurrentNodeInfo currentNodeInfo, TopologyLifeCircleEvent topologyLifeCircleEvent) {
         this.config = config;
         this.currentNodeInfo = currentNodeInfo;
         log.info("currentNodeInfo: hashCode={}", currentNodeInfo.hashCode());
-        this.topologyNode = topologyNode;
+        this.topologyLifeCircleEvent = topologyLifeCircleEvent;
     }
 
     @Override
