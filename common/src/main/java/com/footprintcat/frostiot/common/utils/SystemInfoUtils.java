@@ -333,6 +333,9 @@ public class SystemInfoUtils {
      * @since 2025-09-28
      */
     private static @NotNull String getRunTypeIntro() {
+        if(isGraalVMNativeImage()) {
+            return "通过 GraalVM 原生包运行";
+        }
         // 当前类的类名
         String simpleName = SystemInfoUtils.class.getSimpleName(); // SystemInfoUtils
         URL currentClassResourcePath = SystemInfoUtils.class.getResource(simpleName + ".class" /*"SystemInfoUtils.class"*/);
@@ -347,6 +350,19 @@ public class SystemInfoUtils {
             }
         }
         return "获取失败: 未找到 " + simpleName + ".class";
+    }
+
+    /**
+     * 检测 GraalVM Native Image 环境
+     *
+     * @return boolean 当前是否在 GraalVM 原生包中运行
+     */
+    public static boolean isGraalVMNativeImage() {
+        // Substrate VM is an internal project name for the technology behind GraalVM Native Image.
+        // see: https://docs.oracle.com/en/graalvm/enterprise/20/docs/reference-manual/native-image/SubstrateVM/#build-script
+        return System.getProperty("org.graalvm.nativeimage.imagecode") != null ||
+            System.getProperty("java.vm.vendor", "").contains("GraalVM") ||
+            System.getProperty("java.vm.name", "").contains("Substrate");
     }
 
     /**
