@@ -9,7 +9,7 @@
 
 package communicate.http;
 
-import com.footprintcat.frostiot.common.dto.master.ConnectionInfoDTO;
+import com.footprintcat.frostiot.common.dto.master.ClientInfoDTO;
 import com.footprintcat.frostiot.topology.communicate.CommunicationTool;
 import com.footprintcat.frostiot.common.enums.CommunicationTypeEnum;
 import com.footprintcat.frostiot.topology.communicate.http.HttpCommunicationTool;
@@ -21,7 +21,7 @@ public class ClientAppTest {
         System.out.println("--- 客户端启动 ---");
         CommunicationTool client = new HttpCommunicationTool();
 
-        ConnectionInfoDTO clientConfig = ConnectionInfoDTO.builder()
+        ClientInfoDTO clientConfig = ClientInfoDTO.builder()
             .protocol(CommunicationTypeEnum.HTTP.getCode())
             .host("localhost")
             .port(8669)
@@ -32,7 +32,7 @@ public class ClientAppTest {
         Thread.sleep(1000);
 
         // 创建服务端的连接信息，用于获取其 URL
-        ConnectionInfoDTO serverConfig = ConnectionInfoDTO.builder()
+        ClientInfoDTO serverConfig = ClientInfoDTO.builder()
             .protocol(CommunicationTypeEnum.HTTP.getCode())
             .host("localhost")
             .port(8668)

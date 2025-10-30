@@ -9,7 +9,7 @@
 
 package com.footprintcat.frostiot.topology.communicate.http;
 
-import com.footprintcat.frostiot.common.dto.master.ConnectionInfoDTO;
+import com.footprintcat.frostiot.common.dto.master.ClientInfoDTO;
 import com.footprintcat.frostiot.topology.communicate.CommunicationTool;
 import com.footprintcat.frostiot.common.enums.CommunicationTypeEnum;
 import com.footprintcat.frostiot.topology.pojo.message.Message;
@@ -31,11 +31,11 @@ import java.util.concurrent.Executors;
 public class HttpCommunicationTool implements CommunicationTool {
     private HttpServer server;
     private HttpClient client;
-    private ConnectionInfoDTO config;
+    private ClientInfoDTO config;
     private boolean connected = false;
 
     @Override
-    public void init(ConnectionInfoDTO config) {
+    public void init(ClientInfoDTO config) {
         if (!config.getProtocol().equals(CommunicationTypeEnum.HTTP.getCode())) {
             throw new IllegalArgumentException("HttpCommunicationTool 不支持 " + config.getProtocol() + " 类型的连接。");
         }

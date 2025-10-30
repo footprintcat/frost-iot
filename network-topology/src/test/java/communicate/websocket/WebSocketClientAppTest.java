@@ -9,7 +9,7 @@
 
 package communicate.websocket;
 
-import com.footprintcat.frostiot.common.dto.master.ConnectionInfoDTO;
+import com.footprintcat.frostiot.common.dto.master.ClientInfoDTO;
 import com.footprintcat.frostiot.common.dto.master.SystemConfigDTO;
 import com.footprintcat.frostiot.common.repository.master.ISystemConfigRepository;
 import com.footprintcat.frostiot.common.enums.CommunicationTypeEnum;
@@ -23,7 +23,7 @@ public class WebSocketClientAppTest {
     public static void main(String[] args) {
         System.out.println("--- WebSocket 客户端启动 ---");
 
-        ConnectionInfoDTO config = ConnectionInfoDTO.builder()
+        ClientInfoDTO config = ClientInfoDTO.builder()
             .protocol(CommunicationTypeEnum.WEBSOCKET.getCode())
             .host("localhost")
             .port(9002)

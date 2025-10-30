@@ -16,16 +16,18 @@ import java.util.Date;
 
 @Data
 @Builder
-public class ConnectionInfoDTO {
+public class ClientInfoDTO {
     private Long id;
-    private Long targetNodeId;
+    private String targetNodeId;
     private String protocol;
     private Boolean useSsl;
     private String host;
     private Integer port;
     private String direction;
-    private Date createTime;
-    private Date updateTime;
+
     private Date lastConnTime;
     private Date lastOfflineTime;
+
+    private Date createTime;
+    private Date updateTime;
 }

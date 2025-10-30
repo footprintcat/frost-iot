@@ -9,14 +9,14 @@
 
 package com.footprintcat.frostiot.topology.communicate.mqtt;
 
-import com.footprintcat.frostiot.common.dto.master.ConnectionInfoDTO;
+import com.footprintcat.frostiot.common.dto.master.ClientInfoDTO;
 import com.footprintcat.frostiot.topology.communicate.CommunicationTool;
 import com.footprintcat.frostiot.common.enums.CommunicationTypeEnum;
 import com.footprintcat.frostiot.topology.pojo.message.Message;
 
 public class MqttCommunicationTool implements CommunicationTool {
     @Override
-    public void init(ConnectionInfoDTO config) {
+    public void init(ClientInfoDTO config) {
         System.out.println("MQTT Tool初始化...");
     }
 

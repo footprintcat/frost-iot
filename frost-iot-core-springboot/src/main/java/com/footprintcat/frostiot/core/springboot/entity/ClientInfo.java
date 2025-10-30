@@ -12,13 +12,16 @@ package com.footprintcat.frostiot.core.springboot.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
-public class ConnectionInfo {
+@Schema(name = "ClientInfo", description = "当前节点需连接的服务端信息")
+@TableName("topology_client_info")
+public class ClientInfo {
 
     @Schema(description = "雪花id")
     @TableId(value = "id", type = IdType.ASSIGN_ID)

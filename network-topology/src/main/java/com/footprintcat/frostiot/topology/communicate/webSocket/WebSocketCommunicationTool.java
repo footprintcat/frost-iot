@@ -11,11 +11,10 @@ package com.footprintcat.frostiot.topology.communicate.webSocket;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.footprintcat.frostiot.common.dto.master.ConnectionInfoDTO;
+import com.footprintcat.frostiot.common.dto.master.ClientInfoDTO;
 import com.footprintcat.frostiot.common.enums.MessageTypeEnum;
 import com.footprintcat.frostiot.common.enums.NodeTypeEnum;
 import com.footprintcat.frostiot.common.internal.ICurrentNodeInfo;
-import com.footprintcat.frostiot.common.repository.master.ISystemConfigRepository;
 import com.footprintcat.frostiot.topology.communicate.CommunicationTool;
 import com.footprintcat.frostiot.common.enums.CommunicationTypeEnum;
 import com.footprintcat.frostiot.topology.pojo.message.Message;
@@ -43,7 +42,7 @@ import static org.java_websocket.framing.CloseFrame.NORMAL;
 @Slf4j
 public class WebSocketCommunicationTool implements CommunicationTool {
 
-    private ConnectionInfoDTO config;
+    private ClientInfoDTO config;
     private WebSocketServer server;
     private WebSocketClient client;
     private final AtomicBoolean isServerRunning = new AtomicBoolean(false);
@@ -65,7 +64,7 @@ public class WebSocketCommunicationTool implements CommunicationTool {
     private final ICurrentNodeInfo currentNodeInfo;
     private final TopologyNode topologyNode;
 
-    public WebSocketCommunicationTool(ConnectionInfoDTO config, ICurrentNodeInfo currentNodeInfo, TopologyNode topologyNode) {
+    public WebSocketCommunicationTool(ClientInfoDTO config, ICurrentNodeInfo currentNodeInfo, TopologyNode topologyNode) {
         this.config = config;
         this.currentNodeInfo = currentNodeInfo;
         log.info("currentNodeInfo: hashCode={}", currentNodeInfo.hashCode());
@@ -73,7 +72,7 @@ public class WebSocketCommunicationTool implements CommunicationTool {
     }
 
     @Override
-    public void init(ConnectionInfoDTO config) {
+    public void init(ClientInfoDTO config) {
         System.out.println("WebSocket初始化...");
         startServer();
     }

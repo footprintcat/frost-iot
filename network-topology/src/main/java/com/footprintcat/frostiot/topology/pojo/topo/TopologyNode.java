@@ -9,7 +9,7 @@
 
 package com.footprintcat.frostiot.topology.pojo.topo;
 
-import com.footprintcat.frostiot.common.dto.master.ConnectionInfoDTO;
+import com.footprintcat.frostiot.common.dto.master.ClientInfoDTO;
 import com.footprintcat.frostiot.common.dto.master.TopologyInfoDTO;
 import com.footprintcat.frostiot.common.enums.NodeTypeEnum;
 import com.footprintcat.frostiot.common.internal.ICurrentNodeInfo;
@@ -87,7 +87,7 @@ public class TopologyNode {
      *
      * @param connectInfo TODO 成功连接响应的节点信息
      */
-    public void connected(ConnectionInfoDTO connectInfo) {
+    public void connected(ClientInfoDTO connectInfo) {
         // 是否连接过
         if (hasConnected(connectInfo.getTargetNodeId())) {
             return;
@@ -149,7 +149,7 @@ public class TopologyNode {
      *
      * @param connectInfo TODO 成功连接响应的节点信息
      */
-    public void reconnected(ConnectionInfoDTO connectInfo) {
+    public void reconnected(ClientInfoDTO connectInfo) {
         if (!hasConnected(connectInfo.getTargetNodeId())) {
             throw new RuntimeException("没有 " + connectInfo.getTargetNodeId() + " 的连接信息，无法重连");
         }
@@ -172,7 +172,7 @@ public class TopologyNode {
      *
      * @param connectInfo TODO 成功连接响应的节点信息
      */
-    public void onConnected(ConnectionInfoDTO connectInfo) {
+    public void onConnected(ClientInfoDTO connectInfo) {
         // 是否连接过
         if (hasConnected(connectInfo.getTargetNodeId())) {
             return;
@@ -235,7 +235,7 @@ public class TopologyNode {
      *
      * @param connectInfo TODO 成功连接响应的节点信息
      */
-    public void onReconnected(ConnectionInfoDTO connectInfo) {
+    public void onReconnected(ClientInfoDTO connectInfo) {
         if (!hasConnected(connectInfo.getTargetNodeId())) {
             throw new RuntimeException("没有 " + connectInfo.getTargetNodeId() + " 的连接信息，无法重连");
         }
@@ -258,7 +258,7 @@ public class TopologyNode {
      *
      * @param connectInfo 断连目标节点
      */
-    public void onDisconnected(ConnectionInfoDTO connectInfo) {
+    public void onDisconnected(ClientInfoDTO connectInfo) {
         // 标记暂时断连
 
         // 通知相邻节点断连
