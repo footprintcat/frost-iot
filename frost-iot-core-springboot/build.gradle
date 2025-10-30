@@ -65,10 +65,6 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
-    // 数据库
-    runtimeOnly 'org.postgresql:postgresql' // PostgreSQL 驱动
-    implementation 'com.taosdata.jdbc:taos-jdbcdriver:3.7.6' // TDengine 驱动
-
     // jetbrains 编译时注解
     // implementation 'org.jetbrains:annotations:${libraries.jetbrainsAnnotations}'
     implementation 'org.jetbrains:annotations:26.0.2'
@@ -76,6 +72,10 @@ dependencies {
     // fastjson2
     // implementation 'com.alibaba.fastjson2:fastjson2:2.0.60'
     implementation 'com.alibaba.fastjson2:fastjson2:2.0.58'
+
+    // 数据库
+    runtimeOnly 'org.postgresql:postgresql' // PostgreSQL 驱动
+    implementation 'com.taosdata.jdbc:taos-jdbcdriver:3.7.6' // TDengine 驱动
 
     // mybatis-plus
     implementation 'com.baomidou:mybatis-plus-spring-boot3-starter'
@@ -122,7 +122,7 @@ graalvmNative {
             // 如果静态分析发现代码里存在未经配置的动态特性（如反射、动态代理、JNI、资源加载等）
             // 直接报错并终止构建，而不是退而求其次地生成一个仍需 JDK 的“fallback”可执行文件
             buildArgs.add("--no-fallback")
-            buildArgs.add("-H:-SharedLibrary")  // ✅ 关键, 强制指定生成 exe 而不是 dll
+            buildArgs.add("-H:-SharedLibrary") // ✅ 关键, 强制指定生成 exe 而不是 dll
 
             buildArgs.add("--enable-url-protocols=http")
             buildArgs.add("--features=com.footprintcat.frostiot.core.springboot.config.LambdaRegistrationFeature")

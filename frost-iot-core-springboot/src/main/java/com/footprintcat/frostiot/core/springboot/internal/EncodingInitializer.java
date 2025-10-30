@@ -9,11 +9,11 @@
 
 package com.footprintcat.frostiot.core.springboot.internal;
 
+import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
 import ch.qos.logback.core.ConsoleAppender;
 import org.jetbrains.annotations.NotNull;
-import ch.qos.logback.classic.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.OutputStreamWriter;

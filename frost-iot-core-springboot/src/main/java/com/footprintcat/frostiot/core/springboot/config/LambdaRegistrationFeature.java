@@ -15,6 +15,10 @@ import org.graalvm.nativeimage.hosted.Feature;
 import org.graalvm.nativeimage.hosted.RuntimeSerialization;
 
 /**
+ * 批量注册 Lambda 表达式捕获的类到 GraalVM
+ * <p>
+ * source from: https://github.com/nieqiurong/mybatis-native-demo/blob/mybatis-plus/src/main/java/com/example/nativedemo/LambdaRegistrationFeature.java
+ * <p>
  * lambda 表达式注入到graal中
  *
  * @author ztp
