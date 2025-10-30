@@ -16,10 +16,8 @@ import com.footprintcat.frostiot.common.repository.master.ITopologyInfoRepositor
 import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
 import com.footprintcat.frostiot.topology.pojo.message.Message;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 public class TopologyNode {
@@ -52,7 +50,7 @@ public class TopologyNode {
     /**
      * 初始化节点
      */
-    public void init(String nodeId, String nodeType) {
+    public void init(String nodeId, NodeTypeEnum nodeType) {
         if (isInit()) {
             return;
         }
@@ -64,7 +62,7 @@ public class TopologyNode {
         // 配置节点
         this.nodeId = nodeId;
         try {
-            this.nodeType = NodeTypeEnum.valueOf(nodeType.toUpperCase());
+            this.nodeType = nodeType;
         } catch (IllegalArgumentException e) {
             throw new RuntimeException("无效的类型: " + nodeType);
         }
@@ -79,7 +77,7 @@ public class TopologyNode {
     }
 
     /**
-     * 主动连接回调
+     * 主动连接回调（建立连接 初始连接）
      *
      * @param connectInfo TODO 成功连接响应的节点信息
      */
@@ -95,6 +93,7 @@ public class TopologyNode {
         topologyInfoDTO.setNodeId(nodeId);
         topologyInfoDTO.setTargetNodeId(connectInfo.getTargetId());
         topologyInfoDTO.setInterval(1);
+        topologyInfoDTO.setIsConnected(true);
         if (true) {
             // 正向连接
             topologyInfoDTO.setDirection(TopologyInfoDTO.Direction.SUP);
@@ -104,7 +103,7 @@ public class TopologyNode {
             System.out.println("获取连接节点 [" + connectInfo.getTargetId() + "] 的所有上级节点 []");
 
             // 通知当前节点的下级节点
-            List<TopologyInfoDTO> allSubNodes = topologyInfoRepository.getAllSubsOrSupsByNodeId(nodeId, TopologyInfoDTO.Direction.SUB.toString().toLowerCase());
+            List<TopologyInfoDTO> allSubNodes = topologyInfoRepository.getAllSubsOrSupsByNodeId(nodeId, TopologyInfoDTO.Direction.SUB.getCode());
 
             // 获取当前节点的下级节点（相邻）
             List<TopologyInfoDTO> connectedSubNodes = allSubNodes.stream().filter(topologyInfo -> nodeId.equals(topologyInfo.getNodeId())).toList();
@@ -124,7 +123,7 @@ public class TopologyNode {
             System.out.println("获取连接节点 [" + connectInfo.getTargetId() + "] 的所有下级节点 []");
 
             // 通知当前节点的上级节点
-            List<TopologyInfoDTO> allSupNodes = topologyInfoRepository.getAllSubsOrSupsByNodeId(nodeId, TopologyInfoDTO.Direction.SUP.toString().toLowerCase());
+            List<TopologyInfoDTO> allSupNodes = topologyInfoRepository.getAllSubsOrSupsByNodeId(nodeId, TopologyInfoDTO.Direction.SUP.getCode());
 
             // 获取当前节点的上级节点（相邻）
             List<TopologyInfoDTO> connectedSupNodes = allSupNodes.stream().filter(topologyInfo -> nodeId.equals(topologyInfo.getNodeId())).toList();
@@ -140,7 +139,30 @@ public class TopologyNode {
     }
 
     /**
-     * 被动连接回调
+     * 主动连接回调（建立连接 重连）
+     *
+     * @param connectInfo TODO 成功连接响应的节点信息
+     */
+    public void reconnected(ConnectInfo connectInfo) {
+        if (!hasConnected(connectInfo.getTargetId())) {
+            throw new RuntimeException("没有 " + connectInfo.getTargetId() + " 的连接信息，无法重连");
+        }
+
+        // 更改连接状态
+
+        if (true) {
+            // 正向连接
+            // 通知当前节点的下级节点（相邻）
+            System.out.println("节点 [" + nodeId + "] 重新连接到了上级节点 [" + connectInfo.getTargetId() + "]");
+        } else {
+            // 反向连接
+            // 通知当前节点的上级节点（相邻）
+            System.out.println("节点 [" + nodeId + "] 重新连接到了下级节点 [" + connectInfo.getTargetId() + "]");
+        }
+    }
+
+    /**
+     * 被动连接回调（建立连接 初始连接）
      *
      * @param connectInfo TODO 成功连接响应的节点信息
      */
@@ -157,6 +179,7 @@ public class TopologyNode {
         topologyInfoDTO.setNodeId(nodeId);
         topologyInfoDTO.setTargetNodeId(connectInfo.getTargetId());
         topologyInfoDTO.setInterval(1);
+        topologyInfoDTO.setIsConnected(true);
         if (true) {
             // 正向连接
             topologyInfoDTO.setDirection(TopologyInfoDTO.Direction.SUB);
@@ -166,7 +189,7 @@ public class TopologyNode {
             System.out.println("获取连接节点 [" + connectInfo.getTargetId() + "] 的所有下级节点 []");
 
             // 通知当前节点的上级节点
-            List<TopologyInfoDTO> allSupNodes = topologyInfoRepository.getAllSubsOrSupsByNodeId(nodeId, TopologyInfoDTO.Direction.SUP.toString().toLowerCase());
+            List<TopologyInfoDTO> allSupNodes = topologyInfoRepository.getAllSubsOrSupsByNodeId(nodeId, TopologyInfoDTO.Direction.SUP.getCode());
 
             // 获取当前节点的上级节点（相邻）
             List<TopologyInfoDTO> connectedSupNodes = allSupNodes.stream().filter(topologyInfo -> nodeId.equals(topologyInfo.getNodeId())).toList();
@@ -186,7 +209,7 @@ public class TopologyNode {
             System.out.println("获取连接节点 [" + connectInfo.getTargetId() + "] 的所有上级节点 []");
 
             // 通知当前节点的下级节点
-            List<TopologyInfoDTO> allSubNodes = topologyInfoRepository.getAllSubsOrSupsByNodeId(nodeId, TopologyInfoDTO.Direction.SUB.toString().toLowerCase());
+            List<TopologyInfoDTO> allSubNodes = topologyInfoRepository.getAllSubsOrSupsByNodeId(nodeId, TopologyInfoDTO.Direction.SUB.getCode());
 
             // 获取当前节点的下级节点（相邻）
             List<TopologyInfoDTO> connectedSubNodes = allSubNodes.stream().filter(topologyInfo -> nodeId.equals(topologyInfo.getNodeId())).toList();
@@ -202,20 +225,88 @@ public class TopologyNode {
     }
 
     /**
-     * 断连回调
+     * 被动连接回调（建立连接 重连）
      *
-     * @param connectInfo
+     * @param connectInfo TODO 成功连接响应的节点信息
+     */
+    public void onReconnected(ConnectInfo connectInfo) {
+        if (!hasConnected(connectInfo.getTargetId())) {
+            throw new RuntimeException("没有 " + connectInfo.getTargetId() + " 的连接信息，无法重连");
+        }
+
+        // 更改连接状态
+
+        if (true) {
+            // 正向连接
+            // 通知当前节点的上级节点（相邻）
+            System.out.println("节点 [" + nodeId + "] 重新连接到了下级节点 [" + connectInfo.getTargetId() + "]");
+        } else {
+            // 反向连接
+            // 通知当前节点的下级节点（相邻）
+            System.out.println("节点 [" + nodeId + "] 重新连接到了上级节点 [" + connectInfo.getTargetId() + "]");
+        }
+    }
+
+    /**
+     * 相邻节点暂时断连（断开连接）
+     *
+     * @param connectInfo 断连目标节点
      */
     public void onDisconnected(ConnectInfo connectInfo) {
         // 标记暂时断连
 
+        // 通知相邻节点断连
+        if (true) {
+            // 如果targetNodeId是nodeId的下级
+            // 通知nodeId的相邻上级
+            System.out.println("节点 [" + nodeId + "] 临时断开下级节点 [" + connectInfo.getTargetId() + "]");
+        } else {
+            // 如果targetNodeId是nodeId的上级
+            // 通知nodeId的相邻下级
+            System.out.println("节点 [" + nodeId + "] 临时断开上级节点 [" + connectInfo.getTargetId() + "]");
+        }
     }
 
     /**
-     * 消息接收回调
+     * 通知节点变动
      */
-    public void onMessageReceived(Message message, String source) {
-        // 继续上报消息
+    public void notifyTopologyChange(TopologyInfoDTO topologyInfoDTO) {
+        System.out.println("[ " + topologyInfoDTO.getNodeId() + "] 节点新增" + (Objects.equals(topologyInfoDTO.getDirection(), TopologyInfoDTO.Direction.SUP) ? "上级 [" : "下级 [" + topologyInfoDTO.getTargetNodeId() + "]"));
+    }
+
+    /**
+     * 某某节点连入拓扑网络（建立连接 初始连接）
+     */
+    public void onNotifiedConnection() {
+        // 获取通知消息给的拓扑信息
+        List<TopologyInfoDTO> list = new ArrayList<>();
+        TopologyInfoDTO topologyInfoDTO = new TopologyInfoDTO();
+        // 这里list里的所有nodeId都应该是消息发送方的nodeId
+        topologyInfoDTO.setNodeId(null);
+        // 给的是发送方的能访问到的所有上级/下级（两者其一）
+        topologyInfoDTO.setDirection(null);
+
+        // 持久化
+    }
+
+    /**
+     * 某某节点连入拓扑网络（建立连接 重连）
+     */
+    public void onNotifiedReconnection() {
+
+    }
+
+    /**
+     * 某某节点从拓扑网络临时断开（断开连接）
+     */
+    public void onNotifiedTemporaryDisconnection() {
+        // 标记暂时断连
+    }
+
+    /**
+     * 某某节点结束连接结束连接（结束连接）
+     */
+    public void onNotifiedTerminateConnection() {
 
     }
 
@@ -230,7 +321,8 @@ public class TopologyNode {
      * 节点下线
      */
     public void offline() {
-
+        // 清空运行时连接信息
+        topologyInfoRepository.clear();
     }
 
 }
