@@ -9,18 +9,19 @@
 
 package com.footprintcat.frostiot.topology.communicate.mqtt;
 
+import com.footprintcat.frostiot.common.dto.master.ClientInfoDTO;
 import com.footprintcat.frostiot.topology.communicate.CommunicationTool;
-import com.footprintcat.frostiot.topology.communicate.CommunicationType;
-import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
+import com.footprintcat.frostiot.common.enums.CommunicationTypeEnum;
+import com.footprintcat.frostiot.topology.pojo.message.Message;
 
 public class MqttCommunicationTool implements CommunicationTool {
     @Override
-    public void init(ConnectInfo config) {
+    public void init(ClientInfoDTO config) {
         System.out.println("MQTT Tool初始化...");
     }
 
     @Override
-    public void sendMessage(String message, String target, String replyToUrl) {
+    public void sendMessage(Message message, String target, String replyToUrl) {
         System.out.println("MQTT Tool发送消息.");
     }
 
@@ -30,8 +31,8 @@ public class MqttCommunicationTool implements CommunicationTool {
     }
 
     @Override
-    public CommunicationType getType() {
-        return CommunicationType.MQTT;
+    public CommunicationTypeEnum getType() {
+        return CommunicationTypeEnum.MQTT;
     }
 
     @Override

@@ -7,8 +7,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-package com.footprintcat.frostiot.topology.pojo.message;
+package com.footprintcat.frostiot.common.repository.master;
 
-public enum MessageType {
-    DEFAULT
+public interface IMessageRepository {
 }

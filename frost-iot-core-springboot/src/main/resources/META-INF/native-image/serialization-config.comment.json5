@@ -1,0 +1,31 @@
+{
+  "types": [
+    {
+      "name": "java.lang.Object[]"
+    },
+    {
+      "name": "java.lang.String"
+    },
+    {
+      "name": "java.lang.invoke.SerializedLambda"
+    }
+  ],
+  "lambdaCapturingTypes": [
+    // 用于解决 LambdaQueryWrapper 问题
+    // Caused by: java.lang.ClassNotFoundException: com.footprintcat.frostiot.core.springboot.repository.SystemConfigRepository$$Lambda/0x5e24b72fda20c3a6b60ec64045d598733
+    // 这里不支持 * 通配符，需要在此处全部列出
+    {
+      "name": "com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper"
+    },
+    // Repository
+    {
+      "name": "com.footprintcat.frostiot.core.springboot.repository.SystemConfigRepository"
+    },
+    // Entity
+    {
+      "name": "com.footprintcat.frostiot.core.springboot.entity.SystemConfig"
+    }
+  ],
+  "proxies": [
+  ]
+}

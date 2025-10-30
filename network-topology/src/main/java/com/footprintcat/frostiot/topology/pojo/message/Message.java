@@ -9,29 +9,35 @@
 
 package com.footprintcat.frostiot.topology.pojo.message;
 
+import com.footprintcat.frostiot.common.enums.MessageTypeEnum;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Data
-public class Message {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Message implements Serializable {
     /**
      * 消息唯一标识
      */
-    private final String id = UUID.randomUUID().toString();
+    private String id;
 
     /**
      * 消息内容
      */
-    private final String payload;
+    private String payload;
 
     /**
      * 消息类型
      */
-    private final MessageType type;
+    private MessageTypeEnum type;
 
     /**
      * 当前节点
@@ -46,15 +52,17 @@ public class Message {
     /**
      * 创建时间
      */
-    private final long createdTime = System.currentTimeMillis();
+    private long createdTime;
 
     /**
      * 重试次数
      */
     private final AtomicInteger retryCount = new AtomicInteger(0);
 
-    public Message(String payload, MessageType type) {
+    public Message(String payload, MessageTypeEnum type) {
+        this.id = UUID.randomUUID().toString();
         this.payload = payload;
         this.type = type;
+        this.createdTime = System.currentTimeMillis();
     }
 }

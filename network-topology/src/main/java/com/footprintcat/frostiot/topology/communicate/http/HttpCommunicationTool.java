@@ -9,9 +9,10 @@
 
 package com.footprintcat.frostiot.topology.communicate.http;
 
+import com.footprintcat.frostiot.common.dto.master.ClientInfoDTO;
 import com.footprintcat.frostiot.topology.communicate.CommunicationTool;
-import com.footprintcat.frostiot.topology.communicate.CommunicationType;
-import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
+import com.footprintcat.frostiot.common.enums.CommunicationTypeEnum;
+import com.footprintcat.frostiot.topology.pojo.message.Message;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -30,13 +31,13 @@ import java.util.concurrent.Executors;
 public class HttpCommunicationTool implements CommunicationTool {
     private HttpServer server;
     private HttpClient client;
-    private ConnectInfo config;
+    private ClientInfoDTO config;
     private boolean connected = false;
 
     @Override
-    public void init(ConnectInfo config) {
-        if (config.getType() != CommunicationType.HTTP) {
-            throw new IllegalArgumentException("HttpCommunicationTool 不支持 " + config.getType() + " 类型的连接。");
+    public void init(ClientInfoDTO config) {
+        if (!config.getProtocol().equals(CommunicationTypeEnum.HTTP.getCode())) {
+            throw new IllegalArgumentException("HttpCommunicationTool 不支持 " + config.getProtocol() + " 类型的连接。");
         }
 
         this.config = config;
@@ -50,7 +51,7 @@ public class HttpCommunicationTool implements CommunicationTool {
             server.setExecutor(Executors.newSingleThreadExecutor());
             server.start();
             this.connected = true;
-            onConnect();
+            onConnected();
         } catch (IOException e) {
             System.err.println("[" + getType() + "] 初始化失败: " + e.getMessage());
             onConnectClose(e);
@@ -59,7 +60,7 @@ public class HttpCommunicationTool implements CommunicationTool {
     }
 
     @Override
-    public void sendMessage(String message, String target, String replyToUrl) {
+    public void sendMessage(Message message, String target, String replyToUrl) {
         if (!isConnected()) {
             System.err.println("[" + getType() + "] 未连接，无法发送消息。");
             return;
@@ -75,7 +76,7 @@ public class HttpCommunicationTool implements CommunicationTool {
             }
 
             HttpRequest request = requestBuilder
-                .POST(HttpRequest.BodyPublishers.ofString(message, StandardCharsets.UTF_8))
+                .POST(HttpRequest.BodyPublishers.ofString(message.getPayload(), StandardCharsets.UTF_8))
                 .build();
 
             client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -96,8 +97,8 @@ public class HttpCommunicationTool implements CommunicationTool {
     }
 
     @Override
-    public CommunicationType getType() {
-        return CommunicationType.HTTP;
+    public CommunicationTypeEnum getType() {
+        return CommunicationTypeEnum.HTTP;
     }
 
     @Override
@@ -119,7 +120,7 @@ public class HttpCommunicationTool implements CommunicationTool {
                 if (replyToUrl != null && !replyToUrl.isEmpty()) {
                     System.out.println("[" + getType() + "] 准备向 '" + replyToUrl + "' 回信...");
                     // 使用同一个 client 实例发送回信
-                    sendReply("这是来自 '" + config.getLocalId() + "' 的回复！", replyToUrl);
+                    sendReply("这是来自 '" + config.getId() + "' 连接的回复！", replyToUrl);
                 }
             }
 

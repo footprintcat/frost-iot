@@ -7,10 +7,11 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-package com.footprintcat.frostiot.topology.communicate;
+package com.footprintcat.frostiot.common.internal;
 
-public enum CommunicationType {
-    HTTP,
-    MQTT,
-    WEBSOCKET,
+public interface ICurrentNodeInfo {
+
+    String getNodeId();
+    String getNodeType();
+
 }

@@ -6,6 +6,7 @@
 
 ```bash
 cmd
+# cmd 和下面的命令之间需要分两批执行
 echo %JAVA_HOME_GRAALVM%
 set JAVA_HOME=%JAVA_HOME_GRAALVM%
 set PATH=%JAVA_HOME%\bin;%PATH%
@@ -48,7 +49,8 @@ cd frost-iot-core-springboot
 cd frost-iot-core-springboot
 
 # 运行 jar 包
-java -jar build/libs/frost-iot-core-0.0.1-SNAPSHOT.jar
+java -jar build/libs/frost-iot-core-springboot-0.0.1-SNAPSHOT.jar
+java -jar build/libs/frost-iot-core-springboot-0.0.1-SNAPSHOT.jar --spring.profiles.active=lan
 
 # 运行原生包
 ./build/native/nativeCompile/frost-iot-core.exe
@@ -62,6 +64,7 @@ java -jar build/libs/frost-iot-core-0.0.1-SNAPSHOT.jar
 ```bash
 # 1. 首先运行你的应用并记录反射调用
 java -agentlib:native-image-agent=config-merge-dir=src/main/resources/META-INF/native-image -jar build/libs/frost-iot-core-springboot-0.0.1-SNAPSHOT.jar
+java -agentlib:native-image-agent=config-merge-dir=src/main/resources/META-INF/native-image -jar build/libs/frost-iot-core-springboot-0.0.1-SNAPSHOT.jar --spring.profiles.active=lan
 # 运行所有可能触发序列化的功能路径
 # 然后停止应用，配置会自动生成到指定目录
 ```

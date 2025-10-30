@@ -10,25 +10,23 @@
 package communicate.http;
 
 import com.footprintcat.frostiot.common.dto.master.ClientInfoDTO;
-import com.footprintcat.frostiot.topology.communicate.CommunicationTool;
 import com.footprintcat.frostiot.common.enums.CommunicationTypeEnum;
-import com.footprintcat.frostiot.topology.communicate.http.HttpCommunicationTool;
+import com.footprintcat.frostiot.topology.communicate.http.HttpLongPollingTool;
 
-public class ServerAppTest {
+public class LongPollingServerAppTest {
     public static void main(String[] args) throws InterruptedException {
-        System.out.println("--- 服务端启动 ---");
-        CommunicationTool server = new HttpCommunicationTool();
+        System.out.println("--- 长轮询服务端启动 ---");
+        HttpLongPollingTool server = new HttpLongPollingTool();
 
         ClientInfoDTO config = ClientInfoDTO.builder()
             .protocol(CommunicationTypeEnum.HTTP.getCode())
             .host("localhost")
-            .port(8668)
+            .port(8670)
             .build();
 
         server.init(config);
 
-        System.out.println("服务端 '" + config.getId() + "' (" + config.getProtocol() + ") 正在运行，监听端口 " + config.getPort() + "...");
-        System.out.println("按 Ctrl+C 停止服务端。");
+        System.out.println("长轮询服务端 '" + config.getId() + "' 正在运行，监听端口 " + config.getPort() + "...");
 
         Runtime.getRuntime().addShutdownHook(new Thread(server::shutdown));
         Thread.currentThread().join();

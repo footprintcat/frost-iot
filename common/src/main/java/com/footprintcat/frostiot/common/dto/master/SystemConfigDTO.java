@@ -7,10 +7,15 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-package com.footprintcat.frostiot.topology.pojo.topo;
+package com.footprintcat.frostiot.common.dto.master;
 
-public enum TopoNodeType {
-    ADAPTER,
-    GOSSIP,
-    SINK
+import lombok.Data;
+
+@Data
+public class SystemConfigDTO {
+    private Long id;
+    private String configKey;
+    private String configValue;
+    private Long expireTimestamp;
+    private String owner;
 }

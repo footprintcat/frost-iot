@@ -9,22 +9,25 @@
 
 package com.footprintcat.frostiot.topology.communicate;
 
-import com.footprintcat.frostiot.topology.pojo.ConnectInfo;
+import com.footprintcat.frostiot.common.dto.master.ClientInfoDTO;
+import com.footprintcat.frostiot.common.enums.CommunicationTypeEnum;
+import com.footprintcat.frostiot.topology.pojo.message.Message;
 
 public interface CommunicationTool {
 
-    void init(ConnectInfo config);
+    void init(ClientInfoDTO config);
 
     // void sendMessage(String message, String target);
-    void sendMessage(String message, String target, String replyToUrl);
+    void sendMessage(Message message, String target, String replyToUrl);
 
     void shutdown();
 
-    CommunicationType getType();
+    CommunicationTypeEnum getType();
 
     boolean isConnected();
 
     // ==================== 事件回调方法 ====================
+
     /**
      * 接收到消息时回调
      */
@@ -35,7 +38,7 @@ public interface CommunicationTool {
     /**
      * 连接建立时回调
      */
-    default void onConnect() {
+    default void onConnected() {
         System.out.println("[" + getType() + "] onConnect: 连接已建立。");
     }
 
@@ -49,5 +52,7 @@ public interface CommunicationTool {
             System.err.println("[" + getType() + "] onConnectClose: 连接因异常关闭: " + cause.getMessage());
         }
     }
+
+    // 连接次数
 
 }

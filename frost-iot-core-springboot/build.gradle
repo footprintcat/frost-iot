@@ -42,6 +42,7 @@ dependencies {
     // implementation platform(project(":frost-iot-dependencies"))
     implementation project(":frost-iot-dependencies")
     implementation project(":common")
+    implementation project(":network-topology")
 
     // SpringBoot 相关依赖
     implementation 'org.springframework.boot:spring-boot-starter-web'

@@ -1,0 +1,26 @@
+{
+  "types": [
+    {
+      "name": "java.lang.Object[]"
+    },
+    {
+      "name": "java.lang.String"
+    },
+    {
+      "name": "java.lang.invoke.SerializedLambda"
+    }
+  ],
+  "lambdaCapturingTypes": [
+    {
+      "name": "com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper"
+    },
+    {
+      "name": "com.footprintcat.frostiot.core.springboot.repository.SystemConfigRepository"
+    },
+    {
+      "name": "com.footprintcat.frostiot.core.springboot.entity.SystemConfig"
+    }
+  ],
+  "proxies": [
+  ]
+}
