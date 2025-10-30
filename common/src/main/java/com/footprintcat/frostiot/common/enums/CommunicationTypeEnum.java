@@ -16,6 +16,7 @@ import java.util.Objects;
 @Getter
 public enum CommunicationTypeEnum {
     HTTP("http"),
+    // TODO 单项or双向 http
     MQTT("mqtt"),
     WEBSOCKET("websocket"),
     ;
