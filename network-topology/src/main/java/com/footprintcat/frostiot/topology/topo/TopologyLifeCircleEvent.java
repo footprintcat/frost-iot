@@ -26,32 +26,10 @@ public class TopologyLifeCircleEvent {
     private final ITopologyInfoRepository topologyInfoRepository;
     private final ICurrentNodeInfo currentNodeInfo;
 
-    // /**
-    //  * 节点唯一标识
-    //  *
-    //  * @deprecated
-    //  */
-    // private String nodeId;
-
-    /**
-     * 节点类型
-     *
-     * @deprecated
-     */
-    private NodeTypeEnum nodeType;
-
     public TopologyLifeCircleEvent(ITopologyInfoRepository topologyInfoRepository, ICurrentNodeInfo currentNodeInfo) {
         this.topologyInfoRepository = topologyInfoRepository;
         this.currentNodeInfo = currentNodeInfo;
     }
-
-    // /**
-    //  * 是否连接过
-    //  */
-    // private boolean hasConnected(String targetNodeId) {
-    //     TopologyInfoDTO topologyInfo = topologyInfoRepository.getByNodeIdAndTargetNodeId(nodeId, targetNodeId);
-    //     return !Objects.isNull(topologyInfo);
-    // }
 
     /**
      * 连接成功回调
@@ -67,7 +45,9 @@ public class TopologyLifeCircleEvent {
         }
 
         topologyInfo.setNodeId(currentNodeInfo.getNodeId());
+        topologyInfo.setNodeType(NodeTypeEnum.getByCode(currentNodeInfo.getNodeType()));
         topologyInfo.setTargetNodeId(connectionInfo.getTargetNodeId());
+        topologyInfo.setTargetNodeType(NodeTypeEnum.getByCode(connectionInfo.getTargetNodeType()));
         topologyInfo.setInterval(1);
         topologyInfo.setStatus(TopologyStatusEnum.CONNECTED);
         topologyInfo.setRelation(connectionInfo.getRelation());
@@ -84,7 +64,7 @@ public class TopologyLifeCircleEvent {
         // 标记连接的节点暂时断连
         topologyInfoRepository.setConnectStatus(currentNodeInfo.getNodeId(), connectionInfo.getTargetNodeId(), TopologyStatusEnum.DISCONNECTED.getCode());
         // 标记连接的节点可访问到的节点状态未知
-        topologyInfoRepository.setConnectStatus(null, connectionInfo.getTargetNodeId(), TopologyStatusEnum.UNKNOWN.getCode());
+        topologyInfoRepository.setConnectStatus(connectionInfo.getTargetNodeId(), null, TopologyStatusEnum.UNKNOWN.getCode());
     }
 
     /**
@@ -92,7 +72,7 @@ public class TopologyLifeCircleEvent {
      */
     public void onTerminateConnect(ConnectionInfo connectionInfo) {
         // 清理连接记录
-
+        topologyInfoRepository.delTopologyInfo(connectionInfo.getTargetNodeId());
     }
 
     /**

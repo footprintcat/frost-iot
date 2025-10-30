@@ -51,9 +51,10 @@ public class TopologyInfoRepository extends ServiceImpl<TopologyInfoMapper, Topo
     }
 
     @Override
-    public boolean delTopologyInfo(String nodeId, String targetNodeId) {
+    public boolean delTopologyInfo(String targetNodeId) {
         int delete = baseMapper.delete(new LambdaQueryWrapper<TopologyInfo>()
-            .eq(TopologyInfo::getNodeId, nodeId)
+            .eq(TopologyInfo::getNodeId, targetNodeId)
+            .or()
             .eq(TopologyInfo::getTargetNodeId, targetNodeId));
         return delete > 0;
     }

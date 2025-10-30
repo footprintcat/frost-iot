@@ -28,9 +28,8 @@ public interface ITopologyInfoRepository {
 
     /**
      * 删除连接记录
-     * TODO 需要判断是否临时断连
      */
-    boolean delTopologyInfo(String nodeId, String targetNodeId);
+    boolean delTopologyInfo(String targetNodeId);
 
     /**
      * 根据nodeId和targetNodeId查询
