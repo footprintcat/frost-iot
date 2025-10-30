@@ -9,6 +9,9 @@
 
 package com.footprintcat.frostiot.core.springboot;
 
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.footprintcat.frostiot.core.springboot.entity.test.Messages;
@@ -22,11 +25,14 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.info.License;
+import jakarta.annotation.PostConstruct;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.annotation.Order;
+
+import java.util.Date;
 
 @OpenAPIDefinition(
     info = @Info(
@@ -111,6 +117,27 @@ public class FrostIotCoreApplication {
             System.out.println("lambda update:" + messagesMapper.update(messages, Wrappers.<Messages>lambdaUpdate().eq(Messages::getId, 1L)));
             System.out.println("lambda delete:" + messagesMapper.delete(Wrappers.<Messages>lambdaUpdate().eq(Messages::getId, 1L)));
         };
+    }
+
+    @PostConstruct
+    void testFastJSON() {
+        JSONObject object = new JSONObject();
+        object.put("id", "1");
+        object.put("type", "apple");
+        object.put("snowflakeId", IdWorker.getIdStr());
+        object.put("date", new Date());
+
+        String jsonString = JSON.toJSONString(object);
+        System.out.println(jsonString);
+
+        JSONObject parse = JSON.parseObject(jsonString);
+        System.out.println(parse.getInteger("id"));
+        System.out.println(parse.getLong("id"));
+        System.out.println(parse.getString("id"));
+        System.out.println(parse.getDate("date"));
+        System.out.println(parse.getString("snowflakeId"));
+        System.out.println(parse.getLong("snowflakeId"));
+        System.out.println(parse);
     }
 
 }
